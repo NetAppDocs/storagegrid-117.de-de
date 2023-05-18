@@ -1,0 +1,22 @@
+---
+permalink: maintain/grid-node-procedures.html 
+sidebar: sidebar 
+keywords: storagegrid, grid node procedure 
+summary: Möglicherweise müssen Sie auf einem bestimmten Grid-Node Verfahren durchführen. Einige dieser Verfahren können Sie zwar über Grid Manager ausführen, die meisten Verfahren erfordern jedoch den Zugriff auf Server Manager über die Befehlszeile. 
+---
+= Grid Node Procedures: Übersicht
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Möglicherweise müssen Sie auf einem bestimmten Grid-Node Verfahren durchführen. Sie können zwar einige dieser Verfahren im Grid Manager ausführen, jedoch müssen Sie bei den meisten Verfahren von der Befehlszeile des Knotens aus auf Server Manager zugreifen.
+
+Server Manager wird auf jedem Grid-Knoten ausgeführt, um das Starten und Beenden von Diensten zu überwachen und sicherzustellen, dass Dienste problemlos dem StorageGRID-System beitreten und das System verlassen. Server Manager überwacht auch die Dienste auf jedem Grid-Knoten und versucht automatisch, alle Services, die Fehler melden, neu zu starten.
+
+
+IMPORTANT: Sie sollten auf Server Manager zugreifen, wenn Sie von technischem Support dazu aufgefordert wurden.
+
+
+NOTE: Sie müssen die aktuelle Shell-Sitzung des Befehls schließen und sich ausloggen, nachdem Sie mit Server Manager fertig sind. Geben Sie Ein: `exit`

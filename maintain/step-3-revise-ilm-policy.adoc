@@ -1,0 +1,137 @@
+---
+permalink: maintain/step-3-revise-ilm-policy.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, revise ilm policy 
+summary: 'Ab Schritt 3 \(ILM-Richtlinie überarbeiten\) des Assistenten für die Decommission-Site können Sie feststellen, ob die Site von der aktiven ILM-Richtlinie angesprochen wird.' 
+---
+= Schritt 3: ILM-Richtlinie überarbeiten
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ab Schritt 3 (ILM-Richtlinie überarbeiten) des Assistenten für die Dekommission-Site können Sie feststellen, ob die Site von der aktiven ILM-Richtlinie angesprochen wird.
+
+.Bevor Sie beginnen
+Sie haben gute Kenntnisse der Funktionsweise von ILM und sind mit der Erstellung von Storage-Pools, Profilen zur Fehlerkorrektur, ILM-Regeln sowie der Simulation und Aktivierung einer ILM-Richtlinie vertraut. Siehe link:../ilm/index.html["Objektmanagement mit ILM"].
+
+.Über diese Aufgabe
+StorageGRID kann einen Standort nicht ausmustern, wenn dieser Standort durch eine ILM-Regel der aktiven ILM-Richtlinie referenziert wird.
+
+Wenn sich Ihre aktuelle ILM-Richtlinie auf die Site bezieht, die Sie entfernen möchten, müssen Sie eine neue ILM-Richtlinie aktivieren, die bestimmte Anforderungen erfüllt. Insbesondere die neue ILM-Richtlinie:
+
+* Es kann kein Speicherpool verwendet werden, der sich auf den Standort bezieht oder die Option Alle Standorte verwendet.
+* Ein Profil für die Erasure Coding-Verschlüsselung, das auf den Standort verweist, kann nicht verwendet werden.
+* Die Regel „2 Kopien erstellen“ kann nicht von StorageGRID 11.6 oder früheren Installationen verwendet werden.
+* Muss auf einen vollständigen Schutz aller Objektdaten ausgelegt sein.
++
+
+IMPORTANT: Erstellen Sie niemals eine ILM-Regel für eine einzelne Kopie, um die Entfernung eines Standorts aufzunehmen. Eine ILM-Regel, die immer nur eine replizierte Kopie erstellt, gefährdet Daten permanent. Wenn nur eine replizierte Kopie eines Objekts vorhanden ist, geht dieses Objekt verloren, wenn ein Speicherknoten ausfällt oder einen beträchtlichen Fehler hat. Während Wartungsarbeiten wie Upgrades verlieren Sie auch vorübergehend den Zugriff auf das Objekt.
+
+
+
+Wenn Sie eine „ _connected Site“-Ausmusterung_ durchführen, müssen Sie bedenken, wie StorageGRID die Objektdaten, die sich derzeit an der zu entfernenden Site befinden, verwalten sollte. Je nach Datensicherungsanforderungen können vorhandene Objektdaten nach den neuen Regeln auf verschiedene Standorte verschoben oder zusätzliche Objektkopien gelöscht werden, die nicht mehr benötigt werden.
+
+Wenden Sie sich an den technischen Support, wenn Sie Hilfe beim Entwerfen der neuen Richtlinie benötigen.
+
+.Schritte
+. Stellen Sie ab Schritt 3 (ILM-Richtlinie überarbeiten) fest, ob ILM-Regeln der aktiven ILM-Richtlinie auf den Standort verweisen, den Sie entfernen möchten.
+. Wenn keine Regeln aufgeführt sind, wählen Sie *Weiter*, um zu zu gehen link:step-4-remove-ilm-references.html["Schritt 4: Entfernen Sie ILM-Referenzen"].
+. Wenn eine oder mehrere ILM-Regeln in der Tabelle aufgeführt sind, wählen Sie den Link neben *Active Policy Name* aus.
++
+Die Seite ILM-Richtlinien wird in einer neuen Browser-Registerkarte angezeigt. Auf dieser Registerkarte können Sie ILM aktualisieren. Die Seite „Decommission Site“ bleibt auf der anderen Registerkarte geöffnet.
+
++
+.. Wählen Sie bei Bedarf *ILM* > *Speicherpools* aus, um einen oder mehrere Speicherpools zu erstellen, die sich nicht auf den Standort beziehen.
++
+
+NOTE: Weitere Informationen finden Sie in den Anweisungen zum Verwalten von Objekten mit Information Lifecycle Management.
+
+.. Wenn Sie Erasure Coding verwenden möchten, wählen Sie *ILM* > *Erasure Coding* aus, um ein oder mehrere Erasure Coding-Profile zu erstellen.
++
+Sie müssen Speicherpools auswählen, die sich nicht auf den Standort beziehen.
+
++
+
+NOTE: Verwenden Sie nicht den *Alle Speicherknoten* Speicherpool (StorageGRID 11.6 und früher) in den Erasure Coding-Profilen.
+
+
+
+. Wählen Sie *ILM* > *Regeln* aus, und klonen Sie jede der in der Tabelle für Schritt 3 aufgeführten Regeln (ILM-Richtlinie überarbeiten).
++
+
+NOTE: Weitere Informationen finden Sie in den Anweisungen zum Verwalten von Objekten mit Information Lifecycle Management.
+
++
+.. Verwenden Sie Namen, die die Auswahl dieser Regeln in einer neuen Richtlinie erleichtern.
+.. Aktualisieren Sie die Anweisungen für die Platzierung.
++
+Entfernen Sie alle Storage-Pools oder Profile zur Einhaltung von Erasure Coding, die auf den Standort verweisen, und ersetzen Sie diese durch neue Storage-Pools oder Erasure Coding-Profile.
+
++
+
+NOTE: Verwenden Sie nicht den Speicherpool *Alle Storage Nodes* in den neuen Regeln.
+
+
+
+. Wählen Sie *ILM* > *Policies* und erstellen Sie eine neue Richtlinie, die die neuen Regeln verwendet.
++
+
+NOTE: Weitere Informationen finden Sie in den Anweisungen zum Verwalten von Objekten mit Information Lifecycle Management.
+
++
+.. Wählen Sie die aktive Richtlinie aus, und wählen Sie *Clone*.
+.. Geben Sie einen Richtliniennamen und einen Grund für die Änderung an.
+.. Wählen Sie Regeln für die geklonte Richtlinie aus.
++
+*** Löschen Sie alle Regeln, die für Schritt 3 (ILM-Richtlinie überarbeiten) auf der Seite Decommission Site aufgeführt sind.
+*** Wählen Sie eine Standardregel aus, die sich nicht auf die Site bezieht.
++
+
+NOTE: Wählen Sie nicht die Regel *2 Kopien erstellen* aus, da diese Regel den Speicherpool *Alle Storage Nodes* verwendet, der nicht zulässig ist.
+
+*** Wählen Sie die anderen Ersatzregeln aus, die Sie erstellt haben. Diese Regeln sollten sich nicht auf die Website beziehen.
++
+image::../media/decommission_site_step_3_cloned_policy.png[Mustern Sie Die Geklonte Richtlinie Für Standort Schritt 3 Aus]
+
+
+
+.. Wählen Sie *Anwenden*.
+.. Ziehen Sie die Zeilen, um die Regeln in der Richtlinie neu anzuordnen.
++
+Sie können die Standardregel nicht verschieben.
+
++
+
+IMPORTANT: Sie müssen sich vergewissern, dass die ILM-Regeln in der richtigen Reihenfolge sind. Wenn die Richtlinie aktiviert ist, werden neue und vorhandene Objekte anhand der Regeln in der angegebenen Reihenfolge bewertet, die oben beginnen.
+
+.. Speichern Sie die vorgeschlagene Richtlinie.
+
+
+. Nehmen Sie Testobjekte auf und simulieren Sie die vorgeschlagene Richtlinie, um sicherzustellen, dass die richtigen Regeln angewendet werden.
++
+
+CAUTION: Fehler in einer ILM-Richtlinie können zu nicht wiederherstellbaren Datenverlusten führen. Prüfen und simulieren Sie die Richtlinie sorgfältig, bevor Sie sie aktivieren, um sicherzustellen, dass sie wie vorgesehen funktioniert.
+
++
+
+CAUTION: Bei der Aktivierung einer neuen ILM-Richtlinie verwendet StorageGRID sie zum Management aller Objekte, einschließlich vorhandener Objekte und neu aufgenommener Objekte. Prüfen Sie vor der Aktivierung einer neuen ILM-Richtlinie alle Änderungen an der Platzierung vorhandener replizierter und Erasure Coding-Objekte. Das Ändern des Speicherorts eines vorhandenen Objekts kann zu vorübergehenden Ressourcenproblemen führen, wenn die neuen Platzierungen ausgewertet und implementiert werden.
+
+. Aktivieren Sie die neue Richtlinie.
++
+Wenn Sie eine verbundene Website ausmustern, beginnt StorageGRID, Objektdaten von der ausgewählten Site zu entfernen, sobald Sie die neue ILM-Richtlinie aktivieren. Das Verschieben oder Löschen aller Objektkopien kann Wochen in Anspruch nehmen. Sie können zwar eine Deaktivierung einer Website sicher starten, während noch Objektdaten am Standort vorhanden sind, aber die Deaktivierung erfolgt schneller und mit weniger Unterbrechungen und Performance-Beeinträchtigungen, wenn Daten vom Standort verschoben werden können, bevor Sie mit der tatsächlichen Außerbetriebnahme beginnen (Durch Auswahl von *Start Decommission* in Schritt 5 des Assistenten).
+
+. Zurück zu *Schritt 3 (ILM-Richtlinie überarbeiten)* um sicherzustellen, dass in der neuen aktiven Richtlinie keine ILM-Regeln auf der Site angegeben sind und die Schaltfläche *Weiter* aktiviert ist.
++
+image::../media/decommission_site_step_3_no_rules.png[Deaktivieren Sie Site Schritt 3 Keine Regeln]
+
++
+
+NOTE: Wenn Regeln aufgeführt sind, müssen Sie eine neue ILM-Richtlinie erstellen und aktivieren, bevor Sie fortfahren können.
+
+. Wenn keine Regeln aufgeführt sind, wählen Sie *Weiter*.
++
+Schritt 4 (ILM-Referenzen entfernen) wird angezeigt.
+
+

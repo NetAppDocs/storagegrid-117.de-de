@@ -1,0 +1,70 @@
+= 
+:allow-uri-read: 
+
+
+Die folgende Tabelle zeigt die primären Dienste für Admin-Nodes. Diese Tabelle enthält jedoch nicht alle Node-Services.
+
+[cols="1a,2a"]
+|===
+| Service | Tastenfunktion 
+
+
+ a| 
+Audit Management System (AMS)
+ a| 
+Verfolgt Systemaktivitäten und -Ereignisse.
+
+
+
+ a| 
+Configuration Management Node (CMN)
+ a| 
+Verwaltet die systemweite Konfiguration. Nur primärer Admin-Node.
+
+
+
+ a| 
+Management-Applikations-Programmierschnittstelle (Management-API)
+ a| 
+Verarbeitet Anforderungen aus der Grid-Management-API und der Mandantenmanagement-API.
+
+
+
+ a| 
+Hochverfügbarkeit
+ a| 
+Verwaltet hochverfügbare virtuelle IP-Adressen für Gruppen von Admin-Nodes und Gateway-Nodes.
+
+*Hinweis:* dieser Service befindet sich auch auf Gateway Nodes.
+
+
+
+ a| 
+Lastausgleich
+ a| 
+Sorgt für einen Lastenausgleich des S3- und Swift-Datenverkehrs von Clients zu Storage Nodes.
+
+*Hinweis:* dieser Service befindet sich auch auf Gateway Nodes.
+
+
+
+ a| 
+Netzwerk-Management-System (NMS)
+ a| 
+Bietet Funktionen für den Grid Manager.
+
+
+
+ a| 
+Prometheus
+ a| 
+Sammelt und speichert Zeitreihenmetriken von den Services auf allen Knoten.
+
+
+
+ a| 
+Server Status Monitor (SSM)
+ a| 
+Überwachung des Betriebssystems und der zugrunde liegenden Hardware
+
+|===

@@ -1,0 +1,46 @@
+---
+permalink: sg6000/reinstalling-fibre-channel-hba.html 
+sidebar: sidebar 
+keywords: storagegrid, sg6000, storage node, storage appliance, sg6000-cn, hba, host bus adapter, fibre channel, fiber channel, install, installing, installation, reinstall, reinstalling, reinstallation 
+summary: Der Ersatz-Fibre Channel HBA wird an demselben Standort installiert wie der zuvor entfernte. 
+---
+= Installieren Sie den Fibre Channel HBA neu
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Der Ersatz-Fibre Channel HBA wird an demselben Standort installiert wie der zuvor entfernte.
+
+.Bevor Sie beginnen
+* Sie haben den richtigen Fibre Channel HBA für den Austausch.
+* Sie haben den vorhandenen Fibre Channel HBA entfernt.
++
+link:removing-fibre-channel-hba.html["Entfernen Sie den Fibre Channel HBA"]
+
+
+
+.Schritte
+. Wickeln Sie das Gurt-Ende des ESD-Armbands um Ihr Handgelenk, und befestigen Sie das Clip-Ende auf einer Metallmasse, um eine statische Entladung zu verhindern.
+. Entfernen Sie den Ersatz-Fibre-Channel-HBA aus der Verpackung.
+. Richten Sie den Fibre Channel-HBA mit seinem Anschluss an der Riserbaugruppe aus, und drücken Sie dann vorsichtig den Adapter in den Anschluss, bis er vollständig sitzt.
++
+image::../media/sg6060_fc_hba_location.jpg[SG6060 Fibre-Channel-HBA in der Riserbaugruppe]
+
++
+In der Riserbaugruppe befinden sich zwei Adapter: Ein Fibre-Channel-HBA und ein Ethernet-Netzwerkadapter. Der Fibre Channel HBA wird in der Abbildung angezeigt.
+
+. Suchen Sie die Ausrichtbohrung an der Riserbaugruppe (eingekreist), die mit einem Führungsstift auf der Systemplatine ausgerichtet ist, um die korrekte Positionierung der Riserbaugruppe zu gewährleisten.
++
+image::../media/sg6060_riser_alignment_hole.jpg[Ausrichtbohrung an SG6060 Riser-Baugruppe]
+
+. Positionieren Sie die Riserbaugruppe im Gehäuse, und stellen Sie sicher, dass sie am Anschluss und Führungsstift auf der Systemplatine ausgerichtet ist. Setzen Sie dann die Riserbaugruppe ein.
+. Drücken Sie die Riserbaugruppe vorsichtig entlang der Mittellinie neben den blau markierten Löchern, bis sie vollständig sitzt.
+. Entfernen Sie die Schutzkappen von den Fibre Channel HBA-Ports, an denen Sie die Kabel neu installieren.
+
+
+.Nachdem Sie fertig sind
+Wenn Sie keine weiteren Wartungsvorgänge im Controller ausführen müssen, setzen Sie die Controllerabdeckung wieder ein.
+
+link:reinstalling-sg6000-cn-controller-cover.html["Bringen Sie die SG6000-CN Controller-Abdeckung wieder an"]

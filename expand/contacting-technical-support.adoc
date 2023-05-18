@@ -1,0 +1,61 @@
+---
+permalink: expand/contacting-technical-support.html 
+sidebar: sidebar 
+keywords: contact technical support 
+summary: Wenn während des Grid-Erweiterungsprozesses Fehler auftreten, die nicht behoben werden können, oder wenn eine Grid-Aufgabe fehlschlägt, wenden Sie sich an den technischen Support. 
+---
+= Wenden Sie sich an den technischen Support
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn während des Grid-Erweiterungsprozesses Fehler auftreten, die nicht behoben werden können, oder wenn eine Grid-Aufgabe fehlschlägt, wenden Sie sich an den technischen Support.
+
+.Über diese Aufgabe
+Wenn Sie sich an den technischen Support wenden, müssen Sie die erforderlichen Protokolldateien bereitstellen, um bei der Fehlerbehebung der Fehler zu helfen, die auftreten.
+
+.Schritte
+. Stellen Sie eine Verbindung mit dem Erweiterungs-Node her, bei dem es zu Ausfällen kommt:
++
+.. Geben Sie den folgenden Befehl ein:``ssh -p 8022 admin@_grid_node_IP_``
++
+
+NOTE: Port 8022 ist der SSH-Port des Basis-OS, während Port 22 der SSH-Port der Container-Engine ist, auf der StorageGRID ausgeführt wird.
+
+.. Geben Sie das im aufgeführte Passwort ein `Passwords.txt` Datei:
+.. Geben Sie den folgenden Befehl ein, um zum Root zu wechseln: `su -`
+.. Geben Sie das im aufgeführte Passwort ein `Passwords.txt` Datei:
+
+
++
+Sobald Sie als root angemeldet sind, ändert sich die Eingabeaufforderung von `$` Bis `#`.
+
+. Je nach der erreichten Stufe der Installation können Sie eines der folgenden Protokolle abrufen, die auf dem Grid-Knoten verfügbar sind:
++
+[cols="1a,2a"]
+|===
+| Plattform | Protokolle 
+
+
+ a| 
+VMware
+ a| 
+** `/var/log/daemon.log`
+** `/var/log/storagegrid/daemon.log`
+** `/var/log/storagegrid/nodes/<node-name>.log`
+
+
+
+
+ a| 
+Linux
+ a| 
+** `/var/log/storagegrid/daemon.log`
+** `/etc/storagegrid/nodes/<node-name>.conf` (Für jeden ausgefallenen Node)
+** `/var/log/storagegrid/nodes/<node-name>.log` (Für jeden ausgefallenen Node; ist möglicherweise nicht vorhanden)
+
+
+|===
+

@@ -1,0 +1,63 @@
+---
+permalink: s3/support-for-storagegrid-platform-services.html 
+sidebar: sidebar 
+keywords: platform services, cloudmirror replication, notifications, search integration 
+summary: 'Mithilfe der StorageGRID Plattform-Services können StorageGRID-Mandantenkonten externe Services wie einen Remote-S3-Bucket, einen Endpunkt des Simple Notification Service \ (SNS\) oder ein Elasticsearch-Cluster verwenden, um die Services eines Grids zu erweitern.' 
+---
+= Unterstützung von StorageGRID Plattform-Services
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Mithilfe der StorageGRID Plattform-Services können StorageGRID-Mandantenkonten externe Services wie einen Remote-S3-Bucket, einen SNS-Endpunkt (Simple Notification Service) oder ein Elasticsearch-Cluster verwenden, um die Services eines Grids zu erweitern.
+
+In der folgenden Tabelle sind die verfügbaren Plattform-Services und die zur Konfiguration verwendeten S3-APIs zusammengefasst.
+
+[cols="1a,2a,1a"]
+|===
+| Plattform-Service | Zweck | Zum Konfigurieren des Service wird die S3-API verwendet 
+
+
+ a| 
+Replizierung von CloudMirror
+ a| 
+Repliziert Objekte aus einem StorageGRID-Quell-Bucket in den konfigurierten Remote-S3-Bucket
+ a| 
+PUT Bucket-Replikation (siehe link:operations-on-buckets.html["Operationen auf Buckets"])
+
+
+
+ a| 
+Benachrichtigungen
+ a| 
+Sendet Benachrichtigungen zu Ereignissen in einem StorageGRID-Quell-Bucket an einen konfigurierten SNS-Endpunkt (Simple Notification Service).
+ a| 
+PUT Bucket-Benachrichtigung (siehe link:operations-on-buckets.html["Operationen auf Buckets"])
+
+
+
+ a| 
+Integration von Suchen
+ a| 
+Sendet Objektmetadaten für Objekte, die in einem StorageGRID Bucket gespeichert sind, an einen konfigurierten Elasticsearch-Index.
+ a| 
+link:put-bucket-metadata-notification-configuration-request.html["PUT Bucket-Metadaten-Benachrichtigungskonfiguration"]
+
+*Hinweis:* Dies ist ein StorageGRID Custom S3 API.
+
+|===
+Ein Grid-Administrator muss die Nutzung von Plattformservices für ein Mandantenkonto aktivieren, bevor sie verwendet werden können. Siehe link:../admin/index.html["StorageGRID verwalten"]. Anschließend muss ein Mandantenadministrator einen Endpunkt erstellen, der für den Remote-Service im Mandantenkonto steht. Dieser Schritt ist erforderlich, bevor ein Service konfiguriert werden kann. Siehe link:../tenant/index.html["Verwenden Sie ein Mandantenkonto"].
+
+
+
+== Empfehlungen für die Nutzung von Plattform-Services
+
+Vor der Verwendung von Plattform-Services müssen Sie die folgenden Empfehlungen beachten:
+
+* NetApp empfiehlt, nicht mehr als 100 aktive Mandanten mit S3-Anforderungen zu zulassen, die eine CloudMirror-Replizierung, Benachrichtigungen und Suchintegration erfordern. Mehr als 100 aktive Mandanten können zu einer langsameren S3-Client-Performance führen.
+* Wenn in einem S3 Bucket im StorageGRID System sowohl die Versionierung als auch die CloudMirror Replizierung aktiviert sind, empfiehlt NetApp, dass für den Zielendpunkt auch die S3-Bucket-Versionierung aktiviert ist. So kann die CloudMirror-Replizierung ähnliche Objektversionen auf dem Endpunkt generieren.
+* Die CloudMirror-Replizierung wird nicht unterstützt, wenn im Quell-Bucket S3-Objektsperre aktiviert ist.
+* Die CloudMirror-Replikation schlägt mit einem AccessDenied-Fehler fehl, wenn auf dem Ziel-Bucket ältere Compliance-Funktionen aktiviert sind.
+

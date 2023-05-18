@@ -1,0 +1,90 @@
+---
+permalink: installconfig/sg5700-appliance-connections.html 
+sidebar: sidebar 
+keywords: network connections, appliance, grid, admin, client, bmc, management 
+summary: Wenn Sie eine SG5700 StorageGRID Appliance installieren, verbinden Sie die beiden Controller miteinander und mit den erforderlichen Netzwerken. 
+---
+= Netzwerkverbindungen (SG5700)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Sie eine SG5700 StorageGRID Appliance installieren, verbinden Sie die beiden Controller miteinander und mit den erforderlichen Netzwerken.
+
+Die Abbildung zeigt die beiden Controller der SG5760: Der E2800 Controller oben und der E5700SG Controller unten. In der SG5712 befindet sich der E2800 Controller links vom E5700SG Controller.
+
+image::../media/sg5760_connections.gif[Verbindungen am SG5760 Appliance]
+
+[cols="1a,2a,2a,2a"]
+|===
+| Legende | Port | Typ des Ports | Nutzung 
+
+
+ a| 
+1
+ a| 
+Zwei Interconnect-Ports an jedem Controller
+ a| 
+16 Gbit/s FC optisch SFP+
+ a| 
+Verbinden Sie die beiden Controller miteinander.
+
+
+
+ a| 
+2
+ a| 
+Management-Port 1 am E2800-Controller
+ a| 
+1 GbE (RJ-45)
+ a| 
+Stellt eine Verbindung mit dem Netzwerk her, in dem Sie auf SANtricity System Manager zugreifen. Sie können das Admin-Netzwerk für StorageGRID oder ein unabhängiges Managementnetzwerk verwenden.
+
+
+
+ a| 
+Management-Port 2 am E2800 Controller
+ a| 
+1 GbE (RJ-45)
+ a| 
+Reserviert für technischen Support.
+
+
+
+ a| 
+3
+ a| 
+Management-Port 1 am E5700SG Controller
+ a| 
+1 GbE (RJ-45)
+ a| 
+Verbindet den E5700SG-Controller mit dem Admin-Netzwerk für StorageGRID.
+
+
+
+ a| 
+Management-Port 2 am E5700SG Controller
+ a| 
+1 GbE (RJ-45)
+ a| 
+* Kann mit Verwaltungsport 1 verbunden werden, wenn Sie eine redundante Verbindung zum Admin-Netzwerk wünschen.
+* Kann unverkabelt und für temporären lokalen Zugang verfügbar sein (IP 169.254.0.1).
+* Kann während der Installation verwendet werden, um den E5700SG-Controller mit einem Service-Laptop zu verbinden, wenn DHCP-zugewiesene IP-Adressen nicht verfügbar sind.
+
+
+
+
+ a| 
+4
+ a| 
+10/25-GbE-Ports 1-4 auf dem E5700SG Controller
+ a| 
+10-GbE oder 25-GbE
+
+*Hinweis:* die im Lieferumfang des Geräts enthaltenen SFP+ Transceiver unterstützen 10-GbE-Verbindungsgeschwindigkeiten. Wenn Sie für die vier Netzwerk-Ports 25-GbE-Verbindungsgeschwindigkeiten verwenden möchten, müssen Sie SFP28-Transceiver bereitstellen.
+ a| 
+Stellen Sie eine Verbindung zum Grid-Netzwerk und dem Client-Netzwerk für StorageGRID her. Siehe link:port-bond-modes-for-e5700sg-controller-ports.html["Port-Bond-Modi (E5700SG Controller)"].
+
+|===

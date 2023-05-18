@@ -1,0 +1,47 @@
+---
+permalink: s3/upload-part.html 
+sidebar: sidebar 
+keywords: s3 upload part operation 
+summary: Der Vorgang „Teile hochladen“ lädt ein Teil in einem mehrteiligen Upload für ein Objekt hoch. 
+---
+= Hochladen Von Teilen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Der Vorgang „Teile hochladen“ lädt ein Teil in einem mehrteiligen Upload für ein Objekt hoch.
+
+
+
+== Unterstützte Anfrageheader
+
+Die folgenden Anfragezeilen werden unterstützt:
+
+* `Content-Length`
+* `Content-MD5`
+
+
+
+
+== Anforderungsheader für serverseitige Verschlüsselung
+
+Wenn Sie die SSE-C-Verschlüsselung für die Anfrage zum Hochladen von mehreren Teilen angegeben haben, müssen Sie die folgenden Anfrageheader in jede Anfrage zum Hochladen von Teilen angeben:
+
+* `x-amz-server-side-encryption-customer-algorithm`: Angabe `AES256`.
+* `x-amz-server-side-encryption-customer-key`: Geben Sie denselben Verschlüsselungsschlüssel an, den Sie in der Anfrage zum Hochladen von mehreren Teilen angegeben haben.
+* `x-amz-server-side-encryption-customer-key-MD5`: Geben Sie den gleichen MD5-Digest an, den Sie in der Anfrage zum Hochladen mehrerer Teile angegeben haben.
+
+
+
+IMPORTANT: Die von Ihnen zur Verfügung gelegten Schlüssel werden niemals gespeichert. Wenn Sie einen Verschlüsselungsschlüssel verlieren, verlieren Sie das entsprechende Objekt. Bevor Sie vom Kunden zur Sicherung von Objektdaten bereitgestellte Schlüssel verwenden, prüfen Sie die Überlegungen unter „`serverseitige Verschlüsselung verwenden`“.
+
+
+
+== Versionierung
+
+Mehrteilige Uploads bestehen aus separaten Vorgängen zum Initiieren des Uploads, Auflisten von Uploads, Hochladen von Teilen, Zusammenbauen der hochgeladenen Teile und Abschließen des Uploads. Objekte werden erstellt (und gegebenenfalls versioniert), wenn der Vorgang zum Hochladen mehrerer Teile abgeschlossen ist.
+
+.Verwandte Informationen
+link:using-server-side-encryption.html["Serverseitige Verschlüsselung"]

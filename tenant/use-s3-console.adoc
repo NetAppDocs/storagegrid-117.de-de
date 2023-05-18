@@ -1,0 +1,49 @@
+---
+permalink: tenant/use-s3-console.html 
+sidebar: sidebar 
+keywords: how to use s3 console 
+summary: Sie können die Objekte über die S3-Konsole in einem S3-Bucket anzeigen. 
+---
+= Verwenden Sie die Experimental S3-Konsole
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können die Objekte über die S3-Konsole in einem S3-Bucket anzeigen.
+
+Sie können auch S3 Console verwenden, um folgende Aufgaben zu erledigen:
+
+* Hinzufügen und Löschen von Objekten, Objektversionen und Ordnern
+* Benennen Sie Objekte um
+* Verschieben und Kopieren von Objekten zwischen Buckets und Ordnern
+* Verwalten von Objekt-Tags
+* Zeigen Sie Objektmetadaten an
+* Objekte herunterladen
+
+
+
+NOTE: Die S3-Konsole ist als „experimentell“ gekennzeichnet, da sie noch nicht vollständig oder für die Verwendung in einer Produktionsumgebung freigegeben ist. Mandanten sollten die S3-Konsole nur verwenden, wenn sie Funktionen für eine kleine Anzahl von Objekten ausführen, z. B. beim Hochladen von Objekten zur Simulation einer neuen ILM-Richtlinie, bei der Fehlerbehebung von Ingest-Problemen oder bei der Verwendung von Proof-of-Concept- oder nicht-Production-Grids.
+
+.Bevor Sie beginnen
+* Sie sind mit einem beim Mandantenmanager angemeldet link:../admin/web-browser-requirements.html["Unterstützter Webbrowser"].
+* Sie gehören einer Benutzergruppe an, die über die Root-Zugriffsberechtigung verfügt oder die sowohl die Verwaltung aller Buckets als auch die Verwaltung von Objekten mit der S3-Konsole verfügt link:tenant-management-permissions.html["Berechtigungen"].
++
+
+NOTE: Benutzer, die über die Berechtigung zum Verwalten von Objekten mit S3-Konsole verfügen, aber nicht über die Berechtigung zum Verwalten aller Buckets verfügen, können dennoch direkt zur Experimental S3-Konsole navigieren.
+
+* Sie haben einen Bucket erstellt.
+* Für den Benutzer wurde eine S3-Gruppen- oder Bucket-Richtlinie konfiguriert.
+* Sie kennen die Zugriffsschlüssel-ID und den geheimen Zugriffsschlüssel des Benutzers. Optional haben Sie eine `.csv` Datei mit diesen Informationen. Siehe link:creating-your-own-s3-access-keys.html["Anweisungen zum Erstellen von Zugriffsschlüsseln"].
+
+
+.Schritte
+. Wählen Sie *Buckets*.
+. Wählen Sie image:../media/s3_console_link.png["S3-Konsolenlink"]. Sie können auch über die Seite mit den Bucket-Details auf diesen Link zugreifen.
+. Fügen Sie auf der Anmeldeseite Experimental S3 Console die Zugriffsschlüssel-ID und den geheimen Zugriffsschlüssel in die Felder ein. Wählen Sie andernfalls * Zugriffsschlüssel hochladen* aus, und wählen Sie Ihr aus `.csv` Datei:
+. Wählen Sie *Anmelden*.
+. Objektmanagement nach Bedarf
+
+
+image::../media/s3_console_example.png[Beispiel einer S3-Konsole]

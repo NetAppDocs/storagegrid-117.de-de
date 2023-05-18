@@ -1,0 +1,245 @@
+---
+permalink: upgrade/whats-new.html 
+sidebar: sidebar 
+keywords: what is new in StorageGRID 11.7 
+summary: 'Diese Version von StorageGRID verfügt über folgende Funktionen:' 
+---
+= Neuerungen bei StorageGRID 11.7
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Diese Version von StorageGRID stellt die folgenden Funktionen und Funktionsänderungen vor.
+
+
+
+== Neuer Funktionen
+
+
+
+=== Grid-Verbund
+
+Sie können eine Grid-Verbundverbindung zwischen zwei StorageGRID-Systemen konfigurieren, um Mandantenkontoinformationen zu klonen und Bucket-Objekte für die Disaster Recovery zwischen den Grids zu replizieren. Siehe link:../admin/grid-federation-overview.html["Was ist Grid Federation?"], link:../admin/grid-federation-what-is-account-clone.html["Was ist Account-Klon"], und link:../admin/grid-federation-what-is-cross-grid-replication.html["Was ist Grid-übergreifende Replizierung"].
+
+
+
+=== Bessere Leseverfügbarkeit
+
+Die Konsistenzkontrolle „Read-after-New-write“ (Standard) wurde verbessert und steht nun mehr zur Verfügung. GET/HEAD-Anforderungen für nicht vorhandene Objekte werden erfolgreich ausgeführt, wenn bis zu ein Storage Node an jedem Standort offline ist. Buckets müssen nicht mehr auf die verfügbare Konsistenzkontrolle für dieses Szenario eingestellt werden. Beispielsweise funktionieren Anwendungen, die das Vorhandensein eines Objekts vor der Erstellung prüfen, auch während des Softwareupgrades mit Read-after-New-Write ordnungsgemäß, wenn ein Storage Node offline ist.
+
+
+
+=== Benennen Sie Raster, Standorte und Nodes um
+
+Mit einem neuen Wartungsverfahren können Sie die Anzeigenamen ändern, die im Grid Manager angezeigt werden. Sie können Anzeigenamen sicher und jederzeit aktualisieren. Siehe link:../maintain/rename-grid-site-node-overview.html["Benennen Sie Raster, Standorte und Nodes um"].
+
+
+
+=== FabricPool- und S3-Einrichtungsassistent
+
+Der Einrichtungsassistent von FabricPool und S3 führt Sie durch jeden Schritt der Konfiguration von StorageGRID für die Verwendung mit ONTAP FabricPool oder einer anderen S3-Client-Applikation und erstellt eine Datei, mit der Sie die erforderlichen Werte in der anderen Applikation eingeben können. Siehe link:../fabricpool/use-fabricpool-setup-wizard.html["Verwenden Sie den FabricPool-Einrichtungsassistenten"] Und link:../admin/use-s3-setup-wizard.html["Verwenden Sie den S3-Einrichtungsassistenten"].
+
+In Bezug auf diese Änderung wird jetzt ein Banner auf dem Dashboard angezeigt, um neue Benutzer an die Konfiguration zu erinnern link:../admin/configuring-s3-api-endpoint-domain-names.html["Domänennamen des S3-Endpunkts"] Richten Sie Anforderungen im virtuellen Hosted-Stil von S3 ein und richten Sie sie ein link:../monitor/email-alert-notifications.html["E-Mail-Benachrichtigungen für Warnmeldungen"].
+
+
+
+=== Firewall-Kontrollen
+
+Auf der Seite „Firewall-Steuerung“ können Sie den externen Zugriff von Ports auf Knoten in Ihrem Grid verwalten und Hostadressen und IP-Subnetze definieren, denen der Zugriff auf geschlossene Ports gestattet ist. Die neue Seite enthält auch die Einstellungen für das nicht vertrauenswürdige Client-Netzwerk, mit denen Sie jetzt zusätzliche Ports auswählen können, die geöffnet werden sollen, wenn das nicht vertrauenswürdige Client-Netzwerk konfiguriert ist. Siehe link:../admin/configure-firewall-controls.html["Konfigurieren Sie die interne Firewall"].
+
+
+
+=== Verbesserte Sicherheitsrichtlinien
+
+Sie können nun festlegen, welche Protokolle und Chiffren verwendet werden, um sichere TLS-Verbindungen mit Clientanwendungen und sichere SSH-Verbindungen zu internen StorageGRID-Diensten herzustellen. Siehe link:../admin/manage-tls-ssh-policy.html["Verwalten Sie die TLS- und SSH-Richtlinie"].
+
+
+
+=== Änderungen am Endpunkt des Load Balancer
+
+Wenn link:../admin/configuring-load-balancer-endpoints.html["Konfigurieren der Lastausgleichsendpunkte"]Sie können jetzt:
+
+* Allen Mandanten den Zugriff auf den Endpunkt erlauben (Standard), oder eine Liste zulässiger oder blockierter Mandanten angeben, um eine bessere Sicherheitsisolierung zwischen Mandanten und deren Endpunkten zu ermöglichen.
+* Verwenden Sie den Bindungsmodus *Node Type*, um von Clients abhängig vom gewählten Node die IP-Adresse (oder den entsprechenden FQDN) eines beliebigen Admin-Knotens oder die IP-Adresse eines beliebigen Gateway-Knotens zu verwenden.
+
+
+
+
+== SGF6112 All-Flash Appliance
+
+Die neue StorageGRID SGF6112 Storage Appliance verfügt über ein kompaktes Design mit Computing-Controller und Storage Controller, die in ein 1-HE-Chassis integriert sind. Die Appliance unterstützt 12 SSD-NVMe-Laufwerke mit einer Speicherkapazität von bis zu 15.3 TB pro Laufwerk. Die SSD-Laufwerke befinden sich in einem RAID mit ausfallsicherem Objekt-Storage. Siehe link:../installconfig/hardware-description-sg6100.html["SGF6112 Appliance: Überblick"].
+
+
+
+== Andere Verbesserungen am Grid Manager
+
+
+
+=== ILM-Verbesserungen
+
+Der verbesserte ILM-Assistent vereinfacht das Festlegen von Filtern, das Eingeben von Zeiträumen und Platzierungen und das Anzeigen von Aufbewahrungsdiagrammen. Profile für Erasure Coding werden automatisch erstellt, wenn Sie einen Storage-Pool und ein EC-Schema für eine Platzierung auswählen. Für neue StorageGRID 11.7-Installationen (keine Upgrades) wird automatisch ein Speicherpool für jeden Standort erstellt, und die neue Standardregel *1 Kopie pro Standort* stellt sicher, dass neue Installationen mit mehreren Standorten standardmäßig vor Standortausfällen geschützt sind. Siehe link:../ilm/index.html["Objektmanagement mit ILM"].
+
+
+
+=== Anpassbares Dashboard
+
+Sie können jetzt benutzerdefinierte Dashboards für den Grid Manager konfigurieren. Siehe link:../monitor/viewing-dashboard.html["Das Dashboard anzeigen und verwalten"].
+
+
+
+=== UI für die Volume-Wiederherstellung
+
+Durch die Wiederherstellung eines Storage-Volumes können Sie Objektdaten wiederherstellen, wenn ein Storage-Volume ausfällt. Für StorageGRID 11.7 können Sie zusätzlich zur bestehenden Methode zur manuellen Eingabe von Befehlen die Volume-Wiederherstellung über den Grid-Manager starten. Die Verwendung von Grid Manager ist jetzt die bevorzugte Methode zum Wiederherstellen von Objektdaten. Siehe link:../maintain/restoring-volume.html["Stellen Sie Objektdaten mithilfe von Grid Manager wieder her"].
+
+
+
+=== Upgrade und Hotfix-UI
+
+Wenn Sie ein Upgrade auf StorageGRID 11.7 durchführen, können Sie gleichzeitig den neuesten 11.7-Hotfix installieren. Auf der StorageGRID Upgrade-Seite werden der empfohlene Upgrade-Pfad und Links direkt zu den richtigen Download-Seiten angezeigt. Siehe link:performing-upgrade.html["Upgrade durchführen"].
+
+
+
+=== Einheiten für Speicherwerte
+
+Sie können jetzt Basis-10- oder Basis-2-Einheiten für die Speicherwerte auswählen, die im Grid Manager und Tenant Manager angezeigt werden. Wählen Sie oben rechts im Grid Manager oder Tenant Manager das Dropdown-Menü Benutzer aus, und wählen Sie dann *Benutzereinstellungen* aus.
+
+
+
+=== Greifen Sie über Grid Manager auf MIB zu
+
+Sie können jetzt über den Grid Manager auf SNMP-konforme MIB-Dateien über die Seite SNMP Agent zugreifen. Siehe link:../monitor/access-snmp-mib.html["Zugriff auf MIB-Dateien"].
+
+
+
+=== Individuelle Storage-Klassen für neue Nodes
+
+Wenn Sie eine Erweiterung durchführen, um einen neuen Standort oder neue Storage-Nodes hinzuzufügen, können Sie jetzt jedem neuen Node eine benutzerdefinierte Speicherklasse zuweisen. Siehe link:../expand/performing-expansion.html["Erweiterung durchführen"].
+
+
+
+== Tenant Manager wird aktualisiert
+
+
+
+=== Grid-übergreifende Replizierung
+
+Mandantenkonten, die über die Berechtigung verfügen, einen zu verwenden <<grid-federation,Netzverbundverbindung>> Mandanten, Benutzer und S3-Schlüssel können von einem Grid in ein anderes geklont und Bucket-Objekte zwischen zwei Grids mithilfe von Grid-Replizierung repliziert werden. Siehe link:../tenant/grid-federation-account-clone.html["Klonen von Mandantengruppen und Benutzern"] Und link:../tenant/grid-federation-manage-cross-grid-replication.html["Grid-übergreifende Replizierung managen"].
+
+
+
+=== Löschen Sie alle Objekte aus Bucket
+
+Mandanten-Manager-Benutzer können jetzt alle Objekte in einem Bucket löschen, sodass der Bucket gelöscht werden kann. Siehe link:../tenant/deleting-s3-bucket-objects.html["Löschen von Objekten in Bucket"].
+
+
+
+=== S3 Object Lock – Standardaufbewahrung
+
+Mandanten-Manager-Benutzer können jetzt beim Erstellen von S3 Object Lock-Buckets die Standardaufbewahrung aktivieren und konfigurieren. Siehe link:../tenant/creating-s3-bucket.html["Erstellen eines S3-Buckets"].
+
+
+
+== S3-Updates
+
+
+
+=== S3 Objektsperrung Governance-Modus
+
+Wenn Sie die S3 Object Lock-Einstellungen für ein Objekt oder die Standardaufbewahrungseinstellungen für einen Bucket angeben, können Sie jetzt den Governance-Modus verwenden. Mit diesem Aufbewahrungsmodus können Benutzer mit besonderer Berechtigung bestimmte Aufbewahrungseinstellungen umgehen. Siehe link:../tenant/using-s3-object-lock.html["Verwenden Sie S3 Objektsperre, um Objekte beizubehalten"] Und link:../s3/use-s3-api-for-s3-object-lock.html["Konfigurieren Sie die S3-Objektsperre über die S3-REST-API"].
+
+
+
+=== S3-Gruppenrichtlinie zur Minimierung von Ransomware
+
+Wenn sie als Gruppenrichtlinie für ein S3-Mandantenkonto hinzugefügt wird, hilft die Beispielrichtlinie bei der Abwehr von Ransomware-Angriffen. Es verhindert, dass ältere Objektversionen dauerhaft gelöscht werden. Siehe link:../tenant/creating-groups-for-s3-tenant.html["Erstellen von Gruppen für einen S3-Mandanten"].
+
+
+
+=== NewerNoncurrentVersions-Schwellenwert für S3-Buckets
+
+Der `NewerNoncurrentVersions` Durch die Aktion in der Bucket-Lebenszykluskonfiguration wird die Anzahl der nicht-aktuellen Versionen angegeben, die in einem versionierten S3-Bucket aufbewahrt wurden. Dieser Schwellenwert überschreibt die Lebenszyklusregeln, die von ILM bereitgestellt werden. Siehe link:../ilm/how-objects-are-deleted.html["So werden Objekte gelöscht"].
+
+
+
+=== S3 Select-Updates
+
+S3 SelectObjectContent bietet jetzt Unterstützung für Parkett-Objekte. Darüber hinaus können Sie jetzt S3 Select mit Admin- und Gateway Load Balancer-Endpunkten verwenden, die Bare-Metal-Knoten sind, auf denen ein Kernel mit cgroup v2 aktiviert ist. Siehe link:../s3/select-object-content.html["S3 SelectObjectContent"].
+
+
+
+== Weitere Verbesserungen
+
+
+
+=== ZertifikatStudienteilnehmer optional
+
+Das Feld für den Betreff des Zertifikats ist jetzt optional. Wenn dieses Feld leer bleibt, verwendet das generierte Zertifikat den ersten Domänennamen oder die IP-Adresse als allgemeinen Studienteilnehmer (CN). Siehe link:../admin/using-storagegrid-security-certificates.html["Verwalten von Sicherheitszertifikaten"].
+
+
+
+=== ILM-Audit-Nachrichtenkategorie und neue Nachrichten
+
+Für ILM-Vorgänge wurde eine Kategorie für Audit-Meldungen hinzugefügt, die IDEL-, LKCU- und ORLM-Meldungen enthält. Diese neue Kategorie ist auf *normal* gesetzt. Siehe link:../audit/ilm-audit-messages.html["Prüfmeldungen für den ILM-Betrieb"].
+
+Zusätzlich wurden neue Audit-Meldungen hinzugefügt, die die neue 11.7-Funktionalität unterstützen:
+
+* link:../audit/bror-bucket-read-only-request.html["BROR: Bucket Read Only Request"]
+* link:../audit/cgrr-cross-grid-replication-request.html["CGRR: Grid-übergreifende Replikationsanforderung"]
+* link:../audit/ebdl-empty-bucket-delete.html["EBDL: Leerer Bucket löschen"]
+* link:../audit/ebkr-empty-bucket-request.html["EBKR: Anforderung für leeren Bucket"]
+* link:../audit/s3-select-request.html["S3SL: S3 Select Request"]
+
+
+
+
+=== Neue Warnmeldungen
+
+Die folgenden neuen Warnmeldungen wurden für StorageGRID 11.7 hinzugefügt:
+
+* Fehler des Appliance-das-Laufwerks erkannt
+* Wiederherstellung des Appliance-das-Laufwerks
+* Fehler des Gerätelüfters erkannt
+* Appliance-NIC-Fehler erkannt
+* Kritische Warnung bei Appliance-SSD
+* Fehler beim Senden der AutoSupport-Nachricht
+* Cassandra-Fehler bei der Übergröße des Schreibvorgangs
+* Fehler bei der Anforderung einer Grid-übergreifenden Replizierung
+* Grid-übergreifende Replizierungsressourcen nicht verfügbar
+* Leistungsbeeinträchtigung debuggen
+* Ablauf des Netzverbundzertifikats
+* FabricPool Bucket hat die nicht unterstützte Bucket-Konsistenzeinstellung
+* Fehler bei der Firewall-Konfiguration
+* Fehler bei der Verbindung mit dem Grid-Verbund
+* Lüfterfehler des Speichergeräts erkannt
+* Storage-Node befindet sich nicht im gewünschten Speicherzustand
+* Das Storage-Volume muss beachtet werden
+* Das Speicher-Volume muss wiederhergestellt werden
+* Das Storage-Volume ist offline
+* Trace-Konfiguration aktiviert
+* Die Volume-Wiederherstellung konnte die Reparatur replizierter Daten nicht starten
+
+
+
+
+=== Änderungen in der Dokumentation
+
+* Eine neue Kurzübersicht zeigt, wie StorageGRID Amazon Simple Storage Service (S3) APIs unterstützt. Siehe link:../s3/quick-reference-support-for-aws-apis.html["Schnelle Referenz: Unterstützte S3-API-Anforderungen"].
+* Das neue link:../primer/quick-start.html["Quick Start Guide für StorageGRID"] Führt die allgemeinen Schritte zur Konfiguration und Verwendung eines StorageGRID-Systems auf und enthält Links zu den entsprechenden Anweisungen.
+* Die Installationsanweisungen für die Appliance-Hardware wurden kombiniert und konsolidiert, um die Bedienung zu erleichtern. Ein schneller Einstieg wurde als allgemeine Anleitung zur Hardwareinstallation hinzugefügt. Siehelink:../installconfig/index.html["Schnellstart für die Hardwareinstallation"].
+* Die für alle Gerätelodelle üblichen Wartungsanweisungen wurden kombiniert, konsolidiert und in den Wartungsbereich des Dokumentstandortes verschoben. Siehe link:../commonhardware/index.html["Allgemeine Knotenwartung: Übersicht"].
+* Die für jedes Gerätelodell spezifischen Wartungsanweisungen wurden ebenfalls in den Abschnitt „Wartung“ verschoben:
++
+link:../sg6100/index.html["Instandhaltung der SGF6112 Hardware"]
+
++
+link:../sg6000/index.html["Wartung der SG6000 Hardware"]
+
++
+link:../sg5700/index.html["Instandhaltung der SG5700 Hardware"]
+
++
+link:../sg100-1000/index.html["Instandhaltung der SG100 und SG1000 Hardware"]
+
+

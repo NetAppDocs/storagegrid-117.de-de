@@ -1,0 +1,95 @@
+---
+permalink: upgrade/removed-or-deprecated-features.html 
+sidebar: sidebar 
+keywords: features, removed, deprecated 
+summary: Einige Funktionen wurden in dieser Version entfernt oder veraltet. Überprüfen Sie diese Elemente, um zu verstehen, ob Sie Clientanwendungen aktualisieren oder Ihre Konfiguration vor dem Upgrade ändern müssen. 
+---
+= Funktionen entfernt oder veraltet
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Einige Funktionen wurden in dieser Version entfernt oder veraltet. Überprüfen Sie diese Elemente, um zu verstehen, ob Sie Clientanwendungen aktualisieren oder Ihre Konfiguration vor dem Upgrade ändern müssen.
+
+
+
+== Verbindungslastausgleich (CLB)-Service entfernt
+
+Der Dienst Connection Load Balancer (CLB) auf Gateway-Nodes wurde in StorageGRID 11.4 veraltet und wurde nun vollständig aus der Software entfernt. Um eingehende Netzwerkverbindungen von Client-Anwendungen auf Speicher-Nodes zu verteilen, können Sie Load Balancer-Endpunkte für den Load Balancer-Dienst konfigurieren, der in allen Admin-Nodes und Gateway-Nodes enthalten ist, oder Sie können einen Load Balancer eines Drittanbieters integrieren. Siehe link:../admin/managing-load-balancing.html["Überlegungen zum Lastausgleich"].
+
+Wenn in der vorhandenen StorageGRID-Version benutzerdefinierte Zertifikate für die S3- oder Swift-API eingerichtet wurden, werden die CLB-Ports 8082, 8083, 8084 und 8085 während des Upgrades auf StorageGRID 11.7 automatisch in Load Balancer-Endpunkte konvertiert.
+
+
+
+== Die SG5600 Appliance wird nicht mehr unterstützt
+
+Die SG5600 Appliance hat das Ende des Supports erreicht. Weitere Informationen zu Hardware-Aktualisierungen erhalten Sie von Ihrem NetApp Vertriebsmitarbeiter.
+
+Wenn Sie Wartungsverfahren für SG5600-Hardware durchführen müssen, verwenden Sie die https://["Anweisungen für StorageGRID 11.6"^].
+
+
+
+== Die Unterstützung für Swift ist veraltet
+
+Ab Version StorageGRID 11.7 ist die Unterstützung für Swift-Client-Applikationen veraltet. Die Benutzeroberfläche und APIs, die Swift-Client-Anwendungen unterstützen, werden in einem zukünftigen Release entfernt.
+
+
+
+== Unterstützung für Archive Node veraltet
+
+Die Unterstützung für Archive Nodes (für die Archivierung in der Cloud mit der S3-API und die Archivierung auf Band mit TSM-Middleware) ist veraltet und wird in einer zukünftigen Version entfernt. Das Verschieben von Objekten von einem Archive Node in ein externes Archiv-Storage-System wurde durch ILM Cloud Storage Pools ersetzt, die mehr Funktionen bieten.
+
+Siehe:
+
+* link:../admin/migrating-objects-from-cloud-tiering-s3-to-cloud-storage-pool.html["Migrieren von Objekten in einen Cloud-Storage-Pool"]
+* link:../ilm/what-cloud-storage-pool-is.html["Verwendung Von Cloud Storage Pools"]
+
+
+Darüber hinaus sollten Sie Archivknoten aus der aktiven ILM-Richtlinie in StorageGRID 11.7 oder früher entfernen. Das Entfernen von Objektdaten, die auf Archive Nodes gespeichert sind, vereinfacht zukünftige Upgrades. Siehe link:../ilm/working-with-ilm-rules-and-ilm-policies.html["Arbeiten mit ILM-Regeln und ILM-Richtlinien"].
+
+
+
+== Audit-Export über CIFS/Samba entfernt
+
+Audit-Export über CIFS/Samba wurde in StorageGRID Webscale 11.1 veraltet und wurde jetzt entfernt. Bei Bedarf können Sie link:../monitor/considerations-for-external-syslog-server.html["Verwenden Sie einen externen Syslog-Server"] Oder link:../admin/configuring-audit-client-access.html["Konfigurieren Sie den Client-Zugriff für die Prüfung für NFS"].
+
+
+
+== Option, um einen Speicherpool als temporären Speicherort anzugeben, der entfernt wurde
+
+Wenn Sie zuvor eine ILM-Regel mit einer Objektplatzierung erstellt haben, die einen einzelnen Speicherpool umfasst, wurden Sie aufgefordert, einen zweiten Speicherpool anzugeben, der als temporärer Speicherort verwendet werden soll. Ab StorageGRID 11.7 wurde diese Option entfernt.
+
+
+
+== Die Grid Manager-Optionen wurden verschoben oder entfernt
+
+Mehrere Grid Manager-Optionen wurden verschoben oder entfernt.
+
+* Der link:../admin/configuring-stored-object-compression.html["Gespeicherte Objekte komprimieren"] Option wurde verschoben zu *CONFIGURATION* > *System* > *Objektkomprimierung*.
+* Die interne Verbindungseinstellung *Network Transfer Encryption* wurde entfernt und durch ersetzt link:../admin/manage-tls-ssh-policy.html["TLS- und SSH-Richtlinien"] Auf der neuen Seite *CONFIGURATION* > *Security* > *Security settings*.
++
+
+NOTE: Die AES256-SHA-Option war die Standardeinstellung in StorageGRID 11.6 und ist die einzige Einstellung, die in StorageGRID 11.7 verfügbar ist. Der AES128-SHA-Wert wird in der Grid-Management-API ignoriert. Während des StorageGRID 11.7-Upgrades ist der Verschlüsselungsalgorithmus für die Netzwerkübertragung auf AES256-SHA eingestellt.
+
+* Die Optionen *Stored Object Encryption*, *Prevent Client modification* und *Enable HTTP for Storage Node Connections* wurden in die verschoben link:../admin/changing-network-options-object-encryption.html["Registerkarte Netzwerk und Objekte"] Auf der neuen Seite *CONFIGURATION* > *Security* > *Security settings*.
+* Der link:../admin/changing-browser-session-timeout-interface.html["Zeitlimit für Inaktivität des Browsers"] Option wurde auf die neue Seite *CONFIGURATION* > *Security* > *Security settings* verschoben.
+* Der link:../admin/manage-link-costs.html["Verbindungskosten"] Option wurde auf *SUPPORT* > *andere* > *Link Cost* verschoben.
+* Die Liste der NMS Entities wurde in *SUPPORT* > *andere* > *NMS Entities* verschoben.
+* Die Option *Stored Object Hashing* wurde entfernt. Die Einstellungen *SHA-1* und *SHA-256* werden nicht mehr für die interne Hintergrundüberprüfung verwendet, da sie zusätzliche CPU-Ressourcen über MD5 und Packet CRC32-Prüfung benötigen.
+* Die Option *bevorzugter Absender* wurde entfernt. Wenn Ihre StorageGRID-Bereitstellung mehrere Administratorknoten umfasst, ist der primäre Administratorknoten der bevorzugte Absender für Warnmeldungen, AutoSupport-Nachrichten, SNMP-Traps und -Benachrichtigungen sowie ältere Alarmmeldungen. Wenn der primäre Admin-Node nicht mehr verfügbar ist, werden vorübergehend Benachrichtigungen von anderen Admin-Nodes gesendet. Siehe link:../admin/what-admin-node-is.html["Was ist ein Admin-Node?"].
+* Der link:../admin/configure-firewall-controls.html#untrusted-client-network["Nicht vertrauenswürdige Client-Netzwerkeinstellungen"] Wurden in *CONFIGURATION* > *Firewall Control* verschoben.
+
+
+
+
+== Einschränkungen im Format für S3-Endpunktdomänennamen
+
+Die Verwendung von IP-Adressen als Endpunkt-Domänennamen wird nicht unterstützt. Zukünftige Versionen verhindern die Konfiguration. Wenden Sie sich an den technischen Support, wenn Sie IP-Adressen für Domänennamen des Endpunkts verwenden müssen. Siehe link:../admin/configuring-s3-api-endpoint-domain-names.html["Domänennamen des S3-Endpunkts"].
+
+
+
+== Der vom Benutzer initiierte Befehl „Volume Lost“ wurde entfernt
+
+Der `proc/CMSI/Volume_Lost` Wurde entfernt. Verwenden Sie die `repair-data start-replicated-volume-repair` Befehl zum Wiederherstellen replizierter Daten für ein Volume.

@@ -1,0 +1,46 @@
+---
+permalink: tenant/changing-consistency-level.html 
+sidebar: sidebar 
+keywords: how to change bucket consistency level, read after new write, read-after-new-write, strong site, strong-site, strong global, strong-global 
+summary: Wenn Sie einen S3-Mandanten verwenden, können Sie die Konsistenzstufe für Vorgänge ändern, die für die Objekte in S3-Buckets ausgeführt werden. 
+---
+= Ändern der Konsistenzstufe eines Buckets
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Sie einen S3-Mandanten verwenden, können Sie die Konsistenzstufe für Vorgänge ändern, die für die Objekte in S3-Buckets ausgeführt werden.
+
+.Bevor Sie beginnen
+* Sie sind mit einem beim Mandantenmanager angemeldet link:../admin/web-browser-requirements.html["Unterstützter Webbrowser"].
+* Sie gehören einer Benutzergruppe an, die über den verfügt link:tenant-management-permissions.html["Managen aller Buckets oder Root-Zugriffsberechtigungen"]. Diese Berechtigungen überschreiben die Berechtigungseinstellungen in Gruppen- oder Bucket-Richtlinien.
+
+
+.Über diese Aufgabe
+Konsistenzkontrollen bieten ein Gleichgewicht zwischen der Verfügbarkeit der Objekte und der Konsistenz dieser Objekte über verschiedene Storage Nodes und Standorte hinweg. Im Allgemeinen sollten Sie für Ihre Buckets die Konsistenzstufe *Read-after-New-write* verwenden.
+
+Wenn die Konsistenzstufe *Read-after-New-write* nicht den Anforderungen der Client-Anwendung entspricht, können Sie die Konsistenzstufe ändern, indem Sie die Bucket-Konsistenzstufe oder die verwenden `Consistency-Control` Kopfzeile. Der `Consistency-Control` Kopfzeile setzt die Bucket-Konsistenzstufe außer Kraft.
+
+
+NOTE: Wenn Sie die Konsistenzstufe eines Buckets ändern, werden nur die Objekte, die nach der Änderung aufgenommen werden, garantiert, um die überarbeitete Ebene zu erfüllen.
+
+.Schritte
+. Wählen Sie *View Buckets* aus dem Dashboard, oder wählen Sie *STORAGE (S3)* > *Buckets*.
+. Wählen Sie den Bucket-Namen aus der Tabelle aus.
++
+Die Seite mit den Bucket-Details wird angezeigt.
+
+. Wählen Sie auf der Registerkarte *Bucket options* das Akkordeon *Consistency Level* aus.
+. Wählen Sie eine Konsistenzstufe für Operationen aus, die an den Objekten in diesem Bucket durchgeführt werden.
++
+** *All*: Bietet die höchste Konsistenz. Alle Nodes erhalten die Daten sofort, sonst schlägt die Anfrage fehl.
+** *Strong-global*: Garantiert Lese-nach-Schreiben-Konsistenz für alle Client-Anfragen über alle Standorte hinweg.
+** *Strong-site*: Garantiert Lese-nach-Schreiben Konsistenz für alle Client-Anfragen innerhalb einer Site.
+** *Read-after-New-write* (default): Bietet Read-after-write-Konsistenz für neue Objekte und eventuelle Konsistenz für Objektaktualisierungen. Hochverfügbarkeit und garantierte Datensicherung Empfohlen für die meisten Fälle.
+** *Verfügbar*: Bietet eventuelle Konsistenz für neue Objekte und Objekt-Updates. Verwenden Sie für S3-Buckets nur nach Bedarf (z. B. für einen Bucket mit Protokollwerten, die nur selten gelesen werden, oder für HEAD- oder GET-Vorgänge für nicht vorhandene Schlüssel). Nicht unterstützt für S3 FabricPool-Buckets.
+
+
+. Wählen Sie *Änderungen speichern*.
+

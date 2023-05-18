@@ -1,0 +1,123 @@
+---
+permalink: installconfig/port-bond-modes-for-sg6000-cn-controller.html 
+sidebar: sidebar 
+keywords: storagegrid, sg6000, storage node, storage appliance, port bond, port bonding, port bond mode, port-bond mode, Network bond, Network bonding, Network bond mode, Network-bond mode, independent, active-backup, active backup, 1-gbe, 1 gbe, 10/25-gbe, 10/25 gbe,  sg6000-cn 
+summary: Wenn Sie Netzwerkverbindungen für das SG6000-CN konfigurieren, können Sie die Portbindung für die 10/25-GbE-Ports verwenden, die eine Verbindung zum Grid-Netzwerk und dem optionalen Client-Netzwerk herstellen, sowie die 1-GbE-Management-Ports, die eine Verbindung zum optionalen Admin-Netzwerk herstellen. Mit Port-Bonding sichern Sie Ihre Daten, indem Sie redundante Pfade zwischen StorageGRID-Netzwerken und der Appliance bereitstellen. 
+---
+= Port-Bond-Modi (SG6000-CN-Controller)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn link:configuring-network-links.html["Netzwerk-Links werden konfiguriert"] Für den SG6000-CN-Controller können Sie Port-Bonding für die 10/25-GbE-Ports verwenden, die mit dem Grid-Netzwerk und dem optionalen Client-Netzwerk verbunden sind, sowie für die 1-GbE-Management-Ports, die mit dem optionalen Admin-Netzwerk verbunden werden. Mit Port-Bonding sichern Sie Ihre Daten, indem Sie redundante Pfade zwischen StorageGRID-Netzwerken und der Appliance bereitstellen.
+
+
+
+== Netzwerk-Bond-Modi für 10/25-GbE-Ports
+
+Die 10/25-GbE-Netzwerk-Ports des SG6000-CN-Controllers unterstützen den Bond-Modus Fixed Port oder den Bond-Modus für aggregierte Ports für Grid-Netzwerk- und Client-Netzwerk-Verbindungen.
+
+
+
+=== Bond-Modus mit festem Port
+
+Der Fixed-Modus ist die Standardkonfiguration für 10/25-GbE-Netzwerkports.
+
+image::../media/sg6000_cn_fixed_port.gif[Bond-Modus Für Festen Anschluss]
+
+[cols="1a,3a"]
+|===
+| Legende | Welche Ports sind verbunden 
+
+
+ a| 
+C
+ a| 
+Die Ports 1 und 3 sind für das Client-Netzwerk verbunden, falls dieses Netzwerk verwendet wird.
+
+
+
+ a| 
+G
+ a| 
+Die Ports 2 und 4 sind für das Grid-Netzwerk verbunden.
+
+|===
+Bei Verwendung des Bond-Modus mit festem Port können die Ports über den aktiv-Backup-Modus oder den Link Aggregation Control Protocol-Modus (LACP 802.3ad) verbunden werden.
+
+* Im aktiv-Backup-Modus (Standard) ist jeweils nur ein Port aktiv. Wenn der aktive Port ausfällt, stellt sein Backup-Port automatisch eine Failover-Verbindung bereit. Port 4 bietet einen Sicherungspfad für Port 2 (Grid Network), und Port 3 stellt einen Sicherungspfad für Port 1 (Client Network) bereit.
+* Im LACP-Modus bildet jedes Port-Paar einen logischen Kanal zwischen dem Controller und dem Netzwerk, wodurch ein höherer Durchsatz ermöglicht wird. Wenn ein Port ausfällt, stellt der andere Port den Kanal weiterhin bereit. Der Durchsatz wird verringert, die Konnektivität wird jedoch nicht beeinträchtigt.
+
+
+
+NOTE: Wenn Sie keine redundanten Verbindungen benötigen, können Sie für jedes Netzwerk nur einen Port verwenden. Beachten Sie jedoch, dass nach der Installation von StorageGRID im Grid Manager eine Warnmeldung ausgelöst wird, die angibt, dass der Link nicht verfügbar ist. Da dieser Port speziell getrennt ist, können Sie diese Warnmeldung sicher deaktivieren.
+
+Wählen Sie im Grid Manager die Option *Warnung* > *Regeln*, wählen Sie die Regel aus und klicken Sie auf *Regel bearbeiten*. Deaktivieren Sie dann das Kontrollkästchen *aktiviert*.
+
+
+
+=== Bond-Modus für aggregierten Ports
+
+Der Aggregat-Port-Bond-Modus erhöht das ganze für jedes StorageGRID-Netzwerk deutlich und bietet zusätzliche Failover-Pfade.
+
+image::../media/sg6000_cn_aggregate_port.gif[Aggregat-Port-Bond-Modus]
+
+[cols="1a,3a"]
+|===
+| Legende | Welche Ports sind verbunden 
+
+
+ a| 
+1
+ a| 
+Alle verbundenen Ports werden in einer einzelnen LACP Bond gruppiert, sodass alle Ports für den Grid-Netzwerk- und Client-Netzwerk-Datenverkehr verwendet werden können.
+
+|===
+Wenn Sie planen, den aggregierten Port Bond-Modus zu verwenden:
+
+* Sie müssen LACP Network Bond-Modus verwenden.
+* Sie müssen für jedes Netzwerk ein eindeutiges VLAN-Tag angeben. Dieses VLAN-Tag wird zu jedem Netzwerkpaket hinzugefügt, um sicherzustellen, dass der Netzwerkverkehr an das richtige Netzwerk weitergeleitet wird.
+* Die Ports müssen mit Switches verbunden sein, die VLAN und LACP unterstützen können. Wenn mehrere Switches an der LACP-Verbindung beteiligt sind, müssen die Switches MLAG (Multi-Chassis Link Aggregation Groups) oder eine vergleichbare Position unterstützen.
+* Sie wissen, wie Sie die Switches für die Verwendung von VLAN, LACP und MLAG oder gleichwertig konfigurieren.
+
+
+Wenn Sie nicht alle vier 10/25-GbE-Ports verwenden möchten, können Sie einen, zwei oder drei Ports verwenden. Durch die Verwendung mehrerer Ports wird die Wahrscheinlichkeit maximiert, dass einige Netzwerkverbindungen verfügbar bleiben, wenn einer der 10/25-GbE-Ports ausfällt.
+
+
+NOTE: Wenn Sie weniger als vier Ports verwenden, beachten Sie, dass nach der Installation von StorageGRID ein oder mehrere Alarme im Grid Manager angehoben werden, was darauf hinweist, dass die Kabel nicht angeschlossen sind. Sie können die Alarme sicher bestätigen, um sie zu löschen.
+
+
+
+== Netzwerk-Bond-Modi für 1-GbE-Management-Ports
+
+Für die beiden 1-GbE-Management-Ports des SG6000-CN-Controllers können Sie den unabhängigen Netzwerk-Bond-Modus oder den aktiv-Backup-Netzwerk-Bond-Modus wählen, um eine Verbindung zum optionalen Admin-Netzwerk herzustellen.
+
+Im Independent-Modus ist nur der Management-Port links mit dem Admin-Netzwerk verbunden. Dieser Modus stellt keinen redundanten Pfad bereit. Der Management Port auf der rechten Seite ist nicht verbunden und für temporäre lokale Verbindungen verfügbar (verwendet IP-Adresse 169.254.0.1)
+
+Im Active-Backup-Modus sind beide Management-Ports mit dem Admin-Netzwerk verbunden. Es ist jeweils nur ein Port aktiv. Wenn der aktive Port ausfällt, stellt sein Backup-Port automatisch eine Failover-Verbindung bereit. Die Verbindung dieser beiden physischen Ports zu einem logischen Management-Port bietet einen redundanten Pfad zum Admin-Netzwerk.
+
+
+NOTE: Wenn Sie eine temporäre lokale Verbindung zum SG6000-CN-Controller herstellen müssen, wenn die 1-GbE-Management-Ports für den aktiv-Backup-Modus konfiguriert sind, entfernen Sie die Kabel von beiden Management-Ports, schließen Sie das temporäre Kabel an den Managementport auf der rechten Seite an und greifen Sie über die IP-Adresse 169.254.0 auf das Gerät zu.
+
+image::../media/sg6000_cn_bonded_managemente_ports.png[1-GbE-Ports]
+
+[cols="1a,3a"]
+|===
+| Legende | Netzwerk-Bond-Modus 
+
+
+ a| 
+A
+ a| 
+Beide Management-Ports sind mit einem logischen Management-Port verbunden, der mit dem Admin-Netzwerk verbunden ist.
+
+
+
+ a| 
+ICH
+ a| 
+Der Port auf der linken Seite ist mit dem Admin-Netzwerk verbunden. Der Anschluss rechts ist für temporäre lokale Verbindungen verfügbar (IP-Adresse 169.254.0.1).
+
+|===

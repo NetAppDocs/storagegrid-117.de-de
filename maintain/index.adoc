@@ -1,0 +1,45 @@
+---
+permalink: maintain/index.html 
+sidebar: sidebar 
+keywords: maintain overview, maintenance overview, about maintain, about maintenance 
+summary: Verwenden Sie diese Anweisungen, um Ihr StorageGRID System zu warten und nach Ausfällen eine Wiederherstellung zu ermöglichen. 
+---
+= Recovery and Maintain: Übersicht
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Verwenden Sie diese Anweisungen, um Ihr StorageGRID System zu warten und nach Ausfällen eine Wiederherstellung zu ermöglichen.
+
+
+
+== Informationen zu diesen Anweisungen
+
+In diesen Anweisungen wird beschrieben, wie ein Software-Hotfix angewendet wird, Grid-Nodes wiederhergestellt, ein ausgefallener Standort wiederhergestellt, Grid-Nodes oder einen gesamten Standort ausmustern, Netzwerkwartung durchführen, Wartungsvorgänge auf Host- und Middleware-Ebene durchführen und Grid Node-Verfahren durchführen.
+
+
+NOTE: In diesen Anweisungen bezieht sich „`Linux`“ auf eine Bereitstellung von Red hat® Enterprise Linux®, Ubuntu®, CentOS oder Debian®. Verwenden Sie die https://["NetApp Interoperabilitäts-Matrix-Tool"^] Um eine Liste der unterstützten Versionen zu erhalten.
+
+
+
+== Bevor Sie beginnen
+
+* Sie verfügen über ein umfassendes Verständnis des StorageGRID Systems.
+* Sie haben die Topologie Ihres StorageGRID Systems überprüft und sich mit der Grid-Konfiguration vertraut gemacht.
+* Ihr versteht, dass ihr alle Anweisungen genau befolgen und alle Warnungen beachten müsst.
+* Sie wissen, dass nicht beschriebene Wartungsverfahren nicht unterstützt werden oder eine Serviceerbringung erfordern.
+
+
+
+
+== Wartungsverfahren für Geräte
+
+Hardwareprozeduren finden Sie in der Wartungsanleitung für Ihr StorageGRID-Gerät.
+
+* link:../sg6100/index.html["SGF6112-Appliance warten"]
+* link:../sg100-1000/index.html["Wartung von SG100 und SG1000 Appliances"]
+* link:../sg6000/index.html["Warten Sie die SG6000-Appliance"]
+* link:../sg5700/index.html["SG5700 Appliance warten"]
+

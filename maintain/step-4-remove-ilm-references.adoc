@@ -1,0 +1,76 @@
+---
+permalink: maintain/step-4-remove-ilm-references.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, remove ilm reference 
+summary: 'Ab Schritt 4 \(ILM-Referenzen entfernen\) des Assistenten für die Decommission-Site können Sie die vorgeschlagene Richtlinie entfernen, wenn diese vorhanden ist, und alle nicht verwendeten ILM-Regeln löschen oder bearbeiten, die sich noch auf die Site beziehen.' 
+---
+= Schritt 4: Entfernen Sie ILM-Referenzen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ab Schritt 4 (Entfernen von ILM-Referenzen) des Decommission Site Wizard können Sie die vorgeschlagene Richtlinie entfernen, wenn diese vorhanden ist, und alle nicht verwendeten ILM-Regeln löschen oder bearbeiten, die sich noch auf die Site beziehen.
+
+.Über diese Aufgabe
+In den folgenden Fällen können Sie den Ablauf zur Deaktivierung der Website nicht starten:
+
+* Es gibt eine vorgeschlagene ILM-Richtlinie. Wenn Sie über eine vorgeschlagene Richtlinie verfügen, müssen Sie diese löschen.
+* Jede ILM-Regel bezieht sich auf den Standort, selbst wenn diese Regel in keiner ILM-Richtlinie verwendet wird. Sie müssen alle Regeln, die sich auf die Website beziehen, löschen oder bearbeiten.
+
+
+.Schritte
+. Wenn eine vorgeschlagene Richtlinie aufgeführt ist, entfernen Sie sie.
++
+.. Wählen Sie *Vorgeschlagene Richtlinie Löschen*.
+.. Wählen Sie im Bestätigungsdialogfeld * OK* aus.
+
+
+. Stellen Sie fest, ob sich ungenutzte ILM-Regeln auf den Standort beziehen.
++
+image::../media/decommission_site_step_4_ilm_rules.png[Deaktivierung der ILM-Regeln für Schritt 4 des Standorts]
+
++
+Alle aufgelisteten ILM-Regeln beziehen sich weiterhin auf den Standort, werden jedoch in keiner Richtlinie verwendet. Im Beispiel:
+
++
+** Die Regel *2 Kopien erstellen* verwendet den Speicherpool *Alle Speicherknoten* (StorageGRID 11.6 und früher), der den Standort *Alle Standorte* verwendet.
+** Die ungenutzte *3 Kopien für S3-Mandanten*-Regel bezieht sich auf den *Raleigh*-Speicherpool.
+** Die ungenutzte *2 Copy 2-Seiten für kleinere Objekte*-Regel bezieht sich auf den *Raleigh*-Speicherpool.
+** Die unbenutzten *EC larger Objects* Regeln verwenden die Raleigh Site im *All 3 Sites* Erasure Coding Profil.
+** Wenn keine ILM-Regeln aufgeführt sind, wählen Sie *Weiter*, um zu zu gelangen link:step-5-resolve-node-conflicts.html["Schritt 5: Auflösen von Knotenkonflikten (und Start der Stilllegung)"].
++
+
+NOTE: Wenn StorageGRID die Website dekomprimiert, werden alle ungenutzten Erasure Coding-Profile, die auf diesen Standort verweisen, automatisch deaktiviert und alle nicht verwendeten Storage-Pools, die auf den Standort verweisen, werden automatisch gelöscht. Der Speicherpool Alle Speicherknoten (StorageGRID 11.6 und früher) wird entfernt, da er den Standort Alle Standorte verwendet.
+
+** Wenn eine oder mehrere ILM-Regeln aufgeführt sind, fahren Sie mit dem nächsten Schritt fort.
+
+
+. Bearbeiten oder Löschen jeder nicht verwendeten Regel:
++
+** Um eine Regel zu bearbeiten, aktualisieren Sie auf der ILM-Regelseite alle Platzierungen, die ein Erasure Coding-Profil oder einen Storage-Pool verwenden, das auf den Standort verweist. Kehren Sie dann zu *Schritt 4 (ILM-Referenzen entfernen)* zurück.
++
+
+NOTE: Weitere Informationen finden Sie in den Anweisungen zum Verwalten von Objekten mit Information Lifecycle Management.
+
+** Um eine Regel zu löschen, wählen Sie das Papierkorb-Symbol aus image:../media/icon_trash_can.png["Symbol Papierkorb Kann"] Und wählen Sie *OK*.
++
+
+IMPORTANT: Sie müssen die Regel *make 2 copies* löschen, bevor Sie eine Site stilllegen können.
+
+
+
+. Vergewissern Sie sich, dass keine vorgeschlagene ILM-Richtlinie vorhanden ist, keine ungenutzten ILM-Regeln auf die Site verweisen und die Schaltfläche *Weiter* ist aktiviert.
++
+image::../media/decommission_site_step_4_no_policy_or_rules.png[Decommission Site Schritt 4 Keine Richtlinien oder Regeln]
+
+. Wählen Sie *Weiter*.
++
+
+NOTE: Alle verbleibenden Speicherpools und Profile für das Erasure Coding, die auf den Standort verweisen, werden ungültig, wenn der Standort entfernt wird. Wenn StorageGRID die Website dekomprimiert, werden alle ungenutzten Erasure Coding-Profile, die auf diesen Standort verweisen, automatisch deaktiviert und alle nicht verwendeten Storage-Pools, die auf den Standort verweisen, werden automatisch gelöscht. Der Speicherpool Alle Speicherknoten (StorageGRID 11.6 und früher) wird entfernt, da er den Standort Alle Standorte verwendet.
+
++
+Schritt 5 (Auflösen von Knotenkonflikten) wird angezeigt.
+
+

@@ -1,0 +1,32 @@
+---
+permalink: maintain/decommissioning-disconnected-storage-nodes.html 
+sidebar: sidebar 
+keywords: storagegrid, connected nodes, decommission node, storage node, disconnected storage node 
+summary: 'Sie müssen wissen, was passieren kann, wenn Sie einen Storage-Knoten stilllegen, während er nicht verbunden ist \(Health is Unbekannt oder Administrativ Down\).' 
+---
+= Trennen Sie nicht verbundene Storage-Nodes außer Betrieb
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie müssen wissen, was passieren kann, wenn Sie einen Storage-Knoten außer Betrieb setzen, während er nicht verbunden ist (Zustand ist unbekannt oder administrativ ausgefallen).
+
+Wenn Sie einen Storage-Node, der vom Raster getrennt wird, außer Betrieb nehmen, verwendet StorageGRID Daten von anderen Storage-Nodes, um die Objektdaten und Metadaten des getrennten Node zu rekonstruieren. Dazu werden am Ende des Stilllegungsvorgangs automatisch Datenreparaturaufgaben gestartet.
+
+Bevor Sie einen getrennten Storage-Node stilllegen, müssen Sie Folgendes beachten:
+
+* Getrennte Nodes dürfen niemals außer Betrieb genommen werden, es sei denn, Sie sind sicher, dass sie nicht online geschaltet oder wiederhergestellt werden können.
++
+
+IMPORTANT: Führen Sie dieses Verfahren nicht aus, wenn Sie der Meinung sind, dass Objektdaten vom Node wiederhergestellt werden können. Wenden Sie sich stattdessen an den technischen Support, um zu ermitteln, ob das Recovery von Nodes möglich ist.
+
+* Wenn ein getrennter Storage-Node die einzige Kopie eines Objekts enthält, geht dieses Objekt verloren, wenn Sie den Node ausmustern. Die Datenrekonstruktionsaufgaben können Objekte nur rekonstruieren und wiederherstellen, wenn mindestens eine replizierte Kopie oder genug Fragmente mit Löschungscode auf aktuell verbundenen Storage-Nodes vorhanden sind.
+* Wenn Sie einen getrennten Storage-Node ausmustern, wird der Vorgang der Ausmusterung relativ schnell abgeschlossen. Die Ausführung von Datenreparaturen kann jedoch Tage oder Wochen dauern und wird nicht durch die Außerbetriebnahme überwacht. Sie müssen diese Jobs manuell überwachen und nach Bedarf neu starten. Siehe link:checking-data-repair-jobs.html["Prüfen Sie die Reparatur von Daten"].
+* Wenn Sie mehrere getrennte Storage-Nodes gleichzeitig außer Betrieb nehmen, kann es zu Datenverlusten kommen. Das System ist möglicherweise nicht in der Lage, Daten zu rekonstruieren, wenn zu wenige Kopien von Objektdaten, Metadaten oder Erasure-Coding-Fragmenten verfügbar sind.
++
+
+IMPORTANT: Wenn Sie mehr als einen getrennten Storage Node haben, den Sie nicht wiederherstellen können, wenden Sie sich an den technischen Support, um die beste Vorgehensweise zu ermitteln.
+
+

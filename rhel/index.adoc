@@ -1,0 +1,51 @@
+---
+permalink: rhel/index.html 
+sidebar: sidebar 
+keywords: red hat enterprise linux, rhel, centos linux 
+summary: 'Die Installation eines StorageGRID Systems in einer Red hat Enterprise Linux (RHEL) oder CentOS Linux Umgebung umfasst drei wichtige Schritte.' 
+---
+= Red hat Enterprise Linux oder CentOS: Übersicht installieren
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Die Installation eines StorageGRID Systems in einer Red hat Enterprise Linux (RHEL) oder CentOS Linux Umgebung umfasst drei wichtige Schritte.
+
+. *Vorbereitung*: Bei der Planung und Vorbereitung führen Sie folgende Aufgaben aus:
++
+** Erfahren Sie mehr über die Hardware- und Storage-Anforderungen für StorageGRID.
+** Erfahren Sie mehr über die Besonderheiten von link:../network/index.html["StorageGRID Networking"] Damit Sie Ihr Netzwerk entsprechend konfigurieren können.
+** Ermitteln und Vorbereiten der physischen oder virtuellen Server, die Sie für das Hosten Ihrer StorageGRID Grid Nodes verwenden möchten
+** Auf den Servern, die Sie vorbereitet haben:
++
+*** Installieren Sie Linux
+*** Konfigurieren Sie das Hostnetzwerk
+*** Hostspeicher konfigurieren
+*** Die Container-Engine einbauen
+*** Installieren Sie die StorageGRID Host Services
+
+
+
+
+. * Bereitstellung*: Bereitstellung von Grid-Knoten mit der entsprechenden Benutzeroberfläche. Wenn Sie Grid-Nodes implementieren, werden diese als Teil des StorageGRID Systems erstellt und mit einem oder mehreren Netzwerken verbunden.
++
+.. Verwenden Sie die Linux-Befehlszeile und die Node-Konfigurationsdateien, um auf den in Schritt 1 vorbereiteten Hosts softwarebasierte Grid-Nodes bereitzustellen.
+.. Verwenden Sie das Installationsprogramm für StorageGRID Appliance, um StorageGRID Appliance-Nodes bereitzustellen.
++
+
+NOTE: Hardware-spezifische Installations- und Integrationsanweisungen sind nicht im StorageGRID Installationsverfahren enthalten. Informationen zur Installation von StorageGRID Appliances finden Sie im link:../installconfig/index.html["Schnellstart für die Hardwareinstallation"] Anleitung für das Gerät finden.
+
+
+
+. *Konfiguration*: Wenn alle Knoten bereitgestellt wurden, verwenden Sie den Grid Manager, um das Grid zu konfigurieren und die Installation abzuschließen.
+
+
+Diese Anweisungen empfehlen einen Standardansatz zur Implementierung und Konfiguration eines StorageGRID Systems. Siehe auch die Informationen über folgende alternative Ansätze:
+
+* Verwendung eines Standard-Orchestrierungs-Frameworks wie Ansible, Puppet oder Chef zur Installation von RHEL oder CentOS, zur Konfiguration von Netzwerk und Storage, zur Installation der Container Engine und des StorageGRID Host Service sowie zur Implementierung von Virtual Grid-Nodes
+* Automatisieren Sie die Implementierung und Konfiguration des StorageGRID Systems mit einem Python-Konfigurationsskript (im Installationsarchiv bereitgestellt).
+* Automatisieren Sie die Implementierung und Konfiguration von Appliance-Grid-Nodes mit einem Python-Konfigurationsskript (erhältlich über das Installationsarchiv oder über das Installationsprogramm von StorageGRID Appliance).
+* Als fortschrittlicher Entwickler von StorageGRID-Implementierungen sollten Sie die Installation VON REST-APIs verwenden, um die Installation von StorageGRID Grid-Nodes zu automatisieren.
+

@@ -1,0 +1,24 @@
+---
+permalink: monitor/index.html 
+sidebar: sidebar 
+keywords: monitor StorageGRID 
+summary: Anhand dieser Anweisungen können Sie ein StorageGRID System überwachen sowie eventuelle Probleme bewerten und beheben. 
+---
+= Überwachen eines StorageGRID-Systems: Übersicht
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Befolgen Sie diese Anweisungen, um ein StorageGRID-System zu überwachen und mögliche Probleme zu bewerten.
+
+In diesen Anweisungen wird die Verwendung von Grid Manager zum Überwachen eines StorageGRID-Systems beschrieben. Sie erfahren, welche Informationen Sie regelmäßig überwachen sollten, wie Sie Warnmeldungen und ältere Alarme verwalten, wie Sie SNMP für das Monitoring verwenden und wie Sie zusätzliche StorageGRID-Daten erhalten, einschließlich Metriken und Diagnosen.
+
+.Bevor Sie beginnen
+* Sie müssen mit einem beim Grid Manager angemeldet sein link:../admin/web-browser-requirements.html["Unterstützter Webbrowser"].
+* Dieser muss unbedingt vorhanden sein link:../admin/admin-group-permissions.html["Bestimmte Zugriffsberechtigungen"].
+
+
+
+NOTE: Um die Einheiten für die im Grid-Manager angezeigten Speicherwerte zu ändern, wählen Sie das Benutzer-Dropdown oben rechts im Grid-Manager aus, und wählen Sie dann *Benutzereinstellungen* aus.

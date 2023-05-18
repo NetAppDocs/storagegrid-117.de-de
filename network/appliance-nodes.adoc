@@ -1,0 +1,26 @@
+---
+permalink: network/appliance-nodes.html 
+sidebar: sidebar 
+keywords: networking for appliance, port bond mode 
+summary: Die Netzwerk-Ports auf StorageGRID Applikationen können so konfiguriert werden, dass die Port Bond-Modi verwendet werden, die den Anforderungen an Durchsatz, Redundanz und Failover entsprechen. 
+---
+= Appliance-Nodes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Die Netzwerk-Ports auf StorageGRID Applikationen können so konfiguriert werden, dass die Port Bond-Modi verwendet werden, die den Anforderungen an Durchsatz, Redundanz und Failover entsprechen.
+
+Die 10/25-GbE-Ports auf den StorageGRID Appliances können im Bond-Modus „Fest“ oder „Aggregat“ für Verbindungen zum Grid-Netzwerk und zum Client-Netzwerk konfiguriert werden.
+
+Die 1-GbE-Admin-Netzwerkports können für Verbindungen zum Admin-Netzwerk im Independent- oder Active-Backup-Modus konfiguriert werden.
+
+Weitere Informationen zu den Port-Bond-Modi Ihrer Appliance finden Sie unter:
+
+* link:../installconfig/port-bond-modes-for-sgf6112.html["Port-Bond-Modi (SGF6112)"]
+* link:../installconfig/port-bond-modes-for-sg6000-cn-controller.html["Port-Bond-Modi (SG6000-CN-Controller)"]
+* link:../installconfig/port-bond-modes-for-e5700sg-controller-ports.html["Port-Bond-Modi (E5700SG Controller)"]
+* link:../installconfig/port-bond-modes-for-sg100-and-sg1000.html["Port-Bond-Modi (SG100 und SG1000)"]
+

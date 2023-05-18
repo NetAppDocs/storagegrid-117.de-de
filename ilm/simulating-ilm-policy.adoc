@@ -1,0 +1,184 @@
+---
+permalink: ilm/simulating-ilm-policy.html 
+sidebar: sidebar 
+keywords: simulate ilm policy 
+summary: Simulieren Sie eine vorgeschlagene Richtlinie für Testobjekte, bevor Sie die Richtlinie aktivieren und auf Ihre Produktionsdaten anwenden. Das Simulationsfenster bietet eine eigenständige Umgebung, die zum Testen von Richtlinien sicher ist, bevor sie aktiviert und auf Daten in der Produktionsumgebung angewendet werden. 
+---
+= Simulation einer ILM-Richtlinie
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Simulieren Sie eine vorgeschlagene Richtlinie für Testobjekte, bevor Sie die Richtlinie aktivieren und auf Ihre Produktionsdaten anwenden. Das Simulationsfenster bietet eine eigenständige Umgebung, die zum Testen von Richtlinien sicher ist, bevor sie aktiviert und auf Daten in der Produktionsumgebung angewendet werden.
+
+.Bevor Sie beginnen
+* Sie sind mit einem bei Grid Manager angemeldet link:../admin/web-browser-requirements.html["Unterstützter Webbrowser"].
+* Sie haben die link:../admin/admin-group-permissions.html["Erforderliche Zugriffsberechtigungen"].
+* Für jedes zu testende Objekt ist der S3-Bucket/Objektschlüssel oder der Swift-Container-/Objektname bekannt.
+
+
+.Über diese Aufgabe
+Wählen Sie sorgfältig die Objekte aus, die die vorgeschlagene Richtlinie testen soll. Um eine Richtlinie gründlich zu simulieren, sollten Sie mindestens ein Objekt für jeden Filter in jeder Regel testen.
+
+Wenn eine Richtlinie beispielsweise eine Regel enthält, mit der Objekte in Bucket A und eine andere Regel übereinstimmen, um Objekte in Bucket B zu entsprechen, müssen Sie mindestens ein Objekt aus Bucket A und ein Objekt aus Bucket B auswählen, um die Richtlinie gründlich zu testen. Sie müssen außerdem mindestens ein Objekt aus einem anderen Bucket auswählen, um die Standardregel zu testen.
+
+Bei der Simulation einer Richtlinie gelten folgende Überlegungen:
+
+* Nachdem Sie Änderungen an einer Richtlinie vorgenommen haben, speichern Sie die vorgeschlagene Richtlinie. Dann simulieren Sie das Verhalten der gespeicherten vorgeschlagenen Richtlinie.
+* Wenn Sie eine Richtlinie simulieren, filtern die ILM-Regeln in der Richtlinie die Testobjekte ab, sodass Sie sehen können, welche Regel auf jedes Objekt angewendet wurde. Es werden jedoch keine Objektkopien erstellt und keine Objekte abgelegt. Wenn Sie eine Simulation ausführen, ändern Sie Ihre Daten, Regeln oder Richtlinien in keiner Weise.
+* Das Fenster vorgeschlagene Richtlinie simulieren behält die getesteten Objekte bei, bis Sie entweder *Alle löschen* oder das Symbol entfernen auswählen image:../media/icon-x-to-remove.png["Symbol entfernen"] Für jedes Objekt in der Liste Simulationsergebnisse.
+* Simulation gibt den Namen der übereinstimmenden Regel zurück. Um zu ermitteln, welches Profil für den Speicherpool oder die Erasure Coding-Funktion verwendet wird, wählen Sie den Namen der Regel aus, um auf die Seite mit den Regeldetails zu gelangen. Dort können Sie das Aufbewahrungsdiagramm sowie weitere Details zur Regel anzeigen.
+* Wenn die S3-Versionierung aktiviert ist, können Sie die Versions-ID für die Version des Objekts eingeben, das Sie für die Simulation verwenden möchten.
+
+
+.Schritte
+. link:creating-proposed-ilm-policy.html["Erstellen Sie eine vorgeschlagene Richtlinie"].
+. Verwenden eines S3- oder Swift-Clients oder des link:../tenant/use-s3-console.html["Experimentelle S3 Konsole"], Die im Tenant Manager für jeden Mandanten verfügbar ist, geben Sie die Objekte ein, die zum Testen jeder Regel erforderlich sind.
+. Wählen Sie auf der ILM-Richtlinienseite, Registerkarte vorgeschlagene Richtlinie, *Simulate* aus.
+. Geben Sie im Feld *Objekt* das S3 ein `bucket/object-key` Oder den Swift `container/object-name` Für ein Testobjekt. Beispiel: `bucket-01/filename.png`.
+. Geben Sie optional eine Versions-ID für das Objekt in das Feld *Versions-ID* ein.
+. Wählen Sie *Simulieren*.
+. Bestätigen Sie im Abschnitt Simulationsergebnisse, dass jedes Objekt mit der richtigen Regel abgeglichen wurde.
+
+
+
+
+== Beispiel 1: Überprüfung der Regeln bei der Simulation einer vorgeschlagenen ILM-Richtlinie
+
+In diesem Beispiel wird beschrieben, wie Regeln bei der Simulation einer vorgeschlagenen Richtlinie überprüft werden.
+
+In diesem Beispiel wird die *Beispiel ILM-Richtlinie* für die aufgenommene Objekte in zwei Buckets simuliert. Die Richtlinie umfasst drei Regeln:
+
+* Die erste Regel, *zwei Kopien, zwei Jahre für Eimer-A*, gilt nur für Objekte in Eimer-a.
+* Die zweite Regel, *EC-Objekte > 1 MB*, gilt für alle Buckets, aber für Filter auf Objekten größer als 1 MB.
+* Die dritte Regel, *zwei Kopien, zwei Rechenzentren*, ist die Standardregel. Er enthält keine Filter und verwendet keine nicht aktuelle Referenzzeit.
+
+
+Bestätigen Sie nach der Simulation der Richtlinie, dass jedes Objekt mit der richtigen Regel abgeglichen wurde.
+
+image::../media/simulate_policy_screen.png[Richtlinienergebnisse simulieren]
+
+In diesem Beispiel:
+
+* `bucket-a/bucket-a object.pdf` Die erste Regel, die nach Objekten in filtert, wurde richtig zugeordnet `bucket-a`.
+* `bucket-b/test object greater than 1 MB.pdf` Ist in `bucket-b`, So dass es nicht mit der ersten Regel. Stattdessen wurde sie durch die zweite Regel korrekt abgeglichen, die nach Objekten mit einer Größe von mehr als 1 MB filtert.
+* `bucket-b/test object less than 1 MB.pdf` Stimmt nicht mit den Filtern in den ersten beiden Regeln überein, so wird sie durch die Standardregel platziert, die keine Filter enthält.
+
+
+
+
+== Beispiel 2: Neuanordnung von Regeln bei der Simulation einer vorgeschlagenen ILM-Richtlinie
+
+Dieses Beispiel zeigt, wie Sie Regeln neu anordnen können, um die Ergebnisse bei der Simulation einer Richtlinie zu ändern.
+
+In diesem Beispiel wird die *Demo*-Richtlinie simuliert. Diese Richtlinie, die zum Auffinden von Objekten mit Metadaten für Benutzer der Serie=x-men bestimmt ist, enthält drei Regeln:
+
+* Die erste Regel, *PNGs*, filtert nach Schlüsselnamen, die enden `.png`.
+* Die zweite Regel, *X-Men*, gilt nur für Objekte für Mieter A und Filter für `series=x-men` Benutzer-Metadaten:
+* Die letzte Regel, *two copies two Data Centers*, ist die Standardregel, die allen Objekten entspricht, die nicht den ersten beiden Regeln entsprechen.
+
+
+.Schritte
+. Nachdem Sie die Regeln hinzugefügt und die Richtlinie gespeichert haben, wählen Sie *Simulieren*.
+. Geben Sie im Feld *Object* den S3-Bucket/Object-Key oder den Swift-Container/Object-Name für ein Testobjekt ein und wählen Sie *Simulate* aus.
++
+Die Simulationsergebnisse werden angezeigt und zeigen an, dass der `Havok.png` Das Objekt wurde durch die *PNGs*-Regel abgeglichen.
+
++
+image::../media/simulate_reorder_rules_pngs_result.png[Beispiel 2: Neuanordnung von Regeln bei der Simulation einer vorgeschlagenen ILM-Richtlinie]
+
++
+Jedoch `Havok.png` Sollte die *X-Men*-Regel testen.
+
+. Um das Problem zu lösen, ordnen Sie die Regeln neu an.
++
+.. Wählen Sie *Finish*, um das Fenster ILM-Richtlinie simulieren zu schließen.
+.. Wählen Sie *actions* > *Edit*, um die Richtlinie zu bearbeiten.
+.. Ziehen Sie die *X-Men*-Regel an den Anfang der Liste.
+.. Wählen Sie *Speichern*.
+
+
+. Wählen Sie *Simulieren*.
++
+Die zuvor getesteten Objekte werden anhand der aktualisierten Richtlinie neu bewertet und die neuen Simulationsergebnisse angezeigt. In dem Beispiel zeigt die Spalte „Regelabgleichung“, dass der `Havok.png` Das Objekt entspricht jetzt wie erwartet der X-Men-Metadatenregel. In der Spalte Vorheriger Abgleich wird angezeigt, dass die PNGs-Regel mit dem Objekt in der vorherigen Simulation übereinstimmt.
+
++
+image::../media/simulate_reorder_rules_correct_result.png[Beispiel 2: Neuanordnung von Regeln bei der Simulation einer vorgeschlagenen ILM-Richtlinie]
+
++
+
+NOTE: Wenn Sie auf der Registerkarte vorgeschlagene Richtlinie bleiben, können Sie eine Richtlinie neu simulieren, nachdem Sie Änderungen vorgenommen haben, ohne die Namen der Testobjekte erneut eingeben zu müssen.
+
+
+
+
+
+== Beispiel 3: Korrigieren Sie eine Regel bei der Simulation einer vorgeschlagenen ILM-Richtlinie
+
+Dieses Beispiel zeigt, wie eine Richtlinie simuliert, eine Regel in der Richtlinie korrigiert und die Simulation fortgesetzt wird.
+
+In diesem Beispiel wird die *Demo*-Richtlinie simuliert. Diese Richtlinie dient zum Suchen von Objekten, die über solche verfügen `series=x-men` Benutzer-Metadaten: Bei der Simulation dieser Richtlinie gegen die traten jedoch unerwartete Ergebnisse auf `Beast.jpg` Objekt: Anstatt die X-Men-Metadatenregel zu entsprechen, kopiert das Objekt die Standardregel. Zwei Rechenzentren werden kopiert.
+
+image::../media/simulate_results_for_object_wrong_metadata.png[Beispiel 3: Korrektur einer Regel bei der Simulation einer vorgeschlagenen ILM-Richtlinie]
+
+Wenn ein Testobjekt nicht mit der erwarteten Regel in der Richtlinie übereinstimmt, müssen Sie jede Regel in der Richtlinie überprüfen und eventuelle Fehler korrigieren.
+
+.Schritte
+. Wählen Sie *Fertig*, um das Dialogfeld Richtlinie simulieren zu schließen. Wählen Sie auf der Registerkarte vorgeschlagene Richtlinie *Aufbewahrungsdiagramm* aus. Wählen Sie dann *Alle erweitern* oder *Details anzeigen* für jede Regel nach Bedarf aus.
+. Prüfen Sie das Mandantenkonto der Regel, die Referenzzeit und die Filterkriterien.
++
+Angenommen, die Metadaten für die X-men-Regel wurden als „`x-men01`“ anstelle von „`x-men“ eingegeben.`“
+
+. Um den Fehler zu beheben, korrigieren Sie die Regel wie folgt:
++
+** Wenn die Regel Teil der vorgeschlagenen Richtlinie ist, können Sie entweder die Regel klonen oder die Regel aus der Richtlinie entfernen und sie dann bearbeiten.
+** Wenn die Regel Teil der aktiven Richtlinie ist, müssen Sie die Regel klonen. Sie können keine Regel aus der aktiven Richtlinie bearbeiten oder entfernen.
++
+[cols="1a,3a"]
+|===
+| Option | Schritte 
+
+
+ a| 
+Die Regel klonen
+ a| 
+... Wählen Sie *ILM* > *Regeln*.
+... Wählen Sie die falsche Regel aus, und wählen Sie *Clone*.
+... Geben Sie einen Namen für die neue Regel ein, ändern Sie dann die falschen Informationen und wählen Sie *Create*.
+... Wählen Sie *ILM* > *Richtlinien* > *vorgeschlagene Richtlinie* aus.
+... Wählen Sie *Actions* > *Edit*.
+... Wählen Sie *Regeln auswählen*, und wählen Sie dann *Weiter*, um dieselbe Standardregel zu akzeptieren.
+... Aktivieren Sie im Schritt andere Regeln auswählen das Kontrollkästchen für die neue Regel, deaktivieren Sie das Kontrollkästchen für die ursprüngliche Regel und wählen Sie *Auswählen*.
+... Ordnen Sie die Regeln bei Bedarf neu an, indem Sie die neue Regel an die richtige Stelle ziehen.
+... Wählen Sie *Speichern*.
+
+
+
+
+ a| 
+Bearbeiten Sie die Regel
+ a| 
+... Wählen Sie *ILM* > *Richtlinien* > *vorgeschlagene Richtlinie* und entfernen Sie die Regel, die Sie bearbeiten möchten.
+... Wählen Sie *ILM* > *Regeln*.
+... Wählen Sie die Regel aus, die Sie bearbeiten möchten, und wählen Sie *Bearbeiten*. Oder aktivieren Sie das Kontrollkästchen für die Regel und wählen Sie *Aktionen* > *Bearbeiten*.
+... Ändern Sie die falschen Informationen für jeden Teil des Assistenten, und wählen Sie dann *Update*.
+... Wählen Sie *ILM* > *Richtlinien* > *vorgeschlagene Richtlinie* aus.
+... Wählen Sie *Actions* > *Edit*.
+... Wählen Sie *Regeln auswählen*, und wählen Sie dann *Weiter*, um dieselbe Standardregel zu akzeptieren.
+... Aktivieren Sie im Dialogfeld andere Regeln auswählen das Kontrollkästchen für die korrigierte Regel, wählen Sie *Auswählen* und dann *Speichern*.
+... Ziehen Sie die Zeilen für die nicht standardmäßigen Regeln, um die Reihenfolge zu bestimmen, in der diese Regeln ausgewertet werden.
+
+
+|===
+
+
+. Führen Sie die Simulation erneut aus.
++
+In diesem Beispiel entspricht die korrigierte X-Men-Regel nun dem `Beast.jpg` Objekt auf Grundlage des `series=x-men` Benutzer-Metadaten, wie erwartet.
+
++
+image::../media/simulate_results_for_object_corrected_metadata.png[Beispiel 3: Korrektur einer Regel bei der Simulation einer vorgeschlagenen ILM-Richtlinie]
+
+

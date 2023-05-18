@@ -1,0 +1,18 @@
+---
+permalink: maintain/decommissioning-multiple-storage-nodes.html 
+sidebar: sidebar 
+keywords: storagegrid, decommission nodes, storage node, multiple storage nodes 
+summary: Wenn mehr als ein Storage-Node entfernt werden muss, können Sie sie nacheinander oder parallel absetzen. 
+---
+= Ausmustern mehrerer Storage-Nodes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn mehr als ein Storage-Node entfernt werden muss, können Sie sie nacheinander oder parallel absetzen.
+
+* Wenn Sie Storage-Nodes nacheinander ausmustern, müssen Sie warten, bis der erste Storage-Node heruntergefahren wurde, bevor Sie den nächsten Storage-Node außer Betrieb nehmen.
+* Wenn Sie Storage-Nodes parallel ausmustern, verarbeiten die Storage-Nodes zugleich Aufgaben zur Deaktivierung aller Storage-Nodes. Dies kann dazu führen, dass alle permanenten Kopien einer Datei als "`read‐only,`" markiert werden, wenn das Löschen in Gittern, in denen diese Funktion aktiviert ist, vorübergehend deaktiviert wird.
+

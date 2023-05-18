@@ -1,0 +1,26 @@
+---
+permalink: maintain/consolidating-storage-nodes.html 
+sidebar: sidebar 
+keywords: storagegrid, storage node, consolidate storage node, consolidating storage node 
+summary: Sie können Storage-Nodes konsolidieren, um die Anzahl der Storage-Nodes für einen Standort oder eine Bereitstellung zu verringern und gleichzeitig die Storage-Kapazität zu erhöhen. 
+---
+= Storage-Nodes Konsolidieren
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können Storage-Nodes konsolidieren, um die Anzahl der Storage-Nodes für einen Standort oder eine Bereitstellung zu verringern und gleichzeitig die Storage-Kapazität zu erhöhen.
+
+Wenn Sie Storage-Nodes konsolidieren, erweitern Sie das StorageGRID System, um neue Storage-Nodes mit größerer Kapazität hinzuzufügen, und Mustern die alten Storage-Nodes mit geringerer Kapazität aus. Während der Deaktivierung werden Objekte von den alten Storage Nodes zu den neuen Storage Nodes migriert.
+
+
+NOTE: Wenn Sie ältere und kleinere Appliances mit neuen Modellen oder Appliances mit höherer Kapazität konsolidieren, nutzen viele die Node-Klonfunktion oder das Verfahren zum Klonen von Nodes und setzen die Stilllegung um, wenn Sie keinen Einzelaustausch vornehmen.
+
+Beispielsweise können Sie zwei neue Storage-Nodes mit größerer Kapazität hinzufügen, um drei ältere Storage-Nodes zu ersetzen. Sie würden zuerst das Erweiterungsverfahren verwenden, um die beiden neuen, größeren Storage-Nodes hinzuzufügen, und anschließend die drei alten Storage-Nodes mit geringerer Kapazität entfernen.
+
+Durch Hinzufügen neuer Kapazität vor dem Entfernen vorhandener Storage-Nodes wird eine ausgewogenere Datenverteilung im gesamten StorageGRID System sichergestellt. Sie reduzieren auch die Möglichkeit, dass ein vorhandener Storage-Node über die Storage-Grenzmarke hinaus geschoben werden kann.
+
+.Verwandte Informationen
+link:../expand/index.html["Erweitern Sie Ihr Raster"]

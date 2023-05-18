@@ -1,0 +1,56 @@
+---
+permalink: admin/configuring-admin-proxy-settings.html 
+sidebar: sidebar 
+keywords: admin proxy, autosupport, non-transparent proxy 
+summary: 'Wenn Sie AutoSupport-Meldungen über HTTP oder HTTPS senden, können Sie einen nicht transparenten Proxy-Server zwischen Admin-Knoten und dem technischen Support \(AutoSupport\) konfigurieren.' 
+---
+= Konfigurieren Sie die Administrator-Proxy-Einstellungen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Sie AutoSupport-Meldungen über HTTP oder HTTPS senden (siehe link:configure-autosupport-grid-manager.html["Konfigurieren Sie AutoSupport"]) Können Sie einen nicht transparenten Proxy-Server zwischen Admin-Knoten und technischem Support (AutoSupport) konfigurieren.
+
+.Bevor Sie beginnen
+* Sie haben spezifische Zugriffsberechtigungen.
+* Sie sind mit einem bei Grid Manager angemeldet link:../admin/web-browser-requirements.html["Unterstützter Webbrowser"].
+
+
+.Über diese Aufgabe
+Sie können die Einstellungen für einen einzigen Admin-Proxy konfigurieren.
+
+.Schritte
+. Wählen Sie *KONFIGURATION* > *Sicherheit* > *Proxy-Einstellungen*.
++
+Die Seite Admin Proxy Settings wird angezeigt. Standardmäßig ist *Storage* im Sidebar-Menü ausgewählt.
+
+. Wählen Sie im Sidebar-Menü die Option *Admin*.
++
+image::../media/proxy_settings_menu_admin.png[Proxy-Einstellungen-Menü - Admin]
+
+. Aktivieren Sie das Kontrollkästchen *Admin-Proxy aktivieren*.
++
+image::../media/proxy_settings_admin.png[Screenshot des Dialogfelds „Admin Proxy Settings“]
+
+. Geben Sie den Hostnamen oder die IP-Adresse des Proxy-Servers ein.
+. Geben Sie den Port ein, der für die Verbindung mit dem Proxy-Server verwendet wird.
+. Geben Sie optional den Proxy-Benutzernamen ein.
++
+Lassen Sie dieses Feld leer, wenn Ihr Proxy-Server keinen Benutzernamen benötigt.
+
+. Geben Sie optional das Proxy-Kennwort ein.
++
+Lassen Sie dieses Feld leer, wenn Ihr Proxy-Server kein Passwort benötigt.
+
+. Wählen Sie *Speichern*.
++
+Nachdem der Admin-Proxy gespeichert wurde, wird der Proxy-Server zwischen Admin-Nodes und dem technischen Support konfiguriert.
+
++
+
+NOTE: Änderungen an Proxy können bis zu 10 Minuten in Anspruch nehmen.
+
+. Wenn Sie den Proxy deaktivieren möchten, deaktivieren Sie das Kontrollkästchen *Admin Proxy aktivieren*, und wählen Sie *Save* aus.
+

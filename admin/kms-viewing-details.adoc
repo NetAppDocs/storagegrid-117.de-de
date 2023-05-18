@@ -1,0 +1,87 @@
+---
+permalink: admin/kms-viewing-details.html 
+sidebar: sidebar 
+keywords: view kms, view key management server 
+summary: 'Sie können Informationen über jeden Schlüsselverwaltungsserver \(KMS\) in Ihrem StorageGRID-System anzeigen, einschließlich des aktuellen Status des Servers und der Clientzertifikate.' 
+---
+= KMS-Details anzeigen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können Informationen zu jedem Schlüsselverwaltungsserver (KMS) in Ihrem StorageGRID-System anzeigen, einschließlich des aktuellen Status des Servers und der Clientzertifikate.
+
+.Schritte
+. Wählen Sie *KONFIGURATION* > *Sicherheit* > *Schlüsselverwaltungsserver* aus.
++
+Die Seite Key Management Server wird angezeigt. Auf der Registerkarte Konfigurationsdetails werden alle konfigurierten Schlüsselverwaltungsserver angezeigt.
+
+. Überprüfen Sie die Informationen in der Tabelle für jeden KMS.
++
+[cols="1a,2a"]
+|===
+| Feld | Beschreibung 
+
+
+ a| 
+KMS-Name
+ a| 
+Der beschreibende Name des KMS.
+
+
+
+ a| 
+Schlüsselname
+ a| 
+Der Schlüsselalias für den StorageGRID-Client im KMS.
+
+
+
+ a| 
+Verwaltet Schlüssel für
+ a| 
+Der dem KMS zugeordnete StorageGRID-Site.
+
+Dieses Feld zeigt den Namen einer bestimmten StorageGRID-Site oder *Sites an, die nicht von einem anderen KMS verwaltet werden (Standard-KMS).*
+
+
+
+ a| 
+Hostname
+ a| 
+Der vollständig qualifizierte Domänenname oder die IP-Adresse des KMS.
+
+Wenn ein Cluster von zwei Schlüsselverwaltungsservern vorhanden ist, werden der vollständig qualifizierte Domänenname oder die IP-Adresse beider Server aufgelistet. Wenn mehr als zwei Schlüsselverwaltungsserver in einem Cluster vorhanden sind, wird der vollständig qualifizierte Domänenname oder die IP-Adresse des ersten KMS zusammen mit der Anzahl der zusätzlichen Schlüsselverwaltungsserver im Cluster aufgelistet.
+
+Beispiel: `10.10.10.10 and 10.10.10.11` Oder `10.10.10.10 and 2 others`.
+
+Um alle Hostnamen in einem Cluster anzuzeigen, öffnen Sie ein KMS und wählen *Bearbeiten* oder *Aktionen* > *Bearbeiten*.
+
+
+
+ a| 
+Ablauf des Zertifikats
+ a| 
+Aktueller Status des Serverzertifikats, des optionalen CA-Zertifikats und des Client-Zertifikats: Gültig, abgelaufen, bald abgelaufen oder unbekannt.
+
+*Hinweis:* Es kann StorageGRID so lange wie 30 Minuten dauern, bis Updates zum Ablauf des Zertifikats erhalten. Sie müssen Ihren Webbrowser aktualisieren, um die aktuellen Werte anzuzeigen.
+
+|===
+. Wenn der Ablauf des Zertifikats unbekannt ist, warten Sie bis zu 30 Minuten, und aktualisieren Sie dann Ihren Webbrowser.
++
+
+NOTE: Unmittelbar nach dem Hinzufügen eines KMS wird der Ablauf des Zertifikats auf der Seite Key Management Server als Unbekannt angezeigt. Es kann StorageGRID bis zu 30 Minuten dauern, bis der aktuelle Status eines jeden Zertifikats angezeigt wird. Sie müssen Ihren Webbrowser aktualisieren, um den aktuellen Status anzuzeigen.
+
+. Wenn in der Spalte Zertifikatablauf angezeigt wird, dass ein Zertifikat abgelaufen ist oder kurz vor dem Ablaufdatum steht, beheben Sie das Problem so schnell wie möglich.
++
+Wenn die Warnungen *KMS CA Certificate Expiration*, *KMS Client Certificate Expiration* und *KMS Server Certificate Expiration* ausgelöst werden, notieren Sie sich die Beschreibung der einzelnen Warnungen und führen Sie die empfohlenen Aktionen durch.
+
++
+
+CAUTION: Sie müssen Probleme mit dem Zertifikat so schnell wie möglich beheben, um den Datenzugriff aufrechtzuerhalten.
+
+. Um die Zertifikatdetails für dieses KMS anzuzeigen, wählen Sie den KMS-Namen aus der Tabelle aus.
+. Überprüfen Sie auf der KMS-Übersichtsseite die Metadaten und das Zertifikat-PEM sowohl für das Serverzertifikat als auch für das Clientzertifikat. Wählen Sie bei Bedarf *Zertifikat bearbeiten*, um ein Zertifikat durch ein neues zu ersetzen.
+

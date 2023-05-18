@@ -1,0 +1,117 @@
+---
+permalink: admin/kms-editing.html 
+sidebar: sidebar 
+keywords: edit kms, edit key management server, change kms configuration, expired certificate 
+summary: Möglicherweise müssen Sie die Konfiguration eines Schlüsselverwaltungsservers bearbeiten, z. B. wenn ein Zertifikat kurz vor dem Ablauf steht. 
+---
+= Bearbeiten eines Verschlüsselungsmanagement-Servers (KMS)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Möglicherweise müssen Sie die Konfiguration eines Schlüsselverwaltungsservers bearbeiten, z. B. wenn ein Zertifikat kurz vor dem Ablauf steht.
+
+.Bevor Sie beginnen
+* Sie haben die geprüft link:kms-considerations-and-requirements.html["Überlegungen und Anforderungen für die Verwendung eines Verschlüsselungsmanagement-Servers"].
+* Wenn Sie die für einen KMS ausgewählte Site aktualisieren möchten, haben Sie die geprüft link:kms-considerations-for-changing-for-site.html["Überlegungen für das Ändern des KMS für einen Standort"].
+* Sie sind mit einem bei Grid Manager angemeldet link:../admin/web-browser-requirements.html["Unterstützter Webbrowser"].
+* Sie haben die Root-Zugriffsberechtigung.
+
+
+.Schritte
+. Wählen Sie *KONFIGURATION* > *Sicherheit* > *Schlüsselverwaltungsserver* aus.
++
+Die Seite Key Management Server wird angezeigt und zeigt alle konfigurierten Key Management Server an.
+
+. Wählen Sie den KMS aus, den Sie bearbeiten möchten, und wählen Sie *actions* > *Edit*.
++
+Sie können einen KMS auch bearbeiten, indem Sie den KMS-Namen in der Tabelle auswählen und auf der KMS-Detailseite *Bearbeiten* auswählen.
+
+. Aktualisieren Sie optional die Details in *Schritt 1 (KMS-Details)* des Assistenten zum Bearbeiten eines Schlüsselverwaltungsservers.
++
+[cols="1a,3a"]
+|===
+| Feld | Beschreibung 
+
+
+ a| 
+KMS-Name
+ a| 
+Einen beschreibenden Namen, der Ihnen bei der Identifizierung dieses KMS hilft. Muss zwischen 1 und 64 Zeichen liegen.
+
+
+
+ a| 
+Schlüsselname
+ a| 
+Der exakte Schlüssel-Alias für den StorageGRID-Client im KMS. Muss zwischen 1 und 255 Zeichen liegen.
+
+In seltenen Fällen müssen Sie nur den Schlüsselnamen bearbeiten. Sie müssen beispielsweise den Schlüsselnamen bearbeiten, wenn der Alias im KMS umbenannt wird oder alle Versionen des vorherigen Schlüssels in die Versionsgeschichte des neuen Alias kopiert wurden.
+
+[CAUTION]
+====
+Versuchen Sie niemals, einen Schlüssel zu drehen, indem Sie den Schlüsselnamen (Alias) für den KMS ändern. Drehen Sie stattdessen den Schlüssel, indem Sie die Schlüsselversion in der KMS-Software aktualisieren. Für StorageGRID müssen alle zuvor verwendeten Schlüsselversionen (sowie zukünftige Versionen) vom KMS mit demselben Schlüsselalias zugänglich sein. Wenn Sie den Schlüssel-Alias für einen konfigurierten KMS ändern, kann StorageGRID Ihre Daten möglicherweise nicht entschlüsseln.
+
+link:kms-considerations-and-requirements.html["Überlegungen und Anforderungen für die Verwendung eines Verschlüsselungsmanagement-Servers"]
+
+====
+
+
+ a| 
+Verwaltet Schlüssel für
+ a| 
+Wenn Sie ein standortspezifisches KMS bearbeiten und noch kein Standard-KMS haben, wählen Sie optional *Sites Not Managed by another KMS (default KMS)* aus. Diese Auswahl konvertiert ein standortspezifisches KMS in das Standard-KMS, das für alle Standorte gilt, die kein dediziertes KMS haben, und für alle Sites, die in einer Erweiterung hinzugefügt wurden.
+
+*Hinweis:* Wenn Sie eine Site-spezifische KMS bearbeiten, können Sie keine andere Site auswählen. Wenn Sie das Standard-KMS bearbeiten, können Sie keine bestimmte Site auswählen.
+
+
+
+ a| 
+Port
+ a| 
+Der Port, den der KMS-Server für die KMIP-Kommunikation (Key Management Interoperability Protocol) verwendet. Die Standardeinstellung ist 5696, d. h. der KMIP-Standardport.
+
+
+
+ a| 
+Hostname
+ a| 
+Der vollständig qualifizierte Domänenname oder die IP-Adresse für den KMS.
+
+*Hinweis:* das Feld Subject Alternative Name (SAN) des Serverzertifikats muss den FQDN oder die IP-Adresse enthalten, die Sie hier eingeben. Andernfalls kann StorageGRID keine Verbindung zum KMS oder zu allen Servern eines KMS-Clusters herstellen.
+
+|===
+. Wenn Sie einen KMS-Cluster konfigurieren, wählen Sie *Add another hostname*, um einen Hostnamen für jeden Server im Cluster hinzuzufügen.
+. Wählen Sie *Weiter*.
++
+Schritt 2 (Serverzertifikat hochladen) des Assistenten zum Bearbeiten eines Schlüsselverwaltungsservers wird angezeigt.
+
+. Wenn Sie das Serverzertifikat ersetzen müssen, wählen Sie *Durchsuchen* und laden Sie die neue Datei hoch.
+. Wählen Sie *Weiter*.
++
+Schritt 3 (Client-Zertifikate hochladen) des Assistenten zum Bearbeiten eines Schlüsselverwaltungsservers wird angezeigt.
+
+. Wenn Sie das Clientzertifikat und den privaten Schlüssel des Clientzertifikats ersetzen müssen, wählen Sie *Durchsuchen* und laden Sie die neuen Dateien hoch.
+. Wählen Sie *Test und Speichern*.
++
+Die Verbindungen zwischen dem Verschlüsselungsmanagement-Server und allen Node-verschlüsselten Appliance-Nodes an den betroffenen Standorten werden getestet. Wenn alle Knotenverbindungen gültig sind und der korrekte Schlüssel auf dem KMS gefunden wird, wird der Schlüsselverwaltungsserver der Tabelle auf der Seite des Key Management Servers hinzugefügt.
+
+. Wenn eine Fehlermeldung angezeigt wird, überprüfen Sie die Nachrichtendetails, und wählen Sie *OK*.
++
+Sie können beispielsweise einen Fehler bei der nicht verarbeitbaren Einheit von 422 erhalten, wenn die für diesen KMS ausgewählte Site bereits von einem anderen KMS verwaltet wird oder wenn ein Verbindungstest fehlgeschlagen ist.
+
+. Wenn Sie die aktuelle Konfiguration speichern müssen, bevor Sie die Verbindungsfehler beheben, wählen Sie *Speichern erzwingen*.
++
+
+CAUTION: Wenn Sie *Force save* auswählen, wird die KMS-Konfiguration gespeichert, aber die externe Verbindung von jedem Gerät zu diesem KMS wird nicht getestet. Wenn Probleme mit der Konfiguration bestehen, können Sie Appliance-Nodes, für die die Node-Verschlüsselung am betroffenen Standort aktiviert ist, möglicherweise nicht neu starten. Wenn der Zugriff auf Ihre Daten nicht mehr vollständig ist, können Sie diese Probleme beheben.
+
++
+Die KMS-Konfiguration wird gespeichert.
+
+. Überprüfen Sie die Bestätigungswarnung, und wählen Sie *OK*, wenn Sie sicher sind, dass Sie das Speichern der Konfiguration erzwingen möchten.
++
+Die KMS-Konfiguration wird gespeichert, die Verbindung zum KMS wird jedoch nicht getestet.
+
+

@@ -1,0 +1,55 @@
+---
+permalink: installconfig/connecting-power-cords-and-applying-power-sg6000.html 
+sidebar: sidebar 
+keywords: storagegrid, sg6000, storage node, storage appliance, wire, wiring, cabling, cable, Connecting, connect, power cords, power, applying power, apply power, turn on, power up, ac, ac power 
+summary: Nach dem Anschließen der Netzwerkkabel können Sie den SG6000-CN Controller und die beiden Storage Controller oder optionale Erweiterungs-Shelfs mit Strom versorgen. 
+---
+= Anschließen des Netzes und Anwenden der Stromversorgung (SG6000)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Nach dem Anschließen der Netzwerkkabel können Sie den SG6000-CN Controller und die beiden Storage Controller oder optionale Erweiterungs-Shelfs mit Strom versorgen.
+
+.Schritte
+. Vergewissern Sie sich, dass beide Controller im Storage-Controller-Shelf deaktiviert sind.
++
+
+CAUTION: *Gefahr eines elektrischen Schlags* -- vor dem Anschließen der Netzkabel sicherstellen, dass die Netzschalter für jeden der beiden Speicher-Controller ausgeschaltet sind.
+
+. Wenn Sie über Erweiterungs-Shelfs verfügen, bestätigen Sie, dass beide IOM-Netzschalter aus sind.
++
+
+CAUTION: *Gefahr eines elektrischen Schlags* -- bevor Sie die Netzkabel anschließen, stellen Sie sicher, dass die beiden Netzschalter für jedes Erweiterungs-Regal ausgeschaltet sind.
+
+. Schließen Sie ein Netzkabel an jedes der beiden Netzteile im SG6000-CN-Controller an.
+. Schließen Sie diese beiden Netzkabel an zwei verschiedene Stromverteiler (Power Distribution Units, PDUs) im Schrank oder Rack an.
+. Schließen Sie ein Netzkabel an jede der beiden Netzteile im Storage Controller Shelf an.
+. Wenn Sie über Erweiterungs-Shelfs verfügen, schließen Sie ein Netzkabel an jede der beiden Netzteile in jedem Erweiterungs-Shelf an.
+. Verbinden Sie die beiden Netzkabel jedes Storage Shelf (einschließlich der optionalen Erweiterungs-Shelfs) mit zwei verschiedenen PDUs im Rack oder Rack.
+. Wenn der Netzschalter an der Vorderseite des SG6000-CN Controllers derzeit nicht blau leuchtet, drücken Sie die Taste, um den Controller einzuschalten.
++
+Drücken Sie den Netzschalter während des Einschalters nicht erneut.
+
+. Schalten Sie die beiden Netzschalter auf der Rückseite des Storage Controller Shelf ein. Wenn Sie über Erweiterungs-Shelfs verfügen, schalten Sie die beiden Netzschalter für jedes Shelf ein.
++
+** Schalten Sie die Netzschalter während des Einschalters nicht aus.
+** Die Lüfter im Storage Controller Shelf und optionale Erweiterungs-Shelfs sind beim ersten Starten möglicherweise sehr laut. Das laute Geräusch beim Anfahren ist normal.
+
+
+. Überprüfen Sie nach dem Starten der Komponenten den Status.
++
+** Überprüfen Sie die sieben-Segment-Anzeige auf der Rückseite jedes Storage Controllers. Weitere Informationen finden Sie im Artikel über die Anzeige von Boot-Statuscodes.
+** Stellen Sie sicher, dass der Netzschalter an der Vorderseite des SG6000-CN-Controllers leuchtet.
+
+
+. Wenn Fehler auftreten, beheben Sie alle Probleme.
+. Befestigen Sie die Frontverkleidung bei Entfernung am SG6000-CN Controller.
+
+
+.Verwandte Informationen
+* link:viewing-status-indicators.html["Statusanzeigen anzeigen anzeigen anzeigen"]
+* link:../sg6000/reinstalling-sg6000-cn-controller-into-cabinet-or-rack.html["Installieren Sie den SG6000-CN Controller wieder in den Schrank oder Rack"]
+

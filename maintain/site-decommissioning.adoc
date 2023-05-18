@@ -1,0 +1,18 @@
+---
+permalink: maintain/site-decommissioning.html 
+sidebar: sidebar 
+keywords: site decommission 
+summary: Möglicherweise müssen Sie einen Datacenter-Standort aus dem StorageGRID System entfernen. Um eine Website zu entfernen, müssen Sie sie ausmustern. 
+---
+= Website-Deaktivierung: Übersicht
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Möglicherweise müssen Sie einen Datacenter-Standort aus dem StorageGRID System entfernen. Um eine Website zu entfernen, müssen Sie sie ausmustern.
+
+Das Flussdiagramm zeigt die Schritte für die Außerbetriebnahme eines Standorts auf hoher Ebene.
+
+image::../media/overview_decommission_site.png[Überblick: Website Zur Deaktivierung]

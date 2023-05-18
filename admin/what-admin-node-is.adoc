@@ -1,0 +1,107 @@
+---
+permalink: admin/what-admin-node-is.html 
+sidebar: sidebar 
+keywords: admin nodes 
+summary: Admin Nodes stellen Managementservices wie Systemkonfiguration, Monitoring und Protokollierung bereit. Jedes Grid muss einen primären Admin-Node haben und kann eine beliebige Anzahl nicht primärer Admin-Nodes für Redundanz aufweisen. 
+---
+= Was ist ein Admin-Node?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Admin Nodes stellen Managementservices wie Systemkonfiguration, Monitoring und Protokollierung bereit. Jedes Grid muss einen primären Admin-Node haben und kann eine beliebige Anzahl nicht primärer Admin-Nodes für Redundanz aufweisen.
+
+Wenn Sie sich beim Grid Manager oder dem Tenant Manager anmelden, stellen Sie eine Verbindung zu einem Admin-Node her. Sie können eine Verbindung zu einem beliebigen Admin-Knoten herstellen, und jeder Admin-Knoten zeigt eine ähnliche Ansicht des StorageGRID-Systems an. Wartungsverfahren müssen jedoch mit dem primären Admin-Node durchgeführt werden.
+
+Admin-Nodes können auch verwendet werden, um den S3- und Swift-Client-Datenverkehr auszugleichen.
+
+
+
+== Was ist der bevorzugte Absender
+
+Wenn Ihre StorageGRID-Bereitstellung mehrere Administratorknoten umfasst, ist der primäre Administratorknoten der bevorzugte Absender für Warnmeldungen, AutoSupport-Nachrichten, SNMP-Traps und -Benachrichtigungen sowie ältere Alarmmeldungen.
+
+Im normalen Systembetrieb sendet nur der bevorzugte Sender Benachrichtigungen. Alle anderen Admin-Knoten überwachen jedoch den bevorzugten Sender. Wenn ein Problem erkannt wird, fungieren andere Admin-Nodes als _Standby-Sender_.
+
+In den folgenden Fällen können mehrere Benachrichtigungen gesendet werden:
+
+* Wenn Admin-Knoten voneinander „islanded“ werden, versuchen sowohl der bevorzugte Sender als auch der Standby-Sender, Benachrichtigungen zu senden, und es können mehrere Kopien von Benachrichtigungen empfangen werden.
+* Wenn der Standby-Sender Probleme mit dem bevorzugten Sender erkennt und mit dem Senden von Benachrichtigungen beginnt, kann der bevorzugte Sender möglicherweise wieder Benachrichtigungen senden. In diesem Fall können doppelte Benachrichtigungen gesendet werden. Der Standby-Sender hört auf, Benachrichtigungen zu senden, wenn Fehler auf dem bevorzugten Sender nicht mehr erkannt werden.
++
+
+NOTE: Wenn Sie AutoSupport-Meldungen testen, senden alle Administratorknoten die Test-E-Mail. Wenn Sie die Warnbenachrichtigungen testen, müssen Sie sich bei jedem Admin-Knoten anmelden, um die Verbindung zu überprüfen.
+
+
+
+
+
+== Primäre Dienste für Admin-Nodes
+
+Die folgende Tabelle zeigt die primären Dienste für Admin-Nodes. Diese Tabelle enthält jedoch nicht alle Node-Services.
+
+[cols="1a,2a"]
+|===
+| Service | Tastenfunktion 
+
+
+ a| 
+Audit Management System (AMS)
+ a| 
+Verfolgt Systemaktivitäten und -Ereignisse.
+
+
+
+ a| 
+Configuration Management Node (CMN)
+ a| 
+Verwaltet die systemweite Konfiguration. Nur primärer Admin-Node.
+
+
+
+ a| 
+Management-Applikations-Programmierschnittstelle (Management-API)
+ a| 
+Verarbeitet Anforderungen aus der Grid-Management-API und der Mandantenmanagement-API.
+
+
+
+ a| 
+Hochverfügbarkeit
+ a| 
+Verwaltet hochverfügbare virtuelle IP-Adressen für Gruppen von Admin-Nodes und Gateway-Nodes.
+
+*Hinweis:* dieser Service befindet sich auch auf Gateway Nodes.
+
+
+
+ a| 
+Lastausgleich
+ a| 
+Sorgt für einen Lastenausgleich des S3- und Swift-Datenverkehrs von Clients zu Storage Nodes.
+
+*Hinweis:* dieser Service befindet sich auch auf Gateway Nodes.
+
+
+
+ a| 
+Netzwerk-Management-System (NMS)
+ a| 
+Bietet Funktionen für den Grid Manager.
+
+
+
+ a| 
+Prometheus
+ a| 
+Sammelt und speichert Zeitreihenmetriken von den Services auf allen Knoten.
+
+
+
+ a| 
+Server Status Monitor (SSM)
+ a| 
+Überwachung des Betriebssystems und der zugrunde liegenden Hardware
+
+|===

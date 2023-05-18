@@ -1,0 +1,40 @@
+---
+permalink: installconfig/troubleshooting-connection-issues-sg100-and-sg1000.html 
+sidebar: sidebar 
+keywords: storagegrid, sg100, sg1000, service appliance, services appliance, gateway Node, admin node, troubleshoot, troubleshooting, connection 
+summary: Wenn während der Installation der StorageGRID-Appliance Verbindungsprobleme auftreten, führen Sie die hier aufgeführten Korrekturmaßnahmen durch. 
+---
+= Fehlerbehebung bei Verbindungsproblemen (SG100 und SG1000)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn während der Installation der StorageGRID-Appliance Verbindungsprobleme auftreten, führen Sie die hier aufgeführten Korrekturmaßnahmen durch.
+
+
+
+== Verbindung zum Gerät nicht möglich
+
+Wenn Sie keine Verbindung zur Services-Appliance herstellen können, liegt möglicherweise ein Netzwerkproblem vor, oder die Hardwareinstallation wurde möglicherweise nicht erfolgreich abgeschlossen.
+
+.Schritte
+. Versuchen Sie, das Gerät mit der IP-Adresse des Geräts zu pingen : +
+`*ping _services_appliance_IP_*`
+. Wenn Sie keine Antwort vom Ping erhalten, bestätigen Sie, dass Sie die richtige IP-Adresse verwenden.
++
+Sie können die IP-Adresse der Appliance im Grid-Netzwerk, im Admin-Netzwerk oder im Client-Netzwerk verwenden.
+
+. Wenn die IP-Adresse korrekt ist, überprüfen Sie die Geräteverkabelung, QSFP- oder SFP-Transceiver und die Netzwerkeinrichtung.
+. Wenn ein physischer Zugang zur Appliance verfügbar ist, können Sie eine direkte Verbindung zur permanenten Link-lokalen IP verwenden `169.254.0.1` Um die Controller-Netzwerkkonfiguration zu überprüfen und bei Bedarf zu aktualisieren. Detaillierte Anweisungen finden Sie in Schritt 2 unter link:accessing-storagegrid-appliance-installer.html["Rufen Sie das Installationsprogramm für StorageGRID-Appliances auf"].
++
+Falls das Problem dadurch nicht behoben werden kann, wenden Sie sich an den technischen Support.
+
+. Wenn der Ping erfolgreich war, öffnen Sie einen Webbrowser.
+. Geben Sie die URL für das StorageGRID-Appliance-Installationsprogramm ein: +
+`*https://_appliances_controller_IP_:8443*`
++
+Die Startseite wird angezeigt.
+
+

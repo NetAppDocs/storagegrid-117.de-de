@@ -1,0 +1,37 @@
+---
+permalink: maintain/considerations-for-decommissioning-storage-nodes.html 
+sidebar: sidebar 
+keywords: storagegrid, decommission 
+summary: Wenn Sie einen Storage Node außer Betrieb nehmen möchten, müssen Sie wissen, wie StorageGRID die Objektdaten und Metadaten dieses Node managt. 
+---
+= Überlegungen zur Deaktivierung von Storage Node
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Sie einen Storage Node außer Betrieb nehmen möchten, müssen Sie wissen, wie StorageGRID die Objektdaten und Metadaten dieses Node managt.
+
+Bei der Ausmusterung von Storage-Nodes gelten die folgenden Überlegungen und Einschränkungen:
+
+* Das System muss zu jeder Zeit genügend Storage Nodes enthalten, um den betrieblichen Anforderungen gerecht zu werden, einschließlich des ADC-Quorums und der aktiven ILM-Richtlinie. Um diese Einschränkung zu erfüllen, müssen Sie möglicherweise einen neuen Storage-Node zu einem Erweiterungsvorgang hinzufügen, bevor Sie einen vorhandenen Storage-Node stilllegen können.
+* Wenn der Storage-Node getrennt wird, wenn Sie ihn ausmustern, muss das System die Daten mithilfe der Daten der verbundenen Storage-Nodes rekonstruieren. Dies kann zu Datenverlusten führen.
+* Wenn Sie einen Storage-Node entfernen, müssen große Mengen von Objektdaten über das Netzwerk übertragen werden. Obwohl diese Transfers den normalen Systembetrieb nicht beeinträchtigen sollten, können sie sich auf die gesamte vom StorageGRID System benötigte Netzwerkbandbreite auswirken.
+* Aufgaben für die Deaktivierung von Storage-Nodes haben eine niedrigere Priorität als Aufgaben, die mit normalen Systemvorgängen verbunden sind. Dadurch wird die Ausmusterung normale StorageGRID Systemvorgänge nicht beeinträchtigt und es muss keine Zeit für die Inaktivität des Systems eingeplant werden. Da die Ausmusterung im Hintergrund erfolgt, ist es schwierig zu schätzen, wie lange der Vorgang dauert. Im Allgemeinen erfolgt die Ausmusterung von Storage-Nodes schneller, wenn das System still ist oder nur ein Storage-Node gleichzeitig entfernt wird.
+* Es kann Tage oder Wochen dauern, bis ein Storage-Node außer Betrieb gesetzt wurde. Planen Sie dieses Verfahren entsprechend. Der Prozess zur Deaktivierung sorgt zwar dafür, dass der Betrieb des Systems nicht beeinträchtigt wird, aber weitere Verfahren werden möglicherweise eingeschränkt. Im Allgemeinen sollten geplante System-Upgrades oder -Erweiterungen durchgeführt werden, bevor Grid-Nodes entfernt werden.
+* Während bestimmter Phasen können Verfahren zur Deaktivierung von Speicherknoten angehalten werden, damit andere Wartungsvorgänge bei Bedarf ausgeführt und nach Abschluss wieder aufgenommen werden können.
+* Wenn eine Ausmusterung ausgeführt wird, können keine Datenreparaturvorgänge auf Grid-Nodes ausgeführt werden.
+* Während der Deaktivierung eines Storage Node sollten Sie keine Änderungen an der ILM-Richtlinie vornehmen.
+* Wenn Sie einen Storage-Node entfernen, werden die Daten des Node zu anderen Grid-Nodes migriert. Diese Daten werden jedoch nicht vollständig aus dem ausgemusterten Grid-Node entfernt. Zum endgültigen und sicheren Entfernen von Daten müssen die Laufwerke des ausgemusterten Grid-Nodes nach Abschluss des Stilllegen-Vorgangs gelöscht werden.
+* Wenn Sie einen Storage-Node außer Betrieb nehmen, werden möglicherweise die folgenden Warnmeldungen und Alarme ausgelöst. Darüber hinaus erhalten Sie möglicherweise entsprechende E-Mail- und SNMP-Benachrichtigungen:
++
+** *Kommunikation mit Knoten* Warnung nicht möglich. Diese Warnmeldung wird ausgelöst, wenn Sie einen Speicherknoten außer Betrieb setzen, der den ADC-Dienst enthält. Die Meldung wird nach Abschluss des Stilllegen-Vorgangs behoben.
+** VSTU-Alarm (Object Verification Status). Dieser Alarm auf Benachrichtigungsebene zeigt an, dass der Speicherknoten während der Stilllegung in den Wartungsmodus wechselt.
+** CASA (Data Store Status) Alarm. Dieser Großalarm zeigt an, dass die Cassandra-Datenbank ausfällt, da die Dienste angehalten wurden.
+
+
+
+
+.Verwandte Informationen
+link:restoring-object-data-to-storage-volume.html["Wiederherstellung von Objektdaten auf dem Storage-Volume"]

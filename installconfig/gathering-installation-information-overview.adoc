@@ -1,0 +1,24 @@
+---
+permalink: installconfig/gathering-installation-information-overview.html 
+sidebar: sidebar 
+keywords: install, information, site, pre-install, preparing, prepare, preinstall, info, preparation 
+summary: Während der Installation und Konfiguration einer StorageGRID Appliance treffen Sie Entscheidungen und sammeln Informationen über Ethernet Switch Ports, IP-Adressen sowie Port- und Network Bond-Modi. 
+---
+= Sammeln Sie Installationsinformationen: Übersicht
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Während der Installation und Konfiguration einer StorageGRID Appliance treffen Sie Entscheidungen und sammeln Informationen über Ethernet Switch Ports, IP-Adressen sowie Port- und Network Bond-Modi.
+
+Lesen Sie die Anweisungen für Ihr Gerät, um herauszufinden, welche Informationen Sie benötigen:
+
+* link:gathering-installation-information-sg6100.html["SGF6112"]
+* link:gathering-installation-information-sg6000.html["SG6000"]
+* link:gathering-installation-information-sg5700.html["SG5700"]
+* link:gathering-installation-information-sg100-and-sg1000.html["SG100 und SG1000"]
+
+
+Alternativ können Sie mit Ihrem NetApp Professional Services Consultant zusammenarbeiten, um die Konfigurationsschritte mit dem NetApp ConfigBuilder Tool zu optimieren und zu automatisieren. Siehe link:automating-appliance-installation-and-configuration.html["Automatisierung der Appliance-Installation und -Konfiguration"].

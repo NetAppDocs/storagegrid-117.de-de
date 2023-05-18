@@ -1,0 +1,182 @@
+---
+permalink: ilm/creating-proposed-ilm-policy.html 
+sidebar: sidebar 
+keywords: how to create ILM policy, proposed policy 
+summary: Sie können eine vorgeschlagene ILM-Richtlinie von Grund auf erstellen oder die aktuelle aktive Richtlinie klonen, wenn Sie mit demselben Regelsatz beginnen möchten. 
+---
+= Erstellen einer vorgeschlagenen ILM-Richtlinie
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können eine vorgeschlagene ILM-Richtlinie von Grund auf erstellen oder die aktuelle aktive Richtlinie klonen, wenn Sie mit demselben Regelsatz beginnen möchten.
+
+Bevor Sie eine eigene Richtlinie erstellen, überprüfen Sie, ob die link:creating-ilm-policy.html#default-ilm-policy["Standardmäßige ILM-Richtlinie"] Erfüllt Ihre Storage-Anforderungen nicht.
+
+
+NOTE: Wenn der link:enabling-s3-object-lock-globally.html["Die Einstellung für die globale S3-Objektsperre wurde aktiviert"], Sie müssen sicherstellen, dass die ILM-Richtlinie den Anforderungen von Buckets entspricht, für die S3 Object Lock aktiviert ist. Befolgen Sie in diesem Abschnitt die Anweisungen, die erwähnen, dass S3 Object Lock aktiviert ist.
+
+.Bevor Sie beginnen
+* Sie sind mit einem bei Grid Manager angemeldet link:../admin/web-browser-requirements.html["Unterstützter Webbrowser"].
+* Sie haben die link:../admin/admin-group-permissions.html["Erforderliche Zugriffsberechtigungen"].
+* Das ist schon link:access-create-ilm-rule-wizard.html["ILM-Regeln wurden erstellt"] Basierend darauf, ob S3 Object Lock aktiviert ist.
+
+
+[role="tabbed-block"]
+====
+.S3 Objektsperre nicht aktiviert
+--
+* Das ist schon link:what-ilm-rule-is.html["ILM-Regeln erstellt"] Sie möchten der vorgeschlagenen Richtlinie hinzufügen. Bei Bedarf können Sie eine vorgeschlagene Richtlinie speichern, zusätzliche Regeln erstellen und die vorgeschlagene Richtlinie bearbeiten, um die neuen Regeln hinzuzufügen.
+* Das ist schon link:creating-default-ilm-rule.html["Eine Standard-ILM-Regel wurde erstellt"] Das keine Filter enthält.
+
+
+--
+.S3-Objektsperre aktiviert
+--
+* Der link:enabling-s3-object-lock-globally.html["Die Einstellung für die globale S3-Objektsperre ist bereits aktiviert"] Für das StorageGRID-System.
+* Das ist schon link:what-ilm-rule-is.html["Erstellung der konformen und nicht konformen ILM-Regeln"] Sie möchten der vorgeschlagenen Richtlinie hinzufügen. Bei Bedarf können Sie eine vorgeschlagene Richtlinie speichern, zusätzliche Regeln erstellen und die vorgeschlagene Richtlinie bearbeiten, um die neuen Regeln hinzuzufügen.
+* Das ist schon link:creating-default-ilm-rule.html["Eine Standard-ILM-Regel wurde erstellt"] Für die Richtlinie, die konform ist.
+
+
+--
+====
+* Optional haben Sie sich das Video angesehen: https://["Video: Information Lifecycle Management Policies in StorageGRID 11.7"^]
++
+[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=0009ebe1-3665-4cdc-a101-afbd009a0466]
+image::../media/video-screenshot-ilm-policies-117.png[Video: Information Lifecycle Management Policies in StorageGRID 11.7]
+
+
+
+Siehe auch link:creating-ilm-policy.html["Erstellen Sie eine ILM-Richtlinie: Überblick"].
+
+.Über diese Aufgabe
+Typische Gründe für die Erstellung einer vorgeschlagenen ILM-Richtlinie sind:
+
+* Sie haben einen neuen Standort hinzugefügt und müssen neue ILM-Regeln verwenden, um Objekte an diesem Standort zu platzieren.
+* Sie müssen einen Standort stilllegen und alle ILM-Regeln entfernen, die sich auf den Standort beziehen.
+* Sie haben einen neuen Mandanten mit besonderen Anforderungen an die Datensicherheit hinzugefügt.
+* Sie haben damit begonnen, einen Cloud-Storage-Pool zu verwenden.
+
+
+
+IMPORTANT: Verwenden Sie die vom System bereitgestellte Richtlinie, Richtlinie für Baseline 2 Kopien, nur in Testsystemen. Für StorageGRID 11.6 und früher verwendet die Standardregel in dieser Richtlinie den Speicherpool Alle Speicherknoten, der alle Standorte enthält. Wenn Ihr StorageGRID System über mehrere Standorte verfügt, können zwei Kopien eines Objekts an demselben Standort platziert werden.
+
+.Schritte
+. Wählen Sie *ILM* > *Richtlinien*.
++
+Wenn die globale S3 Object Lock-Einstellung aktiviert ist, gibt die Seite ILM-Richtlinien an, welche ILM-Regeln konform sind.
+
+. Legen Sie fest, wie Sie die vorgeschlagene ILM-Richtlinie erstellen möchten. +
+
+
+[role="tabbed-block"]
+====
+.Beginnen Sie von vorne
+--
+. Wenn derzeit eine vorgeschlagene ILM-Richtlinie vorhanden ist, wählen Sie *vorgeschlagene Richtlinie* > *Aktionen* > *Entfernen* aus.
++
+Sie können keine neue vorgeschlagene Richtlinie erstellen, wenn bereits eine vorgeschlagene Richtlinie vorhanden ist.
+
+. Wählen Sie *vorgeschlagene Richtlinie erstellen* > *Neue Richtlinie erstellen*.
+
+
+--
+.Beginnen Sie mit Regeln aus der aktiven Richtlinie
+--
+. Wenn derzeit eine vorgeschlagene ILM-Richtlinie vorhanden ist, wählen Sie *vorgeschlagene Richtlinie* > *Aktionen* > *Entfernen* aus.
++
+Sie können die aktive Richtlinie nicht klonen, wenn bereits eine vorgeschlagene Richtlinie vorhanden ist.
+
+. Wählen Sie *vorgeschlagene Richtlinie erstellen* > *aktive Richtlinie klonen*.
+
+
+--
+.Vorhandene vorgeschlagene Richtlinie bearbeiten
+. Wählen Sie *vorgeschlagene Richtlinie* > *Aktionen* > *Bearbeiten*.
+
+
+====
+. Geben Sie im Feld *vorgeschlagener Richtlinienname* einen eindeutigen Namen für die vorgeschlagene Richtlinie ein.
+. Geben Sie im Feld *Grund für Änderung* den Grund ein, aus dem Sie eine neue vorgeschlagene Richtlinie erstellen.
+. Um der Richtlinie Regeln hinzuzufügen, wählen Sie *Regeln auswählen*. Wählen Sie einen Regelnamen aus, um die Einstellungen für diese Regel anzuzeigen.
++
+
+NOTE: In regelmäßigen Abständen wird die Liste der Regeln automatisch aktualisiert, um Hinzufügungen oder Entnahmen zu berücksichtigen. Wenn eine Regel entfernt wird, nachdem Sie sie ausgewählt haben, wird eine Fehlermeldung angezeigt.
+
++
+Beim Klonen einer Richtlinie:
+
++
+** Die von der Richtlinie, die Sie klonen, verwendeten Regeln sind ausgewählt.
+** Wenn die Richtlinie, die Sie klonen, Regeln ohne Filter verwendet hat, die nicht die Standardregel waren, werden Sie aufgefordert, alle Regeln außer einer dieser Regeln zu entfernen.
+** Wenn die Standardregel einen Filter verwendet hat, werden Sie aufgefordert, eine neue Standardregel auszuwählen.
+** Wenn die Standardregel nicht die letzte Regel war, können Sie die Regel an das Ende der neuen Richtlinie verschieben.
+
+
+
+
+[role="tabbed-block"]
+====
+.S3 Objektsperre nicht aktiviert
+--
+. Wählen Sie eine Standardregel für die vorgeschlagene Richtlinie aus. Um eine neue Standardregel zu erstellen, wählen Sie *ILM-Regelseite* aus image:../media/icon_nms_more_details.gif["Weitere Details"].
++
+Die Standardregel gilt für alle Objekte, die nicht mit einer anderen Regel in der Richtlinie übereinstimmen. Die Standardregel kann keine Filter verwenden und wird immer zuletzt ausgewertet.
+
++
+
+IMPORTANT: Verwenden Sie nicht die Regel 2 Kopien erstellen als Standardregel für eine Richtlinie. Die Regel 2 Kopien erstellen verwendet einen einzelnen Speicherpool, alle Speicherknoten, der alle Standorte enthält. Wenn Ihr StorageGRID System über mehrere Standorte verfügt, können zwei Kopien eines Objekts an demselben Standort platziert werden.
+
+
+
+--
+.S3-Objektsperre aktiviert
+--
+. Wählen Sie eine Standardregel für die vorgeschlagene Richtlinie aus. Um eine neue Standardregel zu erstellen, wählen Sie *ILM-Regelseite* aus image:../media/icon_nms_more_details.gif["Weitere Details"].
++
+Die Liste der Regeln enthält nur die Regeln, die konform sind und keine Filter verwenden.
+
++
+
+IMPORTANT: Verwenden Sie nicht die Regel 2 Kopien erstellen als Standardregel für eine Richtlinie. Die Regel 2 Kopien erstellen verwendet einen einzelnen Speicherpool, alle Speicherknoten, der alle Standorte enthält. Wenn Sie diese Regel verwenden, können mehrere Kopien eines Objekts auf demselben Standort platziert werden.
+
+. Wenn Sie eine andere "`default`"-Regel für Objekte in nicht konformen S3-Buckets benötigen, wählen Sie *eine Regel ohne Filter für nicht konforme S3-Buckets* aus und wählen Sie eine nicht konforme Regel aus, die keinen Filter verwendet.
++
+Sie können beispielsweise einen Cloud-Storage-Pool verwenden, um Objekte in Buckets zu speichern, für die die S3-Objektsperre nicht aktiviert ist.
+
++
+
+NOTE: Sie können nur eine nicht kompatible Regel auswählen, die keinen Filter verwendet.
+
+
+
+Siehe auch link:example-7-compliant-ilm-policy-for-s3-object-lock.html["Beispiel 7: Konforme ILM-Richtlinie für S3 Object Lock"].
+
+--
+====
+. Wenn Sie mit der Auswahl der Standardregel fertig sind, wählen Sie *Weiter*.
+. Wählen Sie für den Schritt andere Regeln alle anderen Regeln aus, die Sie der Richtlinie hinzufügen möchten. Diese Regeln verwenden mindestens einen Filter (Mandantenkonto, Bucket-Name, erweiterter Filter oder nicht aktuelle Referenzzeit). Wählen Sie dann *Select*.
++
+Im Fenster vorgeschlagene Richtlinie erstellen werden nun die ausgewählten Regeln aufgelistet. Die Standardregel ist am Ende, mit den anderen Regeln darüber.
+
++
+Wenn S3 Object Lock aktiviert ist und Sie außerdem eine nicht konforme Regel „`default`“ ausgewählt haben, wird diese Regel als die zweitrangige Regel in der Richtlinie hinzugefügt.
+
++
+
+NOTE: Eine Warnung wird angezeigt, wenn eine Regel Objekte nicht für immer behält. Wenn Sie diese Richtlinie aktivieren, müssen Sie bestätigen, dass StorageGRID Objekte löschen soll, wenn die Platzierungsanweisungen für die Standardregel abgelaufen sind (es sei denn, ein Bucket-Lebenszyklus hält die Objekte für einen längeren Zeitraum).
+
+. Ziehen Sie die Zeilen für die nicht standardmäßigen Regeln, um die Reihenfolge zu bestimmen, in der diese Regeln ausgewertet werden.
++
+Sie können die Standardregel nicht verschieben. Wenn S3 Object Lock aktiviert ist, können Sie die nicht konforme Regel „`default`“ auch nicht verschieben, wenn eine ausgewählt wurde.
+
++
+
+IMPORTANT: Sie müssen sich vergewissern, dass die ILM-Regeln in der richtigen Reihenfolge sind. Wenn die Richtlinie aktiviert ist, werden neue und vorhandene Objekte anhand der Regeln in der angegebenen Reihenfolge bewertet, die oben beginnen.
+
+. Wählen Sie bei Bedarf *Regeln auswählen*, um Regeln hinzuzufügen oder zu entfernen.
+. Wenn Sie fertig sind, wählen Sie *Speichern*.
+. Gehen Sie zu link:simulating-ilm-policy.html["Simulation einer ILM-Richtlinie"]. Sie sollten eine vorgeschlagene Richtlinie immer simulieren, bevor Sie sie aktivieren, um sicherzustellen, dass sie wie erwartet funktioniert.
+

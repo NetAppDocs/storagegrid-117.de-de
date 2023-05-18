@@ -1,0 +1,138 @@
+---
+permalink: installconfig/port-bond-modes-for-sg100-and-sg1000.html 
+sidebar: sidebar 
+keywords: storagegrid, sg100, sg1000, service appliance, services appliance, gateway Node, admin node, port bond, port bonding, port bond mode, port-bond mode, Network bond, Network bonding, Network bond mode, Network-bond mode, fixed, Aggregate, independent, active-backup, active backup, management, management port, management ports 
+summary: Wenn Sie Netzwerkverbindungen für die SG100- und SG1000-Appliances konfigurieren, können Sie die Portbindung für die Ports verwenden, die mit dem Grid-Netzwerk und dem optionalen Client-Netzwerk verbunden sind, sowie für die 1-GbE-Management-Ports, die eine Verbindung zum optionalen Admin-Netzwerk herstellen. Mit Port-Bonding sichern Sie Ihre Daten, indem Sie redundante Pfade zwischen StorageGRID-Netzwerken und der Appliance bereitstellen. 
+---
+= Port-Bond-Modi (SG100 und SG1000)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Sie Netzwerkverbindungen für die SG100- und SG1000-Appliances konfigurieren, können Sie die Portbindung für die Ports verwenden, die mit dem Grid-Netzwerk und dem optionalen Client-Netzwerk verbunden sind, sowie für die 1-GbE-Management-Ports, die eine Verbindung zum optionalen Admin-Netzwerk herstellen. Mit Port-Bonding sichern Sie Ihre Daten, indem Sie redundante Pfade zwischen StorageGRID-Netzwerken und der Appliance bereitstellen.
+
+
+
+== Netzwerk-Bond-Modi
+
+Die Netzwerk-Ports auf der Services-Appliance unterstützen den Bond-Modus mit festen Ports oder den aggregierten Port-Bond-Modus für die Grid-Netzwerk- und Client-Netzwerkverbindungen.
+
+
+
+=== Bond-Modus mit festem Port
+
+Der Fixed-Port-Bond-Modus ist die Standardkonfiguration für die Netzwerk-Ports. Die Abbildungen zeigen, wie die Netzwerk-Ports auf dem SG1000 oder SG100 im Fixed-Port-Bond-Modus gebunden sind.
+
+SG100:
+
+image::../media/sg100_fixed_port.png[SG100-Bond-Modus mit Festanschluss]
+
+SG1000:
+
+image::../media/sg1000_fixed_port.png[SG1000 Fixed Port Bond-Modus]
+
+[cols="1a,3a"]
+|===
+| Legende | Welche Ports sind verbunden 
+
+
+ a| 
+C
+ a| 
+Die Ports 1 und 3 sind für das Client-Netzwerk verbunden, falls dieses Netzwerk verwendet wird.
+
+
+
+ a| 
+G
+ a| 
+Die Ports 2 und 4 sind für das Grid-Netzwerk verbunden.
+
+|===
+Bei Verwendung des Bond-Modus mit festem Port können die Ports über den aktiv-Backup-Modus oder den Link Aggregation Control Protocol-Modus (LACP 802.3ad) verbunden werden.
+
+* Im aktiv-Backup-Modus (Standard) ist jeweils nur ein Port aktiv. Wenn der aktive Port ausfällt, stellt sein Backup-Port automatisch eine Failover-Verbindung bereit. Port 4 bietet einen Sicherungspfad für Port 2 (Grid Network), und Port 3 stellt einen Sicherungspfad für Port 1 (Client Network) bereit.
+* Im LACP-Modus bildet jedes Port-Paar einen logischen Kanal zwischen der Services-Appliance und dem Netzwerk, wodurch ein höherer Durchsatz ermöglicht wird. Wenn ein Port ausfällt, stellt der andere Port den Kanal weiterhin bereit. Der Durchsatz wird verringert, die Konnektivität wird jedoch nicht beeinträchtigt.
+
+
+
+NOTE: Wenn Sie keine redundanten Verbindungen benötigen, können Sie für jedes Netzwerk nur einen Port verwenden. Beachten Sie jedoch, dass die Meldung *Services Appliance Link Down* nach der Installation von StorageGRID im Grid Manager ausgelöst wird, was darauf hinweist, dass ein Kabel nicht angeschlossen ist. Sie können diese Warnungsregel sicher deaktivieren.
+
+
+
+=== Bond-Modus für aggregierten Ports
+
+Im Aggregat-Port-Bond-Modus wird der Durchsatz jedes StorageGRID-Netzwerks deutlich erhöht und zusätzliche Failover-Pfade bereitgestellt. Diese Abbildungen zeigen, wie die Netzwerk-Ports im aggregierten Port-Bond-Modus verbunden werden.
+
+SG100:
+
+image::../media/sg100_aggregate_ports.png[Bond-Modus für Aggregatschnittstelle SG100]
+
+SG1000:
+
+image::../media/sg1000_aggregate_ports.png[SG1000 Aggregat-Port-Bond-Modus]
+
+[cols="1a,3a"]
+|===
+| Legende | Welche Ports sind verbunden 
+
+
+ a| 
+1
+ a| 
+Alle verbundenen Ports werden in einer einzelnen LACP Bond gruppiert, sodass alle Ports für den Grid-Netzwerk- und Client-Netzwerk-Datenverkehr verwendet werden können.
+
+|===
+Wenn Sie planen, den aggregierten Port Bond-Modus zu verwenden:
+
+* Sie müssen LACP Network Bond-Modus verwenden.
+* Sie müssen für jedes Netzwerk ein eindeutiges VLAN-Tag angeben. Dieses VLAN-Tag wird zu jedem Netzwerkpaket hinzugefügt, um sicherzustellen, dass der Netzwerkverkehr an das richtige Netzwerk weitergeleitet wird.
+* Die Ports müssen mit Switches verbunden sein, die VLAN und LACP unterstützen können. Wenn mehrere Switches an der LACP-Verbindung beteiligt sind, müssen die Switches MLAG (Multi-Chassis Link Aggregation Groups) oder eine vergleichbare Position unterstützen.
+* Sie wissen, wie Sie die Switches für die Verwendung von VLAN, LACP und MLAG oder gleichwertig konfigurieren.
+
+
+Wenn Sie nicht alle vier Ports verwenden möchten, können Sie einen, zwei oder drei Ports verwenden. Durch die Verwendung von mehr als einem Port wird die Wahrscheinlichkeit maximiert, dass einige Netzwerkverbindungen verfügbar bleiben, wenn einer der Ports ausfällt.
+
+
+NOTE: Wenn Sie weniger als vier Netzwerkanschlüsse verwenden möchten, beachten Sie, dass nach der Installation des Appliance-Knotens im Grid Manager möglicherweise eine Warnmeldung für die *Services-Appliance-Verbindung aus* ausgelöst wird, was darauf hinweist, dass ein Kabel nicht angeschlossen ist. Sie können diese Warnungsregel für die ausgelöste Warnmeldung sicher deaktivieren.
+
+
+
+== Network Bond-Modi für Management-Ports
+
+Für die beiden 1-GbE-Management-Ports auf der Services-Appliance können Sie den unabhängigen Netzwerk-Bond-Modus oder den aktiv-Backup-Netzwerk-Bond-Modus wählen, um eine Verbindung mit dem optionalen Admin-Netzwerk herzustellen. Diese Abbildungen zeigen, wie die Management-Ports auf den Appliances im Netzwerk-Bond-Modus für das Admin-Netzwerk verbunden sind.
+
+SG100:
+
+image::../media/sg100_bonded_management_ports.png[SG100 Bonded Network Management Ports]
+
+SG1000:
+
+image::../media/sg1000_bonded_management_ports.png[Bonded Network Management Ports für SG1000]
+
+[cols="1a,3a"]
+|===
+| Legende | Netzwerk-Bond-Modus 
+
+
+ a| 
+A
+ a| 
+Aktiv-Backup-Modus. Beide Management-Ports sind mit einem logischen Management-Port verbunden, der mit dem Admin-Netzwerk verbunden ist.
+
+
+
+ a| 
+ICH
+ a| 
+Unabhängiger Modus. Der Port auf der linken Seite ist mit dem Admin-Netzwerk verbunden. Der Anschluss rechts ist für temporäre lokale Verbindungen verfügbar (IP-Adresse 169.254.0.1).
+
+|===
+Im Independent-Modus ist nur der Management-Port links mit dem Admin-Netzwerk verbunden. Dieser Modus stellt keinen redundanten Pfad bereit. Der Management Port auf der rechten Seite ist nicht verbunden und für temporäre lokale Verbindungen verfügbar (verwendet IP-Adresse 169.254.0.1)
+
+Im Active-Backup-Modus sind beide Management-Ports mit dem Admin-Netzwerk verbunden. Es ist jeweils nur ein Port aktiv. Wenn der aktive Port ausfällt, stellt sein Backup-Port automatisch eine Failover-Verbindung bereit. Die Verbindung dieser beiden physischen Ports zu einem logischen Management-Port bietet einen redundanten Pfad zum Admin-Netzwerk.
+
+
+NOTE: Wenn Sie eine temporäre lokale Verbindung zur Services-Appliance herstellen müssen, wenn die 1-GbE-Management-Ports für den aktiv-Backup-Modus konfiguriert sind, entfernen Sie die Kabel von beiden Management-Ports, schließen Sie das temporäre Kabel an den Verwaltungsport rechts an und greifen Sie über die IP-Adresse 169.254.0 auf das Gerät zu.

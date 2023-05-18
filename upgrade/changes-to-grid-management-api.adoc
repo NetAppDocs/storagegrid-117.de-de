@@ -1,0 +1,37 @@
+---
+permalink: upgrade/changes-to-grid-management-api.html 
+sidebar: sidebar 
+keywords: grid management api, api, api version, swagger, rest api 
+summary: StorageGRID 11.7 verwendet Version 3 der Grid-Management-API. Version 3 depretiert Version 2; jedoch werden Version 1 und Version 2 weiterhin unterstützt. 
+---
+= Änderungen an der Grid-Management-API
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 11.7 verwendet Version 3 der Grid-Management-API. Version 3 depretiert Version 2; jedoch werden Version 1 und Version 2 weiterhin unterstützt.
+
+
+IMPORTANT: Sie können Version 1 und Version 2 der Management-API mit StorageGRID 11.7 weiterhin verwenden. Allerdings wird die Unterstützung für diese Versionen der API in einem zukünftigen Release von StorageGRID entfernt. Nach dem Upgrade auf StorageGRID 11.7 können die veralteten v1- und v2-APIs mithilfe des deaktiviert werden `PUT /grid/config/management` API:
+
+Weitere Informationen finden Sie unter link:../admin/using-grid-management-api.html["Verwenden Sie die Grid-Management-API"].
+
+
+
+== Anzeigenamen sind jetzt in Antworten auf Anforderungen des Node-Systemzustands enthalten
+
+Im Zusammenhang mit dem neuen link:../maintain/rename-grid-site-node-overview.html["Benennen Sie Raster, Standorte und Nodes um, Verfahren"], Nach dem Umbenennen eines Standorts oder Knotens werden der Name des Elements (sein Systemname) und dessen Anzeigename von der API *Node-Health* zurückgegeben.
+
+
+
+== Bucket und Zugriffsschlüssel für neue S3-Mandanten können erstellt werden
+
+Neu `s3Bucket` Und `s3AccessKey` Optionen wurden der API *Accounts* hinzugefügt. Wenn Sie ein S3-Mandantenkonto mit der Grid-Management-API erstellen, können Sie optional einen Bucket für diesen Mandanten sowie die Zugriffsschlüssel-ID und den geheimen Schlüssel für den Root-Benutzer des Mandanten erstellen.
+
+
+
+== Kann den Speicherstatus für Storage-Node ändern
+
+Sie können die neuen API-Endpunkte *Node-Storage-State* verwenden, um den Status des Speichers in einem Storage Node (online, offline, schreibgeschützt) zu bestimmen und zu ändern.

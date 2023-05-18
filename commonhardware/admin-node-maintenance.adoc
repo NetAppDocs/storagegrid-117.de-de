@@ -1,0 +1,12 @@
+---
+sidebar: sidebar 
+permalink: commonhardware/admin-node-maintenance.html 
+keywords: admin Node maintenance 
+summary: Admin-Node-Wartung. 
+---
+= Admin-Node-Wartung
+:allow-uri-read: 
+
+
+[role="lead"]
+Gibt es irgendwelche Wartungsthemen speziell für alle Admin-Nodes?

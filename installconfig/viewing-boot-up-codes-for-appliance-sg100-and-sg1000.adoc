@@ -1,0 +1,150 @@
+---
+permalink: installconfig/viewing-boot-up-codes-for-appliance-sg100-and-sg1000.html 
+sidebar: sidebar 
+keywords: storagegrid, sg100, sg1000, service appliance, services appliance, gateway Node, admin node, boot codes, boot-up codes, start codes, codes, boot, start, bmc 
+summary: Wenn Sie das Gerät mit Strom versorgen, protokolliert der BMC eine Reihe von Startcodes. Sie können diese Codes auf einer grafischen Konsole anzeigen, die mit dem BMC-Management-Port verbunden ist. 
+---
+= Boot-up-Codes anzeigen (SG100 und SG1000)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Sie das Gerät mit Strom versorgen, protokolliert der BMC eine Reihe von Startcodes. Sie können diese Codes auf einer grafischen Konsole anzeigen, die mit dem BMC-Management-Port verbunden ist.
+
+.Bevor Sie beginnen
+* Wissen Sie, wie Sie auf das BMC-Dashboard zugreifen können.
+* Wenn Sie Seriell-über-LAN (SOL) verwenden möchten, haben Sie Erfahrung mit IPMI SOL-Konsolenanwendungen.
+
+
+.Schritte
+. Wählen Sie eine der folgenden Methoden, um die Startcodes für den Gerätesteuerung anzuzeigen, und sammeln Sie die erforderlichen Geräte.
++
+[cols="1a,2a"]
+|===
+| Methode | Erforderliche Ausrüstung 
+
+
+ a| 
+VGA-Konsole
+ a| 
+** VGA-fähiger Monitor
+** VGA-Kabel
+
+
+
+
+ a| 
+KVM
+ a| 
+** RJ-45-Kabel
+
+
+
+
+ a| 
+Serieller Port
+ a| 
+** SERIELLES DB-9-Kabel
+** Serielles virtuelles Terminal
+
+
+
+
+ a| 
+SOL
+ a| 
+** Serielles virtuelles Terminal
+
+
+|===
+. Wenn Sie eine VGA-Konsole verwenden, führen Sie die folgenden Schritte aus:
++
+.. Schließen Sie einen VGA-fähigen Monitor an den VGA-Anschluss auf der Rückseite des Geräts an.
+.. Zeigen Sie die Codes an, die auf dem Monitor angezeigt werden.
+
+
+. Wenn Sie BMC KVM verwenden, führen Sie die folgenden Schritte aus:
++
+.. Stellen Sie eine Verbindung zum BMC-Verwaltungsanschluss her, und melden Sie sich bei der BMC-Webschnittstelle an.
+.. Wählen Sie *Fernbedienung*.
+.. Starten Sie KVM.
+.. Zeigen Sie die Codes auf dem virtuellen Monitor an.
+
+
+. Wenn Sie einen seriellen Port und ein Terminal verwenden, führen Sie die folgenden Schritte aus:
++
+.. Schließen Sie den seriellen Anschluss DB-9 an der Rückseite des Geräts an.
+.. Einstellungen verwenden `115200 8-N-1`.
+.. Zeigen Sie die Codes an, die über der seriellen Klemme gedruckt wurden.
+
+
+. Wenn Sie SOL verwenden, führen Sie die folgenden Schritte aus:
++
+.. Stellen Sie mithilfe der BMC-IP-Adresse und der Anmeldedaten eine Verbindung zum IPMI SOL her.
++
+`ipmitool -I lanplus -H _BMC_Port_IP_ -U root -P _Password_ sol activate`
+
+.. Die Codes auf dem virtuellen seriellen Terminal anzeigen.
+
+
+. Verwenden Sie die Tabelle, um die Codes für Ihr Gerät zu suchen.
++
+[cols="1a,3a"]
+|===
+| Codieren | Zeigt An 
+
+
+ a| 
+HI
+ a| 
+Das Master-Boot-Skript wurde gestartet.
+
+
+
+ a| 
+HP
+ a| 
+Das System prüft, ob die NIC-Firmware (Network Interface Card) aktualisiert werden muss.
+
+
+
+ a| 
+RB
+ a| 
+Das System wird nach dem Anwenden von Firmware-Updates neu gebootet.
+
+
+
+ a| 
+FP
+ a| 
+Die Update-Prüfungen der Hardware-Subsystem-Firmware wurden abgeschlossen. Die Kommunikationsdienste zwischen den Controllern werden gestartet.
+
+
+
+ a| 
+HZ
+ a| 
+Das System prüft gerade auf vorhandene StorageGRID Installationsdaten.
+
+
+
+ a| 
+HO
+ a| 
+Die StorageGRID Appliance wird ausgeführt.
+
+
+
+ a| 
+HOCHVERFÜGBARKEIT
+ a| 
+StorageGRID wird ausgeführt.
+
+|===
+
+
+.Verwandte Informationen
+link:../installconfig/accessing-bmc-interface.html["Greifen Sie auf die BMC-Schnittstelle zu"]

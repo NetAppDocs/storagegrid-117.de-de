@@ -1,0 +1,39 @@
+---
+permalink: audit/accessing-audit-log-file.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, log, log file, access, accessing 
+summary: Die Revisionsfreigabe enthält die aktive audit.log-Datei und alle komprimierten Audit-Log-Dateien. Um den einfachen Zugriff auf Audit-Protokolle zu ermöglichen, können Sie den Client-Zugriff auf Audit-Freigaben für NFS konfigurieren. Sie können auch direkt über die Befehlszeile des Admin-Knotens auf Audit-Protokolldateien zugreifen. 
+---
+= Zugriff auf die Audit-Log-Datei
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Die Revisionsfreigabe enthält die aktive `audit.log` Datei und alle komprimierten Audit-Log-Dateien. Für den einfachen Zugriff auf Audit-Protokolle können Sie link:../admin/configuring-audit-client-access.html["Konfigurieren Sie den Client-Zugriff für die Prüfung für NFS"]. Sie können auch direkt über die Befehlszeile des Admin-Knotens auf Audit-Protokolldateien zugreifen.
+
+.Bevor Sie beginnen
+* Sie müssen über spezifische Zugriffsberechtigungen verfügen.
+* Sie müssen die haben `Passwords.txt` Datei:
+* Sie müssen die IP-Adresse eines Admin-Knotens kennen.
+
+
+.Schritte
+. Melden Sie sich bei einem Admin-Knoten an:
++
+.. Geben Sie den folgenden Befehl ein: `ssh admin@_primary_Admin_Node_IP_`
+.. Geben Sie das im aufgeführte Passwort ein `Passwords.txt` Datei:
+.. Geben Sie den folgenden Befehl ein, um zum Root zu wechseln: `su -`
+.. Geben Sie das im aufgeführte Passwort ein `Passwords.txt` Datei:
++
+Wenn Sie als root angemeldet sind, ändert sich die Eingabeaufforderung von `$` Bis `#`.
+
+
+
+. Gehen Sie zu dem Verzeichnis, das die Audit-Log-Dateien enthält:
++
+`cd /var/local/audit/export`
+
+. Sehen Sie sich die aktuelle oder gespeicherte Audit-Protokolldatei nach Bedarf an.
+

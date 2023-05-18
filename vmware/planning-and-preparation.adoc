@@ -1,0 +1,35 @@
+---
+permalink: vmware/planning-and-preparation.html 
+sidebar: sidebar 
+keywords: how to plan before installation 
+summary: Bevor Sie Grid-Nodes implementieren und das StorageGRID Grid konfigurieren, müssen Sie die Schritte und Anforderungen für das Durchführen des Verfahrens kennen. 
+---
+= Vor der Installation (VMware)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Bevor Sie Grid-Nodes implementieren und das StorageGRID Grid konfigurieren, müssen Sie die Schritte und Anforderungen für das Durchführen des Verfahrens kennen.
+
+Bei den Implementierungs- und Konfigurationsverfahren für StorageGRID ist bereits die Architektur und die betrieblichen Funktionen des StorageGRID Systems bekannt.
+
+Sie können einen oder mehrere Standorte gleichzeitig implementieren. Alle Standorte müssen jedoch die Mindestanforderungen erfüllen, die für mindestens drei Storage-Nodes bestehen.
+
+Bevor Sie mit der Implementierung eines Node und der Grid-Konfiguration beginnen, müssen Sie:
+
+* Planung der StorageGRID Implementierung
+* Installation, Anschluss und Konfiguration der gesamten erforderlichen Hardware – einschließlich aller StorageGRID Appliances – gemäß den Spezifikationen
++
+
+IMPORTANT: Wenn bei der StorageGRID-Installation keine StorageGRID Appliance (Hardware) Storage Nodes verwendet werden, müssen Sie Hardware-RAID-Storage mit batteriegestütztem Schreib-Cache (BBWC) verwenden. StorageGRID unterstützt die Verwendung von Virtual Storage Area Networks (VSANs), Software-RAID oder keinen RAID-Schutz.
+
++
+
+NOTE: Hardware-spezifische Installations- und Integrationsanweisungen sind nicht im StorageGRID Installationsverfahren enthalten. Informationen zur Installation von StorageGRID Appliances finden Sie unter link:../installconfig/index.html["Appliance-Hardware installieren"].
+
+* Verstehen Sie die link:../network/index.html["Verfügbare Netzwerkoptionen und wie die einzelnen Netzwerkoptionen in Grid-Nodes implementiert werden sollen"].
+* Sammeln Sie alle Netzwerkinformationen im Voraus. Sammeln Sie, sofern Sie kein DHCP verwenden, die IP-Adressen für die einzelnen Grid-Nodes sowie die IP-Adressen der zu verwendenden DNS- und NTP-Server.
+* Legen Sie fest, welche der verfügbaren Implementierungs- und Konfigurationstools Sie verwenden möchten.
+

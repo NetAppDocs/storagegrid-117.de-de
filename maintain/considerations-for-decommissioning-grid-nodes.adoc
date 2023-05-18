@@ -1,0 +1,31 @@
+---
+permalink: maintain/considerations-for-decommissioning-grid-nodes.html 
+sidebar: sidebar 
+keywords: storagegrid, decommission 
+summary: Bevor Sie dieses Verfahren zur Deaktivierung von einem oder mehreren Nodes starten, müssen Sie die Auswirkungen des Entfernens der einzelnen Node verstehen. Bei der erfolgreichen Ausmusterung eines Node werden seine Services deaktiviert und der Node wird automatisch heruntergefahren. 
+---
+= Allgemeine Überlegungen zur Stilllegung von Grid-Nodes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Bevor Sie dieses Verfahren zur Deaktivierung von einem oder mehreren Nodes starten, müssen Sie die Auswirkungen des Entfernens der einzelnen Node verstehen. Bei der erfolgreichen Ausmusterung eines Node werden seine Services deaktiviert und der Node wird automatisch heruntergefahren.
+
+Sie können einen Node nicht ausmustern, wenn Sie dazu den StorageGRID in einem ungültigen Status belassen. Folgende Regeln werden durchgesetzt:
+
+* Der primäre Admin-Node kann nicht stillgelegt werden.
+* Archive Nodes können nicht stillgelegt werden.
+* Sie können einen Admin-Node oder einen Gateway-Node nicht stilllegen, wenn eine seiner Netzwerkschnittstellen Teil einer HA-Gruppe ist.
+* Sie können einen Speicher-Node nicht stilllegen, wenn dessen Entfernung das ADC-Quorum beeinträchtigen würde.
+* Sie können einen Storage Node nicht stilllegen, wenn er für die aktive ILM-Richtlinie erforderlich ist.
+* Sie sollten nicht mehr als 10 Storage-Nodes in einem einzigen Decommission-Node-Verfahren außer Betrieb nehmen.
+* Sie können einen verbundenen Knoten nicht stilllegen, wenn Ihr Raster getrennte Knoten enthält (Knoten, deren Zustand Unbekannt oder Administrativ inaktiv ist). Sie müssen zunächst die getrennten Nodes außer Betrieb nehmen oder wiederherstellen.
+* Wenn Ihr Grid mehrere getrennte Knoten enthält, muss die Software gleichzeitig ausmustern, wodurch das Potenzial für unerwartete Ergebnisse erhöht wird.
+* Wenn ein getrennter Knoten nicht entfernt werden kann (z. B. ein Speicher-Knoten, der für das ADC-Quorum erforderlich ist), kann kein anderer getrennter Knoten entfernt werden.
+* Wenn Sie ein älteres Gerät durch ein neueres Gerät ersetzen möchten, sollten Sie dies in Betracht ziehen link:../commonhardware/how-appliance-node-cloning-works.html["Klonen des Appliance-Node"] Statt den alten Node außer Betrieb zu setzen und den neuen Node in einer Erweiterung hinzuzufügen.
+
+
+
+IMPORTANT: Entfernen Sie die Virtual Machine oder andere Ressourcen eines Grid-Node erst, wenn Sie im Ausmusterungsverfahren dazu aufgefordert werden.

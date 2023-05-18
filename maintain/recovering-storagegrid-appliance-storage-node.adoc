@@ -1,0 +1,48 @@
+---
+permalink: maintain/recovering-storagegrid-appliance-storage-node.html 
+sidebar: sidebar 
+keywords: recover, appliance storage node failure, workflow 
+summary: Das Verfahren zur Wiederherstellung eines fehlerhaften StorageGRID-Appliance-Speicherknoten ist dieselbe, egal ob Sie eine Wiederherstellung nach dem Verlust des Systemlaufwerks oder nach dem Verlust von Storage-Volumes durchführen. 
+---
+= Wiederherstellen des Appliance Storage Node: Workflow
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Das Verfahren zur Wiederherstellung eines fehlerhaften StorageGRID-Appliance-Speicherknoten ist dieselbe, egal ob Sie eine Wiederherstellung nach dem Verlust des Systemlaufwerks oder nach dem Verlust von Storage-Volumes durchführen.
+
+Wie im Workflow-Diagramm gezeigt, müssen Sie die Appliance vorbereiten und die Software neu installieren, den Knoten so konfigurieren, dass er wieder in das Raster eingebunden wird, den Speicher neu formatieren und Objektdaten wiederherstellen.
+
+image::../media/overview_sga_recovery.gif[Übersicht über das Flussdiagramm der StorageGRID-Appliance-Recovery]
+
+
+
+== Vorsichtsmaßnahmen und Hinweise zur Wiederherstellung von Appliance-Storage-Nodes
+
+
+CAUTION: Wenn mehrere Speicherknoten ausgefallen sind (oder offline ist), wenden Sie sich an den technischen Support. Führen Sie das folgende Wiederherstellungsverfahren nicht durch. Es kann zu Datenverlusten kommen.
+
+
+CAUTION: Falls dies der zweite Ausfall des Storage-Nodes in weniger als 15 Tagen nach Ausfall oder Wiederherstellung eines Storage-Nodes ist, wenden Sie sich an den technischen Support. Die Neuerstellung von Cassandra auf zwei oder mehr Storage-Nodes innerhalb von 15 Tagen kann zu Datenverlust führen.
+
+
+NOTE: Wenn mehr als ein Speicherknoten an einem Standort ausgefallen ist, ist möglicherweise ein Verfahren zur Standortwiederherstellung erforderlich. Siehe link:how-site-recovery-is-performed-by-technical-support.html["Durchführen der Standortwiederherstellung durch den technischen Support"].
+
+
+CAUTION: Wenn ILM-Regeln so konfiguriert sind, dass nur eine replizierte Kopie gespeichert wird und sich die Kopie auf einem ausgefallenen Storage Volume befindet, können Sie das Objekt nicht wiederherstellen.
+
+
+NOTE: Wenn während der Wiederherstellung ein Alarm „Services: Status – Cassandra (SVST)“ (Services: Status – Cassandra (SVST)) angezeigt wird, siehe link:../maintain/recovering-failed-storage-volumes-and-rebuilding-cassandra-database.html["Recovery ausgefallener Storage-Volumes und Wiederherstellung der Cassandra-Datenbank"]. Nach dem Wiederaufbau von Cassandra sollten die Alarme gelöscht werden. Wenn die Alarme nicht gelöscht werden, wenden Sie sich an den technischen Support.
+
+[NOTE]
+====
+Informationen zu Hardware-Wartungsverfahren, z. B. Anweisungen zum Austauschen eines Controllers oder zum Neuinstallieren von SANtricity OS, finden Sie in der Wartungsanleitung für Ihre Speichergerät.
+
+* link:../sg6100/index.html["SGF6112 Storage Appliances"]
+* link:../sg6000/index.html["SG6000 Storage-Appliances"]
+* link:../sg5700/index.html["SG5700 Storage-Appliances"]
+
+
+====

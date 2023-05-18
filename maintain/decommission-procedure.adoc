@@ -1,0 +1,29 @@
+---
+permalink: maintain/decommission-procedure.html 
+sidebar: sidebar 
+keywords: how to decommission 
+summary: Sie können einen Außerbetriebnahme durchführen, um Grid-Nodes oder eine ganze Website dauerhaft vom StorageGRID System zu entfernen. 
+---
+= Ablauf der Stilllegung: Übersicht
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können einen Außerbetriebnahme durchführen, um Grid-Nodes oder eine ganze Website dauerhaft vom StorageGRID System zu entfernen.
+
+Um einen Grid-Node oder einen Standort zu entfernen, führen Sie einen der folgenden Verfahren zur Deaktivierung durch:
+
+* Führen Sie ein aus link:grid-node-decommissioning.html["Stilllegung des Grid-Nodes"] Um einen oder mehrere Knoten zu entfernen, die sich an einem oder mehreren Standorten befinden können. Die entfernenden Nodes können online und mit dem StorageGRID System verbunden sein oder offline bzw. getrennt sein.
+* Führen Sie ein aus link:site-decommissioning.html["Website-Deaktivierung"] Um einen Standort zu entfernen. Sie führen eine *verbundene Deaktivierung* durch, wenn alle Knoten mit StorageGRID verbunden sind. Sie führen eine * nicht verbundene Website-Stilllegung * durch, wenn alle Knoten von StorageGRID getrennt sind.
++
+
+IMPORTANT: Bevor Sie eine Website außer Betrieb nehmen, müssen Sie sich an Ihren NetApp Ansprechpartner wenden. NetApp überprüft Ihre Anforderungen, bevor Sie alle Schritte im Decommission Site Wizard aktivieren. Sie sollten keinen Versuch Unternehmen, eine getrennte Site außer Betrieb zu nehmen, wenn Sie der Meinung sind, dass eine Wiederherstellung der Site oder die Wiederherstellung von Objektdaten von der Site möglich wäre.
+
+
+
+Wenn ein Standort eine Mischung aus verbundenen (image:../media/icon_alert_green_checkmark.png["Symbol Warnung Grün Häkchen"]Und nicht verbundene Knoten (image:../media/icon_alarm_gray_administratively_down.png["Icon Alarm Grau Administrativ Nach Unten"] Oder image:../media/icon_alarm_blue_unknown.png["Symbolalarm Blau Unbekannt"]), Sie müssen alle Offline-Knoten wieder online bringen.
+
+
+NOTE: Wenn Sie eine zweite Wartung durchführen müssen, können Sie link:pausing-and-resuming-decommission-process-for-storage-nodes.html["Unterbrechen Sie die Deaktivierung, während die Speicherknoten entfernt werden"]. Die Schaltfläche *Pause* ist nur aktiviert, wenn die ILM-Bewertung oder die mit Erasure Coding versehenen Phasen der Datenauswertung erreicht sind. Die ILM-Evaluierung (Datenmigration) wird jedoch weiterhin im Hintergrund ausgeführt. Nach Abschluss des zweiten Wartungsverfahrens können Sie die Außerbetriebnahme fortsetzen.

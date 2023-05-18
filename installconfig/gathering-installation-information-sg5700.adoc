@@ -1,0 +1,375 @@
+---
+permalink: installconfig/gathering-installation-information-sg5700.html 
+sidebar: sidebar 
+keywords: storagegrid, sg5700, storage node, storage appliance, install, information, site, pre-install, preparing, prepare, preinstall, info, preparation 
+summary: Notieren Sie die erforderlichen Informationen für jedes Netzwerk, das Sie mit dem Gerät verbinden, in den Tabellen. Diese Werte sind für die Installation und Konfiguration der Hardware erforderlich. 
+---
+= Installationsinformationen (SG5700) erfassen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Notieren Sie die erforderlichen Informationen für jedes Netzwerk, das Sie mit dem Gerät verbinden, in den Tabellen. Diese Werte sind für die Installation und Konfiguration der Hardware erforderlich.
+
+
+TIP: Verwenden Sie anstelle der Tabellen das mit ConfigBuilder bereitgestellte Arbeitsbuch. Mit der Arbeitsmappe „ConfigBuilder“ können Sie Ihre Systeminformationen hochladen und eine JSON-Datei erstellen, um einige Konfigurationsschritte im Installationsprogramm für StorageGRID-Appliances automatisch auszuführen. Siehe link:automating-appliance-installation-and-configuration.html["Automatisierung der Appliance-Installation und -Konfiguration"].
+
+
+
+== Für die Verbindung mit SANtricity System Manager auf dem E2800 Controller erforderliche Informationen
+
+Sie verbinden den Controller der E2800 Serie mit dem Managementnetzwerk, das Sie für SANtricity System Manager verwenden.
+
+[cols="2a,1a"]
+|===
+| Erforderliche Informationen | Ihr Wert 
+
+
+ a| 
+Ethernet-Switch-Port die Verbindung zum Management-Port 1 wird hergestellt
+ a| 
+
+
+
+ a| 
+MAC-Adresse für Management-Port 1 (auf einem Etikett in der Nähe von Port P1 gedruckt)
+ a| 
+
+
+
+ a| 
+Über DHCP zugewiesene IP-Adresse für Management-Port 1, sofern nach dem Einschalten verfügbar
+
+*Hinweis:* Wenn das Netzwerk, das Sie mit dem E2800-Controller verbinden, einen DHCP-Server enthält, kann der Netzwerkadministrator die MAC-Adresse verwenden, um die vom DHCP-Server zugewiesene IP-Adresse zu ermitteln.
+ a| 
+
+
+
+ a| 
+Geschwindigkeit und Duplexmodus
+
+*Hinweis:* Sie müssen sicherstellen, dass der Ethernet-Switch für das SANtricity-System-Manager-Managementnetzwerk auf Autonegotiation gesetzt ist.
+ a| 
+Muss sein:
+
+* Autonegotiation (Standard)
+
+
+
+
+ a| 
+IP-Adressformat
+ a| 
+Bitte auswählen:
+
+* IPv4
+* IPv6
+
+
+
+
+ a| 
+Statische IP-Adresse, die Sie für die Appliance im Managementnetzwerk verwenden möchten
+ a| 
+Für IPv4:
+
+* IPv4-Adresse:
+* Subnetzmaske:
+* Gateway:
+
+
+Für IPv6:
+
+* IPv6-Adresse:
+* Routingfähige IP-Adresse:
+* E2800 Controller-Router-IP-Adresse:
+
+
+|===
+
+
+== Für die Verbindung des E5700SG-Controllers mit dem Admin-Netzwerk erforderliche Informationen
+
+Das Admin-Netzwerk für StorageGRID ist ein optionales Netzwerk, das zur Systemadministration und -Wartung verwendet wird. Die Appliance wird über die 1-GbE-Management-Ports des E5700SG Controllers mit dem Admin-Netzwerk verbunden.
+
+[cols="2a,1a"]
+|===
+| Erforderliche Informationen | Ihr Wert 
+
+
+ a| 
+Admin-Netzwerk aktiviert
+ a| 
+Bitte auswählen:
+
+* Nein
+* Ja (Standard)
+
+
+
+
+ a| 
+Netzwerk-Bond-Modus
+ a| 
+Bitte auswählen:
+
+* Unabhängig
+* Aktiv/Backup
+
+
+
+
+ a| 
+Switch-Port für Port 1
+ a| 
+
+
+
+ a| 
+Switch-Port für Port 2 (nur aktiv-Backup-Netzwerk-Bond-Modus)
+ a| 
+
+
+
+ a| 
+Über DHCP zugewiesene IP-Adresse für Management-Port 1, sofern nach dem Einschalten verfügbar
+
+*Hinweis:* enthält das Admin-Netzwerk einen DHCP-Server, zeigt der E5700SG-Controller nach dem Start die DHCP-zugewiesene IP-Adresse auf seinem 7-Segment-Display an. Sie können auch die IP-Adresse bestimmen, die über DHCP zugewiesen wurde, indem Sie die MAC-Adresse verwenden, um die zugewiesene IP-Adresse zu ermitteln.
+ a| 
+* IPv4-Adresse (CIDR):
+* Gateway:
+
+
+
+
+ a| 
+Statische IP-Adresse, die Sie für den Appliance-Speicherknoten im Admin-Netzwerk verwenden möchten
+
+*Hinweis:* Wenn Ihr Netzwerk kein Gateway hat, geben Sie die gleiche statische IPv4-Adresse für das Gateway an.
+ a| 
+* IPv4-Adresse (CIDR):
+* Gateway:
+
+
+
+
+ a| 
+Admin-Netzwerk-Subnetze (CIDR)
+ a| 
+
+|===
+
+
+== Erforderliche Informationen zum Verbinden und Konfigurieren von 10/25-GbE-Ports auf dem E5700SG Controller
+
+Die vier 10/25-GbE-Ports des E5700SG-Controllers stellen eine Verbindung zum StorageGRID-Grid-Netzwerk und dem Client-Netzwerk her.
+
+
+NOTE: Siehe link:port-bond-modes-for-e5700sg-controller-ports.html["Port-Bond-Modi (E5700SG Controller)"].
+
+[cols="2a,1a"]
+|===
+| Erforderliche Informationen | Ihr Wert 
+
+
+ a| 
+Verbindungsgeschwindigkeit
+
+*Hinweis:* Wenn Sie 25 GbE wählen, installieren Sie SPF28 Transceiver. Autonegotiation wird nicht unterstützt, daher müssen Sie auch die Ports und die verbundenen Switches für 25 GbE konfigurieren.
+ a| 
+Bitte auswählen:
+
+* 10 GbE (Standard)
+* 25 GBitE
+
+
+
+
+ a| 
+Port Bond-Modus
+ a| 
+Bitte auswählen:
+
+* Fest (Standard)
+* Aggregat
+
+
+
+
+ a| 
+Switch-Port für Port 1 (Client-Netzwerk)
+ a| 
+
+
+
+ a| 
+Switch-Port für Port 2 (Grid-Netzwerk)
+ a| 
+
+
+
+ a| 
+Switch-Port für Port 3 (Client-Netzwerk)
+ a| 
+
+
+
+ a| 
+Switch-Port für Port 4 (Grid-Netzwerk)
+ a| 
+
+|===
+
+
+== Zum Verbinden des E5700SG-Controllers mit dem Grid-Netzwerk erforderliche Informationen
+
+Das Grid-Netzwerk für StorageGRID ist ein erforderliches Netzwerk, das für den gesamten internen StorageGRID-Datenverkehr verwendet wird. Die Appliance wird über die 10/25-GbE-Ports des E5700SG-Controllers mit dem Grid-Netzwerk verbunden.
+
+
+NOTE: Siehe link:port-bond-modes-for-e5700sg-controller-ports.html["Port-Bond-Modi (E5700SG Controller)"].
+
+[cols="2a,1a"]
+|===
+| Erforderliche Informationen | Ihr Wert 
+
+
+ a| 
+Netzwerk-Bond-Modus
+ a| 
+Bitte auswählen:
+
+* Aktiv/Backup (Standard)
+* LACP (802.3ad)
+
+
+
+
+ a| 
+VLAN-Tagging aktiviert
+ a| 
+Bitte auswählen:
+
+* Nein (Standard)
+* Ja.
+
+
+
+
+ a| 
+VLAN-Tag (bei aktiviertem VLAN-Tagging)
+ a| 
+Geben Sie einen Wert zwischen 0 und 4095 ein:
+
+
+
+ a| 
+DHCP-zugewiesene IP-Adresse für das Grid-Netzwerk, sofern nach dem Einschalten verfügbar
+
+*Hinweis:* enthält das Grid-Netzwerk einen DHCP-Server, zeigt der E5700SG-Controller nach dem Start die DHCP-zugewiesene IP-Adresse für das Grid-Netzwerk auf seiner 7-Segment-Anzeige an.
+ a| 
+* IPv4-Adresse (CIDR):
+* Gateway:
+
+
+
+
+ a| 
+Statische IP-Adresse, die Sie für den Appliance-Speicherknoten im Grid-Netzwerk verwenden möchten
+
+*Hinweis:* Wenn Ihr Netzwerk kein Gateway hat, geben Sie die gleiche statische IPv4-Adresse für das Gateway an.
+ a| 
+* IPv4-Adresse (CIDR):
+* Gateway:
+
+
+
+
+ a| 
+Grid-Netzwerknetze (CIDR)
+
+*Hinweis:* Wenn das Client-Netzwerk nicht aktiviert ist, verwendet die Standardroute auf dem Controller das hier angegebene Gateway.
+ a| 
+
+|===
+
+
+== Für die Verbindung des E5700SG-Controllers mit dem Client-Netzwerk erforderliche Informationen
+
+Das Client-Netzwerk für StorageGRID ist ein optionales Netzwerk, das in der Regel für den Zugriff auf das Grid auf das Clientprotokoll verwendet wird. Die Appliance wird über die 10/25-GbE-Ports des E5700SG-Controllers mit dem Client-Netzwerk verbunden.
+
+
+NOTE: Siehe link:port-bond-modes-for-e5700sg-controller-ports.html["Port-Bond-Modi (E5700SG Controller)"].
+
+[cols="2a,1a"]
+|===
+| Erforderliche Informationen | Ihr Wert 
+
+
+ a| 
+Client-Netzwerk aktiviert
+ a| 
+Bitte auswählen:
+
+* Nein (Standard)
+* Ja.
+
+
+
+
+ a| 
+Netzwerk-Bond-Modus
+ a| 
+Bitte auswählen:
+
+* Aktiv/Backup (Standard)
+* LACP (802.3ad)
+
+
+
+
+ a| 
+VLAN-Tagging aktiviert
+ a| 
+Bitte auswählen:
+
+* Nein (Standard)
+* Ja.
+
+
+
+
+ a| 
+VLAN-Tag
+
+(Bei aktiviertem VLAN-Tagging)
+ a| 
+Geben Sie einen Wert zwischen 0 und 4095 ein:
+
+
+
+ a| 
+DHCP-zugewiesene IP-Adresse für das Client-Netzwerk, falls nach dem Einschalten verfügbar
+ a| 
+* IPv4-Adresse (CIDR):
+* Gateway:
+
+
+
+
+ a| 
+Statische IP-Adresse, die Sie für den Appliance-Speicherknoten im Client-Netzwerk verwenden möchten
+
+*Hinweis:* Wenn das Client-Netzwerk aktiviert ist, verwendet die Standardroute auf dem Controller das hier angegebene Gateway.
+ a| 
+* IPv4-Adresse (CIDR):
+* Gateway:
+
+
+|===
+.Verwandte Informationen
+* link:sg5700-appliance-connections.html["Netzwerkverbindungen (SG5700)"]
+* link:port-bond-modes-for-e5700sg-controller-ports.html["Port-Bond-Modi (E5700SG Controller)"]
+* link:configuring-hardware.html["Hardware konfigurieren (SG5700)"]
+

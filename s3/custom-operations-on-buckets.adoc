@@ -1,0 +1,113 @@
+---
+permalink: s3/custom-operations-on-buckets.html 
+sidebar: sidebar 
+keywords: operations, buckets, custom, custom operations on buckets 
+summary: Das StorageGRID System unterstützt benutzerdefinierte Bucket-Vorgänge, die der S3-REST-API hinzugefügt wurden und sich speziell auf das System bezieht. 
+---
+= Benutzerdefinierte Vorgänge für Buckets
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Das StorageGRID System unterstützt benutzerdefinierte Bucket-Vorgänge, die der S3-REST-API hinzugefügt wurden und sich speziell auf das System bezieht.
+
+In der folgenden Tabelle sind die von StorageGRID unterstützten benutzerdefinierten Bucket-Vorgänge aufgeführt.
+
+[cols="1a,1a,1a"]
+|===
+| Betrieb | Beschreibung | Finden Sie weitere Informationen 
+
+
+ a| 
+Get Bucket-Konsistenz
+ a| 
+Gibt die auf einen bestimmten Bucket angewendete Konsistenzstufe zurück.
+ a| 
+link:get-bucket-consistency-request.html["Get Bucket-Konsistenz"]
+
+
+
+ a| 
+PUT Bucket-Konsistenz
+ a| 
+Legt die Konsistenzstufe für einen bestimmten Bucket fest.
+ a| 
+link:put-bucket-consistency-request.html["PUT Bucket-Konsistenz"]
+
+
+
+ a| 
+ZEITPUNKT des letzten Zugriffs FÜR den Bucket ABRUFEN
+ a| 
+Gibt an, ob Updates der letzten Zugriffszeit für einen bestimmten Bucket aktiviert oder deaktiviert wurden.
+ a| 
+link:get-bucket-last-access-time-request.html["ZEITPUNKT des letzten Zugriffs FÜR den Bucket ABRUFEN"]
+
+
+
+ a| 
+PUT Bucket-Zeit für den letzten Zugriff
+ a| 
+Hiermit können Sie Updates der letzten Zugriffszeit für einen bestimmten Bucket aktivieren oder deaktivieren.
+ a| 
+link:put-bucket-last-access-time-request.html["PUT Bucket-Zeit für den letzten Zugriff"]
+
+
+
+ a| 
+Konfiguration für die Benachrichtigung über Bucket-Metadaten LÖSCHEN
+ a| 
+Löscht die XML-Konfiguration für die Metadatenbenachrichtigung, die mit einem bestimmten Bucket verknüpft ist.
+ a| 
+link:delete-bucket-metadata-notification-configuration-request.html["Konfiguration für die Benachrichtigung über Bucket-Metadaten LÖSCHEN"]
+
+
+
+ a| 
+Konfiguration der Bucket-Metadaten-Benachrichtigungen ABRUFEN
+ a| 
+Gibt die XML-XML-Benachrichtigungskonfiguration für Metadaten zurück, die einem bestimmten Bucket zugeordnet ist.
+ a| 
+link:get-bucket-metadata-notification-configuration-request.html["Konfiguration der Bucket-Metadaten-Benachrichtigungen ABRUFEN"]
+
+
+
+ a| 
+PUT Bucket-Metadaten-Benachrichtigungskonfiguration
+ a| 
+Konfiguriert den Metadaten-Benachrichtigungsdienst für einen Bucket
+ a| 
+link:put-bucket-metadata-notification-configuration-request.html["PUT Bucket-Metadaten-Benachrichtigungskonfiguration"]
+
+
+
+ a| 
+Bucket mit Compliance-Einstellungen
+ a| 
+Veraltet und nicht unterstützt: Sie können keine neuen Buckets mit aktivierter Compliance mehr erstellen.
+ a| 
+link:deprecated-put-bucket-request-modifications-for-compliance.html["Veraltet: Put Bucket mit Compliance-Einstellungen"]
+
+
+
+ a| 
+Bucket-Compliance
+ a| 
+Veraltet, aber unterstützt: Gibt die Compliance-Einstellungen zurück, die derzeit für einen vorhandenen Legacy-konformen Bucket wirksam sind.
+ a| 
+link:deprecated-get-bucket-compliance-request.html["Veraltet: EINHALTUNG von Bucket ABRUFEN"]
+
+
+
+ a| 
+BUCKET-Compliance
+ a| 
+Veraltet, aber unterstützt: Ermöglicht es Ihnen, die Compliance-Einstellungen für einen vorhandenen, älteren konformen Bucket zu ändern.
+ a| 
+link:deprecated-put-bucket-compliance-request.html["Veraltet: EINHALTUNG VON PUT Bucket"]
+
+|===
+.Verwandte Informationen
+link:s3-operations-tracked-in-audit-logs.html["S3-Vorgänge werden in den Audit-Protokollen protokolliert"]

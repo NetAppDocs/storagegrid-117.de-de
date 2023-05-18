@@ -1,0 +1,33 @@
+---
+permalink: installconfig/connecting-power-cords-and-applying-power-sg5700.html 
+sidebar: sidebar 
+keywords: storagegrid, sg5700, storage node, storage appliance, wire, wiring, cabling, cable, Connecting, connect, power cords, power, applying power, apply power, turn on, power up, ac, ac power 
+summary: Wenn Sie das Gerät mit Strom versorgen, werden beide Controller gestartet. 
+---
+= Stromkabel anschließen und Strom (SG5700) einschalten
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Sie das Gerät mit Strom versorgen, werden beide Controller gestartet.
+
+.Bevor Sie beginnen
+Vor dem Anschließen an die Stromversorgung müssen beide Netzschalter des Geräts ausgeschaltet sein.
+
+
+CAUTION: *Gefahr eines elektrischen Schlags* -- bevor Sie die Netzkabel anschließen, stellen Sie sicher, dass die beiden Netzschalter am Gerät ausgeschaltet sind.
+
+.Schritte
+. Stellen Sie sicher, dass die beiden Netzschalter am Gerät aus sind.
+. Schließen Sie die beiden Netzkabel an das Gerät an.
+. Verbinden Sie die beiden Netzkabel mit verschiedenen Stromverteilereinheiten (Power Distribution Units, PDUs) im Schrank oder Rack.
+. Schalten Sie die beiden Netzschalter am Gerät ein.
++
+** Schalten Sie die Netzschalter während des Einschalters nicht aus.
+** Die Fans sind beim ersten Start sehr laut. Das laute Geräusch beim Anfahren ist normal.
+
+
+. Prüfen Sie nach dem Starten der Controller ihre sieben Segmente.
+

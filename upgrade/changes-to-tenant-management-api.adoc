@@ -1,0 +1,25 @@
+---
+permalink: upgrade/changes-to-tenant-management-api.html 
+sidebar: sidebar 
+keywords: tenant management api, api, api version, swagger, rest api 
+summary: StorageGRID 11.7 verwendet Version 3 der Mandantenmanagement-API. Version 3 depretiert Version 2; jedoch werden Version 1 und Version 2 weiterhin unterstützt. 
+---
+= Änderungen an der Mandantenmanagement-API
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 11.7 verwendet Version 3 der Mandantenmanagement-API. Version 3 depretiert Version 2; jedoch werden Version 1 und Version 2 weiterhin unterstützt.
+
+
+IMPORTANT: Sie können Version 1 und Version 2 der Management-API mit StorageGRID 11.7 weiterhin verwenden. Allerdings wird die Unterstützung für diese Versionen der API in einem zukünftigen Release von StorageGRID entfernt. Nach dem Upgrade auf StorageGRID 11.7 können die veralteten v1- und v2-APIs mithilfe des deaktiviert werden `PUT /grid/config/management` API:
+
+
+
+== Neue Endpunkte für Grid-Verbund
+
+Sie können die API-Endpunkte *Grid-Federation-connections* verwenden, um Grid Federation-Verbindungen für den aktuellen Mandanten aufzulisten und den letzten Grid-übergreifenden Replikationsfehler für die aktuelle Mandanten- und ausgewählte Grid Federation-Verbindung zu löschen.
+
+Weitere Informationen finden Sie unter link:../tenant/understanding-tenant-management-api.html["Mandantenmanagement-API verstehen"].

@@ -1,0 +1,33 @@
+---
+permalink: upgrade/upgrade-workflow.html 
+sidebar: sidebar 
+keywords: upgrade workflow 
+summary: Lesen Sie vor dem Upgrade den allgemeinen Workflow durch. Die Seite StorageGRID-Upgrade führt Sie durch die Aktualisierungsschritte. 
+---
+= Workflow-Upgrade
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lesen Sie vor dem Upgrade den allgemeinen Workflow durch. Die Seite StorageGRID-Upgrade führt Sie durch die einzelnen Upgrade-Schritte.
+
+image::../media/upgrade_workflow.png[Flussdiagramm der Schritte zum Software-Upgrade]
+
+. Wenn StorageGRID Nodes auf Linux-Hosts bereitgestellt werden, link:linux-installing-rpm-or-deb-package-on-all-hosts.html["Installieren Sie das RPM- oder DEB-Paket auf jedem Host"] Bevor Sie mit dem Upgrade beginnen.
+. Greifen Sie vom primären Administratorknoten aus auf die Seite StorageGRID-Aktualisierung zu, und laden Sie ggf. die Aktualisierungsdatei und die Hotfix-Datei hoch.
+. Laden Sie das aktuelle Wiederherstellungspaket herunter.
+. Führen Sie Vorabprüfungen für Upgrades durch, um Probleme zu erkennen und zu beheben, bevor Sie das eigentliche Upgrade starten.
+. Starten Sie das Upgrade, in dem Vorabprüfungen durchgeführt werden und der primäre Admin-Node automatisch aktualisiert wird. Sie können nicht auf den Grid-Manager zugreifen, während das Upgrade des primären Admin-Knotens durchgeführt wird. Auch Audit-Protokolle sind nicht verfügbar. Dieses Upgrade kann bis zu 30 Minuten in Anspruch nehmen.
+. Nachdem der primäre Admin-Knoten aktualisiert wurde, laden Sie ein neues Wiederherstellungspaket herunter.
+. Genehmigen Sie die Grid-Knoten. Sie können einzelne Grid-Nodes, Gruppen von Grid-Nodes oder alle Grid-Nodes genehmigen.
++
+
+IMPORTANT: Genehmigen Sie das Upgrade für einen Grid-Node nur, wenn Sie sicher sind, dass der Node bereit ist, angehalten und neu gestartet zu werden.
+
+. Setzen Sie den Betrieb fort. Wenn alle Grid-Nodes aktualisiert wurden, sind neue Funktionen aktiviert und der Betrieb kann fortgesetzt werden. Sie müssen warten, bis ein Deaktivierungs- oder Erweiterungsvorgang durchgeführt wird, bis die Hintergrundaufgabe *Datenbank aktualisieren* und die Aufgabe *Letzte Aktualisierungsschritte* abgeschlossen sind.
+
+
+.Verwandte Informationen
+link:estimating-time-to-complete-upgrade.html["Schätzen Sie den Zeitaufwand für die Durchführung eines Upgrades ein"]

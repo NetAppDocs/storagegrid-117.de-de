@@ -1,0 +1,114 @@
+---
+permalink: s3/configuring-security-for-rest-api.html 
+sidebar: sidebar 
+keywords: configure rest api security, TLS 
+summary: Sie sollten die für DIE REST API implementierten Sicherheitsmaßnahmen überprüfen und verstehen, wie Sie Ihr System sichern können. 
+---
+= Konfigurieren Sie die Sicherheit für DIE REST API
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie sollten die für DIE REST API implementierten Sicherheitsmaßnahmen überprüfen und verstehen, wie Sie Ihr System sichern können.
+
+
+
+== So bietet StorageGRID Sicherheit für DIE REST-API
+
+Sie sollten verstehen, wie das StorageGRID System die Sicherheit, Authentifizierung und Autorisierung für DIE REST-API implementiert.
+
+StorageGRID setzt die folgenden Sicherheitsmaßnahmen ein.
+
+* Die Client-Kommunikation mit dem Load Balancer-Service erfolgt über HTTPS, wenn HTTPS für den Load Balancer-Endpunkt konfiguriert ist.
++
+Wenn Sie einen Endpunkt für den Load Balancer konfigurieren, kann HTTP optional aktiviert werden. Möglicherweise möchten Sie beispielsweise HTTP für Tests oder andere Zwecke verwenden, die nicht aus der Produktion stammen. Weitere Informationen finden Sie in den Anweisungen zum Verwalten von StorageGRID.
+
+* Standardmäßig verwendet StorageGRID HTTPS für die Client-Kommunikation mit Storage-Nodes.
++
+HTTP kann optional für diese Verbindungen aktiviert werden. Möglicherweise möchten Sie beispielsweise HTTP für Tests oder andere Zwecke verwenden, die nicht aus der Produktion stammen. Weitere Informationen finden Sie in den Anweisungen zum Verwalten von StorageGRID.
+
+* Die Kommunikation zwischen StorageGRID und dem Client wird über TLS verschlüsselt.
+* Die Kommunikation zwischen dem Load Balancer-Service und den Speicherknoten innerhalb des Grid wird verschlüsselt, ob der Load Balancer-Endpunkt für die Annahme von HTTP- oder HTTPS-Verbindungen konfiguriert ist.
+* Clients müssen HTTP-Authentifizierungskopfzeilen an StorageGRID bereitstellen, um REST-API-Vorgänge durchzuführen.
+
+
+
+
+=== Sicherheitszertifikate und Clientanwendungen
+
+Clients können sich direkt mit den Storage-Nodes mit dem Load Balancer-Service auf Gateway-Nodes oder Admin-Nodes verbinden.
+
+Clientanwendungen können in jedem Fall TLS-Verbindungen herstellen, indem sie entweder ein vom Grid-Administrator hochgeladenes benutzerdefiniertes Serverzertifikat oder ein vom StorageGRID-System generiertes Zertifikat verwenden:
+
+* Wenn Client-Anwendungen eine Verbindung zum Load Balancer-Service herstellen, verwenden sie dazu das Zertifikat, das für den spezifischen Load Balancer-Endpunkt konfiguriert wurde, der für die Verbindung verwendet wurde. Jeder Endpunkt verfügt über ein eigenes Zertifikat, entweder ein vom Grid-Administrator hochgeladenes benutzerdefiniertes Serverzertifikat oder ein Zertifikat, das der Grid-Administrator bei der Konfiguration des Endpunkts in StorageGRID generiert hat.
+* Wenn Client-Anwendungen eine direkte Verbindung zu einem Speicher-Node herstellen, verwenden sie entweder die vom System generierten Serverzertifikate, die bei der Installation des StorageGRID-Systems für Speicher-Nodes generiert wurden (die von der Systemzertifikatbehörde signiert werden). Oder ein einzelnes benutzerdefiniertes Serverzertifikat, das von einem Grid-Administrator für das Grid bereitgestellt wird.
+
+
+Die Clients sollten so konfiguriert werden, dass sie der Zertifizierungsstelle vertrauen, die unabhängig davon, welches Zertifikat sie zum Erstellen von TLS-Verbindungen verwenden, unterzeichnet hat.
+
+Informationen zum Konfigurieren von Lastausgleichsendpunkten und Anweisungen zum Hinzufügen eines einzelnen benutzerdefinierten Serverzertifikats für TLS-Verbindungen direkt zu Storage-Nodes finden Sie in den Anweisungen zum Verwalten von StorageGRID.
+
+
+
+=== Zusammenfassung
+
+Die folgende Tabelle zeigt, wie Sicherheitsprobleme in den S3 und Swift REST-APIs implementiert werden:
+
+[cols="2a,3a"]
+|===
+| Sicherheitsproblem | Implementierung für REST-API 
+
+
+ a| 
+Verbindungssicherheit
+ a| 
+TLS
+
+
+
+ a| 
+Serverauthentifizierung
+ a| 
+X.509-Serverzertifikat, das von der System-CA oder vom Administrator zur Verfügung gestellten benutzerdefinierten Serverzertifikat unterzeichnet wurde
+
+
+
+ a| 
+Client-Authentifizierung
+ a| 
+* S3: S3-Konto (Zugriffsschlüssel-ID und geheimer Zugriffsschlüssel)
+* Swift: Swift-Konto (Benutzername und Passwort)
+
+
+
+
+ a| 
+Client-Autorisierung
+ a| 
+* S3: Bucket-Eigentümerschaft und alle anwendbaren Richtlinien für die Zugriffssteuerung
+* Swift: Administratorrollenzugriff
+
+
+|===
+.Verwandte Informationen
+link:../admin/index.html["StorageGRID verwalten"]
+
+
+
+== Unterstützte Hashing- und Verschlüsselungsalgorithmen für TLS-Bibliotheken
+
+Das StorageGRID System unterstützt eine begrenzte Anzahl von Chiffren-Suites, die Client-Anwendungen beim Einrichten einer TLS-Sitzung (Transport Layer Security) verwenden können. Um Chiffren zu konfigurieren, gehen Sie zu *CONFIGURATION* > *Security* > *Security settings* und wählen *TLS und SSH Policies* aus.
+
+
+
+=== Unterstützte Versionen von TLS
+
+StorageGRID unterstützt TLS 1.2 und TLS 1.3.
+
+
+IMPORTANT: SSLv3 und TLS 1.1 (oder frühere Versionen) werden nicht mehr unterstützt.
+
+.Verwandte Informationen
+link:configuring-tenant-accounts-and-connections.html["Mandantenkonten und -Verbindungen konfigurieren"]

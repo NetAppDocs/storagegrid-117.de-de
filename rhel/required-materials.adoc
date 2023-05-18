@@ -1,0 +1,60 @@
+---
+permalink: rhel/required-materials.html 
+sidebar: sidebar 
+keywords: installation materials red hat linux 
+summary: Bevor Sie StorageGRID installieren, müssen Sie die erforderlichen Materialien erfassen und vorbereiten. 
+---
+= Erforderliche Materialien
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Bevor Sie StorageGRID installieren, müssen Sie die erforderlichen Materialien erfassen und vorbereiten.
+
+[cols="1a,2a"]
+|===
+| Element | Hinweise 
+
+
+ a| 
+NetApp StorageGRID Lizenz
+ a| 
+Sie benötigen eine gültige, digital signierte NetApp Lizenz.
+
+*Hinweis*: Eine Non-Production-Lizenz, die für Tests und Proof of Concept Grids verwendet werden kann, ist im StorageGRID-Installationsarchiv enthalten.
+
+
+
+ a| 
+StorageGRID Installationsarchiv
+ a| 
+Unbedingt link:downloading-and-extracting-storagegrid-installation-files.html["Laden Sie das StorageGRID-Installationsarchiv herunter und extrahieren Sie die Dateien"].
+
+
+
+ a| 
+Service-Laptop
+ a| 
+Das StorageGRID System wird über einen Service-Laptop installiert.
+
+Der Service-Laptop muss Folgendes haben:
+
+* Netzwerkport
+* SSH-Client (z. B. PuTTY)
+* link:../admin/web-browser-requirements.html["Unterstützter Webbrowser"]
+
+
+
+
+ a| 
+StorageGRID-Dokumentation
+ a| 
+* link:../release-notes/index.html["Versionshinweise"]
+* link:../admin/index.html["Anweisungen für die Administration von StorageGRID"]
+
+
+|===
+.Verwandte Informationen
+https://["NetApp Interoperabilitäts-Matrix-Tool"^]

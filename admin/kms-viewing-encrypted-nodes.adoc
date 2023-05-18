@@ -1,0 +1,103 @@
+---
+permalink: admin/kms-viewing-encrypted-nodes.html 
+sidebar: sidebar 
+keywords: view encrypted nodes, kms nodes, appliances with kms 
+summary: Sie können Informationen zu den Appliance-Nodes in Ihrem StorageGRID-System anzeigen, bei denen die Einstellung für die Node-Verschlüsselung aktiviert ist. 
+---
+= Verschlüsselte Nodes anzeigen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können Informationen zu den Appliance-Knoten in Ihrem StorageGRID-System anzeigen, bei denen die Einstellung *Node-Verschlüsselung* aktiviert ist.
+
+.Schritte
+. Wählen Sie *KONFIGURATION* > *Sicherheit* > *Schlüsselverwaltungsserver* aus.
++
+Die Seite Key Management Server wird angezeigt. Auf der Registerkarte Konfigurationsdetails werden alle konfigurierten Schlüsselverwaltungsserver angezeigt.
+
+. Wählen Sie oben auf der Seite die Registerkarte *verschlüsselte Knoten* aus.
++
+Auf der Registerkarte Verschlüsselte Knoten werden die Geräteknoten in Ihrem StorageGRID-System aufgelistet, für die die Einstellung *Knotenverschlüsselung* aktiviert ist.
+
+. Überprüfen Sie die Informationen in der Tabelle für jeden Appliance-Node.
++
+[cols="1a,2a"]
+|===
+| Spalte | Beschreibung 
+
+
+ a| 
+Node-Name
+ a| 
+Der Name des Appliance-Node.
+
+
+
+ a| 
+Node-Typ
+ a| 
+Der Node-Typ: Storage, Admin oder Gateway.
+
+
+
+ a| 
+Standort
+ a| 
+Der Name der StorageGRID-Site, auf der der Node installiert ist.
+
+
+
+ a| 
+KMS-Name
+ a| 
+Der beschreibende Name des für den Knoten verwendeten KMS.
+
+Wenn kein KMS aufgeführt ist, wählen Sie die Registerkarte Konfigurationsdetails aus, um ein KMS hinzuzufügen.
+
+link:kms-adding.html["Hinzufügen eines Verschlüsselungsmanagement-Servers (KMS)"]
+
+
+
+ a| 
+Schlüssel-UID
+ a| 
+Die eindeutige ID des Verschlüsselungsschlüssels, der zur Verschlüsselung und Entschlüsselung von Daten auf dem Appliance-Node verwendet wird. Um eine gesamte Schlüssel-UID anzuzeigen, setzen Sie den Cursor über die Zelle.
+
+Ein Bindestrich (-) gibt an, dass die Schlüssel-UID unbekannt ist, möglicherweise wegen eines Verbindungsproblem zwischen dem Appliance-Node und dem KMS.
+
+
+
+ a| 
+Status
+ a| 
+Der Status der Verbindung zwischen dem KMS und dem Appliance-Node. Wenn der Knoten verbunden ist, wird der Zeitstempel alle 30 Minuten aktualisiert. Nach einer Änderung der KMS-Konfiguration kann es mehrere Minuten dauern, bis der Verbindungsstatus aktualisiert wird.
+
+*Hinweis:* Sie müssen Ihren Webbrowser aktualisieren, um die neuen Werte zu sehen.
+
+|===
+. Wenn in der Spalte Status ein KMS-Problem angezeigt wird, beheben Sie das Problem sofort.
++
+Während normaler KMS-Vorgänge wird der Status *mit KMS* verbunden. Wenn ein Knoten von der Tabelle getrennt wird, wird der Verbindungsstatus des Knotens angezeigt (administrativ ausgefallen oder unbekannt).
+
++
+Andere Statusmeldungen entsprechen StorageGRID Meldungen mit denselben Namen:
+
++
+** KMS-Konfiguration konnte nicht geladen werden
+** KMS-Verbindungsfehler
+** DER VERSCHLÜSSELUNGSSCHLÜSSELNAME VON KMS wurde nicht gefunden
+** DIE Drehung des VERSCHLÜSSELUNGSSCHLÜSSELS ist fehlgeschlagen
+** KMS-Schlüssel konnte ein Appliance-Volume nicht entschlüsseln
+** KM ist nicht konfiguriert
+
+
++
+Führen Sie die empfohlenen Aktionen für diese Warnmeldungen aus.
+
+
+
+
+CAUTION: Sämtliche Probleme müssen sofort behoben werden, um einen vollständigen Schutz Ihrer Daten zu gewährleisten.

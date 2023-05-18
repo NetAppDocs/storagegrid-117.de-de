@@ -1,0 +1,27 @@
+---
+permalink: admin/grid-federation-workflow.html 
+sidebar: sidebar 
+keywords: grid federation workflow, cross-grid replication, account clone, cgr, disaster recovery 
+summary: Als Grid-Administrator müssen Sie sich eng mit den Mandantenbenutzern abstimmen, um eine Grid-Federation-Verbindung zwischen zwei StorageGRID-Systemen für Account-Klone und Grid-Replizierung zu erstellen und zu verwenden. 
+---
+= Grid-Verbund-Workflow
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Als Grid-Administrator müssen Sie sich eng mit den Mandantenbenutzern abstimmen, um eine Grid-Federation-Verbindung zwischen zwei StorageGRID-Systemen für Account-Klone und Grid-Replizierung zu erstellen und zu verwenden.
+
+Das Workflow-Diagramm zeigt die grundlegenden Schritte, die Grid-Administratoren und Mandantenbenutzer durchführen, um eine Grid-Bündelung-Verbindung zwischen zwei Grids herzustellen und Account-Klone und Grid-Replizierung einzurichten.
+
+Nach dem Erstellen einer Grid-Federation-Verbindung zwischen zwei Grids erstellt der Grid-Administrator ein oder mehrere neue Mandantenkonten und weist eine Berechtigung zu, um zu bestimmen, wer die Verbindung verwenden kann. Sobald der neue Mandant gespeichert wird, erstellt StorageGRID automatisch einen identischen Mandanten auf dem anderen Grid.
+
+Nachdem der neue Mandant auf beiden Grids verfügbar ist, können Mandantenbenutzer die folgenden Aufgaben durchführen:
+
+* Erstellen Sie im Quell-Grid des Mandanten neue Mandantenbenutzer und -Gruppen, die automatisch im Ziel-Grid des Mandanten geklont werden.
+* Erstellen Sie aus dem Quell-Grid des Mandanten neue S3-Zugriffsschlüssel, die optional im Ziel-Grid des Mandanten geklont werden können.
+* Erstellen Sie neue Buckets auf beiden Grids und aktivieren Sie optional die Grid-übergreifende Replizierung in eine oder beide Richtungen.
+
+
+image:../media/grid-federation-workflow.png["Grid-Verbund-Workflow"]

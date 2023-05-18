@@ -1,0 +1,470 @@
+---
+permalink: primer/storagegrid-architecture-and-network-topology.html 
+sidebar: sidebar 
+keywords: architecture, deployment, topology, site, node redundancy, services, nodes 
+summary: Ein StorageGRID System besteht aus mehreren Typen von Grid-Nodes an einem oder mehreren Datacenter-Standorten. 
+---
+= StorageGRID Architektur und Netzwerktopologie
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ein StorageGRID System besteht aus mehreren Typen von Grid-Nodes an einem oder mehreren Datacenter-Standorten.
+
+Weitere Informationen zur StorageGRID Netzwerktopologie, -Anforderungen und -Grid-Kommunikation finden Sie im link:../network/index.html["Netzwerkrichtlinien"].
+
+
+
+== Implementierungstopologien
+
+Das StorageGRID System kann an einem einzelnen Datacenter-Standort oder an mehreren Datacenter-Standorten implementiert werden.
+
+
+
+=== Ein Standort
+
+Bei einer Implementierung über einen einzigen Standort werden die Infrastruktur und der Betrieb des StorageGRID Systems zentralisiert.
+
+image::../media/data_center_site_single.png[Einzelner Datacenter-Standort]
+
+
+
+=== Mehrere Standorte
+
+In einer Implementierung mit mehreren Standorten können an jedem Standort unterschiedliche Typen und eine unterschiedliche Anzahl von StorageGRID Ressourcen installiert werden. So könnte beispielsweise mehr Storage für ein Datacenter als für ein anderes erforderlich sein.
+
+Unterschiedliche Standorte befinden sich häufig an geografischen Standorten über unterschiedliche Ausfall-Domains, wie z. B. Erdbebenfehlerleitungen oder Überschwemmungsgebiete. Die Daten-Sharing und Disaster Recovery werden durch die automatische Verteilung der Daten an andere Standorte realisiert.
+
+image::../media/data_center_sites_multiple.png[Mehrere Datacenter-Standorte]
+
+Darüber hinaus können mehrere logische Standorte innerhalb eines einzigen Datacenters eingesetzt werden, um die Verfügbarkeit und Ausfallsicherheit durch verteilte Replizierung und Erasure Coding zu verbessern.
+
+
+
+=== Redundanz des Grid-Nodes
+
+Bei einer Implementierung an einem Standort oder an mehreren Standorten können Sie optional mehrere Admin-Nodes oder Gateway-Nodes enthalten, um Redundanz zu gewährleisten. Sie können beispielsweise mehr als einen Admin-Node an einem einzelnen Standort oder an mehreren Standorten installieren. Allerdings kann jedes StorageGRID System nur einen primären Admin-Node haben.
+
+
+
+== Systemarchitektur
+
+Dieses Diagramm zeigt, wie Grid-Nodes innerhalb eines StorageGRID Systems angeordnet sind.
+
+image::../media/grid_nodes_and_components.png[Diagramm mit umgebenden Text beschrieben]
+
+S3- und Swift-Clients speichern und abrufen von Objekten in StorageGRID. Andere Clients werden verwendet, um E-Mail-Benachrichtigungen zu senden, auf die StorageGRID-Managementoberfläche zuzugreifen und optional auf die Audit-Freigabe zuzugreifen.
+
+S3- und Swift-Clients können eine Verbindung zu einem Gateway-Node oder einem Admin-Node herstellen, um die Load-Balancing-Schnittstelle zu Storage-Nodes zu verwenden. Alternativ können S3 und Swift Clients über HTTPS eine direkte Verbindung zu Storage-Nodes herstellen.
+
+Objekte können in StorageGRID auf Software- oder hardwarebasierten Storage-Nodes oder in Cloud-Storage-Pools, die aus externen S3-Buckets oder Azure Blob Storage-Containern bestehen, gespeichert werden.
+
+
+
+== Grid Nodes und Services
+
+Der grundlegende Baustein eines StorageGRID Systems ist der Grid-Node. Nodes enthalten Services. Dies sind Softwaremodule, die einen Grid-Node mit einem Satz von Funktionen ausstatten.
+
+Das StorageGRID System nutzt vier Typen von Grid-Nodes:
+
+* *Admin Nodes* bieten Managementdienste wie Systemkonfiguration, Überwachung und Protokollierung an. Wenn Sie sich beim Grid Manager anmelden, stellen Sie eine Verbindung zu einem Admin-Node her. Jedes Grid muss über einen primären Admin-Node verfügen und möglicherweise über zusätzliche nicht-primäre Admin-Nodes für Redundanz verfügen. Sie können eine Verbindung zu einem beliebigen Admin-Knoten herstellen, und jeder Admin-Knoten zeigt eine ähnliche Ansicht des StorageGRID-Systems an. Wartungsverfahren müssen jedoch mit dem primären Admin-Node durchgeführt werden.
++
+Admin-Nodes können auch verwendet werden, um den S3- und Swift-Client-Datenverkehr auszugleichen.
+
+* *Storage Nodes* managen und speichern Objektdaten und Metadaten. Jedes StorageGRID System muss mindestens drei Storage-Nodes aufweisen. Wenn Sie über mehrere Standorte verfügen, muss jeder Standort im StorageGRID System auch drei Storage-Nodes aufweisen.
+* *Gateway-Knoten (optional)* bieten eine Load-Balancing-Schnittstelle, über die Client-Anwendungen eine Verbindung zu StorageGRID herstellen können. Ein Load Balancer leitet die Clients nahtlos an einen optimalen Storage Node weiter, sodass der Ausfall von Nodes oder sogar einem gesamten Standort transparent ist. Sie können eine Kombination aus Gateway-Knoten und Admin-Knoten zum Lastausgleich verwenden oder einen HTTP-Load-Balancer eines Drittanbieters implementieren.
+* *Archive Nodes (veraltet)* bieten eine optionale Schnittstelle, über die Objektdaten auf Band archiviert werden können.
+
+
+Weitere Informationen finden Sie unter link:../admin/index.html["StorageGRID verwalten"].
+
+
+
+=== Softwarebasierte Nodes
+
+Auf Software-basierte Grid-Nodes lassen sich wie folgt implementieren:
+
+* Als Virtual Machines (VMs) in VMware vSphere
+* Innerhalb von Container-Engines auf Linux Hosts Folgende Betriebssysteme werden unterstützt:
++
+** Red Hat Enterprise Linux
+** CentOS
+** Ubuntu
+** Debian
+
+
+
+
+Weitere Informationen finden Sie im Folgenden:
+
+* link:../vmware/index.html["VMware installieren"]
+* link:../rhel/index.html["Installieren Sie Red hat Enterprise Linux oder CentOS"]
+* link:../ubuntu/index.html["Installieren Sie Ubuntu oder Debian"]
+
+
+Verwenden Sie die https://["NetApp Interoperabilitäts-Matrix-Tool (IMT)"^] Um eine Liste der unterstützten Versionen zu erhalten.
+
+
+
+=== StorageGRID Appliance-Nodes
+
+StorageGRID Hardware-Appliances wurden speziell für den Einsatz in einem StorageGRID System entwickelt. Einige Geräte können als Storage-Nodes verwendet werden. Andere Appliances können als Admin-Nodes oder Gateway-Nodes verwendet werden. Die Appliance-Nodes können mit softwarebasierten Nodes kombiniert oder vollständig entwickelten Appliance-Grids ohne Abhängigkeiten von externen Hypervisoren, Storage- oder Computing-Hardware implementiert werden.
+
+Folgende StorageGRID Appliances sind verfügbar:
+
+* Die *SGF6112 Storage Appliance* ist ein All-Flash-Server mit 1 Höheneinheit (1 HE) und 12 NVMe-SSD-Laufwerken (Nonvolatile Memory Express) mit integrierten Computing- und Storage-Controllern.
+* Die Services-Appliances *SG100 und SG1000 sind 1U-Server (1-Rack-Unit), die jeweils als primärer Admin-Node, nicht primärer Admin-Node oder Gateway-Node betrieben werden können. Beide Appliances können gleichzeitig als Gateway-Nodes und Admin-Nodes (primär und nicht primär) betrieben werden.
+* Die *SG6000 Storage Appliance* wird als Storage Node ausgeführt und kombiniert den 1U SG6000-CN Computing Controller mit einem 2U oder 4U Storage Controller Shelf. Die SG6000 ist in zwei Modellen erhältlich:
++
+** *SGF6024*: Kombiniert den SG6000-CN Computing Controller mit einem 2-HE-Storage Controller Shelf, das 24 Solid State-Laufwerke (SSDs) und redundante Storage Controller umfasst.
+** *SG6060*: Kombiniert den SG6000-CN Computing Controller mit einem 4U-Gehäuse, das 58 NL-SAS-Laufwerke, 2 SSDs und redundante Speicher-Controller umfasst. Jede SG6060 Appliance unterstützt ein oder zwei Erweiterungs-Shelfs mit 60 Laufwerken mit bis zu 178 dedizierten Objektspeichern.
+
+
+* Die SG5700 Storage Appliance* ist eine integrierte Storage- und Computing-Plattform, die als Storage Node ausgeführt wird. Die SG5700 ist in zwei Modellen erhältlich:
++
+** *SG5712*: Ein 2U-Gehäuse mit 12 NL-SAS-Laufwerken und integrierten Storage- und Computing-Controllern.
+** *SG5760*: Ein 4-HE-Gehäuse, das 60 NL-SAS-Laufwerke sowie integrierte Storage- und Computing-Controller umfasst.
+
+
+
+
+Weitere Informationen finden Sie im Folgenden:
+
+* https://["NetApp Hardware Universe"^]
+* link:../installconfig/hardware-description-sg6100.html["SGF6112 Storage Appliance"]
+* link:../installconfig/hardware-description-sg100-and-1000.html["SG100- und SG1000-Services-Appliances"]
+* link:../installconfig/hardware-description-sg6000.html["SG6000 Storage-Appliances"]
+* link:../installconfig/hardware-description-sg5700.html["SG5700 Storage-Appliances"]
+
+
+
+
+=== Primäre Dienste für Admin-Nodes
+
+Die folgende Tabelle zeigt die primären Dienste für Admin-Nodes. Diese Tabelle enthält jedoch nicht alle Node-Services.
+
+[cols="1a,2a"]
+|===
+| Service | Tastenfunktion 
+
+
+ a| 
+Audit Management System (AMS)
+ a| 
+Verfolgt Systemaktivitäten und -Ereignisse.
+
+
+
+ a| 
+Configuration Management Node (CMN)
+ a| 
+Verwaltet die systemweite Konfiguration. Nur primärer Admin-Node.
+
+
+
+ a| 
+Management-Applikations-Programmierschnittstelle (Management-API)
+ a| 
+Verarbeitet Anforderungen aus der Grid-Management-API und der Mandantenmanagement-API.
+
+
+
+ a| 
+Hochverfügbarkeit
+ a| 
+Verwaltet hochverfügbare virtuelle IP-Adressen für Gruppen von Admin-Nodes und Gateway-Nodes.
+
+*Hinweis:* dieser Service befindet sich auch auf Gateway Nodes.
+
+
+
+ a| 
+Lastausgleich
+ a| 
+Sorgt für einen Lastenausgleich des S3- und Swift-Datenverkehrs von Clients zu Storage Nodes.
+
+*Hinweis:* dieser Service befindet sich auch auf Gateway Nodes.
+
+
+
+ a| 
+Netzwerk-Management-System (NMS)
+ a| 
+Bietet Funktionen für den Grid Manager.
+
+
+
+ a| 
+Prometheus
+ a| 
+Sammelt und speichert Zeitreihenmetriken von den Services auf allen Knoten.
+
+
+
+ a| 
+Server Status Monitor (SSM)
+ a| 
+Überwachung des Betriebssystems und der zugrunde liegenden Hardware
+
+|===
+
+
+=== Primäre Services für Storage-Nodes
+
+Die folgende Tabelle enthält die primären Services für Storage-Nodes. In dieser Tabelle werden jedoch nicht alle Node-Services aufgeführt.
+
+
+NOTE: Einige Services, wie z. B. der ADC-Service und der RSM-Service, bestehen in der Regel nur auf drei Storage-Nodes an jedem Standort.
+
+[cols="1a,2a"]
+|===
+| Service | Tastenfunktion 
+
+
+ a| 
+Konto (Konto)
+ a| 
+Management von Mandantenkonten.
+
+
+
+ a| 
+Administrativer Domänen-Controller (ADC)
+ a| 
+Aufrechterhaltung der Topologie und Grid-Konfiguration
+
+
+
+ a| 
+Cassandra
+ a| 
+Speichert und sichert Objekt-Metadaten.
+
+
+
+ a| 
+Cassandra Reaper
+ a| 
+Führt automatische Reparaturen von Objektmetadaten durch.
+
+
+
+ a| 
+Chunk
+ a| 
+Verwaltet Erasure-codierte Daten und Paritätsfragmente.
+
+
+
+ a| 
+Data Mover (dmv)
+ a| 
+Verschiebt Daten in Cloud-Storage-Pools
+
+
+
+ a| 
+Verteilter Datenspeicher (DDS)
+ a| 
+Überwacht Objekt-Metadaten-Storage
+
+
+
+ a| 
+Identität (idnt)
+ a| 
+Föderiert Benutzeridentitäten von LDAP und Active Directory
+
+
+
+ a| 
+LDR (Local Distribution Router)
+ a| 
+Verarbeitet Protokollanfragen von Objekt-Storage und managt Objektdaten auf der Festplatte.
+
+
+
+ a| 
+Replicated State Machine (RSM)
+ a| 
+Stellt sicher, dass Serviceanfragen der S3-Plattform an ihre jeweiligen Endpunkte gesendet werden.
+
+
+
+ a| 
+Server Status Monitor (SSM)
+ a| 
+Überwachung des Betriebssystems und der zugrunde liegenden Hardware
+
+|===
+
+
+=== Primäre Dienste für Gateway-Nodes
+
+In der folgenden Tabelle werden die primären Services für Gateway-Nodes aufgeführt. In dieser Tabelle werden jedoch nicht alle Node-Services aufgeführt.
+
+[cols="1a,2a"]
+|===
+| Service | Tastenfunktion 
+
+
+ a| 
+Hochverfügbarkeit
+ a| 
+Verwaltet hochverfügbare virtuelle IP-Adressen für Gruppen von Admin-Nodes und Gateway-Nodes.
+
+*Hinweis:* dieser Service befindet sich auch auf Admin Nodes.
+
+
+
+ a| 
+Lastausgleich
+ a| 
+Bietet Layer-7-Lastausgleich für den S3- und Swift-Datenverkehr von Clients zu Storage-Nodes. Dies ist der empfohlene Lastausgleichmechanismus.
+
+*Hinweis:* dieser Service befindet sich auch auf Admin Nodes.
+
+
+
+ a| 
+Server Status Monitor (SSM)
+ a| 
+Überwachung des Betriebssystems und der zugrunde liegenden Hardware
+
+|===
+
+
+=== Primäre Services für Archiv-Nodes
+
+Die folgende Tabelle zeigt die primären Dienste für Archive Nodes (jetzt veraltet). In dieser Tabelle sind jedoch nicht alle Knotendienste aufgeführt.
+
+
+NOTE: Die Unterstützung für Archivknoten ist veraltet und wird in einer zukünftigen Version entfernt.
+
+[cols="1a,2a"]
+|===
+| Service | Tastenfunktion 
+
+
+ a| 
+Archiv (ARC)
+ a| 
+Kommunikation mit einem externen Tape-Storage-System Tivoli Storage Manager (TSM)
+
+
+
+ a| 
+Server Status Monitor (SSM)
+ a| 
+Überwachung des Betriebssystems und der zugrunde liegenden Hardware
+
+|===
+
+
+=== StorageGRID Services
+
+Nachfolgend finden Sie eine vollständige Liste der StorageGRID Services.
+
+* *Kontodienst-Spediteur*
++
+Stellt eine Schnittstelle für den Load Balancer-Service bereit, über die der Kontodienst auf Remote-Hosts abgefragt werden kann, und informiert über Änderungen bei der Konfiguration des Load Balancer-Endpunkts am Load Balancer-Service. Der Load Balancer-Service ist auf Admin-Nodes und Gateway-Nodes vorhanden.
+
+* *ADC-Dienst (Administrative Domain Controller)*
++
+Verwaltet Topologiedaten, bietet Authentifizierungsservices und reagiert auf Anfragen aus den LDR- und CMN-Diensten. Der ADC-Service ist auf jedem der ersten drei Speicherknoten vorhanden, die an einem Standort installiert sind.
+
+* *AMS Service (Audit Management System)*
++
+Überwacht und protokolliert alle geprüften Systemereignisse und Transaktionen in einer Textdatei. Der AMS-Dienst ist auf Admin-Knoten vorhanden.
+
+* *ARC-Service (Archiv)*
++
+Das Tool bietet die Managementoberfläche, mit der Sie Verbindungen zu externem Archiv-Storage konfigurieren, z. B. zur Cloud über eine S3-Schnittstelle oder per Tape über TSM Middleware. Der ARC-Dienst ist auf Archiv-Knoten vorhanden.
+
+* *Cassandra Reaper Service*
++
+Führt automatische Reparaturen von Objektmetadaten durch. Der Cassandra Reaper Service ist auf allen Speicherknoten vorhanden.
+
+* *Chunk Service*
++
+Verwaltet Erasure-codierte Daten und Paritätsfragmente. Der Chunk Service ist auf Storage Nodes vorhanden.
+
+* *CMN-Service (Configuration Management Node)*
++
+Management systemweiter Konfigurationen und Grid-Aufgaben Jedes Grid hat einen CMN-Service, der auf dem primären Admin-Node vorhanden ist.
+
+* *DDS Service (Distributed Data Store)*
++
+Schnittstellen zur Cassandra-Datenbank zum Management von Objektmetadaten Der DDS-Service ist auf Speicherknoten vorhanden.
+
+* *DMV-Service (Data Mover)*
++
+Verschiebt Daten in Cloud-Endpunkte Der DMV-Dienst ist auf Speicherknoten vorhanden.
+
+* *Dynamic IP Service*
++
+Überwacht das Raster auf dynamische IP-Änderungen und aktualisiert lokale Konfigurationen. Der dynamische IP-Dienst (dynip) ist auf allen Knoten vorhanden.
+
+* *Grafana Service*
++
+Wird für die Darstellung von Kennzahlen im Grid Manager verwendet. Der Grafana-Service ist auf Admin-Nodes vorhanden.
+
+* *Hochverfügbarkeits-Service*
++
+Verwaltet hochverfügbare virtuelle IPs auf Knoten, die auf der Seite „Hochverfügbarkeitsgruppen“ konfiguriert sind. Der Dienst Hochverfügbarkeit ist auf Admin-Nodes und Gateway-Knoten vorhanden. Dieser Service wird auch als „Keepalived Service“ bezeichnet.
+
+* * Identitätsdienst (nicht verfügbar)*
++
+Föderiert Benutzeridentitäten von LDAP und Active Directory Der Identitäts-Service (idnt) ist auf drei Storage-Nodes an jedem Standort vorhanden.
+
+* *Lambda Schiedsrichter Service*
++
+Verwalten von S3 Select SelectObjectContent Requests.
+
+* *Load Balancer Service*
++
+Sorgt für einen Lastenausgleich des S3- und Swift-Datenverkehrs von Clients zu Storage Nodes. Der Lastverteilungsservice kann über die Konfigurationsseite Load Balancer Endpoints konfiguriert werden. Der Load Balancer-Service ist auf Admin-Nodes und Gateway-Nodes vorhanden. Dieser Service wird auch als nginx-gw-Service bezeichnet.
+
+* *LDR-Service (Local Distribution Router)*
++
+Verwaltet die Speicherung und Übertragung von Inhalten innerhalb des Grids. Der LDR-Service ist auf den Speicherknoten vorhanden.
+
+* *MISCd Information Service Control Daemon Service*
++
+Stellt eine Schnittstelle zum Abfragen und Managen von Services auf anderen Nodes sowie zum Managen von Umgebungskonfigurationen auf dem Node bereit, beispielsweise zum Abfragen des Status von Services, die auf anderen Nodes ausgeführt werden. Der MISCd-Dienst ist auf allen Knoten vorhanden.
+
+* *Nginx Service*
++
+Fungiert als Authentifizierungs- und sicherer Kommunikationsmechanismus für verschiedene Grid Services (wie Prometheus und Dynamic IP), der die Möglichkeit zur Kommunikation mit Services auf anderen Knoten über HTTPS-APIs ermöglicht. Der nginx-Service ist auf allen Knoten vorhanden.
+
+* *Nginx-gw Service*
++
+Schaltet den Lastverteilungsservice ein. Der nginx-gw-Dienst ist auf Admin-Knoten und Gateway-Knoten vorhanden.
+
+* *NMS Service (Network Management System)*
++
+Gibt die Überwachungs-, Berichterstellungs- und Konfigurationsoptionen an, die über den Grid Manager angezeigt werden. Der NMS-Service ist auf Admin Nodes vorhanden.
+
+* *Persistenzdienst*
++
+Verwaltet Dateien auf dem Root-Laufwerk, die über einen Neustart bestehen müssen. Der Persistenzdienst ist auf allen Nodes vorhanden.
+
+* *Prometheus Service*
++
+Erfasst Zeitreihungskennzahlen von Services auf allen Knoten. Der Prometheus-Service ist auf Admin-Knoten vorhanden.
+
+* *RSM-Dienst (Replicated State Machine Service)*
++
+Stellt sicher, dass Plattformserviceanforderungen an die jeweiligen Endpunkte gesendet werden. Der RSM-Dienst ist auf Speicherknoten vorhanden, die den ADC-Dienst verwenden.
+
+* *SSM-Dienst (Server Status Monitor)*
++
+Überwacht Hardwarebedingungen und Berichte an den NMS-Service. Auf jedem Grid-Knoten ist eine Instanz des SSM-Dienstes vorhanden.
+
+* *Trace Collector Service*
++
+Führt eine Trace-Erfassung durch, um Informationen für den technischen Support zu sammeln. Der Trace Collector Dienst verwendet die Open Source Jaeger Software und ist auf Admin Nodes vorhanden.
+
+

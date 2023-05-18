@@ -1,0 +1,62 @@
+---
+permalink: s3/how-storagegrid-ilm-rules-manage-objects.html 
+sidebar: sidebar 
+keywords: ilm manage object rules 
+summary: 'Der Grid-Administrator erstellt Informationen Lifecycle Management \(ILM\)-Regeln zum Management von Objektdaten, die aus S3-REST-API-Client-Applikationen in das StorageGRID-System aufgenommen wurden. Diese Regeln werden dann zur ILM-Richtlinie hinzugefügt, um zu bestimmen, wie und wo Objektdaten im Laufe der Zeit gespeichert werden.' 
+---
+= Managen von Objekten durch StorageGRID ILM-Regeln
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Der Grid-Administrator erstellt Informationen Lifecycle Management (ILM)-Regeln für das Management von Objektdaten, die von S3-REST-API-Client-Applikationen in das StorageGRID-System aufgenommen werden. Diese Regeln werden dann zur ILM-Richtlinie hinzugefügt, um zu bestimmen, wie und wo Objektdaten im Laufe der Zeit gespeichert werden.
+
+ILM-Einstellungen bestimmen die folgenden Aspekte eines Objekts:
+
+* *Geographie*
++
+Der Speicherort der Objektdaten kann entweder im StorageGRID-System (Storage-Pool) oder in einem Cloud-Storage-Pool gespeichert werden.
+
+* * Speicherklasse*
++
+Storage-Typ zur Speicherung von Objektdaten, z. B. Flash oder rotierende Festplatte
+
+* *Verlustschutz*
++
+Wie viele Kopien erstellt werden und welche Arten von Kopien erstellt werden: Replizierung, Erasure Coding oder beides.
+
+* *Aufbewahrung*
++
+Es ändert sich im Laufe der Zeit, wie Objektdaten verwaltet werden, wo sie gespeichert sind und wie sie vor Verlust geschützt sind.
+
+* *Schutz während der Aufnahme*
++
+Methode zum Schutz von Objektdaten bei der Aufnahme: Synchrone Platzierung (mit ausgeglichenen oder strengen Optionen für das Aufnahmeverhalten) oder Erstellung von vorläufigen Kopien (unter Verwendung der Option Dual-Commit)
+
+
+
+ILM-Regeln können Objekte filtern und auswählen. Bei mit S3 aufgenommenen Objekten können ILM-Regeln Objekte auf Basis der folgenden Metadaten filtern:
+
+* Mandantenkonto
+* Bucket-Name
+* Aufnahmezeit
+* Taste
+* Zeitpunkt des letzten Zugriffs
++
+
+NOTE: Standardmäßig werden Updates der letzten Zugriffszeit für alle S3 Buckets deaktiviert. Wenn Ihr StorageGRID System eine ILM-Regel enthält, die die Option „Letzte Zugriffszeit“ verwendet, müssen Sie für die in dieser Regel angegebenen S3 Buckets Updates für den letzten Zugriff aktivieren. Verwenden Sie die Anforderung ZUM letzten Zugriff auf Bucket, den Tenant Manager (siehe) link:../tenant/enabling-or-disabling-last-access-time-updates.html["Aktiviert bzw. deaktiviert Updates der letzten Zugriffszeit"]) Oder die Mandanten-Management-API. Beachten Sie bei der Aktivierung von Updates der letzten Zugriffszeit, dass die Performance von StorageGRID möglicherweise reduziert wird, insbesondere bei Systemen mit kleinen Objekten.
+
+* Positionsbeschränkung
+* Objektgröße
+* Benutzer-Metadaten
+* Objekt-Tag
+
+
+.Verwandte Informationen
+link:../tenant/index.html["Verwenden Sie ein Mandantenkonto"]
+
+link:../ilm/index.html["Objektmanagement mit ILM"]
+
+link:put-bucket-last-access-time-request.html["PUT Bucket-Zeit für den letzten Zugriff"]

@@ -1,0 +1,67 @@
+---
+permalink: monitor/using-task-tab-to-reboot-grid-node.html 
+sidebar: sidebar 
+keywords: task tab 
+summary: Auf der Registerkarte Task können Sie den ausgewählten Knoten neu starten. Die Registerkarte Task wird für alle Knoten angezeigt. 
+---
+= Verwenden Sie die Registerkarte Aufgabe, um einen Grid-Knoten neu zu starten
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Auf der Registerkarte Task können Sie den ausgewählten Knoten neu starten. Die Registerkarte Task wird für alle Knoten angezeigt.
+
+.Bevor Sie beginnen
+* Sie sind mit einem bei Grid Manager angemeldet link:../admin/web-browser-requirements.html["Unterstützter Webbrowser"].
+* Sie haben die Berechtigung Wartung oder Stammzugriff.
+* Sie haben die Provisionierungs-Passphrase.
+
+
+.Über diese Aufgabe
+Auf der Registerkarte Task können Sie einen Knoten neu starten. Für Geräteknoten können Sie die Registerkarte Aufgabe auch verwenden, um das Gerät in den Wartungsmodus zu versetzen.
+
+* Beim Neubooten eines Grid-Node auf der Registerkarte Task wird der Befehl zum Neubooten auf dem Ziel-Node ausgegeben. Beim Neubooten eines Node wird der Node heruntergefahren und neu gestartet. Alle Dienste werden automatisch neu gestartet.
++
+Wenn Sie einen Storage-Node neu booten möchten, beachten Sie Folgendes:
+
++
+** Wenn eine ILM-Regel ein Aufnahmeverhalten von Dual-Commit angibt oder die Regel einen Ausgleich angibt und nicht sofort alle erforderlichen Kopien erstellen kann, werden neu aufgenommenen Objekte sofort von StorageGRID auf zwei Storage-Nodes am selben Standort übertragen und ILM wird später ausgewertet. Wenn Sie zwei oder mehr Storage-Nodes an einem bestimmten Standort neu starten möchten, können Sie während des Neustarts möglicherweise nicht auf diese Objekte zugreifen.
+** Um sicherzustellen, dass Sie während des Neubootens eines Storage-Node auf alle Objekte zugreifen können, beenden Sie die Verarbeitung von Objekten an einem Standort etwa eine Stunde lang, bevor Sie den Node neu booten.
+
+
+* Möglicherweise müssen Sie eine StorageGRID Appliance in den Wartungsmodus versetzen, um bestimmte Verfahren durchzuführen, z. B. das Ändern der Link-Konfiguration oder den Austausch eines Storage Controllers. Anweisungen hierzu finden Sie unter link:../commonhardware/placing-appliance-into-maintenance-mode.html["Stellen Sie das Gerät in den Wartungsmodus"].
++
+
+NOTE: In seltenen Fällen kann es vorkommen, dass eine StorageGRID Appliance in den Wartungsmodus versetzt wird, damit die Appliance für den Remote-Zugriff nicht verfügbar ist.
+
+
+
+.Schritte
+. Wählen Sie *KNOTEN*.
+. Wählen Sie den Grid-Node aus, den Sie neu booten möchten.
+. Wählen Sie die Registerkarte *Aufgaben* aus.
++
+image::../media/maintenance_mode.png[Knoten > Aufgaben > Schaltfläche Neu booten]
+
+. Wählen Sie *Neustart*.
++
+Ein Bestätigungsdialogfeld wird angezeigt.
+
++
+image::../media/nodes_tasks_reboot.png[Knoten > Aufgaben > Schaltfläche Neu booten]
+
++
+
+NOTE: Wenn Sie den primären Admin-Knoten neu starten, wird im Bestätigungsdialogfeld darauf hingewiesen, dass die Verbindung Ihres Browsers zum Grid Manager vorübergehend verloren geht, wenn Dienste beendet werden.
+
+. Geben Sie die Provisionierungs-Passphrase ein, und wählen Sie *OK*.
+. Warten Sie, bis der Node neu gebootet wird.
++
+Es kann einige Zeit dauern, bis Dienste heruntergefahren werden.
+
++
+Wenn der Knoten neu gestartet wird, wird das graue Symbol (Administrativ Down) auf der linken Seite der Seite *Nodes* angezeigt. Wenn alle Dienste wieder gestartet wurden und der Knoten erfolgreich mit dem Raster verbunden ist, sollte die Seite *Nodes* einen normalen Status anzeigen (keine Symbole links neben dem Knotennamen), was darauf hinweist, dass keine Alarme aktiv sind und der Knoten mit dem Raster verbunden ist.
+
+

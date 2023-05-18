@@ -1,0 +1,994 @@
+---
+permalink: s3/quick-reference-support-for-aws-apis.html 
+sidebar: sidebar 
+keywords: Amazon s3, API, request headers, s3 support, request syntax, supported, aws s3 
+summary: 'Auf dieser Seite wird zusammengefasst, wie StorageGRID Amazon Simple Storage Service (S3) APIs unterstützt.' 
+---
+= Schnelle Referenz: Unterstützte S3-API-Anforderungen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Auf dieser Seite wird zusammengefasst, wie StorageGRID Amazon Simple Storage Service (S3) APIs unterstützt.
+
+Diese Seite umfasst nur die S3-Vorgänge, die von StorageGRID unterstützt werden.
+
+
+NOTE: Um die AWS Dokumentation für jeden Vorgang anzuzeigen, klicken Sie in der Überschrift auf den Link.
+
+
+
+== Allgemeine URI-Abfrageparameter und Anforderungsheader
+
+Sofern nicht angegeben, werden die folgenden gängigen URI-Abfrageparameter unterstützt:
+
+* `versionId` (Bei Bedarf für Objekt-Operationen)
+
+
+Sofern nicht anders angegeben, werden die folgenden gängigen Anforderungsheader unterstützt:
+
+* `Authorization`
+* `Connection`
+* `Content-Length`
+* `Content-MD5`
+* `Content-Type`
+* `Date`
+* `Expect`
+* `Host`
+* `x-amz-date`
+
+
+.Verwandte Informationen
+* link:../s3/s3-rest-api-supported-operations-and-limitations.html["Details zur S3-REST-API-Implementierung"]
+* https://["Amazon Simple Storage Service API-Referenz: Common Request Header"^]
+
+
+
+
+== https://["AbortMehrteilaUpload"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anforderung plus diesen zusätzlichen URI-Abfrageparameter:
+
+* `uploadId`
+
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:operations-for-multipart-uploads.html["Vorgänge für mehrteilige Uploads"]
+
+
+
+== https://["CompleteMultipartUpload"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anforderung plus diesen zusätzlichen URI-Abfrageparameter:
+
+* `uploadId`
+
+
+.Text-XML-Tags anfordern
+StorageGRID unterstützt folgende XML-Tags für Anforderungstext:
+
+* `CompleteMultipartUpload`
+* `Part`
+* `ETag`
+* `PartNumber`
+
+
+.StorageGRID-Dokumentation
+link:complete-multipart-upload.html["Abschließen Von Mehrteiligen Uploads"]
+
+
+
+== https://["CopyObject"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage, plus diese zusätzlichen Kopfzeilen:
+
+* `x-amz-copy-source`
+* `x-amz-copy-source-if-match`
+* `x-amz-copy-source-if-modified-since`
+* `x-amz-copy-source-if-none-match`
+* `x-amz-copy-source-if-unmodified-since`
+* `x-amz-copy-source-server-side-encryption-customer-algorithm`
+* `x-amz-copy-source-server-side-encryption-customer-key`
+* `x-amz-copy-source-server-side-encryption-customer-key-MD5`
+* `x-amz-metadata-directive`
+* `x-amz-object-lock-legal-hold`
+* `x-amz-object-lock-mode`
+* `x-amz-object-lock-retain-until-date`
+* `x-amz-server-side-encryption`
+* `x-amz-server-side-encryption-customer-algorithm`
+* `x-amz-server-side-encryption-customer-key`
+* `x-amz-server-side-encryption-customer-key-MD5`
+* `x-amz-storage-class`
+* `x-amz-tagging`
+* `x-amz-tagging-directive`
+* `x-amz-meta-<metadata-name>`
+
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:put-object-copy.html["PUT Objektkopie"]
+
+
+
+== https://["CreateBucket"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage, plus diese zusätzlichen Kopfzeilen:
+
+* `x-amz-bucket-object-lock-enabled`
+
+
+.Text anfordern
+StorageGRID unterstützt alle Parameter des Abforderungskörpers, die zum Zeitpunkt der Implementierung von der Amazon S3 REST-API definiert wurden.
+
+.StorageGRID-Dokumentation
+link:operations-on-buckets.html["Operationen auf Buckets"]
+
+
+
+== https://["CreateMultipartUpload"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage, plus diese zusätzlichen Kopfzeilen:
+
+* `Cache-Control`
+* `Content-Disposition`
+* `Content-Encoding`
+* `Content-Language`
+* `Expires`
+* `x-amz-server-side-encryption`
+* `x-amz-storage-class`
+* `x-amz-server-side-encryption-customer-algorithm`
+* `x-amz-server-side-encryption-customer-key`
+* `x-amz-server-side-encryption-customer-key-MD5`
+* `x-amz-tagging`
+* `x-amz-object-lock-mode`
+* `x-amz-object-lock-retain-until-date`
+* `x-amz-object-lock-legal-hold`
+* `x-amz-meta-<metadata-name>`
+
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:initiate-multipart-upload.html["Initiieren Von Mehrteiligen Uploads"]
+
+
+
+== https://["DeleteBucket"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.StorageGRID-Dokumentation
+link:operations-on-buckets.html["Operationen auf Buckets"]
+
+
+
+== https://["DeleteBucketCors"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:operations-on-buckets.html["Operationen auf Buckets"]
+
+
+
+== https://["DeleteBucketEncryption"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:operations-on-buckets.html["Operationen auf Buckets"]
+
+
+
+== https://["DeleteBucketLifecycle"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+* link:operations-on-buckets.html["Operationen auf Buckets"]
+* link:create-s3-lifecycle-configuration.html["S3-Lebenszykluskonfiguration erstellen"]
+
+
+
+
+== https://["DeleteBucketRichtlinien"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:operations-on-buckets.html["Operationen auf Buckets"]
+
+
+
+== https://["DeleteBucketReplication"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:operations-on-buckets.html["Operationen auf Buckets"]
+
+
+
+== https://["DeleteBucketTagging"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:operations-on-buckets.html["Operationen auf Buckets"]
+
+
+
+== https://["DeleteObject"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anforderung plus diesen zusätzlichen Anforderungsheader:
+
+* `x-amz-bypass-governance-retention`
+
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:operations-on-objects.html["Operationen für Objekte"]
+
+
+
+== https://["Objekte deObjekteObjekte"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anforderung plus diesen zusätzlichen Anforderungsheader:
+
+* `x-amz-bypass-governance-retention`
+
+
+.Text anfordern
+StorageGRID unterstützt alle Parameter des Abforderungskörpers, die zum Zeitpunkt der Implementierung von der Amazon S3 REST-API definiert wurden.
+
+.StorageGRID-Dokumentation
+link:operations-on-objects.html["Operationen für Objekte"] (DELETE mehrere Objekte)
+
+
+
+== https://["DeleteObjectTagging"^]
+
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:operations-on-objects.html["Operationen für Objekte"]
+
+
+
+== https://["GetBucketAcl"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:operations-on-buckets.html["Operationen auf Buckets"]
+
+
+
+== https://["GetBucketCors"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:operations-on-buckets.html["Operationen auf Buckets"]
+
+
+
+== https://["GetBucketEncryption"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:operations-on-buckets.html["Operationen auf Buckets"]
+
+
+
+== https://["GetBucketLifecycleKonfiguration"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+* link:operations-on-buckets.html["Operationen auf Buckets"] (BUCKET-Lebenszyklus ABRUFEN)
+* link:create-s3-lifecycle-configuration.html["S3-Lebenszykluskonfiguration erstellen"]
+
+
+
+
+== https://["GetBucketLocation"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:operations-on-buckets.html["Operationen auf Buckets"]
+
+
+
+== https://["GetBucketNotificationConfiguration"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:operations-on-buckets.html["Operationen auf Buckets"] (Bucket-Benachrichtigung ABRUFEN)
+
+
+
+== https://["GetBucketPolicy"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:operations-on-buckets.html["Operationen auf Buckets"]
+
+
+
+== https://["GetBucketReplication"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:operations-on-buckets.html["Operationen auf Buckets"]
+
+
+
+== https://["GetBucketTagging"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:operations-on-buckets.html["Operationen auf Buckets"]
+
+
+
+== https://["GetBucketVersioning"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:operations-on-buckets.html["Operationen auf Buckets"]
+
+
+
+== https://["GetObject"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anforderung plus die folgenden zusätzlichen URI-Abfrageparameter:
+
+* `partNumber`
+* `response-cache-control`
+* `response-content-disposition`
+* `response-content-encoding`
+* `response-content-language`
+* `response-content-type`
+* `response-expires`
+
+
+Und diese zusätzlichen Anforderungsheader:
+
+* `Range`
+* `x-amz-server-side-encryption-customer-algorithm`
+* `x-amz-server-side-encryption-customer-key`
+* `x-amz-server-side-encryption-customer-key-MD5`
+* `If-Match`
+* `If-Modified-Since`
+* `If-None-Match`
+* `If-Unmodified-Since`
+
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:get-object.html["GET Objekt"]
+
+
+
+== https://["GetObjectAcl"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:operations-on-objects.html["Operationen für Objekte"]
+
+
+
+== https://["GetObjectLegalHold"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:../s3/use-s3-api-for-s3-object-lock.html["Konfigurieren Sie die S3-Objektsperre über die S3-REST-API"]
+
+
+
+== https://["GetObjectLockConfiguration"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:../s3/use-s3-api-for-s3-object-lock.html["Konfigurieren Sie die S3-Objektsperre über die S3-REST-API"]
+
+
+
+== https://["GetObjectRetention"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:../s3/use-s3-api-for-s3-object-lock.html["Konfigurieren Sie die S3-Objektsperre über die S3-REST-API"]
+
+
+
+== https://["GetObjectTagging"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:operations-on-objects.html["Operationen für Objekte"]
+
+
+
+== https://["HeadBucket"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:operations-on-buckets.html["Operationen auf Buckets"]
+
+
+
+== https://["HeadObject"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage, plus diese zusätzlichen Kopfzeilen:
+
+* `x-amz-server-side-encryption-customer-algorithm`
+* `x-amz-server-side-encryption-customer-key`
+* `x-amz-server-side-encryption-customer-key-MD5`
+* `If-Match`
+* `If-Modified-Since`
+* `If-None-Match`
+* `If-Unmodified-Since`
+* `Range`
+
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:head-object.html["HEAD Objekt"]
+
+
+
+== https://["ListBuchs"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:operations-on-the-service.html["Operationen im Dienst > SERVICE ABRUFEN"]
+
+
+
+== https://["ListMultipartUploads"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anforderung plus die folgenden zusätzlichen Parameter:
+
+* `delimiter`
+* `encoding-type`
+* `key-marker`
+* `max-uploads`
+* `prefix`
+* `upload-id-marker`
+
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:list-multipart-uploads.html["Mehrteilige Uploads Auflisten"]
+
+
+
+== https://["ListObjekte"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anforderung plus die folgenden zusätzlichen Parameter:
+
+* `delimiter`
+* `encoding-type`
+* `marker`
+* `max-keys`
+* `prefix`
+
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:operations-on-buckets.html["Operationen auf Buckets"] (BUCKET ABRUFEN)
+
+
+
+== https://["ListObjekteV2"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anforderung plus die folgenden zusätzlichen Parameter:
+
+* `continuation-token`
+* `delimiter`
+* `encoding-type`
+* `fetch-owner`
+* `max-keys`
+* `prefix`
+* `start-after`
+
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:operations-on-buckets.html["Operationen auf Buckets"] (BUCKET ABRUFEN)
+
+
+
+== https://["ListObjectVersions"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anforderung plus die folgenden zusätzlichen Parameter:
+
+* `delimiter`
+* `encoding-type`
+* `key-marker`
+* `max-keys`
+* `prefix`
+* `version-id-marker`
+
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:operations-on-buckets.html["Operationen auf Buckets"] (GET Bucket-Objektversionen)
+
+
+
+== https://["ListenTeile"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anforderung plus die folgenden zusätzlichen Parameter:
+
+* `max-parts`
+* `part-number-marker`
+* `uploadId`
+
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:list-multipart-uploads.html["Mehrteilige Uploads Auflisten"]
+
+
+
+== https://["PutBucketCors"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text anfordern
+StorageGRID unterstützt alle Parameter des Abforderungskörpers, die zum Zeitpunkt der Implementierung von der Amazon S3 REST-API definiert wurden.
+
+.StorageGRID-Dokumentation
+link:operations-on-buckets.html["Operationen auf Buckets"]
+
+
+
+== https://["PutBucketEncryption"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text-XML-Tags anfordern
+StorageGRID unterstützt folgende XML-Tags für Anforderungstext:
+
+* `ServerSideEncryptionConfiguration`
+* `Rule`
+* `ApplyServerSideEncryptionByDefault`
+* `SSEAlgorithm`
+
+
+.StorageGRID-Dokumentation
+link:operations-on-buckets.html["Operationen auf Buckets"]
+
+
+
+== https://["PutBucketLifecycleKonfiguration"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text-XML-Tags anfordern
+StorageGRID unterstützt folgende XML-Tags für Anforderungstext:
+
+* `NewerNoncurrentVersions`
+* `LifecycleConfiguration`
+* `Rule`
+* `Expiration`
+* `Days`
+* `Filter`
+* `And`
+* `Prefix`
+* `Tag`
+* `Key`
+* `Value`
+* `Prefix`
+* `Tag`
+* `Key`
+* `Value`
+* `ID`
+* `NoncurrentVersionExpiration`
+* `NoncurrentDays`
+* `Prefix`
+* `Status`
+
+
+.StorageGRID-Dokumentation
+* link:operations-on-buckets.html["Operationen auf Buckets"] (PUT-Bucket-Lebenszyklus)
+* link:create-s3-lifecycle-configuration.html["S3-Lebenszykluskonfiguration erstellen"]
+
+
+
+
+== https://["PutBucketNotificationKonfiguration"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text-XML-Tags anfordern
+StorageGRID unterstützt folgende XML-Tags für Anforderungstext:
+
+* `Prefix`
+* `Suffix`
+* `NotificationConfiguration`
+* `TopicConfiguration`
+* `Event`
+* `Filter`
+* `S3Key`
+* `FilterRule`
+* `Name`
+* `Value`
+* `Id`
+* `Topic`
+
+
+.StorageGRID-Dokumentation
+link:operations-on-buckets.html["Operationen auf Buckets"] (PUT Bucket-Benachrichtigung)
+
+
+
+== https://["PutBucketPolicy"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text anfordern
+Weitere Informationen zu den unterstützten JSON-Textfeldern finden Sie unterlink:bucket-and-group-access-policies.html["Verwendung von Bucket- und Gruppenzugriffsrichtlinien"].
+
+
+
+== https://["PutBucketReplication"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text-XML-Tags anfordern
+* `ReplicationConfiguration`
+* `Status`
+* `Prefix`
+* `Destination`
+* `Bucket`
+* `StorageClass`
+* `Rule`
+
+
+.StorageGRID-Dokumentation
+link:operations-on-buckets.html["Operationen auf Buckets"]
+
+
+
+== https://["PutBucketTagging"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text anfordern
+StorageGRID unterstützt alle Parameter des Abforderungskörpers, die zum Zeitpunkt der Implementierung von der Amazon S3 REST-API definiert wurden.
+
+.StorageGRID-Dokumentation
+link:operations-on-buckets.html["Operationen auf Buckets"]
+
+
+
+== https://["PutBucketVersioning"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Body-Parameter anfordern
+StorageGRID unterstützt die folgenden Parameter des Anfragenkörpers:
+
+* `VersioningConfiguration`
+* `Status`
+
+
+.StorageGRID-Dokumentation
+link:operations-on-buckets.html["Operationen auf Buckets"]
+
+
+
+== https://["PutObject"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage, plus diese zusätzlichen Kopfzeilen:
+
+* `Cache-Control`
+* `Content-Disposition`
+* `Content-Encoding`
+* `Content-Language`
+* `x-amz-server-side-encryption`
+* `x-amz-storage-class`
+* `x-amz-server-side-encryption-customer-algorithm`
+* `x-amz-server-side-encryption-customer-key`
+* `x-amz-server-side-encryption-customer-key-MD5`
+* `x-amz-tagging`
+* `x-amz-object-lock-mode`
+* `x-amz-object-lock-retain-until-date`
+* `x-amz-object-lock-legal-hold`
+* `x-amz-meta-<metadata-name>`
+
+
+.Text anfordern
+* Binäre Daten des Objekts
+
+
+.StorageGRID-Dokumentation
+link:put-object.html["PUT Objekt"]
+
+
+
+== https://["PutObjectLegalHold"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text anfordern
+StorageGRID unterstützt alle Parameter des Abforderungskörpers, die zum Zeitpunkt der Implementierung von der Amazon S3 REST-API definiert wurden.
+
+.StorageGRID-Dokumentation
+link:use-s3-api-for-s3-object-lock.html["Konfigurieren Sie die S3-Objektsperre über die S3-REST-API"]
+
+
+
+== https://["PutObjectLockKonfiguration"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text anfordern
+StorageGRID unterstützt alle Parameter des Abforderungskörpers, die zum Zeitpunkt der Implementierung von der Amazon S3 REST-API definiert wurden.
+
+.StorageGRID-Dokumentation
+link:use-s3-api-for-s3-object-lock.html["Konfigurieren Sie die S3-Objektsperre über die S3-REST-API"]
+
+
+
+== https://["PutObjectRetention"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage, plus diese zusätzliche Kopfzeile:
+
+* `x-amz-bypass-governance-retention`
+
+
+.Text anfordern
+StorageGRID unterstützt alle Parameter des Abforderungskörpers, die zum Zeitpunkt der Implementierung von der Amazon S3 REST-API definiert wurden.
+
+.StorageGRID-Dokumentation
+link:use-s3-api-for-s3-object-lock.html["Konfigurieren Sie die S3-Objektsperre über die S3-REST-API"]
+
+
+
+== https://["PutObjectTagging"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text anfordern
+StorageGRID unterstützt alle Parameter des Abforderungskörpers, die zum Zeitpunkt der Implementierung von der Amazon S3 REST-API definiert wurden.
+
+.StorageGRID-Dokumentation
+link:operations-on-objects.html["Operationen für Objekte"]
+
+
+
+== https://["SelektierObjectContent"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text anfordern
+Weitere Informationen zu den unterstützten Textfeldern finden Sie in den folgenden Informationen:
+
+* link:use-s3-select.html["Verwenden Sie S3 Select"]
+* link:select-object-content.html["Wählen Sie Objektinhalt Aus"]
+
+
+
+
+== https://["UploadTeil"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anforderung plus die folgenden zusätzlichen URI-Abfrageparameter:
+
+* `partNumber`
+* `uploadId`
+
+
+Und diese zusätzlichen Anforderungsheader:
+
+* `x-amz-server-side-encryption-customer-algorithm`
+* `x-amz-server-side-encryption-customer-key`
+* `x-amz-server-side-encryption-customer-key-MD5`
+
+
+.Text anfordern
+* Binäre Daten des Teils
+
+
+.StorageGRID-Dokumentation
+link:upload-part.html["Hochladen Von Teilen"]
+
+
+
+== https://["UploadPartCopy"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anforderung plus die folgenden zusätzlichen URI-Abfrageparameter:
+
+* `partNumber`
+* `uploadId`
+
+
+Und diese zusätzlichen Anforderungsheader:
+
+* `x-amz-copy-source`
+* `x-amz-copy-source-if-match`
+* `x-amz-copy-source-if-modified-since`
+* `x-amz-copy-source-if-none-match`
+* `x-amz-copy-source-if-unmodified-since`
+* `x-amz-copy-source-range`
+* `x-amz-server-side-encryption-customer-algorithm`
+* `x-amz-server-side-encryption-customer-key`
+* `x-amz-server-side-encryption-customer-key-MD5`
+* `x-amz-copy-source-server-side-encryption-customer-algorithm`
+* `x-amz-copy-source-server-side-encryption-customer-key`
+* `x-amz-copy-source-server-side-encryption-customer-key-MD5`
+
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:upload-part-copy.html["Hochladen Von Teilen - Kopieren"]

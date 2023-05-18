@@ -1,0 +1,20 @@
+= 
+:allow-uri-read: 
+
+
+.Bevor Sie beginnen
+* Sie müssen mit einem beim Grid Manager angemeldet sein link:../admin/web-browser-requirements.html["Unterstützter Webbrowser"].
+* Sie müssen über die Berechtigung Root-Zugriff oder andere Grid-Konfiguration verfügen.
+
+
+.Schritte
+. Wählen Sie *SUPPORT* > *Werkzeuge* > *AutoSupport*.
+. Wählen Sie auf der Registerkarte *Einstellungen* die Option *vom Benutzer ausgelöste AutoSupport* senden.
++
+StorageGRID versucht, eine AutoSupport Nachricht an den technischen Support zu senden. Wenn der Versuch erfolgreich ist, werden die *aktuellsten Ergebnisse* und *Letzte erfolgreiche Zeit* Werte auf der Registerkarte *Ergebnisse* aktualisiert. Wenn ein Problem auftritt, werden die *neuesten Ergebnisse*-Werte auf „Fehlgeschlagen“ aktualisiert, und StorageGRID versucht nicht, die AutoSupport-Nachricht erneut zu senden.
+
++
+
+NOTE: Nachdem Sie eine vom Benutzer ausgelöste AutoSupport-Nachricht gesendet haben, aktualisieren Sie die AutoSupport-Seite im Browser nach 1 Minute, um auf die neuesten Ergebnisse zuzugreifen.
+
+

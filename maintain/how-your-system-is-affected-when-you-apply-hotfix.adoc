@@ -1,0 +1,41 @@
+---
+permalink: maintain/how-your-system-is-affected-when-you-apply-hotfix.html 
+sidebar: sidebar 
+keywords: storagegrid, hotfix 
+summary: Wenn Sie einen Hotfix anwenden, müssen Sie verstehen, wie sich Ihr StorageGRID-System auswirkt. 
+---
+= Auswirkungen auf Ihr System beim Anwenden eines Hotfix
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Sie einen Hotfix anwenden, müssen Sie verstehen, wie sich Ihr StorageGRID-System auswirkt.
+
+
+
+== Bei Client-Applikationen kommt es unter Umständen zu kurzfristigen Unterbrechungen
+
+Das StorageGRID System kann während des Hotfix-Prozesses Daten von Client-Applikationen aufnehmen und abrufen. Client-Verbindungen zu einzelnen Gateway-Nodes oder Storage-Nodes können jedoch vorübergehend unterbrochen werden, wenn der Hotfix Dienste auf diesen Knoten neu starten muss. Die Verbindung wird wiederhergestellt, sobald der Hotfix-Prozess abgeschlossen ist und die Dienste auf den einzelnen Knoten wieder aufgenommen werden.
+
+Möglicherweise müssen Sie Ausfallzeiten planen, um einen Hotfix anzuwenden, wenn ein kurzfristiger Verlust der Verbindung nicht akzeptabel ist. Sie können eine selektive Genehmigung verwenden, um die Planung für die Aktualisierung bestimmter Knoten zu planen.
+
+
+NOTE: Dank mehrerer Gateways und Hochverfügbarkeitsgruppen (HA-Gruppen) lassen sich während des Hotfix-Prozesses automatische Failovers durchführen. Siehe Anweisungen für link:../admin/configure-high-availability-group.html["Konfigurieren von Hochverfügbarkeitsgruppen"].
+
+
+
+== Warnmeldungen und SNMP-Benachrichtigungen können ausgelöst werden
+
+Warnmeldungen und SNMP-Benachrichtigungen können ausgelöst werden, wenn Dienste neu gestartet werden und das StorageGRID System als Umgebung mit gemischten Versionen funktioniert (einige Grid-Nodes mit einer früheren Version, während andere auf eine neuere Version aktualisiert wurden). Im Allgemeinen werden diese Warnungen und Benachrichtigungen gelöscht, wenn der Hotfix abgeschlossen ist.
+
+
+
+== Konfigurationsänderungen sind eingeschränkt
+
+Beim Anwenden eines Hotfix auf StorageGRID:
+
+* Nehmen Sie keine Änderungen an der Grid-Konfiguration vor (z. B. Festlegen von Netznetznetzen oder Genehmigen ausstehender Netzknoten), bis der Hotfix auf alle Knoten angewendet wurde.
+* Aktualisieren Sie die ILM-Konfiguration erst, wenn der Hotfix auf alle Nodes angewendet wurde.
+

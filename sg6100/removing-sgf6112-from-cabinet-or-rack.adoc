@@ -1,0 +1,54 @@
+---
+permalink: sg6100/removing-sgf6112-from-cabinet-or-rack.html 
+sidebar: sidebar 
+keywords: storagegrid, sg6100, storage node, storage appliance, remove, removing, removal, cabinet, rack, appliance, sgf6112 
+summary: Nehmen Sie das SGF6112 aus einem Schrank oder Rack, um auf die obere Abdeckung zuzugreifen oder das Gerät an einen anderen Ort zu bringen. 
+---
+= SGF6112 aus Schrank oder Rack entfernen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Nehmen Sie das SGF6112 aus einem Schrank oder Rack, um auf die obere Abdeckung zuzugreifen oder das Gerät an einen anderen Ort zu bringen.
+
+.Bevor Sie beginnen
+* Jedes Kabel, das mit dem SGF6112 verbunden ist, ist mit Etiketten versehen.
+* Sie haben den Standort des SGF6112, an dem Sie Wartungsarbeiten im Datacenter durchführen.
++
+link:locating-sgf6112-in-data-center.html["SGF6112 im Datacenter lokalisieren"]
+
+* Sie haben die SGF6112 heruntergefahren.
++
+link:shut-down-sgf6112.html["Fahren Sie SGF6112 herunter"]
+
++
+
+CAUTION: Schalten Sie das Gerät nicht über den Netzschalter aus.
+
+
+
+.Schritte
+. Beschriften Sie die Netzkabel des Geräts, und ziehen Sie sie ab.
+. Wickeln Sie das Gurt-Ende des ESD-Armbands um Ihr Handgelenk, und befestigen Sie das Clip-Ende auf einer Metallmasse, um eine statische Entladung zu verhindern.
+. Beschriften Sie die Gerätedatenkabel und alle SFP+- oder SFP28-Transceiver, und trennen Sie sie anschließend.
++
+
+IMPORTANT: Um Leistungseinbußen zu vermeiden, sollten Sie die Kabel nicht verdrehen, falten, zusammendrücken oder treten.
+
+. Lösen Sie die beiden unverlierbaren Schrauben an der Gerätevorderseite.
++
+image::../media/sg6060_rack_retaining_screws.png[SGF6112-Rack-Befestigungsschrauben]
+
+. Schieben Sie das SGF6112 aus dem Rack nach vorn, bis die Montageschienen vollständig ausgefahren sind und die Verriegelungen auf beiden Seiten hörbar einrasten.
++
+Die obere Abdeckung des Geräts ist zugänglich.
+
+. Optional: Wenn Sie das Gerät vollständig aus dem Schrank oder Rack entfernen, befolgen Sie die Anweisungen für den Schienensatz, um das Gerät von den Schienen zu entfernen.
+
+
+Nach dem Austausch des Teils senden Sie das fehlerhafte Teil an NetApp zurück, wie in den mit dem Kit gelieferten RMA-Anweisungen beschrieben. Siehe https://["Teilerückgabe  Austausch"^] Seite für weitere Informationen.
+
+.Verwandte Informationen
+link:removing-sgf6112-cover.html["Entfernen Sie die Abdeckung des SGF6112"]

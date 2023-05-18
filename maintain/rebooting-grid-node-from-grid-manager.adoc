@@ -1,0 +1,48 @@
+---
+permalink: maintain/rebooting-grid-node-from-grid-manager.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, reboot node, grid manager 
+summary: 'Beim Neubooten eines Grid-Node aus dem Grid Manager wird der Probleme auftreten `reboot` Befehl auf dem Ziel-Node.' 
+---
+= Grid-Node aus Grid Manager neu booten
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Beim Neubooten eines Grid-Node aus dem Grid Manager wird der Probleme auftreten `reboot` Befehl auf dem Ziel-Node.
+
+.Bevor Sie beginnen
+* Sie sind mit einem bei Grid Manager angemeldet link:../admin/web-browser-requirements.html["Unterstützter Webbrowser"].
+* Sie haben die Berechtigung Wartung oder Stammzugriff.
+* Sie haben die Provisionierungs-Passphrase.
+
+
+.Schritte
+. Wählen Sie *KNOTEN*.
+. Wählen Sie den Grid-Node aus, den Sie neu booten möchten.
+. Wählen Sie die Registerkarte *Aufgaben* aus.
++
+image::../media/maintenance_mode.png[Knoten > Aufgaben > Schaltfläche Neu booten]
+
+. Wählen Sie *Neustart*.
++
+Ein Bestätigungsdialogfeld wird angezeigt.
+
++
+image::../media/nodes_tasks_reboot.png[Knoten > Aufgaben > Schaltfläche Neu booten]
+
++
+
+NOTE: Wenn Sie den primären Admin-Knoten neu starten, wird im Bestätigungsdialogfeld darauf hingewiesen, dass die Verbindung Ihres Browsers zum Grid Manager vorübergehend verloren geht, wenn Dienste beendet werden.
+
+. Geben Sie die Provisionierungs-Passphrase ein, und wählen Sie *OK*.
+. Warten Sie, bis der Node neu gebootet wird.
++
+Es kann einige Zeit dauern, bis Dienste heruntergefahren werden.
+
++
+Wenn der Knoten neu gestartet wird, wird das graue Symbol (Administrativ Down) auf der linken Seite der Seite *Nodes* angezeigt. Wenn alle Dienste wieder gestartet wurden und der Knoten erfolgreich mit dem Raster verbunden ist, sollte die Seite *Nodes* einen normalen Status anzeigen (keine Symbole links neben dem Knotennamen), was darauf hinweist, dass keine Alarme aktiv sind und der Knoten mit dem Raster verbunden ist.
+
+

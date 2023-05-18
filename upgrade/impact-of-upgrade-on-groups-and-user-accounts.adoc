@@ -1,0 +1,35 @@
+---
+permalink: upgrade/impact-of-upgrade-on-groups-and-user-accounts.html 
+sidebar: sidebar 
+keywords: upgrade, permissions 
+summary: Sie müssen die Auswirkungen des StorageGRID Upgrades kennen, damit Sie Gruppen und Benutzerkonten nach Abschluss des Upgrades entsprechend aktualisieren können. 
+---
+= Auswirkungen eines Upgrades auf Gruppen und Benutzerkonten
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie müssen die Auswirkungen des StorageGRID Upgrades kennen, damit Sie Gruppen und Benutzerkonten nach Abschluss des Upgrades entsprechend aktualisieren können.
+
+
+
+== Änderungen an Gruppenberechtigungen und -Optionen
+
+Nach dem Upgrade auf StorageGRID 11.7 weisen Sie den Benutzergruppen der Mandanten optional die folgende neue Berechtigung zu.
+
+[cols="1a,2a"]
+|===
+| Berechtigung | Beschreibung 
+
+
+ a| 
+Tenant Manager > Objekte mithilfe der S3-Konsole managen
+ a| 
+In Kombination mit der Berechtigung zum Verwalten aller Buckets ermöglicht diese Berechtigung Benutzern den Zugriff auf link:../tenant/use-s3-console.html["Experimentelle S3-Konsole"] Auf der Seite „Planungsperioden“.
+
+Benutzer, die über diese Berechtigung verfügen, aber nicht über die Berechtigung zum Verwalten aller Buckets verfügen, können dennoch direkt zur Experimental S3 Console navigieren.
+
+|===
+Siehe link:../tenant/tenant-management-permissions.html["Mandantenmanagement-Berechtigungen"].

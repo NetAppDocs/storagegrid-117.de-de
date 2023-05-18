@@ -1,0 +1,45 @@
+---
+permalink: vmware/software-requirements.html 
+sidebar: sidebar 
+keywords: software requirements 
+summary: Sie können eine Virtual Machine zum Hosten jedes beliebigen Typs des StorageGRID Grid Node verwenden. Für jeden Grid-Node, der auf dem VMware-Server installiert ist, ist eine Virtual Machine erforderlich. 
+---
+= Softwareanforderungen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können eine Virtual Machine zum Hosten jedes beliebigen Typs des StorageGRID Grid Node verwenden. Für jeden Grid-Node, der auf dem VMware-Server installiert ist, ist eine Virtual Machine erforderlich.
+
+
+
+== VMware vSphere Hypervisor
+
+Sie müssen VMware vSphere Hypervisor auf einem vorbereiteten physischen Server installieren. Die Hardware muss vor der Installation der VMware Software korrekt konfiguriert sein (einschließlich Firmware-Versionen und BIOS-Einstellungen).
+
+* Zur Unterstützung des Netzwerkes für das zu installierende StorageGRID-System konfigurieren Sie das Netzwerk im Hypervisor nach Bedarf.
++
+link:../network/index.html["Netzwerkrichtlinien"]
+
+* Stellen Sie sicher, dass der Datastore groß genug für die virtuellen Maschinen und virtuellen Festplatten ist, die zum Hosten der Grid-Nodes benötigt werden.
+* Wenn Sie mehr als einen Datenspeicher erstellen, benennen Sie jeden Datenspeicher. So können Sie bei der Erstellung von Virtual Machines leicht ermitteln, welchen Datenspeicher für die einzelnen Grid-Nodes verwendet werden soll.
+
+
+
+
+== Konfigurationsanforderungen für den ESX Host
+
+
+CAUTION: Sie müssen das Network Time Protocol (NTP) auf jedem ESX-Host ordnungsgemäß konfigurieren. Wenn die Host-Zeit falsch ist, können negative Auswirkungen, einschließlich Datenverlust, auftreten.
+
+
+
+== Konfigurationsanforderungen für VMware
+
+Vor der Implementierung von StorageGRID Grid-Nodes müssen Sie VMware vSphere und vCenter installieren und konfigurieren.
+
+Informationen zu unterstützten Versionen von VMware vSphere Hypervisor und VMware vCenter Server-Software finden Sie im https://["NetApp Interoperabilitäts-Matrix-Tool"^].
+
+Die Schritte zur Installation dieser VMware-Produkte finden Sie in der VMware-Dokumentation.

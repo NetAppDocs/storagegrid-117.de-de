@@ -1,0 +1,362 @@
+---
+permalink: installconfig/gathering-installation-information-sg6100.html 
+sidebar: sidebar 
+keywords: storagegrid, sg6100, sgf6112, install, information, site, pre-install, preparing, prepare, preinstall, info, preparation 
+summary: Notieren Sie anhand der folgenden Tabellen die erforderlichen Informationen für jedes Netzwerk, das Sie mit dem Gerät verbinden. Diese Werte sind für die Installation und Konfiguration der Hardware erforderlich. 
+---
+= Installationsdaten sammeln (SGF6112)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Notieren Sie anhand der folgenden Tabellen die erforderlichen Informationen für jedes Netzwerk, das Sie mit dem Gerät verbinden. Diese Werte sind für die Installation und Konfiguration der Hardware erforderlich.
+
+
+TIP: Verwenden Sie anstelle der Tabellen das mit ConfigBuilder bereitgestellte Arbeitsbuch. Mit der Arbeitsmappe „ConfigBuilder“ können Sie Ihre Systeminformationen hochladen und eine JSON-Datei erstellen, um einige Konfigurationsschritte im Installationsprogramm für StorageGRID-Appliances automatisch auszuführen. Siehe link:automating-appliance-installation-and-configuration.html["Automatisierung der Appliance-Installation und -Konfiguration"].
+
+
+
+== Überprüfen Sie die StorageGRID-Version
+
+Vergewissern Sie sich vor der Installation einer SGF6112-Appliance, dass Ihr StorageGRID-System eine erforderliche Version der StorageGRID-Software verwendet.
+
+[cols="1a,2a"]
+|===
+| Appliance | Erforderliche StorageGRID Version 
+
+
+ a| 
+SGF6112
+ a| 
+11.7 oder höher (neuester Hotfix empfohlen)
+
+|===
+
+
+== Administrations- und Wartungs-Ports
+
+Das Admin-Netzwerk für StorageGRID ist ein optionales Netzwerk, das zur Systemadministration und -Wartung verwendet wird. Die Appliance stellt über die folgenden Ports auf der Appliance eine Verbindung zum Admin-Netzwerk her.
+
+Die folgende Abbildung zeigt die RJ-45-Ports am SG6112-Gerät.
+
+image::../media/sg6100_rj_45_ports_circled.png[SG6112 RJ-45-Ports]
+
+[cols="2a,1a"]
+|===
+| Erforderliche Informationen | Ihr Wert 
+
+
+ a| 
+Admin-Netzwerk aktiviert
+ a| 
+Bitte auswählen:
+
+* Nein
+* Ja (Standard)
+
+
+
+
+ a| 
+Netzwerk-Bond-Modus
+ a| 
+Bitte auswählen:
+
+* Unabhängig (Standard)
+* Aktiv/Backup
+
+
+
+
+ a| 
+Switch-Port für den im Diagramm eingekreisten linken Port (Standard-aktiver Port für unabhängigen Netzwerk-Bond-Modus)
+ a| 
+
+
+
+ a| 
+Switch-Port für den rechten Port im Diagramm eingekreist (nur aktiv-Backup-Netzwerk-Bond-Modus)
+ a| 
+
+
+
+ a| 
+MAC-Adresse für den Netzwerkport Admin
+
+*Hinweis:* das MAC-Adressenetikett auf der Vorderseite des Geräts listet die MAC-Adresse für den BMC-Verwaltungsport auf. Um die MAC-Adresse für den Admin-Netzwerkanschluss zu ermitteln, müssen Sie der Hexadezimalzahl auf dem Etikett *2* hinzufügen. Wenn die MAC-Adresse auf dem Etikett beispielsweise mit *09* endet, endet die MAC-Adresse für den Admin-Port in *0B*. Wenn die MAC-Adresse auf dem Etikett mit *(_y_)FF* endet, endet die MAC-Adresse für den Admin-Port in *(_y_+1)01*. Sie können diese Berechnung einfach durchführen, indem Sie den Rechner unter Windows öffnen, ihn auf den Programmiermodus setzen, Hex auswählen, die MAC-Adresse eingeben und dann *+ 2 =* eingeben.
+ a| 
+
+
+
+ a| 
+DHCP-zugewiesene IP-Adresse für den Admin-Netzwerkport, sofern nach dem Einschalten verfügbar
+
+*Hinweis:* Sie können die IP-Adresse ermitteln, die über DHCP zugewiesen wurde, indem Sie die MAC-Adresse verwenden, um die zugewiesene IP zu ermitteln.
+ a| 
+* IPv4-Adresse (CIDR):
+* Gateway:
+
+
+
+
+ a| 
+Statische IP-Adresse, die Sie für den Appliance-Knoten im Admin-Netzwerk verwenden möchten
+
+*Hinweis:* Wenn Ihr Netzwerk kein Gateway hat, geben Sie die gleiche statische IPv4-Adresse für das Gateway an.
+ a| 
+* IPv4-Adresse (CIDR):
+* Gateway:
+
+
+
+
+ a| 
+Admin-Netzwerk-Subnetze (CIDR)
+ a| 
+
+|===
+
+
+== Netzwerkports
+
+Die vier Netzwerkports auf der Appliance werden mit dem StorageGRID-Grid-Netzwerk und dem optionalen Client-Netzwerk verbunden.
+
+[cols="2a,1a"]
+|===
+| Erforderliche Informationen | Ihr Wert 
+
+
+ a| 
+Verbindungsgeschwindigkeit
+ a| 
+Wählen Sie für die SGF6112 eine der folgenden Optionen:
+
+* Auto (Standard)
+* 10 GBitE
+* 25 GBitE
+
+
+
+
+ a| 
+Port Bond-Modus
+ a| 
+Bitte auswählen:
+
+* Fest (Standard)
+* Aggregat
+
+
+
+
+ a| 
+Switch-Port für Port 1 (Client-Netzwerk für festen Modus)
+ a| 
+
+
+
+ a| 
+Switch-Port für Port 2 (Grid-Netzwerk für Fixed-Modus)
+ a| 
+
+
+
+ a| 
+Switch-Port für Port 3 (Client-Netzwerk für festen Modus)
+ a| 
+
+
+
+ a| 
+Switch-Port für Port 4 (Grid-Netzwerk für Fixed-Modus)
+ a| 
+
+|===
+
+
+== Grid-Netzwerkports
+
+Das Grid-Netzwerk für StorageGRID ist ein erforderliches Netzwerk, das für den gesamten internen StorageGRID-Datenverkehr verwendet wird. Die Appliance wird über die vier Netzwerk-Ports mit dem Grid-Netzwerk verbunden.
+
+[cols="2a,1a"]
+|===
+| Erforderliche Informationen | Ihr Wert 
+
+
+ a| 
+Netzwerk-Bond-Modus
+ a| 
+Bitte auswählen:
+
+* Aktiv/Backup (Standard)
+* LACP (802.3ad)
+
+
+
+
+ a| 
+VLAN-Tagging aktiviert
+ a| 
+Bitte auswählen:
+
+* Nein (Standard)
+* Ja.
+
+
+
+
+ a| 
+VLAN Tag (wenn VLAN Tagging aktiviert ist)
+ a| 
+Geben Sie einen Wert zwischen 0 und 4095 ein:
+
+
+
+ a| 
+DHCP-zugewiesene IP-Adresse für das Grid-Netzwerk, sofern nach dem Einschalten verfügbar
+ a| 
+* IPv4-Adresse (CIDR):
+* Gateway:
+
+
+
+
+ a| 
+Statische IP-Adresse, die Sie für den Appliance-Node im Grid-Netzwerk verwenden möchten
+
+*Hinweis:* Wenn Ihr Netzwerk kein Gateway hat, geben Sie die gleiche statische IPv4-Adresse für das Gateway an.
+ a| 
+* IPv4-Adresse (CIDR):
+* Gateway:
+
+
+
+
+ a| 
+Grid-Netzwerknetze (CIDRs)
+ a| 
+
+
+
+ a| 
+Einstellung für maximale Übertragungseinheit (MTU) (optional). Sie können den Standardwert 1500 verwenden oder die MTU auf einen für Jumbo Frames geeigneten Wert einstellen, z. B. 9000.
+ a| 
+
+|===
+
+
+== Client-Netzwerkports
+
+Das Client-Netzwerk für StorageGRID ist ein optionales Netzwerk, das in der Regel für den Zugriff auf das Grid auf das Clientprotokoll verwendet wird. Die Appliance wird über die vier Netzwerk-Ports mit dem Client-Netzwerk verbunden.
+
+[cols="2a,1a"]
+|===
+| Erforderliche Informationen | Ihr Wert 
+
+
+ a| 
+Client-Netzwerk aktiviert
+ a| 
+Bitte auswählen:
+
+* Nein (Standard)
+* Ja.
+
+
+
+
+ a| 
+Netzwerk-Bond-Modus
+ a| 
+Bitte auswählen:
+
+* Aktiv/Backup (Standard)
+* LACP (802.3ad)
+
+
+
+
+ a| 
+VLAN-Tagging aktiviert
+ a| 
+Bitte auswählen:
+
+* Nein (Standard)
+* Ja.
+
+
+
+
+ a| 
+VLAN-Tag (bei aktiviertem VLAN-Tagging)
+ a| 
+Geben Sie einen Wert zwischen 0 und 4095 ein:
+
+
+
+ a| 
+DHCP-zugewiesene IP-Adresse für das Client-Netzwerk, falls nach dem Einschalten verfügbar
+ a| 
+* IPv4-Adresse (CIDR):
+* Gateway:
+
+
+
+
+ a| 
+Statische IP-Adresse, die Sie für den Appliance-Knoten im Client-Netzwerk verwenden möchten
+
+*Hinweis:* Wenn das Client-Netzwerk aktiviert ist, verwendet die Standardroute auf dem Gerät das hier angegebene Gateway.
+ a| 
+* IPv4-Adresse (CIDR):
+* Gateway:
+
+
+|===
+
+
+== BMC-Management-Netzwerk-Ports
+
+Sie können auf die BMC-Schnittstelle auf der Appliance über den in der Abbildung eingekreisten 1-GbE-Managementport zugreifen. Dieser Port unterstützt die Remote-Verwaltung der Controller-Hardware über Ethernet unter Verwendung des IPMI-Standards (Intelligent Platform Management Interface).
+
+
+NOTE: Sie können den Remote-IPMI-Zugriff für alle Appliances aktivieren oder deaktivieren, die einen BMC enthalten, indem Sie den privaten Endpunkt der Management-API VERWENDEN, PUT /private/bmc.
+
+Die folgende Abbildung zeigt den BMC-Managementport auf der SG6112-Appliance.
+
+image::../media/sgf6112_cn_bmc_management_port.png[SG6100 Management-Port]
+
+[cols="2a,1a"]
+|===
+| Erforderliche Informationen | Ihr Wert 
+
+
+ a| 
+Ethernet-Switch-Port Sie stellen eine Verbindung zum BMC-Management-Port her (im Diagramm eingekreist).
+ a| 
+
+
+
+ a| 
+DHCP-zugewiesene IP-Adresse für das BMC-Managementnetzwerk, sofern nach dem Einschalten verfügbar
+ a| 
+* IPv4-Adresse (CIDR):
+* Gateway:
+
+
+
+
+ a| 
+Statische IP-Adresse, die Sie für den BMC-Verwaltungsport verwenden möchten
+ a| 
+* IPv4-Adresse (CIDR):
+* Gateway:
+
+
+|===
+.Verwandte Informationen
+* link:cabling-appliance-sgf6112.html["Kabelgerät (SGF6112)"]
+* link:setting-ip-configuration.html["Konfigurieren Sie StorageGRID-IP-Adressen"]
+

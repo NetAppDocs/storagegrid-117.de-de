@@ -1,0 +1,16 @@
+---
+permalink: release-notes/index.html 
+sidebar: sidebar 
+keywords: release notes 
+summary: Release-spezifische Informationen zu neuen Funktionen, entfernten oder veralteten Funktionen, festen Problemen und bekannten Problemen erhalten 
+---
+= Versionshinweise
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Release-spezifische Informationen zu neuen Funktionen, entfernten oder veralteten Funktionen, festen Problemen und bekannten Problemen erhalten
+
+Loggen Sie sich auf der NetApp Support Site unter ein https://["PDF-Datei anzeigen oder herunterladen"^] Enthält die Versionshinweise zu StorageGRID 11.7.

@@ -1,0 +1,79 @@
+---
+permalink: sg6000/shutting-down-sg6000-cn-controller.html 
+sidebar: sidebar 
+keywords: storagegrid, sg6000, storage node, storage appliance, power off, turn off, shut off, shutdown, shut down, sg6000-cn, controller 
+summary: Fahren Sie den SG6000-CN-Controller herunter, um die Hardware zu warten. 
+---
+= Fahren Sie den SG6000-CN-Controller herunter
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Fahren Sie den SG6000-CN-Controller herunter, um die Hardware zu warten.
+
+.Bevor Sie beginnen
+* Der SG6000-CN Controller ist physisch zu finden, der im Datacenter gewartet werden muss. Siehe link:locating-controller-in-data-center.html["Controller im Datacenter finden"].
+
+
+.Über diese Aufgabe
+Um Serviceunterbrechungen zu vermeiden, vergewissern Sie sich, dass alle anderen Storage-Nodes mit dem Grid verbunden sind, bevor Sie den Controller herunterfahren oder den Controller während eines geplanten Wartungsfensters herunterfahren, wenn die Serviceunterbrechungen akzeptabel sind. Weitere Informationen finden Sie unter link:../monitor/monitoring-system-health.html#monitor-node-connection-states["Monitoring der Verbindungsstatus der Nodes"].
+
+
+IMPORTANT: Wenn Sie jemals eine ILM-Regel verwendet haben, die nur eine Kopie eines Objekts erstellt, müssen Sie den Controller während eines geplanten Wartungsfensters herunterfahren. Andernfalls verlieren Sie während dieses Verfahrens vorübergehend den Zugriff auf diese Objekte. + Weitere Informationen zum Verwalten von Objekten mit Information Lifecycle Management finden Sie unter.
+
+.Schritte
+. Fahren Sie den SG6000-CN-Controller herunter.
++
+
+CAUTION: Sie müssen ein kontrolliertes Herunterfahren des Geräts durchführen, indem Sie die unten angegebenen Befehle eingeben. Es ist eine Best Practice, nach Möglichkeit eine kontrollierte Abschaltung durchzuführen, um unnötige Warnmeldungen zu vermeiden, sicherzustellen, dass vollständige Protokolle verfügbar sind und Serviceunterbrechungen zu vermeiden.
+
++
+.. Wenn Sie sich noch nicht beim Grid-Knoten angemeldet haben, melden Sie sich mit PuTTY oder einem anderen ssh-Client an:
++
+... Geben Sie den folgenden Befehl ein: `ssh admin@_grid_node_IP_`
+... Geben Sie das im aufgeführte Passwort ein `Passwords.txt` Datei:
+... Geben Sie den folgenden Befehl ein, um zum Root zu wechseln: `su -`
+... Geben Sie das im aufgeführte Passwort ein `Passwords.txt` Datei:
++
+Wenn Sie als root angemeldet sind, ändert sich die Eingabeaufforderung von `$` Bis `#`.
+
+
+
+.. Fahren Sie den SG6000-CN-Controller herunter: +
+`*shutdown -h now*`
++
+Dieser Befehl kann bis zu 10 Minuten in Anspruch nehmen.
+
+
+
+. Überprüfen Sie anhand einer der folgenden Methoden, ob der SG6000-CN-Controller ausgeschaltet ist:
++
+** Schauen Sie sich die blaue ein/aus-LED an der Vorderseite des Controllers an und bestätigen Sie, dass sie ausgeschaltet ist.
++
+image::../media/sg6060_front_panel_power_led_off.jpg[SG6060 Power-LED auf der Frontplatte - aus]
+
+** Schauen Sie sich die grünen LEDs an den beiden Netzteilen auf der Rückseite des Controllers an und bestätigen Sie, dass sie mit einer normalen Geschwindigkeit (etwa ein Blinken pro Sekunde) blinken.
++
+image::../media/sg6060_rear_panel_power_led_on.jpg[LED für Stromversorgung auf der Rückseite des SG6060]
+
+** Verwenden Sie die BMC-Schnittstelle des Controllers:
++
+... Greifen Sie auf die BMC-Schnittstelle des Controllers zu.
++
+link:../installconfig/accessing-bmc-interface.html["Greifen Sie auf die BMC-Schnittstelle zu"]
+
+... Wählen Sie *Power Control*.
+... Stellen Sie sicher, dass die Strommaßnahmen darauf hindeuten, dass der Host derzeit ausgeschaltet ist.
++
+image::../media/bmc_power_control_page_controller_off.png[BMC Power Control Seite - Controller aus]
+
+
+
+
+
+
+
+.Verwandte Informationen
+link:removing-sg6000-cn-controller-from-cabinet-or-rack.html["Entfernen Sie den SG6000-CN Controller aus dem Schrank oder Rack"]

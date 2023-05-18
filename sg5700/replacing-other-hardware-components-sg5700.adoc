@@ -1,0 +1,87 @@
+---
+permalink: sg5700/replacing-other-hardware-components-sg5700.html 
+sidebar: sidebar 
+keywords: storagegrid, sg5700, storage node, storage appliance, Replacing, replace, hardware, components, remove, removing, removal, install, installing, installation, controller battery, battery, drive, fan, power supply 
+summary: Möglicherweise müssen Sie einen Controller-Akku, ein Laufwerk, einen Lüfter oder ein Netzteil in dem StorageGRID-Gerät austauschen. 
+---
+= Tauschen Sie andere Hardwarekomponenten aus
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Möglicherweise müssen Sie einen Controller-Akku, ein Laufwerk, einen Lüfter oder ein Netzteil in dem StorageGRID-Gerät austauschen.
+
+.Bevor Sie beginnen
+* Sie haben das Verfahren zum Austausch der E-Series Hardware.
+* Das Gerät war link:../maintain/placing-appliance-into-maintenance-mode.html["Wird in den Wartungsmodus versetzt"] Wenn das Verfahren zum Austausch von Komponenten erfordert, schalten Sie das Gerät aus.
+
+
+.Über diese Aufgabe
+Anweisungen zum Austauschen des E2800 Controllers finden Sie in diesen Anweisungen. Diese Anweisungen beschreiben, wie Sie den Controller aus dem Gerät entfernen, den Akku aus dem Controller entfernen, den Akku einbauen und den Controller austauschen.
+
+Um ein Laufwerk, einen Behälter mit Netzlüfter, einen Lüfterbehälter, einen Netzbehälter oder eine Laufwerkschublade im Gerät zu ersetzen, greifen Sie auf die Verfahren der E-Series zu, um die E2800 Hardware zu warten.
+
+
+
+== Anweisungen zum Austausch der SG5712-Komponente
+
+[cols="1a,3a"]
+|===
+| FRU | Weitere Informationen finden Sie in den Anweisungen zur E-Series 
+
+
+ a| 
+Laufwerk
+ a| 
+Austausch eines Laufwerks bei Shelfs der E2800 mit 12 Laufwerken oder mit 24 Laufwerken
+
+
+
+ a| 
+Lüfter-Behälter
+ a| 
+Austausch eines Power-Fan-Behälters in E2800 Shelfs
+
+|===
+
+
+== Anweisungen zum Austausch der SG5760 Komponenten
+
+[cols="1a,3a"]
+|===
+| FRU | Weitere Informationen finden Sie in den Anweisungen zur E-Series 
+
+
+ a| 
+Laufwerk
+ a| 
+Ersetzen eines Laufwerks in E2860 Shelfs
+
+
+
+ a| 
+Leistungsbehälter
+ a| 
+Austausch eines Netzkanisters in E2860 Shelfs
+
+
+
+ a| 
+Gebläsebehälter
+ a| 
+Austausch eines Lüftergehäuses in E2860 Shelfs
+
+
+
+ a| 
+Laufwerksschublade
+ a| 
+Austauschen eines Laufwerksschubs in E2860 Shelfs
+
+|===
+.Verwandte Informationen
+link:replacing-e2800-controller.html["E2800 Controller austauschen"]
+
+http://["NetApp E-Series Systems Documentation Site"^]

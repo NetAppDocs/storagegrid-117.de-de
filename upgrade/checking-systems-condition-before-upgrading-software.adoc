@@ -1,0 +1,67 @@
+---
+permalink: upgrade/checking-systems-condition-before-upgrading-software.html 
+sidebar: sidebar 
+keywords: upgrade, grid tasks, firewall, ports 
+summary: Vor dem Upgrade eines StorageGRID Systems müssen Sie überprüfen, ob das System bereit ist, um das Upgrade durchzuführen. Sie müssen sicherstellen, dass das System ordnungsgemäß ausgeführt wird und alle Grid-Nodes funktionsfähig sind. 
+---
+= Überprüfen Sie den Zustand des Systems
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vor dem Upgrade eines StorageGRID Systems müssen Sie überprüfen, ob das System bereit ist, um das Upgrade durchzuführen. Sie müssen sicherstellen, dass das System ordnungsgemäß ausgeführt wird und alle Grid-Nodes funktionsfähig sind.
+
+.Schritte
+. Melden Sie sich mit einem bei Grid Manager an link:../admin/web-browser-requirements.html["Unterstützter Webbrowser"].
+. Aktive Warnmeldungen prüfen und beheben.
+. Bestätigen Sie, dass keine in Konflikt stehenden Grid-Aufgaben aktiv oder ausstehend sind.
++
+.. Wählen Sie *SUPPORT* > *Tools* > *Grid-Topologie* aus.
+.. Wählen Sie *_site_* > *_primary Admin Node_* > *CMN* > *Grid Tasks* > *Konfiguration* aus.
++
+ILME-Tasks (Information Lifecycle Management Evaluation) sind die einzigen Grid-Aufgaben, die gleichzeitig mit dem Software-Upgrade ausgeführt werden können.
+
+.. Wenn andere Grid-Aufgaben aktiv oder ausstehend sind, warten Sie, bis sie abgeschlossen sind oder lassen Sie ihre Sperre los.
++
+
+NOTE: Wenden Sie sich an den technischen Support, wenn eine Aufgabe nicht beendet ist oder ihre Sperre nicht freigegeben wird.
+
+
+
+. Siehe link:../network/internal-grid-node-communications.html["Interne Kommunikation mit Grid-Nodes"] Und link:../network/external-communications.html["Externe Kommunikation"] Um sicherzustellen, dass alle erforderlichen Ports für StorageGRID 11.7 geöffnet werden, bevor Sie ein Upgrade durchführen.
++
+Im Folgenden link:../network/internal-grid-node-communications.html#storagegrid-internal-ports["Interne Ports"] Muss geöffnet sein, bevor Sie ein Upgrade auf StorageGRID 11.7 durchführen:
+
++
+[cols="1a,2a"]
+|===
+| Port | Beschreibung 
+
+
+ a| 
+1055
+
+8011
+
+10342
+ a| 
+Wird für das Protokoll zum Anklopfen von Firewall-Kontrollen verwendet.
+
+Vergewissern Sie sich vor der Aktualisierung, dass dieser Port zwischen allen Grid-Nodes im Grid-Netzwerk offen ist.
+
+
+
+ a| 
+18086
+ a| 
+TCP-Port wird für neuen LDR-Dienst verwendet.
+
+Vergewissern Sie sich vor dem Upgrade, dass dieser Port von allen Grid-Nodes zu allen Storage-Nodes offen ist.
+
+|===
+
+
+
+IMPORTANT: Wenn Sie benutzerdefinierte Firewall-Ports geöffnet haben, werden Sie während der Vorabprüfung des Upgrades benachrichtigt. Bevor Sie das Upgrade durchführen, müssen Sie sich an den technischen Support wenden.

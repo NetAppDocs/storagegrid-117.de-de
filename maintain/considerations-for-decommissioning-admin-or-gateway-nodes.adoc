@@ -1,0 +1,22 @@
+---
+permalink: maintain/considerations-for-decommissioning-admin-or-gateway-nodes.html 
+sidebar: sidebar 
+keywords: storagegrid, decommission admin node, decommission gateway node 
+summary: Prüfen Sie die folgenden Überlegungen, bevor Sie einen Admin-Node oder einen Gateway-Node außer Betrieb setzen. 
+---
+= Überlegungen zur Deaktivierung von Admin Node oder Gateway Node
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Prüfen Sie die folgenden Überlegungen, bevor Sie einen Admin-Node oder einen Gateway-Node außer Betrieb setzen.
+
+* Für das Verfahren zur Deaktivierung ist ein exklusiver Zugriff auf einige Systemressourcen erforderlich. Sie müssen also bestätigen, dass keine weiteren Wartungsverfahren ausgeführt werden.
+* Der primäre Admin-Node kann nicht stillgelegt werden.
+* Sie können einen Admin-Node oder einen Gateway-Node nicht stilllegen, wenn eine seiner Netzwerkschnittstellen Teil einer HA-Gruppe ist. Sie müssen zuerst die Netzwerkschnittstellen aus der HA-Gruppe entfernen. Siehe Anweisungen für link:../admin/managing-high-availability-groups.html["Verwalten von HA-Gruppen"].
+* Bei Bedarf können Sie die ILM-Richtlinie sicher ändern und gleichzeitig einen Gateway-Node oder einen Admin-Node außer Betrieb nehmen.
+* Wenn Sie einen Admin-Node deaktivieren und Single Sign-On (SSO) für Ihr StorageGRID-System aktiviert ist, müssen Sie daran denken, das Vertrauen des Knotens zu entfernen, das auf die Grundlage von Active Directory Federation Services (AD FS) basiert.
+* Wenn Sie verwenden link:../admin/grid-federation-overview.html["Grid-Verbund"], Stellen Sie sicher, dass die IP-Adresse des Node, den Sie decommissionieren, nicht für eine Netzverbundverbindung angegeben wurde.
+

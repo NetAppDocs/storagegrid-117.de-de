@@ -1,0 +1,21 @@
+---
+permalink: maintain/recovering-from-storage-volume-failure-where-system-drive-is-intact.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, storage volume failure, volume failure, system drive intact 
+summary: Sie müssen eine Reihe von Aufgaben durchführen, um einen softwarebasierten Storage Node wiederherzustellen, bei dem ein oder mehrere Storage-Volumes auf dem Storage-Node ausgefallen sind, das Systemlaufwerk jedoch intakt ist. Wenn nur Speichervolumen ausgefallen sind, steht der Speicherknoten dem StorageGRID-System weiterhin zur Verfügung. 
+---
+= Wiederherstellung nach einem Ausfall des Speichervolumes, wenn das Systemlaufwerk intakt ist: Workflow
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie müssen eine Reihe von Aufgaben durchführen, um einen softwarebasierten Storage Node wiederherzustellen, bei dem ein oder mehrere Storage-Volumes auf dem Storage-Node ausgefallen sind, das Systemlaufwerk jedoch intakt ist. Wenn nur Speichervolumen ausgefallen sind, steht der Speicherknoten dem StorageGRID-System weiterhin zur Verfügung.
+
+
+NOTE: Dieses Wiederherstellungsverfahren gilt nur für softwarebasierte Speicherknoten. Wenn Speicher-Volumes auf einem Appliance Storage Node ausgefallen sind, verwenden Sie stattdessen das Verfahren der Appliance: link:recovering-storagegrid-appliance-storage-node.html["Appliance Storage Node wiederherstellen"].
+
+Wie im Workflow-Diagramm gezeigt, müssen Sie fehlerhafte Speicher-Volumes identifizieren und abmounten, die Volumes wiederherstellen, die Cassandra-Datenbank neu erstellen und Objektdaten wiederherstellen.
+
+image::../media/storage_node_recovery_storage_vol_only.gif[flowchart Übersicht über die Wiederherstellung von Speichervolumen]

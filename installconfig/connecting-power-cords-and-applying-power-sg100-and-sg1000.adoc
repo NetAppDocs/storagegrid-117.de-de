@@ -1,0 +1,28 @@
+---
+permalink: installconfig/connecting-power-cords-and-applying-power-sg100-and-sg1000.html 
+sidebar: sidebar 
+keywords: storagegrid, sg100, sg1000, gateway node, admin node, wiring, cabling, cable, Connecting, connect, power cords, power, applying power, apply power, turn on, power up, ac, ac power 
+summary: Nach dem Anschließen der Netzwerkkabel können Sie das Gerät mit Strom versorgen. 
+---
+= Stromkabel anschließen und Strom einstecken (SG100 und SG1000)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Nach dem Anschließen der Netzwerkkabel können Sie das Gerät mit Strom versorgen.
+
+.Schritte
+. Schließen Sie ein Netzkabel an jede der beiden Netzteile im Gerät an.
+. Schließen Sie diese beiden Netzkabel an zwei verschiedene Stromverteiler (Power Distribution Units, PDUs) im Schrank oder Rack an.
+. Wenn der Netzschalter auf der Vorderseite des Geräts derzeit nicht blau leuchtet, drücken Sie die Taste, um das Gerät einzuschalten.
++
+Drücken Sie den Netzschalter während des Einschalters nicht erneut.
+
+. Wenn Fehler auftreten, beheben Sie alle Probleme.
+. Befestigen Sie die Frontverkleidung am Gerät, falls sie entfernt wurde.
+
+
+.Verwandte Informationen
+link:viewing-status-indicators.html["Statusanzeigen anzeigen anzeigen anzeigen"]

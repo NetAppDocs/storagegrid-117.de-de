@@ -1,0 +1,80 @@
+---
+permalink: installconfig/hardware-setup-appears-to-hang.html 
+sidebar: sidebar 
+keywords: storage node, storage appliance, troubleshoot, troubleshooting, hardware, setup, hang, hangs, fails, failure, stop, terminate, terminates, stuck 
+summary: Der StorageGRID-Appliance-Installer ist möglicherweise nicht verfügbar, wenn Hardwarefehler oder Verkabelungsfehler die Speicher-Controller oder den Appliance-Controller daran hindern, ihre Boot-Verarbeitung abzuschließen. 
+---
+= Hardware-Setup scheint zu hängen (SG6000 oder SG5700)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Der StorageGRID-Appliance-Installer ist möglicherweise nicht verfügbar, wenn Hardwarefehler oder Verkabelungsfehler die Speicher-Controller oder den Appliance-Controller daran hindern, ihre Boot-Verarbeitung abzuschließen.
+
+.Schritte
+[role="tabbed-block"]
+====
+.SG6000
+--
+. Sehen Sie sich für die Speichercontroller die Codes in den sieben-Segment-Anzeigen an.
++
+Während die Hardware beim Einschalten initialisiert wird, zeigen die beiden sieben Segmente eine Reihe von Codes an. Wenn die Hardware erfolgreich gebootet wurde, werden beide sieben Segmente angezeigt `99`.
+
+. Überprüfen Sie die LEDs am SG6000-CN-Controller sowie die im BMC angezeigten Boot- und Fehlercodes.
+. Wenn Sie Hilfe bei der Behebung eines Problems benötigen, wenden Sie sich an den technischen Support.
+
+
+--
+.SG5700
+--
+. Sehen Sie sich die Codes auf den sieben Segmenten an.
++
+Während die Hardware beim Einschalten initialisiert wird, zeigen die beiden sieben Segmente eine Reihe von Codes an. Wenn die Hardware erfolgreich gebootet wurde, werden in den sieben Segmenten verschiedene Codes für jeden Controller angezeigt.
+
+. Überprüfen Sie die Codes auf der Anzeige der sieben Segmente für den E5700SG-Controller.
++
+
+NOTE: Installation und Bereitstellung nehmen Zeit in Anspruch. Einige Installationsphasen melden dem StorageGRID-Appliance-Installationsprogramm keine Aktualisierungen für mehrere Minuten.
+
++
+Wenn ein Fehler auftritt, blinkt die Sieben-Segment-Anzeige eine Sequenz, z. B. ER.
+
+. Um zu verstehen, was diese Codes bedeuten, lesen Sie die folgenden Ressourcen:
++
+[cols="1a,2a"]
+|===
+| Controller | Referenz 
+
+
+ a| 
+E5700SG Controller
+ a| 
+** „`status-Indikatoren am E5700SG-Controller`“
+** „`HE error: Fehler beim Synchronisieren mit SANtricity OS Software`“
+
+
+
+
+ a| 
+E2800 Controller
+ a| 
+_E5700 and E2800 System Monitoring Guide_
+
+*Hinweis:* die für den E5700 Controller der E-Series beschriebenen Codes gelten nicht für den E5700SG Controller in der Appliance.
+
+|===
+. Falls das Problem dadurch nicht behoben werden kann, wenden Sie sich an den technischen Support.
+
+
+--
+====
+.Verwandte Informationen
+* link:viewing-status-indicators.html["Statusanzeigen anzeigen anzeigen anzeigen"]
+* http://["NetApp E-Series Systems Documentation Site"^]
+* link:he-error-error-synchronizing-with-santricity-os-software.html["HE-Fehler: Fehler beim Synchronisieren mit SANtricity OS Software"]
+* https://["E5700 und E2800 – System Monitoring Guide"^]
+* link:viewing-boot-up-codes-for-sg6000-cn-controller.html["Anzeigen von Boot-up-Codes (SG6000-CN-Controller)"]
+* link:viewing-error-codes-for-sg6000-cn-controller.html["Fehlercodes anzeigen (SG6000-CN-Controller)"]
+

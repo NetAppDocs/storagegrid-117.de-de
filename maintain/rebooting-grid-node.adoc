@@ -1,0 +1,22 @@
+---
+permalink: maintain/rebooting-grid-node.html 
+sidebar: sidebar 
+keywords: reboot grid node 
+summary: Sie können einen Grid-Node vom Grid Manager oder von der Befehlsshell des Node neu starten. 
+---
+= Grid Node neu booten: Übersicht
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können einen Grid-Node aus dem Grid Manager oder aus der Befehlshaber des Node neu booten.
+
+Beim Neubooten eines Grid-Node wird der Node heruntergefahren und neu gestartet. Alle Dienste werden automatisch neu gestartet.
+
+Wenn Sie Storage-Nodes neu starten möchten, beachten Sie Folgendes:
+
+* Wenn eine ILM-Regel das Aufnahmeverhalten von zwei Commits oder Balanced angibt und es nicht möglich ist, sofort alle erforderlichen Kopien zu erstellen, überträgt StorageGRID alle neu aufgenommenen Objekte sofort auf zwei Storage-Nodes an derselben Site und wertet ILM später aus. Wenn Sie zwei oder mehr Storage-Nodes an einem bestimmten Standort neu starten möchten, können Sie während des Neustarts möglicherweise nicht auf diese Objekte zugreifen.
+* Um sicherzustellen, dass Sie während des Neubootens eines Storage-Node auf alle Objekte zugreifen können, beenden Sie die Verarbeitung von Objekten an einem Standort etwa eine Stunde lang, bevor Sie den Node neu booten.
+

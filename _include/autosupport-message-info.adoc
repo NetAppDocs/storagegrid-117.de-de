@@ -1,0 +1,25 @@
+= 
+:allow-uri-read: 
+
+
+AutoSupport Meldungen enthalten Informationen, z. B. die folgenden:
+
+* StorageGRID Softwareversion
+* Betriebssystemversion
+* Attributinformationen auf System- und Standortebene
+* Aktuelle Warnmeldungen und Alarme (Altsystem)
+* Aktueller Status aller Grid-Aufgaben, einschließlich historischer Daten
+* Verwendung der Admin-Node-Datenbank
+* Anzahl der verlorenen oder fehlenden Objekte
+* Grid-Konfigurationseinstellungen
+* NMS-Einheiten
+* Aktive ILM-Richtlinie
+* Bereitgestellte Grid-Spezifikations-Datei
+* Diagnostische Metriken
+
+
+Sie können die AutoSupport-Funktion und die einzelnen AutoSupport-Optionen bei der Erstinstallation von StorageGRID aktivieren oder später aktivieren. Wenn AutoSupport nicht aktiviert ist, wird im Grid Manager-Dashboard eine Meldung angezeigt. Die Meldung enthält einen Link zur AutoSupport-Konfigurationsseite.
+
+image::../media/autosupport_disabled_message.png[AutoSupport hat MSG deaktiviert]
+
+Wenn Sie die Nachricht schließen, wird sie erst wieder angezeigt, wenn Ihr Browser-Cache gelöscht wird, auch wenn AutoSupport deaktiviert bleibt.

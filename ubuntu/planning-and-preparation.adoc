@@ -1,0 +1,41 @@
+---
+permalink: ubuntu/planning-and-preparation.html 
+sidebar: sidebar 
+keywords: how to prepare for ubuntu or debian installation 
+summary: Bevor Sie Grid-Nodes implementieren und das StorageGRID Grid konfigurieren, müssen Sie die Schritte und Anforderungen für das Durchführen des Verfahrens kennen. 
+---
+= Vor der Installation (Ubuntu oder Debian)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Bevor Sie Grid-Nodes implementieren und StorageGRID konfigurieren, müssen Sie mit den Schritten und Anforderungen für den Abschluss des Verfahrens vertraut sein.
+
+Bei den Implementierungs- und Konfigurationsverfahren für StorageGRID ist bereits die Architektur und der Betrieb des StorageGRID Systems bekannt.
+
+Sie können einen oder mehrere Standorte gleichzeitig implementieren. Alle Standorte müssen jedoch die Mindestanforderungen erfüllen, die für mindestens drei Storage-Nodes bestehen.
+
+Vor dem Starten einer StorageGRID-Installation müssen folgende Schritte durchgeführt werden:
+
+* Verstehen Sie die Computing-Anforderungen, einschließlich der minimalen CPU- und RAM-Anforderungen für jeden Node.
+* Erfahren Sie, wie StorageGRID diverse Netzwerke unterstützt, um die Trennung von Datenverkehr, Sicherheit und Verwaltung zu gewährleisten, und planen Sie, welche Netzwerke Sie mit den einzelnen StorageGRID Nodes verbinden möchten.
++
+Siehe StorageGRID link:../network/index.html["Netzwerkrichtlinien"].
+
+* Ermitteln der Storage- und Performance-Anforderungen der einzelnen Grid-Nodes
+* Ermitteln Sie eine Reihe von Servern (physische, virtuelle oder beides), die als Aggregat ausreichend Ressourcen zur Unterstützung der Anzahl und des Typs der zu implementierenden StorageGRID Nodes bieten.
+* Verstehen Sie die link:node-container-migration-requirements.html["Anforderungen für die Node-Migration"], Wenn Sie planmäßige Wartungsarbeiten auf physischen Hosts ohne Serviceunterbrechung durchführen möchten.
+* Sammeln Sie alle Netzwerkinformationen im Voraus. Sammeln Sie, sofern Sie kein DHCP verwenden, die IP-Adressen für die einzelnen Grid-Nodes sowie die IP-Adressen der zu verwendenden DNS- und NTP-Server.
+* Installation, Anschluss und Konfiguration der gesamten erforderlichen Hardware – einschließlich aller StorageGRID Appliances – gemäß den Spezifikationen
++
+
+IMPORTANT: Wenn bei der StorageGRID-Installation keine StorageGRID Appliance (Hardware) Storage Nodes verwendet werden, müssen Sie Hardware-RAID-Storage mit batteriegestütztem Schreib-Cache (BBWC) verwenden. StorageGRID unterstützt die Verwendung von Virtual Storage Area Networks (VSANs), Software-RAID oder keinen RAID-Schutz.
+
++
+
+NOTE: Hardware-spezifische Installations- und Integrationsanweisungen sind nicht im StorageGRID Installationsverfahren enthalten. Informationen zur Installation von StorageGRID Appliances finden Sie unter link:../installconfig/index.html["Appliance-Hardware installieren"].
+
+* Legen Sie fest, welche der verfügbaren Implementierungs- und Konfigurationstools Sie verwenden möchten.
+

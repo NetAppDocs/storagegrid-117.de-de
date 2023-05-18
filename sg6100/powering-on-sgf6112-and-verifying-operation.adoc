@@ -1,0 +1,75 @@
+---
+permalink: sg6100/powering-on-sgf6112-and-verifying-operation.html 
+sidebar: sidebar 
+keywords: storagegrid, sg6100, sgf6112,storage node, storage appliance, power on, turn on, start 
+summary: Schalten Sie das Gerät nach Abschluss der Wartungsarbeiten ein. 
+---
+= Schalten Sie SGF6112 ein, und überprüfen Sie den Betrieb
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Schalten Sie den Controller nach dem Abschluss der Wartung ein.
+
+.Bevor Sie beginnen
+* Der Controller wurde in einem Rack oder Rack installiert und die Daten- und Stromkabel angeschlossen.
++
+link:reinstalling-sgf6112-into-cabinet-or-rack.html["Setzen Sie den SGF6112-Controller wieder in den Schrank oder das Rack ein"]
+
+* Der Controller befindet sich physisch im Datacenter.
++
+link:locating-sgf6112-in-data-center.html["SGF6112 Appliance im Datacenter lokalisieren"]
+
+
+
+.Schritte
+. Schalten Sie das Gerät ein.
++
+Möglicherweise müssen Sie die Blende entfernen, um auf den Netzschalter zugreifen zu können. Wenn dies der Fall ist, müssen Sie sie anschließend wieder einbauen.
+
+. Überwachen Sie die Controller-LEDs und die Startcodes mit einer der folgenden Methoden:
++
+** Drücken Sie den Netzschalter an der Vorderseite des Controllers.
+** Verwenden Sie die BMC-Schnittstelle des Controllers:
++
+... Greifen Sie auf die BMC-Schnittstelle des Controllers zu.
++
+link:../installconfig/accessing-bmc-interface.html["Greifen Sie auf die BMC-Schnittstelle zu"]
+
+... Wählen Sie *Power Control*.
+... Wählen Sie *Einschalten* und dann *Aktion ausführen*.
++
+image::../media/sgf6112_power_on_from_bmc.png[Schalten Sie das Gerät von BMC ein]
+
++
+Verwenden Sie die BMC-Schnittstelle, um den Startstatus zu überwachen.
+
+
+
+
+
+. Vergewissern Sie sich, dass der Appliance-Controller im Grid Manager und ohne Warnungen angezeigt wird.
++
+Es kann bis zu 20 Minuten dauern, bis der Controller im Grid Manager angezeigt wird.
+
++
+
+CAUTION: Nehmen Sie einen anderen Appliance-Node nur offline, wenn diese Appliance über ein grünes Symbol verfügt.
+
+. Vergewissern Sie sich, dass die neue Appliance vollständig betriebsbereit ist, indem Sie sich beim Grid-Node über PuTTY oder einen anderen ssh-Client anmelden:
++
+.. Geben Sie den folgenden Befehl ein: `ssh _Appliance_IP_`
+.. Geben Sie das im aufgeführte Passwort ein `Passwords.txt` Datei:
+.. Geben Sie den folgenden Befehl ein, um zum Root zu wechseln: `su -`
+.. Geben Sie das im aufgeführte Passwort ein `Passwords.txt` Datei:
++
+Wenn Sie als root angemeldet sind, ändert sich die Eingabeaufforderung von `$` Bis `#`.
+
+
+
+
+
+.Verwandte Informationen
+link:../installconfig/viewing-status-indicators.html["Statusanzeigen anzeigen anzeigen anzeigen"]

@@ -1,0 +1,237 @@
+---
+permalink: swift/storagegrid-swift-rest-api-operations.html 
+sidebar: sidebar 
+keywords: swift rest api operations 
+summary: Speziell für das StorageGRID System wurden Vorgänge zur Swift REST API hinzugefügt. 
+---
+= StorageGRID Swift REST-API-Operationen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Speziell für das StorageGRID System wurden Vorgänge zur Swift REST API hinzugefügt.
+
+
+
+== ABRUFEN der Container-Konsistenzanforderung
+
+link:../s3/consistency-controls.html["Konsistenzkontrollen"] Sorgen Sie für ein Gleichgewicht zwischen der Verfügbarkeit der Objekte und der Konsistenz dieser Objekte über verschiedene Storage-Nodes und Standorte hinweg. Die GET Container-Konsistenzanforderung ermöglicht es Ihnen, die auf einen bestimmten Container angewendete Konsistenzstufe zu bestimmen.
+
+
+
+=== Anfrage
+
+[cols="2a,4a"]
+|===
+| HTTP-Header anfordern | Beschreibung 
+
+
+| X-Auth-Token  a| 
+Gibt das Swift-Authentifizierungs-Token für das Konto an, das für die Anforderung verwendet werden soll.
+
+
+
+| X-ntap-sg-Konsistenz  a| 
+Gibt den Anforderungstyp an, wobei `true` = GET Containerkonsistenz, und `false` = get Container.
+
+
+
+| Host  a| 
+Der Hostname, auf den die Anforderung gerichtet ist.
+
+|===
+
+
+=== Anforderungsbeispiel
+
+[listing]
+----
+GET /v1/28544923908243208806/Swift container
+X-Auth-Token: SGRD_3a877009a2d24cb1801587bfa9050f29
+x-ntap-sg-consistency: true
+Host: test.com
+----
+
+
+=== Antwort
+
+[cols="2a,4a"]
+|===
+| HTTP-Kopfzeile für Antwort | Beschreibung 
+
+
+| Datum  a| 
+Datum und Uhrzeit der Antwort.
+
+
+
+| Verbindung  a| 
+Ob die Verbindung zum Server offen oder geschlossen ist.
+
+
+
+| X-Trans-ID  a| 
+Die eindeutige Transaktions-ID für die Anforderung.
+
+
+
+| Inhaltslänge  a| 
+Die Länge des Reaktionskörpers.
+
+
+
+| X-ntap-sg-Konsistenz  a| 
+Die auf den Container angewendete Konsistenzkontrollebene. Folgende Werte werden unterstützt:
+
+*Alle*: Alle Knoten erhalten die Daten sofort oder die Anfrage schlägt fehl.
+
+*Strong-global*: Garantiert Lese-After-Write-Konsistenz für alle Kundenanfragen über alle Standorte hinweg.
+
+*Strong-site*: Garantiert Lese-After-Write Konsistenz für alle Kundenanfragen innerhalb einer Site.
+
+*Read-after-New-write*: (Standard) bietet Read-after-write-Konsistenz für neue Objekte und eventuelle Konsistenz für Objektaktualisierungen. Hochverfügbarkeit und garantierte Datensicherung Empfohlen für die meisten Fälle.
+
+*Verfügbar*: Bietet eventuelle Konsistenz für neue Objekte und Objekt-Updates. Verwenden Sie für S3-Buckets nur nach Bedarf (z. B. für einen Bucket mit Protokollwerten, die nur selten gelesen werden, oder für HEAD- oder GET-Vorgänge für nicht vorhandene Schlüssel). Nicht unterstützt für S3 FabricPool-Buckets.
+
+|===
+
+
+=== Antwortbeispiel
+
+[listing]
+----
+HTTP/1.1 204 No Content
+Date: Sat, 29 Nov 2015 01:02:18 GMT
+Connection: CLOSE
+X-Trans-Id: 1936575373
+Content-Length: 0
+x-ntap-sg-consistency: strong-site
+----
+
+
+== PUT Container-Konsistenzanforderung
+
+Die PUT Container-Konsistenzanforderung ermöglicht es Ihnen, die Konsistenzstufe für die Operationen anzugeben, die auf einem Container ausgeführt werden. Standardmäßig werden neue Container mithilfe der Konsistenzstufe „`read-after-New-write`“ erstellt.
+
+
+
+=== Anfrage
+
+[cols="2a,4a"]
+|===
+| HTTP-Header anfordern | Beschreibung 
+
+
+| X-Auth-Token  a| 
+Swift Authentifizierungs-Token für das Konto zur Verwendung für die Anforderung.
+
+
+
+| X-ntap-sg-Konsistenz  a| 
+Die Konsistenzkontrollebene gilt für Container-Operationen. Folgende Werte werden unterstützt:
+
+*Alle*: Alle Knoten erhalten die Daten sofort oder die Anfrage schlägt fehl.
+
+*Strong-global*: Garantiert Lese-After-Write-Konsistenz für alle Kundenanfragen über alle Standorte hinweg.
+
+*Strong-site*: Garantiert Lese-After-Write Konsistenz für alle Kundenanfragen innerhalb einer Site.
+
+*Read-after-New-write*: (Standard) bietet Read-after-write-Konsistenz für neue Objekte und eventuelle Konsistenz für Objektaktualisierungen. Hochverfügbarkeit und garantierte Datensicherung Empfohlen für die meisten Fälle.
+
+*Verfügbar*: Bietet eventuelle Konsistenz für neue Objekte und Objekt-Updates. Verwenden Sie für S3-Buckets nur nach Bedarf (z. B. für einen Bucket mit Protokollwerten, die nur selten gelesen werden, oder für HEAD- oder GET-Vorgänge für nicht vorhandene Schlüssel). Nicht unterstützt für S3 FabricPool-Buckets.
+
+
+
+ a| 
+`Host`
+ a| 
+Der Hostname, auf den die Anforderung gerichtet ist.
+
+|===
+
+
+=== Konsistenzkontrollen und ILM-Regeln interagieren, um die Datensicherung zu beeinträchtigen
+
+Beide Ihre Wahl link:../s3/consistency-controls.html["Konsistenzkontrolle"] Ihre ILM-Regel wirkt sich darüber hinaus auf den Schutz von Objekten aus. Diese Einstellungen können interagieren.
+
+Die beim Speichern eines Objekts verwendete Konsistenzsteuerung wirkt sich beispielsweise auf die anfängliche Platzierung von Objekt-Metadaten aus, während der link:../ilm/what-ilm-rule-is.html#ilm-rule-ingest-behavior["Aufnahmeverhalten"] Die für die ILM-Regel ausgewählt wurde, wirkt sich auf die anfängliche Platzierung von Objektkopien aus. Da StorageGRID Zugriff auf die Metadaten eines Objekts und seine Daten benötigt, um Kundenanforderungen zu erfüllen, kann die Auswahl der passenden Sicherungsstufen für Konsistenz und Aufnahme-Verhalten eine bessere Erstsicherung und zuverlässigere Systemantworten ermöglichen.
+
+
+
+=== Beispiel für die Interaktion von Konsistenzkontrolle und ILM-Regel
+
+Angenommen, Sie haben ein Grid mit zwei Standorten mit der folgenden ILM-Regel und der folgenden Einstellung für die Konsistenzstufe:
+
+* *ILM-Regel*: Erstellen Sie zwei Objektkopien, eine am lokalen Standort und eine an einem entfernten Standort. Das strikte Aufnahmeverhalten wird ausgewählt.
+* *Konsistenzstufe*: "`strong-global`" (Objektmetadaten werden sofort auf alle Standorte verteilt.)
+
+
+Wenn ein Client ein Objekt im Grid speichert, erstellt StorageGRID sowohl Objektkopien als auch verteilt Metadaten an beiden Standorten, bevor der Kunde zum Erfolg zurückkehrt.
+
+Das Objekt ist zum Zeitpunkt der Aufnahme der Nachricht vollständig gegen Verlust geschützt. Wenn beispielsweise der lokale Standort kurz nach der Aufnahme verloren geht, befinden sich Kopien der Objektdaten und der Objektmetadaten am Remote-Standort weiterhin. Das Objekt kann vollständig abgerufen werden.
+
+Falls Sie stattdessen dieselbe ILM-Regel und die Konsistenzstufe „`strong-Site`“ verwendet haben, erhält der Client möglicherweise eine Erfolgsmeldung, nachdem die Objektdaten an den Remote Standort repliziert wurden, aber bevor die Objektmetadaten dort verteilt werden. In diesem Fall entspricht die Sicherung von Objektmetadaten nicht dem Schutzniveau für Objektdaten. Falls der lokale Standort kurz nach der Aufnahme verloren geht, gehen Objektmetadaten verloren. Das Objekt kann nicht abgerufen werden.
+
+Die Wechselbeziehung zwischen Konsistenzstufen und ILM-Regeln kann komplex sein. Wenden Sie sich an NetApp, wenn Sie Hilfe benötigen.
+
+
+
+=== Anforderungsbeispiel
+
+[listing]
+----
+PUT /v1/28544923908243208806/_Swift container_
+X-Auth-Token: SGRD_3a877009a2d24cb1801587bfa9050f29
+x-ntap-sg-consistency: strong-site
+Host: test.com
+----
+
+
+=== Antwort
+
+[cols="1a,2a"]
+|===
+| HTTP-Kopfzeile für Antwort | Beschreibung 
+
+
+ a| 
+`Date`
+ a| 
+Datum und Uhrzeit der Antwort.
+
+
+
+ a| 
+`Connection`
+ a| 
+Ob die Verbindung zum Server offen oder geschlossen ist.
+
+
+
+ a| 
+`X-Trans-Id`
+ a| 
+Die eindeutige Transaktions-ID für die Anforderung.
+
+
+
+ a| 
+`Content-Length`
+ a| 
+Die Länge des Reaktionskörpers.
+
+|===
+
+
+=== Antwortbeispiel
+
+[listing]
+----
+HTTP/1.1 204 No Content
+Date: Sat, 29 Nov 2015 01:02:18 GMT
+Connection: CLOSE
+X-Trans-Id: 1936575373
+Content-Length: 0
+----

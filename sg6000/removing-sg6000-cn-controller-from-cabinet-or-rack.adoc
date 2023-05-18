@@ -1,0 +1,54 @@
+---
+permalink: sg6000/removing-sg6000-cn-controller-from-cabinet-or-rack.html 
+sidebar: sidebar 
+keywords: storagegrid, sg6000, storage node, storage appliance, remove, removing, removal, cabinet, rack, controller, sg6000-cn 
+summary: Entfernen Sie den SG6000-CN-Controller aus einem Schrank oder Rack, um auf die obere Abdeckung zuzugreifen oder um den Controller an einen anderen Ort zu bewegen. 
+---
+= Entfernen Sie den SG6000-CN Controller aus dem Schrank oder Rack
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Entfernen Sie den SG6000-CN-Controller aus einem Schrank oder Rack, um auf die obere Abdeckung zuzugreifen oder um den Controller an einen anderen Ort zu bewegen.
+
+.Bevor Sie beginnen
+* Sie verfügen über Etiketten, um jedes Kabel zu identifizieren, das mit dem SG6000-CN-Controller verbunden ist.
+* Der SG6000-CN-Controller ist in einem physischen Standort untergebracht, an dem Wartungsarbeiten im Datacenter durchgeführt werden.
++
+link:locating-controller-in-data-center.html["Controller im Datacenter finden"]
+
+* Sie haben den SG6000-CN-Controller heruntergefahren.
++
+link:shutting-down-sg6000-cn-controller.html["Fahren Sie den SG6000-CN-Controller herunter"]
+
++
+
+CAUTION: Fahren Sie den Controller nicht mit dem Netzschalter herunter.
+
+
+
+.Schritte
+. Kennzeichnen und trennen Sie die Controller-Stromkabel.
+. Wickeln Sie das Gurt-Ende des ESD-Armbands um Ihr Handgelenk, und befestigen Sie das Clip-Ende auf einer Metallmasse, um eine statische Entladung zu verhindern.
+. Beschriften und trennen Sie dann die Controller-Datenkabel und alle SFP+ oder SFP28-Transceiver.
++
+
+IMPORTANT: Um Leistungseinbußen zu vermeiden, sollten Sie die Kabel nicht verdrehen, falten, zusammendrücken oder treten.
+
+. Lösen Sie die beiden unverlierbaren Schrauben an der Vorderseite des Controllers.
++
+image::../media/sg6060_rack_retaining_screws.png[Befestigungsschrauben des SG6060-Racks]
+
+. Schieben Sie den SG6000-CN-Controller nach vorn aus dem Rack, bis die Befestigungsschienen vollständig ausgefahren sind, und hören Sie, dass die Verriegelungen auf beiden Seiten einrasten.
++
+Die obere Abdeckung des Controllers ist zugänglich.
+
+. Optional: Wenn Sie den Controller vollständig aus dem Schrank oder Rack entfernen, befolgen Sie die Anweisungen für den Schienensatz, um den Controller aus den Schienen zu entfernen.
+
+
+Nach dem Austausch des Teils senden Sie das fehlerhafte Teil an NetApp zurück, wie in den mit dem Kit gelieferten RMA-Anweisungen beschrieben. Siehe https://["Teilerückgabe  Austausch"^] Seite für weitere Informationen.
+
+.Verwandte Informationen
+link:removing-sg6000-cn-controller-cover.html["Entfernen Sie die SG6000-CN Controller-Abdeckung"]

@@ -1,0 +1,48 @@
+---
+permalink: admin/kms-removing.html 
+sidebar: sidebar 
+keywords: remove kms, remove key management server 
+summary: In einigen Fällen möchten Sie einen Schlüsselverwaltungsserver entfernen. Sie können beispielsweise einen standortspezifischen KMS entfernen, wenn Sie den Standort deaktiviert haben. 
+---
+= Entfernen eines Verschlüsselungsmanagement-Servers (KMS)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+In einigen Fällen möchten Sie einen Schlüsselverwaltungsserver entfernen. Sie können beispielsweise einen standortspezifischen KMS entfernen, wenn Sie den Standort deaktiviert haben.
+
+.Bevor Sie beginnen
+* Sie haben die geprüft link:kms-considerations-and-requirements.html["Überlegungen und Anforderungen für die Verwendung eines Verschlüsselungsmanagement-Servers"].
+* Sie sind mit einem bei Grid Manager angemeldet link:../admin/web-browser-requirements.html["Unterstützter Webbrowser"].
+* Sie haben die Root-Zugriffsberechtigung.
+
+
+.Über diese Aufgabe
+In diesen Fällen können Sie einen KMS entfernen:
+
+* Wenn der Standort außer Betrieb genommen wurde oder wenn der Standort keine Appliance-Nodes mit aktivierter Node-Verschlüsselung enthält, können Sie einen standortspezifischen KMS entfernen.
+* Der Standard-KMS kann entfernt werden, wenn für jeden Standort bereits ein standortspezifischer KMS vorhanden ist, bei dem Appliance-Nodes mit aktivierter Node-Verschlüsselung vorhanden sind.
+
+
+.Schritte
+. Wählen Sie *KONFIGURATION* > *Sicherheit* > *Schlüsselverwaltungsserver* aus.
++
+Die Seite Key Management Server wird angezeigt und zeigt alle konfigurierten Key Management Server an.
+
+. Wählen Sie den KMS aus, den Sie entfernen möchten, und wählen Sie *Aktionen* > *Entfernen*.
++
+Sie können KMS auch entfernen, indem Sie den KMS-Namen in der Tabelle auswählen und auf der KMS-Detailseite *Entfernen* auswählen.
+
+. Bestätigen Sie, dass Folgendes zutrifft:
++
+** Sie entfernen ein standortspezifisches KMS für einen Standort, der keinen Appliance-Knoten mit aktivierter Knotenverschlüsselung hat.
+** Sie entfernen den Standard-KMS, aber für jeden Standort mit Knotenverschlüsselung ist bereits ein standortspezifisches KMS vorhanden.
+
+
+. Wählen Sie *Ja*.
++
+Die KMS-Konfiguration wurde entfernt.
+
+
