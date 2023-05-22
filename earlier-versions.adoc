@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: earlier-versions.html 
 keywords: storagegrid, earlier version, documentation, doc site, 11.5, 11.4, 11.3 
-summary: Die Dokumentation zu den neuesten Versionen der NetApp StorageGRID Software finden Sie hier. 
+summary: Dokumentation zu anderen Versionen der NetApp StorageGRID Software finden Sie hier. 
 ---
 = Frühere Versionen der Dokumentation zum NetApp StorageGRID
 :hardbreaks:
@@ -14,10 +14,11 @@ summary: Die Dokumentation zu den neuesten Versionen der NetApp StorageGRID Soft
 
 
 [role="lead"]
-Die Dokumentation zu den neuesten Versionen der NetApp StorageGRID Software finden Sie hier:
+Dokumentation zu anderen Versionen der NetApp StorageGRID Software finden Sie hier:
 
 * https://["StorageGRID 11.6-Dokumentation"^]
 * https://["StorageGRID 11.5-Dokumentation"^]
 * https://["StorageGRID 11.4 Dokumentationszentrum"^]
 * https://["StorageGRID 11.3 Dokumentationszentrum"^]
+* https://["StorageGRID 11.2 Dokumentationszentrum"^]
 

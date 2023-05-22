@@ -7,7 +7,7 @@ settings:
   prod:
     pdf_enabled: true
     harmony_enabled: false
-    hide_language_selector: true
+    hide_language_selector: false
   langs: de-de,us-en,ja-jp,ko-kr,zh-cn,zh-tw,es-es,fr-fr
 sidebar:
   entries:
@@ -150,3 +150,5 @@ homepage:
       url: https://docs.netapp.com/sgws-114/index.jsp
     - title: StorageGRID 11.3-Dokumentation
       url: https://docs.netapp.com/sgws-113/index.jsp
+    - title: StorageGRID 11.2-Dokumentation
+      url: https://docs.netapp.com/sgws-112/index.jsp
