@@ -42,6 +42,7 @@
   <link rel="alternate" hreflang="zh-Hant" href="https://docs.netapp.com/zh-tw/storagegrid-117/harden/hardening-guideline-for-server-certificates.html" />
   <link rel="alternate" hreflang="es" href="https://docs.netapp.com/es-es/storagegrid-117/harden/hardening-guideline-for-server-certificates.html" />
   <link rel="alternate" hreflang="fr" href="https://docs.netapp.com/fr-fr/storagegrid-117/harden/hardening-guideline-for-server-certificates.html" />
+  <link rel="alternate" hreflang="it" href="https://docs.netapp.com/it-it/storagegrid-117/harden/hardening-guideline-for-server-certificates.html" />
   <link rel='stylesheet' href='/de-de/storagegrid-117/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
     function addAdobeLaunch(adobeId) {
       var head = document.getElementsByTagName('head')[0];
@@ -311,6 +312,8 @@
           <a href="https://docs.netapp.com/es-es/storagegrid-117/harden/hardening-guideline-for-server-certificates.html" target="_self"><span translate="no" class="notranslate">Español</span></a>
         </li><li>
           <a href="https://docs.netapp.com/fr-fr/storagegrid-117/harden/hardening-guideline-for-server-certificates.html" target="_self"><span translate="no" class="notranslate">Français</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/it-it/storagegrid-117/harden/hardening-guideline-for-server-certificates.html" target="_self"><span translate="no" class="notranslate">Italiano</span></a>
         </li></ul>
     </div>
     <!-- End Language Selector -->
@@ -15002,7 +15005,7 @@
 <p class="page-details">
   
     
-    <time datetime="2023-05-18 19:30:30 +0000">05/18/2023</time>
+    <time datetime="2023-05-23 19:10:31 +0000">05/23/2023</time>
     
   
 
@@ -15062,7 +15065,7 @@ StorageGRID managt die für Load Balancer-Endpunkte verwendeten Zertifikate sepa
 <div class="ulist">
 <ul>
 <li>
-<p>Zertifikate sollten ein haben <code><em>subjectAltName</em></code> Das stimmt mit DNS-Einträgen für StorageGRID überein. Weitere Informationen finden Sie in Abschnitt 4.2.1.6, „<code>SAlternative Name des Subject</code>“ in https://["RFC 5280: PKIX-Zertifikat und CRL-Profil"^].</p>
+<p>Zertifikate sollten ein haben <code><em>subjectAltName</em></code> Das stimmt mit DNS-Einträgen für StorageGRID überein. Weitere Informationen finden Sie in Abschnitt 4.2.1.6, „<code>SAlternative Name des Subject</code>“ in <a href="https://tools.ietf.org/html/rfc5280#section-4.2.1.6" target="_blank" rel="noopener">"RFC 5280: PKIX-Zertifikat und CRL-Profil"</a>.</p>
 </li>
 <li>
 <p>Wenn möglich, vermeiden Sie die Verwendung von Platzhalterzertifikaten. Eine Ausnahme dieser Richtlinie ist das Zertifikat für einen S3-Endpunkt im virtuellen Hosted-Stil, der die Verwendung eines Platzhalters erfordert, wenn Bucket-Namen nicht im Voraus bekannt sind.</p>
