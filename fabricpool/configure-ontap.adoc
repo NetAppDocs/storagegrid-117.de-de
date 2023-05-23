@@ -22,7 +22,7 @@ Nachdem Sie die erforderlichen StorageGRID Informationen erhalten haben, können
 
 == Zugriff auf ONTAP System Manager
 
-In diesen Anweisungen wird beschrieben, wie Sie StorageGRID mit ONTAP System Manager als Cloud-Tier hinzufügen. Sie können dieselbe Konfiguration mithilfe der ONTAP CLI abschließen. Weitere Anweisungen finden Sie unter https://["ONTAP 9: FabricPool-Tier-Management mit CLI"^].
+In diesen Anweisungen wird beschrieben, wie Sie StorageGRID mit ONTAP System Manager als Cloud-Tier hinzufügen. Sie können dieselbe Konfiguration mithilfe der ONTAP CLI abschließen. Weitere Anweisungen finden Sie unter https://docs.netapp.com/us-en/ontap/fabricpool/index.html["ONTAP 9: FabricPool-Tier-Management mit CLI"^].
 
 .Schritte
 . Greifen Sie auf System Manager für den ONTAP-Cluster zu, den Sie auf StorageGRID Tiering möchten.
@@ -35,7 +35,7 @@ In diesen Anweisungen wird beschrieben, wie Sie StorageGRID mit ONTAP System Man
 
 == Geben Sie StorageGRID-Werte ein
 
-Siehe https://["ONTAP 9: FabricPool Tier-Management-Überblick mit System Manager"^] Finden Sie weitere Informationen.
+Siehe https://docs.netapp.com/us-en/ontap/concept_cloud_overview.html["ONTAP 9: FabricPool Tier-Management-Überblick mit System Manager"^] Finden Sie weitere Informationen.
 
 .Schritte
 . Füllen Sie das Formular „Cloud-Tiering hinzufügen“ mit der aus `ONTAP_FabricPool_settings___bucketname__.txt` Datei oder die Werte, die Sie manuell erhalten haben.

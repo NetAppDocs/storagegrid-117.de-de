@@ -31,7 +31,7 @@ Um die CloudMirror-Replikation für einen Bucket zu aktivieren, müssen Sie eine
 
 NOTE: Die Replizierung wird für Quell- oder Ziel-Buckets nicht unterstützt, wenn S3 Object Lock aktiviert ist.
 
-Allgemeine Informationen zur Bucket-Replizierung und deren Konfiguration finden Sie unter https://["Amazon Simple Storage Service (S3) Dokumentation: Replizierung von Objekten"^]. Informationen zur Implementierung von GetBucketReplication, DeleteBucketReplication und PutketReplication durch StorageGRID finden Sie im link:../s3/operations-on-buckets.html["Operationen auf Buckets"].
+Allgemeine Informationen zur Bucket-Replizierung und deren Konfiguration finden Sie unter https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html["Amazon Simple Storage Service (S3) Dokumentation: Replizierung von Objekten"^]. Informationen zur Implementierung von GetBucketReplication, DeleteBucketReplication und PutketReplication durch StorageGRID finden Sie im link:../s3/operations-on-buckets.html["Operationen auf Buckets"].
 
 Wenn Sie die CloudMirror-Replizierung für einen Bucket aktivieren, der Objekte enthält, werden neue Objekte, die dem Bucket hinzugefügt wurden, repliziert, die vorhandenen Objekte in dem Bucket werden jedoch nicht repliziert. Sie müssen vorhandene Objekte aktualisieren, um die Replikation auszulösen.
 

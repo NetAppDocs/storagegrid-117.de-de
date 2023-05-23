@@ -15,6 +15,6 @@ Der Archivknoten funktioniert nicht, nachdem Sie den Installationsprozess abgesc
 
 Beachten Sie bei Bedarf die folgende IBM-Dokumentation, wenn Sie Ihren TSM-Server für die Integration mit dem Archiv-Node in einem StorageGRID-System vorbereiten:
 
-* http://["IBM Bandgerätetreiber – Installations- und Benutzerhandbuch"^]
-* http://["Programmierreferenz für IBM Bandgerätetreiber"^]
+* http://www.ibm.com/support/docview.wss?rs=577&uid=ssg1S7002972["IBM Bandgerätetreiber – Installations- und Benutzerhandbuch"^]
+* http://www.ibm.com/support/docview.wss?rs=577&uid=ssg1S7003032["Programmierreferenz für IBM Bandgerätetreiber"^]
 

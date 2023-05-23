@@ -61,7 +61,7 @@ Mit SANtricity System Manager können Sie die folgenden Einstellungen konfigurie
 * E-Mail-Warnmeldungen, SNMP-Warnmeldungen oder Syslog-Warnmeldungen für die Komponenten im Storage Controller-Shelf
 * AutoSupport-Einstellungen der E-Series für die Komponenten im Storage Controller Shelf
 +
-Weitere Informationen zur E-Series AutoSupport finden Sie im http://["NetApp E-Series Systems Documentation Site"^].
+Weitere Informationen zur E-Series AutoSupport finden Sie im http://mysupport.netapp.com/info/web/ECMP1658252.html["NetApp E-Series Systems Documentation Site"^].
 
 * Laufwerkssicherheitsschlüssel, die zum Entsperren gesicherter Laufwerke erforderlich sind (dieser Schritt ist erforderlich, wenn die Laufwerksicherheitsfunktion aktiviert ist)
 * Administratorpasswort für den Zugriff auf SANtricity System Manager

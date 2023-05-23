@@ -42,7 +42,7 @@ Falls Sie ein Problem mit der URL-Codierung haben, wird möglicherweise der Fehl
 .Schritte
 . Installieren Sie die erforderlichen Abhängigkeiten:
 +
-.. Installieren Sie Node.js (siehe) https://["https://nodejs.org/en/download/"^]).
+.. Installieren Sie Node.js (siehe) https://nodejs.org/en/download/["https://nodejs.org/en/download/"^]).
 .. Installieren Sie die erforderlichen Node.js-Module (Puppenspieler und jsdom):
 +
 `npm install -g <module>`

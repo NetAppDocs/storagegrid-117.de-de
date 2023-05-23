@@ -59,7 +59,7 @@ Sie können eine der folgenden Versionen von AD FS verwenden:
 
 
 
-NOTE: Windows Server 2016 sollte den verwenden https://["KB3201845-Update"^], Oder höher.
+NOTE: Windows Server 2016 sollte den verwenden https://support.microsoft.com/en-us/help/3201845/cumulative-update-for-windows-10-version-1607-and-windows-server-2016["KB3201845-Update"^], Oder höher.
 
 * AD FS 3.0, im Lieferumfang von Windows Server 2012 R2 Update oder höher enthalten.
 

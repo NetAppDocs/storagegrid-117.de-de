@@ -23,7 +23,7 @@ Wenn Sie zuvor die Einstellung für globale Konformität aktiviert haben, ist di
 
 * link:use-s3-api-for-s3-object-lock.html["Konfigurieren Sie die S3-Objektsperre über die S3-REST-API"]
 * link:../ilm/index.html["Objektmanagement mit ILM"]
-* https://["NetApp Knowledge Base: Management älterer, konformer Buckets für StorageGRID 11.5"^]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["NetApp Knowledge Base: Management älterer, konformer Buckets für StorageGRID 11.5"^]
 
 
 Veraltete Compliance-Anforderungen:

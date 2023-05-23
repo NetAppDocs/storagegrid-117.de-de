@@ -264,5 +264,5 @@ Die Änderung des Modus von COMPLIANCE zu GOVERNANCE ist niemals zulässig.
 .Verwandte Informationen
 * link:../ilm/managing-objects-with-s3-object-lock.html["Objekte managen mit S3 Object Lock"]
 * link:../tenant/using-s3-object-lock.html["Verwenden Sie S3 Objektsperre, um Objekte beizubehalten"]
-* https://["Amazon Simple Storage Service Benutzerhandbuch: S3 Object Lock verwenden"^]
+* https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html["Amazon Simple Storage Service Benutzerhandbuch: S3 Object Lock verwenden"^]
 

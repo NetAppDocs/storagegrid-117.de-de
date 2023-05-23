@@ -27,7 +27,7 @@ Das Installationsprogramm von StorageGRID Appliance wird automatisch aktualisier
 +
 Die zweite Ziffer in den beiden Versionen sollte übereinstimmen. Wenn auf Ihrem StorageGRID-System beispielsweise die Version 11.*6*._x_._y_ ausgeführt wird, sollte die StorageGRID Appliance Installer-Version 3.*6*._z_ sein.
 
-. Wenn die Appliance über eine heruntergeebene Version des Installationsprogramms für StorageGRID-Geräte verfügt, fahren Sie mit fort https://["NetApp Downloads mit StorageGRID Appliance"^].
+. Wenn die Appliance über eine heruntergeebene Version des Installationsprogramms für StorageGRID-Geräte verfügt, fahren Sie mit fort https://mysupport.netapp.com/site/products/all/details/storagegrid-appliance/downloads-tab["NetApp Downloads mit StorageGRID Appliance"^].
 +
 Melden Sie sich mit Ihrem Benutzernamen und Passwort für Ihr NetApp Konto an.
 

@@ -78,4 +78,4 @@ Wo `_E5700SG_Controller_IP_` Gibt eine der IP-Adressen für den E5700SG-Controll
 --
 ====
 .Verwandte Informationen
-http://["NetApp E-Series Systems Documentation Site"^]
+http://mysupport.netapp.com/info/web/ECMP1658252.html["NetApp E-Series Systems Documentation Site"^]

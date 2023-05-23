@@ -84,4 +84,4 @@ Austauschen eines Laufwerksschubs in E2860 Shelfs
 .Verwandte Informationen
 link:replacing-e2800-controller.html["E2800 Controller austauschen"]
 
-http://["NetApp E-Series Systems Documentation Site"^]
+http://mysupport.netapp.com/info/web/ECMP1658252.html["NetApp E-Series Systems Documentation Site"^]

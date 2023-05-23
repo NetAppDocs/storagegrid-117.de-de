@@ -16,7 +16,7 @@ StorageGRID unterstützt die folgenden Amazon S3 Select-Klauseln, Datentypen und
 
 NOTE: Nicht aufgeführte Elemente werden nicht unterstützt.
 
-Syntax finden Sie unter link:select-object-content.html["SelektierObjectContent"]. Weitere Informationen zu S3 Select finden Sie im https://["AWS-Dokumentation für S3 Select"^].
+Syntax finden Sie unter link:select-object-content.html["SelektierObjectContent"]. Weitere Informationen zu S3 Select finden Sie im https://docs.aws.amazon.com/AmazonS3/latest/userguide/selecting-content-from-objects.html["AWS-Dokumentation für S3 Select"^].
 
 Nur Mandantenkonten, für die S3 Select aktiviert ist, können SelectObjectContent-Abfragen ausgeben. Siehe link:../admin/manage-s3-select-for-tenant-accounts.html["Überlegungen und Anforderungen bei der Verwendung von S3 Select"].
 

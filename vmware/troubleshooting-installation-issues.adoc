@@ -22,7 +22,7 @@ Im Folgenden finden Sie die wichtigsten Installationsprotokolldateien, die beim 
 .Verwandte Informationen
 Informationen zum Zugriff auf die Protokolldateien finden Sie unter link:../monitor/logs-files-reference.html["Referenz für Protokolldateien"].
 
-Wenn Sie weitere Hilfe benötigen, wenden Sie sich an https://["NetApp Support"^].
+Wenn Sie weitere Hilfe benötigen, wenden Sie sich an https://mysupport.netapp.com/site/global/dashboard["NetApp Support"^].
 
 
 

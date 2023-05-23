@@ -53,4 +53,4 @@ Für nicht vertrauenswürdigen Client-Datenverkehr wird ein Load Balancer eines 
 
 == Ransomware-Minderung
 
-Befolgen Sie die Empfehlungen in, um Ihre Objektdaten vor Ransomware-Angriffen zu schützen https://["Ransomware-Verteidigung mit StorageGRID"^].
+Befolgen Sie die Empfehlungen in, um Ihre Objektdaten vor Ransomware-Angriffen zu schützen https://www.netapp.com/media/69498-tr-4921.pdf["Ransomware-Verteidigung mit StorageGRID"^].

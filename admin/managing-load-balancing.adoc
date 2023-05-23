@@ -24,7 +24,7 @@ Der StorageGRID Load Balancer-Service wird auf allen Admin-Nodes und allen Gatew
 Der Load Balancer-Service auf jedem Node wird unabhängig ausgeführt, wenn der Client-Datenverkehr an die Storage Nodes weitergeleitet wird. Durch eine Gewichtung leitet der Load Balancer-Service mehr Anfragen an Storage-Nodes mit höherer CPU-Verfügbarkeit weiter.
 
 
-NOTE: Obwohl der StorageGRID Load Balancer-Service der empfohlene Load-Balancing-Mechanismus ist, können Sie stattdessen einen Load Balancer eines Drittanbieters integrieren. Weitere Informationen erhalten Sie von Ihrem NetApp Ansprechpartner oder unter https://["TR-4626: StorageGRID Anbieter- und Global Load Balancer"^].
+NOTE: Obwohl der StorageGRID Load Balancer-Service der empfohlene Load-Balancing-Mechanismus ist, können Sie stattdessen einen Load Balancer eines Drittanbieters integrieren. Weitere Informationen erhalten Sie von Ihrem NetApp Ansprechpartner oder unter https://www.netapp.com/pdf.html?item=/media/17068-tr4626pdf.pdf["TR-4626: StorageGRID Anbieter- und Global Load Balancer"^].
 
 
 

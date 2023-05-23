@@ -32,6 +32,6 @@ Wie im Workflow dargestellt, hängen die Schritte zur Durchführung einer Erweit
 Die Schritte zum Hinzufügen von Nodes hängen auch davon ab, ob Sie StorageGRID-Appliances oder Hosts mit VMware oder Linux hinzufügen.
 
 
-NOTE: „`Linux`“ bezieht sich auf eine Red hat® Enterprise Linux®-, Ubuntu®-, CentOS- oder Debian®-Bereitstellung. Verwenden Sie die https://["NetApp Interoperabilitäts-Matrix-Tool (IMT)"^] Um eine Liste der unterstützten Versionen zu erhalten.
+NOTE: „`Linux`“ bezieht sich auf eine Red hat® Enterprise Linux®-, Ubuntu®-, CentOS- oder Debian®-Bereitstellung. Verwenden Sie die https://imt.netapp.com/matrix/#welcome["NetApp Interoperabilitäts-Matrix-Tool (IMT)"^] Um eine Liste der unterstützten Versionen zu erhalten.
 
 image::../media/expansion_workflow.png[flussdiagramm mit der Übersicht über den Erweiterungsprozess]

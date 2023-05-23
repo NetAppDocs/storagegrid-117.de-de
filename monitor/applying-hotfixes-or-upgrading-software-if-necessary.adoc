@@ -17,7 +17,7 @@ Wenn ein Hotfix oder eine neue Version der StorageGRID-Software verfügbar ist, 
 StorageGRID Hotfixes enthalten Software-Änderungen, die außerhalb einer Feature- oder Patch-Freigabe verfügbar gemacht werden. Die gleichen Änderungen sind in einer zukünftigen Version enthalten.
 
 .Schritte
-. Gehen Sie zuhttps://["NetApp Downloads: StorageGRID"^].
+. Gehen Sie zuhttps://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["NetApp Downloads: StorageGRID"^].
 . Wählen Sie den Abwärtspfeil für das Feld *Typ/Version auswählen* aus, um eine Liste der zum Herunterladen verfügbaren Aktualisierungen anzuzeigen:
 +
 ** *StorageGRID Software-Versionen*: 11._x.y_

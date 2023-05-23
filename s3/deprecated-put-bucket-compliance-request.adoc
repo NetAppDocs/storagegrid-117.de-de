@@ -20,7 +20,7 @@ link:../s3/use-s3-api-for-s3-object-lock.html["Konfigurieren Sie die S3-Objektsp
 
 link:../ilm/index.html["Objektmanagement mit ILM"]
 
-https://["NetApp Knowledge Base: Management älterer, konformer Buckets für StorageGRID 11.5"^]
+https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["NetApp Knowledge Base: Management älterer, konformer Buckets für StorageGRID 11.5"^]
 
 Sie verfügen über die s3:PutBucketCompliance-Berechtigung oder als Account-Root, um diesen Vorgang abzuschließen.
 

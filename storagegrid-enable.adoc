@@ -14,7 +14,7 @@ summary: Erfahren Sie, wie Sie Applikationen in Ihrer StorageGRID Umgebung teste
 
 
 [role="lead"]
-Gehen Sie zu https://["StorageGRID in Ihrer Umgebung aktivieren"^] Um zu erfahren, wie Sie Applikationen in Ihrer StorageGRID Umgebung testen und einsetzen.
+Gehen Sie zu https://docs.netapp.com/us-en/storagegrid-enable/index.html["StorageGRID in Ihrer Umgebung aktivieren"^] Um zu erfahren, wie Sie Applikationen in Ihrer StorageGRID Umgebung testen und einsetzen.
 
 Die Dokumentationswebsite *storagegrid-enable* enthält Beispiele und Kochbücher, die die Produktdokumentation auf dieser Website erweitern und einige nächste Schritte zur Bewertung und Integration mit StorageGRID beschreiben.
 

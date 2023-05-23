@@ -17,8 +17,8 @@ Sie können benutzerdefinierte Alarmregeln erstellen, um eigene Bedingungen für
 * Sie sind mit einem bei Grid Manager angemeldet link:../admin/web-browser-requirements.html["Unterstützter Webbrowser"]
 * Sie verfügen über die Berechtigung zum Verwalten von Warnmeldungen oder Root-Zugriff
 * Sie kennen das link:commonly-used-prometheus-metrics.html["Häufig verwendete Prometheus-Kennzahlen"]
-* Sie verstehen den https://["Syntax der Prometheus-Abfragen"^]
-* Optional haben Sie sich das Video angesehen: https://["Video: Verwendung von Kennzahlen zum Erstellen von benutzerdefinierten Warnmeldungen in StorageGRID 11.7"^]
+* Sie verstehen den https://prometheus.io/docs/querying/basics/["Syntax der Prometheus-Abfragen"^]
+* Optional haben Sie sich das Video angesehen: https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=61acb7ba-7683-488a-a689-afb7010088f3["Video: Verwendung von Kennzahlen zum Erstellen von benutzerdefinierten Warnmeldungen in StorageGRID 11.7"^]
 +
 [link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=61acb7ba-7683-488a-a689-afb7010088f3]
 image::../media/video-screenshot-alert-create-custom-117.png[Video: Verwendung von Kennzahlen zum Erstellen von benutzerdefinierten Warnmeldungen in StorageGRID 11.7]

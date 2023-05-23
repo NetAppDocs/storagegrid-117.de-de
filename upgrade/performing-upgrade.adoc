@@ -41,7 +41,7 @@ TIP: Falls kein Updatepfad angezeigt wird, kann Ihr Browser möglicherweise nich
 . Überprüfen Sie für den Schritt *Dateien auswählen* den Updatepfad.
 . Klicken Sie im Bereich „Dateien herunterladen“ auf jeden Link *Download*, um die erforderlichen Dateien von der NetApp Support-Website herunterzuladen.
 +
-Wenn kein Aktualisierungspfad angezeigt wird, wechseln Sie zum https://["NetApp Downloads: StorageGRID"^] Um festzustellen, ob eine neue Version oder ein Hotfix verfügbar ist, und um die benötigten Dateien herunterzuladen.
+Wenn kein Aktualisierungspfad angezeigt wird, wechseln Sie zum https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["NetApp Downloads: StorageGRID"^] Um festzustellen, ob eine neue Version oder ein Hotfix verfügbar ist, und um die benötigten Dateien herunterzuladen.
 
 +
 
@@ -74,7 +74,7 @@ Sie sollten die aktuelle Kopie der Wiederherstellungspaket-Datei herunterladen, 
 IMPORTANT: Die Recovery Package-Datei muss gesichert sein, weil sie Verschlüsselungsschlüssel und Passwörter enthält, die zum Abrufen von Daten vom StorageGRID-System verwendet werden können.
 
 . Wählen Sie *Prechecks ausführen*, und warten Sie, bis die Vorabprüfungen abgeschlossen sind.
-. Überprüfen Sie die Details für jede gemeldete Vorabprüfung, und beheben Sie alle gemeldeten Fehler. Siehe https://["Lösungsleitfaden für StorageGRID Software-Upgrades"^] Für StorageGRID 11.7.
+. Überprüfen Sie die Details für jede gemeldete Vorabprüfung, und beheben Sie alle gemeldeten Fehler. Siehe https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/StorageGRID_software_upgrade_resolution_guide["Lösungsleitfaden für StorageGRID Software-Upgrades"^] Für StorageGRID 11.7.
 +
 Sie müssen alle Vorabprüfung _errors_ beheben, bevor Sie Ihr System aktualisieren können. Sie müssen jedoch vor dem Upgrade keine Vorabprüfung _Warnings_ durchführen.
 

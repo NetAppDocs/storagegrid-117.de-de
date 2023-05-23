@@ -56,8 +56,8 @@ Wenn Knoten auf Linux-Hosts bereitgestellt werden, müssen Sie dies tun link:lin
 StorageGRID-Dokumentation
  a| 
 * link:../release-notes/index.html["Versionshinweise"] Für StorageGRID 11.7 (Anmeldung erforderlich). Lesen Sie diese vor Beginn des Upgrades sorgfältig durch.
-* https://["Lösungsleitfaden für StorageGRID Software-Upgrades"^] Für die Hauptversion, auf die Sie aktualisieren (Anmeldung erforderlich)
-* Andere https://["StorageGRID 11.7-Dokumentation"^]Bei Bedarf.
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/StorageGRID_software_upgrade_resolution_guide["Lösungsleitfaden für StorageGRID Software-Upgrades"^] Für die Hauptversion, auf die Sie aktualisieren (Anmeldung erforderlich)
+* Andere https://docs.netapp.com/us-en/storagegrid-117/index.html["StorageGRID 11.7-Dokumentation"^]Bei Bedarf.
 
 
 |===

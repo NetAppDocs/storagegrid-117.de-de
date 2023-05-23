@@ -50,7 +50,7 @@ Dieses Beispiel zeigt die XML, die zur Aktivierung von CORS für einen S3-Bucket
 </CORSConfiguration>
 ----
 +
-Weitere Informationen zur CORS-Konfigurations-XML finden Sie unter http://["Amazon Web Services (AWS) Dokumentation: Amazon Simple Storage Service Developer Guide"^].
+Weitere Informationen zur CORS-Konfigurations-XML finden Sie unter http://docs.aws.amazon.com/AmazonS3/latest/dev/Welcome.html["Amazon Web Services (AWS) Dokumentation: Amazon Simple Storage Service Developer Guide"^].
 
 . Wählen Sie *View Buckets* aus dem Dashboard, oder wählen Sie *STORAGE (S3)* > *Buckets*.
 . Wählen Sie den Bucket-Namen aus der Tabelle aus.

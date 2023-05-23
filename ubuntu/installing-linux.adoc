@@ -11,7 +11,7 @@ summary: Sie müssen Ubuntu oder Debian auf allen Grid-Hosts installieren. Mit d
 
 
 [role="lead"]
-Sie müssen Linux auf allen Grid-Hosts installieren. Verwenden Sie die https://["NetApp Interoperabilitäts-Matrix-Tool (IMT)"^] Um eine Liste der unterstützten Versionen zu erhalten.
+Sie müssen Linux auf allen Grid-Hosts installieren. Verwenden Sie die https://imt.netapp.com/matrix/#welcome["NetApp Interoperabilitäts-Matrix-Tool (IMT)"^] Um eine Liste der unterstützten Versionen zu erhalten.
 
 
 IMPORTANT: Stellen Sie sicher, dass Ihr Betriebssystem auf Linux Kernel 4.15 oder höher aktualisiert wird.

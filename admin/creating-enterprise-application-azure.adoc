@@ -31,9 +31,9 @@ NOTE: Sie müssen eine Enterprise-Anwendung für jeden Admin-Knoten in Ihrem Sto
 == Zugriff auf Azure AD
 
 .Schritte
-. Melden Sie sich bei an https://["Azure-Portal"^].
-. Navigieren Sie zu https://["Azure Active Directory"^].
-. Wählen Sie https://["Enterprise-Applikationen"^].
+. Melden Sie sich bei an https://portal.azure.com["Azure-Portal"^].
+. Navigieren Sie zu https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade["Azure Active Directory"^].
+. Wählen Sie https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview/menuId/["Enterprise-Applikationen"^].
 
 
 

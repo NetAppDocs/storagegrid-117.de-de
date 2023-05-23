@@ -56,6 +56,6 @@ Befolgen Sie die folgenden Best Practices, um Probleme mit dem Ablauf von Zertif
 * Ein öffentlich signiertes CA-Zertifikat verwenden. Wenn Sie ein von einer Zertifizierungsstelle signiertes Zertifikat verwenden, können Sie die Grid-Management-API verwenden, um die Zertifikatrotation zu automatisieren. So können Sie bald abgelaufende Zertifikate unterbrechungsfrei ersetzen.
 * Wenn Sie ein selbstsigniertes StorageGRID-Zertifikat generiert haben und dieses Zertifikat kurz vor dem Ablauf steht, müssen Sie das Zertifikat sowohl in StorageGRID als auch in ONTAP manuell ersetzen, bevor das vorhandene Zertifikat abläuft. Wenn ein selbstsigniertes Zertifikat bereits abgelaufen ist, deaktivieren Sie die Zertifikatvalidierung in ONTAP, um einen Zugriffsverlust zu verhindern.
 +
-Siehe https://["NetApp Knowledge Base: So konfigurieren Sie ein neues selbstsigniertes StorageGRID Serverzertifikat für eine vorhandene ONTAP FabricPool Implementierung"^] Weitere Anweisungen.
+Siehe https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_configure_a_new_StorageGRID_self-signed_server_certificate_on_an_existing_ONTAP_FabricPool_deployment["NetApp Knowledge Base: So konfigurieren Sie ein neues selbstsigniertes StorageGRID Serverzertifikat für eine vorhandene ONTAP FabricPool Implementierung"^] Weitere Anweisungen.
 
 

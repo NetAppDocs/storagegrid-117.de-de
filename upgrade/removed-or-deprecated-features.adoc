@@ -27,7 +27,7 @@ Wenn in der vorhandenen StorageGRID-Version benutzerdefinierte Zertifikate für 
 
 Die SG5600 Appliance hat das Ende des Supports erreicht. Weitere Informationen zu Hardware-Aktualisierungen erhalten Sie von Ihrem NetApp Vertriebsmitarbeiter.
 
-Wenn Sie Wartungsverfahren für SG5600-Hardware durchführen müssen, verwenden Sie die https://["Anweisungen für StorageGRID 11.6"^].
+Wenn Sie Wartungsverfahren für SG5600-Hardware durchführen müssen, verwenden Sie die https://docs.netapp.com/us-en/storagegrid-116/sg5600/maintaining-sg5600-appliance.html["Anweisungen für StorageGRID 11.6"^].
 
 
 

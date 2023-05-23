@@ -37,7 +37,7 @@ Unbedingt link:downloading-and-extracting-storagegrid-installation-files.html["L
  a| 
 VMware Software und Dokumentation
  a| 
-Während der Installation verwenden Sie VMware vSphere Web Client, um virtuelle Grid-Knoten auf Virtual Machines zu implementieren. Informationen zu unterstützten Versionen finden Sie im https://["NetApp Interoperabilitäts-Matrix-Tool"^].
+Während der Installation verwenden Sie VMware vSphere Web Client, um virtuelle Grid-Knoten auf Virtual Machines zu implementieren. Informationen zu unterstützten Versionen finden Sie im https://imt.netapp.com/matrix/#welcome["NetApp Interoperabilitäts-Matrix-Tool"^].
 
 
 

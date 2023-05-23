@@ -14,7 +14,7 @@ summary: Vor der Installation der Appliance müssen Sie sicherstellen, dass der 
 Vor der Installation der Appliance müssen Sie sicherstellen, dass der Standort und das Rack, das Sie verwenden möchten, die Spezifikationen einer StorageGRID Appliance erfüllen.
 
 .Schritte
-. Vergewissern Sie sich, dass der Standort die Anforderungen an Temperatur, Luftfeuchtigkeit, Höhenbereich, Luftstrom, Wärmeableitung, Verkabelung, Strom und Erdung. Siehe https://["NetApp Hardware Universe"^] Finden Sie weitere Informationen.
+. Vergewissern Sie sich, dass der Standort die Anforderungen an Temperatur, Luftfeuchtigkeit, Höhenbereich, Luftstrom, Wärmeableitung, Verkabelung, Strom und Erdung. Siehe https://hwu.netapp.com["NetApp Hardware Universe"^] Finden Sie weitere Informationen.
 . Vergewissern Sie sich, dass Ihr Standort die richtige Wechselstromspannung liefert:
 +
 [cols="1a,1a"]

@@ -20,7 +20,7 @@ Wenn StorageGRID-Knoten auf Linux-Hosts bereitgestellt werden, müssen Sie ein z
 Wenn Sie ein StorageGRID-Upgrade über den Grid-Manager durchführen, werden Sie aufgefordert, das Upgrade-Archiv und den erforderlichen Hotfix als ersten Schritt herunterzuladen. Wenn Sie jedoch Dateien herunterladen müssen, um Linux-Hosts zu aktualisieren, können Sie Zeit sparen, indem Sie alle erforderlichen Dateien im Voraus herunterladen.
 
 .Schritte
-. Gehen Sie zu https://["NetApp Downloads: StorageGRID"^].
+. Gehen Sie zu https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["NetApp Downloads: StorageGRID"^].
 . Wählen Sie die Schaltfläche zum Herunterladen der neuesten Version, oder wählen Sie eine andere Version aus dem Dropdown-Menü aus und wählen Sie *Go*.
 +
 Die StorageGRID-Softwareversionen haben dieses Format: 11._x.y_. StorageGRID-Hotfixes haben dieses Format: 11._x. y.y.z_.
@@ -48,7 +48,7 @@ Die Download-Seite für die ausgewählte Version wird angezeigt. Die Seite enth�
 
 . Wenn Sie aufgrund eines erforderlichen Hotfix einem Warnhinweis/MustRead zustimmen müssen, laden Sie den Hotfix herunter:
 +
-.. Gehen Sie zurück zu https://["NetApp Downloads: StorageGRID"^].
+.. Gehen Sie zurück zu https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["NetApp Downloads: StorageGRID"^].
 .. Wählen Sie die Hotfix-Nummer aus der Dropdown-Liste aus.
 .. Stimmen Sie den Vorsichtshinweis und EULA erneut zu.
 .. Laden Sie den Hotfix und dessen README herunter und speichern Sie ihn.

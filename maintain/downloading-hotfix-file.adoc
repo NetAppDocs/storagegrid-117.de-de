@@ -14,7 +14,7 @@ summary: Sie müssen die Hotfix-Datei herunterladen, bevor Sie den Hotfix anwend
 Sie müssen die Hotfix-Datei herunterladen, bevor Sie den Hotfix anwenden können.
 
 .Schritte
-. Gehen Sie zu https://["NetApp Downloads: StorageGRID"^].
+. Gehen Sie zu https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["NetApp Downloads: StorageGRID"^].
 . Wählen Sie den Pfeil nach unten unter *Verfügbare Software*, um eine Liste der Hotfixes anzuzeigen, die zum Herunterladen verfügbar sind.
 +
 

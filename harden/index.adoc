@@ -17,7 +17,7 @@ Dieses Dokument bietet einen Überblick über die StorageGRID-spezifischen Härt
 
 Bei der Installation und Konfiguration von StorageGRID können Sie diese Richtlinien nutzen, um alle vorgeschriebenen Sicherheitsziele bezüglich Vertraulichkeit, Integrität und Verfügbarkeit des Informationssystems zu erfüllen.
 
-StorageGRID folgt dem https://["NetApp Richtlinie zur Bearbeitung von Schwachstellen"^]. Gemeldete Schwachstellen werden gemäß dem Prozess der Reaktion auf Produktsicherheitsvorfälle überprüft und behoben.
+StorageGRID folgt dem https://security.netapp.com/policy/["NetApp Richtlinie zur Bearbeitung von Schwachstellen"^]. Gemeldete Schwachstellen werden gemäß dem Prozess der Reaktion auf Produktsicherheitsvorfälle überprüft und behoben.
 
 
 

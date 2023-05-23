@@ -30,5 +30,5 @@ Meldungen in link:../audit/index.html["Prüfprotokoll"] Geben Sie die Gesamtzeit
 
 Bei der Analyse von Ergebnissen sollten Sie die durchschnittliche Zeit zur Erfüllung einer Anfrage sowie den Gesamtdurchsatz betrachten, den Sie erreichen können. Wiederholen Sie die gleichen Tests regelmäßig, und notieren Sie die Ergebnisse, damit Sie Trends identifizieren können, die eine Untersuchung erfordern könnten.
 
-* Das können Sie https://["Laden Sie S3tester von Github herunter"^].
+* Das können Sie https://github.com/s3tester["Laden Sie S3tester von Github herunter"^].
 

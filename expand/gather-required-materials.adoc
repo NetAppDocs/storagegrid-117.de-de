@@ -74,7 +74,7 @@ StorageGRID-Dokumentation
  a| 
 Aktuelle Dokumentation für Ihre Plattform
  a| 
-Informationen zu unterstützten Versionen finden Sie im https://["Interoperabilitäts-Matrix-Tool (IMT)"^].
+Informationen zu unterstützten Versionen finden Sie im https://imt.netapp.com/matrix/#welcome["Interoperabilitäts-Matrix-Tool (IMT)"^].
 
 |===
 
@@ -88,7 +88,7 @@ Bevor Sie neue Grid-Nodes oder einen neuen Standort hinzufügen können, müssen
 Sie müssen Erweiterungsvorgänge mit der Version von StorageGRID durchführen, die derzeit im Grid ausgeführt wird.
 
 .Schritte
-. Gehen Sie zu https://["NetApp Downloads: StorageGRID"^].
+. Gehen Sie zu https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["NetApp Downloads: StorageGRID"^].
 . Wählen Sie die Version von StorageGRID aus, die derzeit im Grid ausgeführt wird.
 . Melden Sie sich mit Ihrem Benutzernamen und Passwort für Ihr NetApp Konto an.
 . Lesen Sie die Endbenutzer-Lizenzvereinbarung, aktivieren Sie das Kontrollkästchen und wählen Sie dann *Akzeptieren und fortfahren* aus.

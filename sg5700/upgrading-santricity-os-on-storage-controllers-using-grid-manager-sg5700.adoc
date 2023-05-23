@@ -14,11 +14,11 @@ summary: 'Bei Storage-Controllern, die derzeit SANtricity OS 08.42.20.00 \(11.42
 Bei Storage-Controllern, die derzeit SANtricity OS 08.42.20.00 (11.42) oder eine neuere Version verwenden, müssen Sie zum Anwenden eines Upgrades den Grid-Manager verwenden.
 
 .Bevor Sie beginnen
-* Sie haben den konsultiert https://["NetApp Interoperabilitäts-Matrix-Tool (IMT)"^] Um sicherzustellen, dass die für das Upgrade verwendete SANtricity OS-Version mit Ihrer Appliance kompatibel ist.
+* Sie haben den konsultiert https://imt.netapp.com/matrix/#welcome["NetApp Interoperabilitäts-Matrix-Tool (IMT)"^] Um sicherzustellen, dass die für das Upgrade verwendete SANtricity OS-Version mit Ihrer Appliance kompatibel ist.
 * Sie haben die link:../admin/admin-group-permissions.html["Berechtigung für Wartung oder Root-Zugriff"].
 * Sie sind mit einem bei Grid Manager angemeldet link:../admin/web-browser-requirements.html["Unterstützter Webbrowser"].
 * Sie haben die Provisionierungs-Passphrase.
-* Sie haben Zugriff auf https://["NetApp Downloads mit StorageGRID Appliance"^].
+* Sie haben Zugriff auf https://mysupport.netapp.com/site/products/all/details/storagegrid-appliance/downloads-tab["NetApp Downloads mit StorageGRID Appliance"^].
 
 
 .Über diese Aufgabe
@@ -36,7 +36,7 @@ NOTE: Mit diesem Verfahren wird der NVSRAM automatisch auf die neueste Version a
 IMPORTANT: Stellen Sie sicher, dass Sie den aktuellen StorageGRID-Hotfix installieren, bevor Sie mit diesem Vorgang beginnen. Siehe link:../maintain/storagegrid-hotfix-procedure.html["StorageGRID Hotfix Verfahren"] Entsprechende Details.
 
 .Schritte
-. [[Download-santricity-os]] Laden Sie die neue SANtricity OS Softwaredatei von herunter https://["NetApp Downloads mit StorageGRID Appliance"^].
+. [[Download-santricity-os]] Laden Sie die neue SANtricity OS Softwaredatei von herunter https://mysupport.netapp.com/site/products/all/details/storagegrid-appliance/downloads-tab["NetApp Downloads mit StorageGRID Appliance"^].
 +
 Achten Sie darauf, die SANtricity Betriebssystemversion für Ihre Storage Controller auszuwählen.
 
@@ -195,6 +195,6 @@ NOTE: Verwenden Sie für alle Nodes, für die der Status als Warnung angezeigt w
 
 
 .Verwandte Informationen
-https://["NetApp Interoperabilitäts-Matrix-Tool"^]
+https://mysupport.netapp.com/matrix["NetApp Interoperabilitäts-Matrix-Tool"^]
 
 link:upgrading-santricity-os-on-e2800-controller-using-maintenance-mode.html["Aktualisieren Sie SANtricity OS auf einem E2800 Controller mithilfe des Wartungsmodus"]

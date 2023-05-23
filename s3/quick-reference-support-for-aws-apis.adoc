@@ -42,12 +42,12 @@ Sofern nicht anders angegeben, werden die folgenden gängigen Anforderungsheader
 
 .Verwandte Informationen
 * link:../s3/s3-rest-api-supported-operations-and-limitations.html["Details zur S3-REST-API-Implementierung"]
-* https://["Amazon Simple Storage Service API-Referenz: Common Request Header"^]
+* https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonRequestHeaders.html["Amazon Simple Storage Service API-Referenz: Common Request Header"^]
 
 
 
 
-== https://["AbortMehrteilaUpload"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html["AbortMehrteilaUpload"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anforderung plus diesen zusätzlichen URI-Abfrageparameter:
@@ -63,7 +63,7 @@ link:operations-for-multipart-uploads.html["Vorgänge für mehrteilige Uploads"]
 
 
 
-== https://["CompleteMultipartUpload"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_CompleteMultipartUpload.html["CompleteMultipartUpload"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anforderung plus diesen zusätzlichen URI-Abfrageparameter:
@@ -85,7 +85,7 @@ link:complete-multipart-upload.html["Abschließen Von Mehrteiligen Uploads"]
 
 
 
-== https://["CopyObject"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html["CopyObject"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage, plus diese zusätzlichen Kopfzeilen:
@@ -120,7 +120,7 @@ link:put-object-copy.html["PUT Objektkopie"]
 
 
 
-== https://["CreateBucket"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html["CreateBucket"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage, plus diese zusätzlichen Kopfzeilen:
@@ -136,7 +136,7 @@ link:operations-on-buckets.html["Operationen auf Buckets"]
 
 
 
-== https://["CreateMultipartUpload"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html["CreateMultipartUpload"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage, plus diese zusätzlichen Kopfzeilen:
@@ -166,7 +166,7 @@ link:initiate-multipart-upload.html["Initiieren Von Mehrteiligen Uploads"]
 
 
 
-== https://["DeleteBucket"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html["DeleteBucket"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -176,20 +176,7 @@ link:operations-on-buckets.html["Operationen auf Buckets"]
 
 
 
-== https://["DeleteBucketCors"^]
-
-.URI-Abfrageparameter und Anforderungskopfzeilen
-StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
-
-.Text anfordern
-Keine
-
-.StorageGRID-Dokumentation
-link:operations-on-buckets.html["Operationen auf Buckets"]
-
-
-
-== https://["DeleteBucketEncryption"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketCors.html["DeleteBucketCors"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -202,7 +189,20 @@ link:operations-on-buckets.html["Operationen auf Buckets"]
 
 
 
-== https://["DeleteBucketLifecycle"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketEncryption.html["DeleteBucketEncryption"^]
+
+.URI-Abfrageparameter und Anforderungskopfzeilen
+StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
+
+.Text anfordern
+Keine
+
+.StorageGRID-Dokumentation
+link:operations-on-buckets.html["Operationen auf Buckets"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html["DeleteBucketLifecycle"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -217,7 +217,7 @@ Keine
 
 
 
-== https://["DeleteBucketRichtlinien"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketPolicy.html["DeleteBucketRichtlinien"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -230,7 +230,7 @@ link:operations-on-buckets.html["Operationen auf Buckets"]
 
 
 
-== https://["DeleteBucketReplication"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketReplication.html["DeleteBucketReplication"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -243,7 +243,7 @@ link:operations-on-buckets.html["Operationen auf Buckets"]
 
 
 
-== https://["DeleteBucketTagging"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html["DeleteBucketTagging"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -256,7 +256,7 @@ link:operations-on-buckets.html["Operationen auf Buckets"]
 
 
 
-== https://["DeleteObject"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html["DeleteObject"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anforderung plus diesen zusätzlichen Anforderungsheader:
@@ -272,7 +272,7 @@ link:operations-on-objects.html["Operationen für Objekte"]
 
 
 
-== https://["Objekte deObjekteObjekte"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjects.html["Objekte deObjekteObjekte"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anforderung plus diesen zusätzlichen Anforderungsheader:
@@ -288,7 +288,7 @@ link:operations-on-objects.html["Operationen für Objekte"] (DELETE mehrere Obje
 
 
 
-== https://["DeleteObjectTagging"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html["DeleteObjectTagging"^]
 
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
 
@@ -300,7 +300,7 @@ link:operations-on-objects.html["Operationen für Objekte"]
 
 
 
-== https://["GetBucketAcl"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketAcl.html["GetBucketAcl"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -313,7 +313,7 @@ link:operations-on-buckets.html["Operationen auf Buckets"]
 
 
 
-== https://["GetBucketCors"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketCors.html["GetBucketCors"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -326,7 +326,7 @@ link:operations-on-buckets.html["Operationen auf Buckets"]
 
 
 
-== https://["GetBucketEncryption"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketEncryption.html["GetBucketEncryption"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -339,7 +339,7 @@ link:operations-on-buckets.html["Operationen auf Buckets"]
 
 
 
-== https://["GetBucketLifecycleKonfiguration"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html["GetBucketLifecycleKonfiguration"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -354,7 +354,7 @@ Keine
 
 
 
-== https://["GetBucketLocation"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLocation.html["GetBucketLocation"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -367,7 +367,7 @@ link:operations-on-buckets.html["Operationen auf Buckets"]
 
 
 
-== https://["GetBucketNotificationConfiguration"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketNotificationConfiguration.html["GetBucketNotificationConfiguration"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -380,7 +380,7 @@ link:operations-on-buckets.html["Operationen auf Buckets"] (Bucket-Benachrichtig
 
 
 
-== https://["GetBucketPolicy"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketPolicy.html["GetBucketPolicy"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -393,7 +393,7 @@ link:operations-on-buckets.html["Operationen auf Buckets"]
 
 
 
-== https://["GetBucketReplication"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketReplication.html["GetBucketReplication"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -406,7 +406,7 @@ link:operations-on-buckets.html["Operationen auf Buckets"]
 
 
 
-== https://["GetBucketTagging"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketTagging.html["GetBucketTagging"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -419,7 +419,7 @@ link:operations-on-buckets.html["Operationen auf Buckets"]
 
 
 
-== https://["GetBucketVersioning"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html["GetBucketVersioning"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -432,7 +432,7 @@ link:operations-on-buckets.html["Operationen auf Buckets"]
 
 
 
-== https://["GetObject"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html["GetObject"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anforderung plus die folgenden zusätzlichen URI-Abfrageparameter:
@@ -466,7 +466,7 @@ link:get-object.html["GET Objekt"]
 
 
 
-== https://["GetObjectAcl"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html["GetObjectAcl"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -479,7 +479,7 @@ link:operations-on-objects.html["Operationen für Objekte"]
 
 
 
-== https://["GetObjectLegalHold"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectLegalHold.html["GetObjectLegalHold"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -492,7 +492,7 @@ link:../s3/use-s3-api-for-s3-object-lock.html["Konfigurieren Sie die S3-Objektsp
 
 
 
-== https://["GetObjectLockConfiguration"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectLockConfiguration.html["GetObjectLockConfiguration"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -505,7 +505,7 @@ link:../s3/use-s3-api-for-s3-object-lock.html["Konfigurieren Sie die S3-Objektsp
 
 
 
-== https://["GetObjectRetention"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectRetention.html["GetObjectRetention"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -518,7 +518,7 @@ link:../s3/use-s3-api-for-s3-object-lock.html["Konfigurieren Sie die S3-Objektsp
 
 
 
-== https://["GetObjectTagging"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html["GetObjectTagging"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -531,7 +531,7 @@ link:operations-on-objects.html["Operationen für Objekte"]
 
 
 
-== https://["HeadBucket"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadBucket.html["HeadBucket"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -544,7 +544,7 @@ link:operations-on-buckets.html["Operationen auf Buckets"]
 
 
 
-== https://["HeadObject"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadObject.html["HeadObject"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage, plus diese zusätzlichen Kopfzeilen:
@@ -567,7 +567,7 @@ link:head-object.html["HEAD Objekt"]
 
 
 
-== https://["ListBuchs"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html["ListBuchs"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -580,7 +580,7 @@ link:operations-on-the-service.html["Operationen im Dienst > SERVICE ABRUFEN"]
 
 
 
-== https://["ListMultipartUploads"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html["ListMultipartUploads"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anforderung plus die folgenden zusätzlichen Parameter:
@@ -601,7 +601,7 @@ link:list-multipart-uploads.html["Mehrteilige Uploads Auflisten"]
 
 
 
-== https://["ListObjekte"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html["ListObjekte"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anforderung plus die folgenden zusätzlichen Parameter:
@@ -621,7 +621,7 @@ link:operations-on-buckets.html["Operationen auf Buckets"] (BUCKET ABRUFEN)
 
 
 
-== https://["ListObjekteV2"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html["ListObjekteV2"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anforderung plus die folgenden zusätzlichen Parameter:
@@ -643,7 +643,7 @@ link:operations-on-buckets.html["Operationen auf Buckets"] (BUCKET ABRUFEN)
 
 
 
-== https://["ListObjectVersions"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectVersions.html["ListObjectVersions"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anforderung plus die folgenden zusätzlichen Parameter:
@@ -664,7 +664,7 @@ link:operations-on-buckets.html["Operationen auf Buckets"] (GET Bucket-Objektver
 
 
 
-== https://["ListenTeile"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html["ListenTeile"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anforderung plus die folgenden zusätzlichen Parameter:
@@ -682,7 +682,7 @@ link:list-multipart-uploads.html["Mehrteilige Uploads Auflisten"]
 
 
 
-== https://["PutBucketCors"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketCors.html["PutBucketCors"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -695,7 +695,7 @@ link:operations-on-buckets.html["Operationen auf Buckets"]
 
 
 
-== https://["PutBucketEncryption"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketEncryption.html["PutBucketEncryption"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -714,7 +714,7 @@ link:operations-on-buckets.html["Operationen auf Buckets"]
 
 
 
-== https://["PutBucketLifecycleKonfiguration"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html["PutBucketLifecycleKonfiguration"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -751,7 +751,7 @@ StorageGRID unterstützt folgende XML-Tags für Anforderungstext:
 
 
 
-== https://["PutBucketNotificationKonfiguration"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketNotificationConfiguration.html["PutBucketNotificationKonfiguration"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -778,7 +778,7 @@ link:operations-on-buckets.html["Operationen auf Buckets"] (PUT Bucket-Benachric
 
 
 
-== https://["PutBucketPolicy"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketPolicy.html["PutBucketPolicy"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -788,7 +788,7 @@ Weitere Informationen zu den unterstützten JSON-Textfeldern finden Sie unterlin
 
 
 
-== https://["PutBucketReplication"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html["PutBucketReplication"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -808,7 +808,7 @@ link:operations-on-buckets.html["Operationen auf Buckets"]
 
 
 
-== https://["PutBucketTagging"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html["PutBucketTagging"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -821,7 +821,7 @@ link:operations-on-buckets.html["Operationen auf Buckets"]
 
 
 
-== https://["PutBucketVersioning"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketVersioning.html["PutBucketVersioning"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -838,7 +838,7 @@ link:operations-on-buckets.html["Operationen auf Buckets"]
 
 
 
-== https://["PutObject"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html["PutObject"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage, plus diese zusätzlichen Kopfzeilen:
@@ -868,7 +868,7 @@ link:put-object.html["PUT Objekt"]
 
 
 
-== https://["PutObjectLegalHold"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectLegalHold.html["PutObjectLegalHold"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -881,7 +881,7 @@ link:use-s3-api-for-s3-object-lock.html["Konfigurieren Sie die S3-Objektsperre �
 
 
 
-== https://["PutObjectLockKonfiguration"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectLockConfiguration.html["PutObjectLockKonfiguration"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -894,7 +894,7 @@ link:use-s3-api-for-s3-object-lock.html["Konfigurieren Sie die S3-Objektsperre �
 
 
 
-== https://["PutObjectRetention"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectRetention.html["PutObjectRetention"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage, plus diese zusätzliche Kopfzeile:
@@ -910,7 +910,7 @@ link:use-s3-api-for-s3-object-lock.html["Konfigurieren Sie die S3-Objektsperre �
 
 
 
-== https://["PutObjectTagging"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html["PutObjectTagging"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -923,7 +923,7 @@ link:operations-on-objects.html["Operationen für Objekte"]
 
 
 
-== https://["SelektierObjectContent"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_SelectObjectContent.html["SelektierObjectContent"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anfrage.
@@ -937,7 +937,7 @@ Weitere Informationen zu den unterstützten Textfeldern finden Sie in den folgen
 
 
 
-== https://["UploadTeil"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html["UploadTeil"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anforderung plus die folgenden zusätzlichen URI-Abfrageparameter:
@@ -962,7 +962,7 @@ link:upload-part.html["Hochladen Von Teilen"]
 
 
 
-== https://["UploadPartCopy"^]
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html["UploadPartCopy"^]
 
 .URI-Abfrageparameter und Anforderungskopfzeilen
 StorageGRID unterstützt alle <<common-params,Allgemeine Parameter und Kopfzeilen>> Für diese Anforderung plus die folgenden zusätzlichen URI-Abfrageparameter:

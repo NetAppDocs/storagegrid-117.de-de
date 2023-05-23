@@ -40,6 +40,6 @@ CAUTION: Sie müssen das Network Time Protocol (NTP) auf jedem ESX-Host ordnungs
 
 Vor der Implementierung von StorageGRID Grid-Nodes müssen Sie VMware vSphere und vCenter installieren und konfigurieren.
 
-Informationen zu unterstützten Versionen von VMware vSphere Hypervisor und VMware vCenter Server-Software finden Sie im https://["NetApp Interoperabilitäts-Matrix-Tool"^].
+Informationen zu unterstützten Versionen von VMware vSphere Hypervisor und VMware vCenter Server-Software finden Sie im https://imt.netapp.com/matrix/#welcome["NetApp Interoperabilitäts-Matrix-Tool"^].
 
 Die Schritte zur Installation dieser VMware-Produkte finden Sie in der VMware-Dokumentation.

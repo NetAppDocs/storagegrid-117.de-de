@@ -20,7 +20,7 @@ Verwenden Sie diese Anweisungen, um Ihr StorageGRID System zu warten und nach Au
 In diesen Anweisungen wird beschrieben, wie ein Software-Hotfix angewendet wird, Grid-Nodes wiederhergestellt, ein ausgefallener Standort wiederhergestellt, Grid-Nodes oder einen gesamten Standort ausmustern, Netzwerkwartung durchführen, Wartungsvorgänge auf Host- und Middleware-Ebene durchführen und Grid Node-Verfahren durchführen.
 
 
-NOTE: In diesen Anweisungen bezieht sich „`Linux`“ auf eine Bereitstellung von Red hat® Enterprise Linux®, Ubuntu®, CentOS oder Debian®. Verwenden Sie die https://["NetApp Interoperabilitäts-Matrix-Tool"^] Um eine Liste der unterstützten Versionen zu erhalten.
+NOTE: In diesen Anweisungen bezieht sich „`Linux`“ auf eine Bereitstellung von Red hat® Enterprise Linux®, Ubuntu®, CentOS oder Debian®. Verwenden Sie die https://imt.netapp.com/matrix/#welcome["NetApp Interoperabilitäts-Matrix-Tool"^] Um eine Liste der unterstützten Versionen zu erhalten.
 
 
 

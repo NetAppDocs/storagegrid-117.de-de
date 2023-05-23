@@ -18,7 +18,7 @@ Sie können die Liste aller Standard- und benutzerdefinierten Warnungsregeln anz
 .Bevor Sie beginnen
 * Sie sind mit einem bei Grid Manager angemeldet link:../admin/web-browser-requirements.html["Unterstützter Webbrowser"].
 * Sie verfügen über die Berechtigung zum Verwalten von Warnmeldungen oder Root-Zugriff.
-* Optional haben Sie sich das Video angesehen: https://["Video: Übersicht über Warnmeldungen für StorageGRID 11.7"^]
+* Optional haben Sie sich das Video angesehen: https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=18df5a3d-bf19-4a9e-8922-afbd009b141b["Video: Übersicht über Warnmeldungen für StorageGRID 11.7"^]
 +
 [link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=18df5a3d-bf19-4a9e-8922-afbd009b141b]
 image::../media/video-screenshot-alert-overview-117.png[Video: Übersicht über Warnmeldungen für StorageGRID 11.7]

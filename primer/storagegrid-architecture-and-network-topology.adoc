@@ -104,7 +104,7 @@ Weitere Informationen finden Sie im Folgenden:
 * link:../ubuntu/index.html["Installieren Sie Ubuntu oder Debian"]
 
 
-Verwenden Sie die https://["NetApp Interoperabilitäts-Matrix-Tool (IMT)"^] Um eine Liste der unterstützten Versionen zu erhalten.
+Verwenden Sie die https://imt.netapp.com/matrix/#welcome["NetApp Interoperabilitäts-Matrix-Tool (IMT)"^] Um eine Liste der unterstützten Versionen zu erhalten.
 
 
 
@@ -132,7 +132,7 @@ Folgende StorageGRID Appliances sind verfügbar:
 
 Weitere Informationen finden Sie im Folgenden:
 
-* https://["NetApp Hardware Universe"^]
+* https://hwu.netapp.com["NetApp Hardware Universe"^]
 * link:../installconfig/hardware-description-sg6100.html["SGF6112 Storage Appliance"]
 * link:../installconfig/hardware-description-sg100-and-1000.html["SG100- und SG1000-Services-Appliances"]
 * link:../installconfig/hardware-description-sg6000.html["SG6000 Storage-Appliances"]

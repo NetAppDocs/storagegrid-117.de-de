@@ -214,7 +214,7 @@ CAUTION: Bei Identitätsquellen, die nicht ActiveDirectory oder Azure sind, bloc
 
 === Überlagerungen in Memberof und Refint
 
-Die Überlagerungen Memberof und Refint sollten aktiviert sein. Weitere Informationen finden Sie in den Anweisungen zur Wartung der Umkehrgruppenmitgliedschaft imhttp://["OpenLDAP-Dokumentation: Version 2.4 Administratorhandbuch"^].
+Die Überlagerungen Memberof und Refint sollten aktiviert sein. Weitere Informationen finden Sie in den Anweisungen zur Wartung der Umkehrgruppenmitgliedschaft imhttp://www.openldap.org/doc/admin24/index.html["OpenLDAP-Dokumentation: Version 2.4 Administratorhandbuch"^].
 
 
 
@@ -230,4 +230,4 @@ Sie müssen die folgenden OpenLDAP-Attribute mit den angegebenen Stichwörtern f
 
 Stellen Sie außerdem sicher, dass die in der Hilfe für den Benutzernamen genannten Felder für eine optimale Leistung indiziert sind.
 
-Weitere Informationen zur Wartung von Gruppenmitgliedschaften finden Sie imhttp://["OpenLDAP-Dokumentation: Version 2.4 Administratorhandbuch"^].
+Weitere Informationen zur Wartung von Gruppenmitgliedschaften finden Sie imhttp://www.openldap.org/doc/admin24/index.html["OpenLDAP-Dokumentation: Version 2.4 Administratorhandbuch"^].

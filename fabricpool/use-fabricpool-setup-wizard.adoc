@@ -94,7 +94,7 @@ Die allgemeine Best Practice ist die Anbindung einer einzelnen Cloud-Tier an meh
 NetApp empfiehlt, keine einzelne Cloud-Tier an lokale Tiers in mehreren Clustern anzubinden.
 
 
-NOTE: Best Practices für die Verwendung von StorageGRID mit NetApp MetroCluster™ und FabricPool Mirror finden Sie unter https://["TR-4598: FabricPool Best Practices in ONTAP"^].
+NOTE: Best Practices für die Verwendung von StorageGRID mit NetApp MetroCluster™ und FabricPool Mirror finden Sie unter https://www.netapp.com/pdf.html?item=/media/17239-tr4598pdf.pdf["TR-4598: FabricPool Best Practices in ONTAP"^].
 
 
 

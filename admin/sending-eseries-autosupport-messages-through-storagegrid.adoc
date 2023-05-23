@@ -13,7 +13,7 @@ summary: Sie können AutoSupport Meldungen von E-Series SANtricity System Manage
 [role="lead"]
 Sie können AutoSupport Meldungen von E-Series SANtricity System Manager über einen StorageGRID Admin-Node anstelle des Storage Appliance Management-Ports an den technischen Support senden.
 
-Siehe https://["E-Series Hardware AutoSupport"^] Weitere Informationen zur Verwendung von AutoSupport mit E-Series Appliances
+Siehe https://docs.netapp.com/us-en/e-series-santricity/sm-support/autosupport-feature-overview.html["E-Series Hardware AutoSupport"^] Weitere Informationen zur Verwendung von AutoSupport mit E-Series Appliances
 
 .Bevor Sie beginnen
 * Sie sind im Grid Manager mit einem angemeldet link:../admin/web-browser-requirements.html["Unterstützter Webbrowser"].
@@ -34,7 +34,7 @@ E-Series AutoSupport-Meldungen enthalten Details zur Storage Hardware und sind s
 Sie können eine spezielle Proxy-Server-Adresse in SANtricity System Manager konfigurieren, um AutoSupport-Meldungen über einen StorageGRID-Admin-Knoten ohne Verwendung des Management-Ports der Appliance zu übertragen. AutoSupport-Nachrichten, die auf diese Weise übertragen werden, werden vom gesendet link:../admin/what-admin-node-is.html["Administratorknoten des bevorzugten Absenders"], Und sie verwenden jede link:../admin/configuring-admin-proxy-settings.html["Administrator-Proxy-Einstellungen"] Die im Grid Manager konfiguriert wurden.
 
 
-NOTE: Dieses Verfahren dient nur zur Konfiguration eines StorageGRID-Proxyservers für AutoSupport-Meldungen der E-Serie. Weitere Informationen zur Konfiguration der E-Series AutoSupport finden Sie unter https://["NetApp E-Series und SANtricity Dokumentation"^].
+NOTE: Dieses Verfahren dient nur zur Konfiguration eines StorageGRID-Proxyservers für AutoSupport-Meldungen der E-Serie. Weitere Informationen zur Konfiguration der E-Series AutoSupport finden Sie unter https://mysupport.netapp.com/info/web/ECMP1658252.html["NetApp E-Series und SANtricity Dokumentation"^].
 
 .Schritte
 . Wählen Sie im Grid Manager die Option *NODES* aus.

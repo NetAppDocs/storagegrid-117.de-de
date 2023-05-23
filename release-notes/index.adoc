@@ -13,4 +13,4 @@ summary: Release-spezifische Informationen zu neuen Funktionen, entfernten oder 
 [role="lead"]
 Release-spezifische Informationen zu neuen Funktionen, entfernten oder veralteten Funktionen, festen Problemen und bekannten Problemen erhalten
 
-Loggen Sie sich auf der NetApp Support Site unter ein https://["PDF-Datei anzeigen oder herunterladen"^] Enthält die Versionshinweise zu StorageGRID 11.7.
+Loggen Sie sich auf der NetApp Support Site unter ein https://library.netapp.com/ecm/ecm_download_file/ECMLP2884438["PDF-Datei anzeigen oder herunterladen"^] Enthält die Versionshinweise zu StorageGRID 11.7.

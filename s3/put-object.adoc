@@ -227,7 +227,7 @@ Bei Verwendung des `Authorization` Header zur Authentifizierung von Anfragen unt
 
 IMPORTANT: Als allgemeine Best Practice sollten Sie diese Kopfzeilen immer in aufnehmen `CanonicalHeaders` Um sicherzustellen, dass sie überprüft werden; wenn Sie diese Header jedoch ausschließen, gibt StorageGRID keinen Fehler zurück.
 
-Weitere Informationen finden Sie unter https://["Signaturberechnungen für den Autorisierungskopf: Payload in einem einzelnen Chunk übertragen (AWS Signature Version 4)"^].
+Weitere Informationen finden Sie unter https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-header-based-auth.html["Signaturberechnungen für den Autorisierungskopf: Payload in einem einzelnen Chunk übertragen (AWS Signature Version 4)"^].
 
 .Verwandte Informationen
 link:../ilm/index.html["Objektmanagement mit ILM"]

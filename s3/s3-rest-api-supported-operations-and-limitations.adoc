@@ -27,7 +27,7 @@ Das StorageGRID-System unterstützt nur gültige HTTP-Datumsformate für alle He
 
 == Allgemeine Anfragemöpfe
 
-Das StorageGRID-System unterstützt die von definierten allgemeinen Anforderungsheader https://["Amazon Simple Storage Service API-Referenz: Common Request Header"^], Mit einer Ausnahme.
+Das StorageGRID-System unterstützt die von definierten allgemeinen Anforderungsheader https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonRequestHeaders.html["Amazon Simple Storage Service API-Referenz: Common Request Header"^], Mit einer Ausnahme.
 
 [cols="1a,2a"]
 |===

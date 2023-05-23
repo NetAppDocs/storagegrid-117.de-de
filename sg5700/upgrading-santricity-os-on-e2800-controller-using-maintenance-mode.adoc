@@ -14,7 +14,7 @@ summary: 'Für Storage-Controller, die derzeit SANtricity OS verwenden, die ält
 Für Storage-Controller, die derzeit SANtricity OS verwenden, die älter als 08.42.20.00 (11.42) sind, müssen Sie das Verfahren des Wartungsmodus verwenden, um ein Upgrade durchzuführen.
 
 .Bevor Sie beginnen
-* Sie haben den konsultiert https://["NetApp Interoperabilitäts-Matrix-Tool (IMT)"^] Um sicherzustellen, dass die für das Upgrade verwendete SANtricity OS-Version mit Ihrer Appliance kompatibel ist.
+* Sie haben den konsultiert https://imt.netapp.com/matrix/#welcome["NetApp Interoperabilitäts-Matrix-Tool (IMT)"^] Um sicherzustellen, dass die für das Upgrade verwendete SANtricity OS-Version mit Ihrer Appliance kompatibel ist.
 * Sie müssen den E5700SG Controller in platzieren link:../maintain/placing-appliance-into-maintenance-mode.html["Wartungsmodus"], Die die Verbindung zum E2800-Controller unterbricht.
 +
 

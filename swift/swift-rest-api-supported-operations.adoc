@@ -31,4 +31,4 @@ Die folgenden Swift-API-Operationen werden unterstützt:
 Das StorageGRID-System implementiert alle gemeinsamen Header für unterstützte Vorgänge, wie sie von der OpenStack Swift Objekt-Storage-API v1 definiert wurden.
 
 .Verwandte Informationen
-http://["OpenStack: Objekt-Storage-API"^]
+http://docs.openstack.org/developer/swift/api/object_api_v1_overview.html["OpenStack: Objekt-Storage-API"^]
