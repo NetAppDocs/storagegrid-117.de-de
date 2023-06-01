@@ -38,7 +38,7 @@ Um Systeme und Protokolle wie SMTP, DNS, SSH oder DHCP verwenden zu können, mü
 In der folgenden Tabelle werden die Ports für den Datenverkehr zu den Nodes aufgeführt.
 
 
-NOTE: Diese Liste enthält keine Ports, die als konfiguriert werden können link:../admin/configuring-load-balancer-endpoints.html["Load Balancer-Endpunkte"].
+NOTE: Diese Liste enthält keine Ports, die als konfiguriert werden können link:../admin/configuring-load-balancer-endpoints.html["Load Balancer-Endpunkte"] Oder verwendet für link:../monitor/configuring-syslog-server.html["Syslog-Server"].
 
 [cols="1a,1a,1a,1a,1a,4a"]
 |===
