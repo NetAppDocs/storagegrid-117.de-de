@@ -71,9 +71,28 @@ Wenn das Mandantenkonto die Berechtigung *Grid Federation connection* verwenden 
 *** Wenn Sie eine Swift-Gruppe bearbeiten, aktivieren oder deaktivieren Sie optional das Kontrollkästchen *Swift Administrator*.
 
 
-.. Auf der Registerkarte *Users* können Sie lokale Benutzer hinzufügen oder entfernen.
+
+
+. So fügen Sie der Gruppe einen oder mehrere vorhandene lokale Benutzer hinzu:
++
+.. Wählen Sie die Registerkarte Benutzer aus.
 +
 image::../media/manage_users.png[Benutzer managen]
+
+.. Wählen Sie *Benutzer hinzufügen*.
+.. Wählen Sie die vorhandenen Benutzer aus, die Sie hinzufügen möchten, und wählen Sie *Benutzer hinzufügen*.
++
+Oben rechts wird eine Erfolgsmeldung angezeigt.
+
+
+
+. So entfernen Sie lokale Benutzer aus der Gruppe:
++
+.. Wählen Sie die Registerkarte Benutzer aus.
+.. Wählen Sie *Benutzer entfernen*.
+.. Wählen Sie die Benutzer aus, die Sie entfernen möchten, und wählen Sie *Benutzer entfernen*.
++
+Oben rechts wird eine Erfolgsmeldung angezeigt.
 
 
 
