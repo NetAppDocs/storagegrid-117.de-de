@@ -25,7 +25,10 @@ Verschlüsselungsmanagement-Server (KMS) in Grid Manager
  a| 
 Du link:kms-configuring.html["Konfigurieren eines Verschlüsselungsmanagement-Servers"] Auf der StorageGRID-Website und link:../installconfig/optional-enabling-node-encryption.html["Aktivieren Sie die Node-Verschlüsselung für die Appliance"]. Anschließend stellt ein Appliance-Node eine Verbindung mit dem KMS her, um einen Schlüsselverschlüsselungsschlüssel (KEK) anzufordern. Dieser Schlüssel verschlüsselt und entschlüsselt den Datenverschlüsselungsschlüssel (DEK) auf jedem Volume.
  a| 
-Appliance-Knoten, deren *Node Encryption* während der Installation aktiviert ist. Alle Daten auf der Appliance sind gegen physischen Verlust oder aus dem Datacenter geschützt. Kann mit einigen StorageGRID Storage und Service Appliances verwendet werden.
+Appliance-Knoten, deren *Node Encryption* während der Installation aktiviert ist. Alle Daten auf der Appliance sind gegen physischen Verlust oder aus dem Datacenter geschützt.
+
+
+NOTE: Das Management von Verschlüsselungen mit einem KMS wird nur für Storage Nodes und Service-Appliances unterstützt.
 
 
 
