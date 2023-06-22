@@ -18,6 +18,9 @@ Das Beispiel geht davon aus, dass Sie die ILM-Regeln und eine ILM-Richtlinie fü
 
 CAUTION: Die folgenden ILM-Regeln und -Richtlinien sind nur Beispiele. Es gibt viele Möglichkeiten zur Konfiguration von ILM-Regeln. Vor der Aktivierung einer neuen Richtlinie sollte die vorgeschlagene Richtlinie simuliert werden, um zu bestätigen, dass sie wie vorgesehen funktioniert, um Inhalte vor Verlust zu schützen. Weitere Informationen finden Sie unter link:../ilm/index.html["Objektmanagement mit ILM"].
 
+
+CAUTION: Verwenden Sie zur Vermeidung von Datenverlust keine ILM-Regel, die ausläuft oder die Cloud-Tiering-Daten von FabricPool löscht. Setzen Sie die Aufbewahrungsfrist auf *Forever*, um sicherzustellen, dass FabricPool-Objekte nicht durch StorageGRID ILM gelöscht werden.
+
 .Bevor Sie beginnen
 * Sie haben die geprüft link:best-practices-ilm.html["Best Practices für die Verwendung von ILM mit FabricPool-Daten"].
 * Sie sind mit einem bei Grid Manager angemeldet link:../admin/web-browser-requirements.html["Unterstützter Webbrowser"].
@@ -74,7 +77,10 @@ Zeitraum und Platzierungen
  a| 
 Ab Tag 0 für immer speichern
 
-Speichern Sie Objekte durch Erasure Coding mithilfe des 2+1 EC-Schemas in Denver.
+Speichern Sie Objekte durch Erasure Coding mit dem 2+1-EC-Schema in Denver und bewahren Sie diese Objekte für immer in StorageGRID auf.
+
+
+CAUTION: Verwenden Sie zur Vermeidung von Datenverlust keine ILM-Regel, die ausläuft oder die Cloud-Tiering-Daten von FabricPool löscht.
 
 
 
@@ -144,5 +150,5 @@ Wenn diese Richtlinie aktiviert ist, speichert StorageGRID Objektdaten wie folgt
 
 * Die Daten-Tiering von FabricPool in `fabricpool-bucket` Wird mithilfe des 2+1-Schemas zur Einhaltung von Datenkonsistenz (Erasure Coding) codiert. Zwei Datenfragmente und ein Paritätsfragment werden auf drei verschiedenen Storage Nodes platziert.
 * Alle Objekte in allen anderen Buckets werden repliziert. Es werden zwei Kopien erstellt und auf zwei verschiedenen Speicherknoten platziert.
-* Die mit Erasure codierten und replizierten Kopien werden in StorageGRID aufbewahrt, bis sie in ONTAP gelöscht werden. StorageGRID ILM löscht diese Elemente nie.
+* Die Kopien werden für immer in StorageGRID aufbewahrt. StorageGRID ILM wird diese Objekte nicht löschen.
 

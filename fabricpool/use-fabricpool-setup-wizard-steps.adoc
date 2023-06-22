@@ -525,12 +525,12 @@ Die Platzierungsanweisung beginnt, wenn Objekte zunächst im Bucket gespeichert 
  a| 
 Platzierungsanweisung
  a| 
-2+1 Erasure Coding
+Verwenden Sie 2+1 Erasure Coding vom Tag 0 bis für immer
 
 |===
 . Sortieren Sie das Aufbewahrungsdiagramm nach *time period* und *Storage Pool*, um die Platzierungsanweisung zu bestätigen.
 +
-** Der *Zeitraum* für die Regel ist *Tag 0 - für immer*. *Tag 0* bedeutet, dass die Regel angewendet wird, wenn Daten aus ONTAP verschoben werden. *Forever* bedeutet, dass StorageGRID keine Daten löscht, die aus ONTAP gestaffelt wurden, es sei denn, es erhält eine Löschanfrage von ONTAP.
+** Der *Zeitraum* für die Regel ist *Tag 0 - für immer*. *Tag 0* bedeutet, dass die Regel angewendet wird, wenn Daten aus ONTAP verschoben werden. *Für immer* bedeutet, dass StorageGRID ILM keine Daten löscht, die aus ONTAP verschoben wurden.
 ** Der *Speicherpool* für die Regel ist der von Ihnen ausgewählte Speicherpool. *EC 2+1* bedeutet, dass die Daten mit 2+1 Erasure Coding gespeichert werden. Jedes Objekt wird als zwei Datenfragmente und ein Paritätsfragment gespeichert. Die drei Fragmente für jedes Objekt werden in verschiedenen Storage Nodes an einem einzigen Standort gespeichert.
 
 
@@ -547,6 +547,9 @@ Weitere Informationen zu diesem Schritt finden Sie unter link:../ilm/creating-il
 
 
 CAUTION: Wenn Sie eine neue ILM-Richtlinie aktivieren, verwendet StorageGRID diese Richtlinie, um die Platzierung, Dauer und Datensicherung aller Objekte im Grid zu managen, einschließlich vorhandener und neu aufgenommenen Objekte. In einigen Fällen kann die Aktivierung einer neuen Richtlinie dazu führen, dass vorhandene Objekte an neue Speicherorte verschoben werden.
+
+
+CAUTION: Verwenden Sie zur Vermeidung von Datenverlust keine ILM-Regel, die ausläuft oder die Cloud-Tiering-Daten von FabricPool löscht. Setzen Sie die Aufbewahrungsfrist auf *Forever*, um sicherzustellen, dass FabricPool-Objekte nicht durch StorageGRID ILM gelöscht werden.
 
 .Schritte
 . Optional können Sie den vom System generierten *Richtliniennamen* aktualisieren. Standardmäßig hängt das System „`+ FabricPool`“ an den Namen Ihrer aktiven oder vorgeschlagenen Richtlinie an, Sie können jedoch Ihren eigenen Namen angeben.
@@ -598,7 +601,7 @@ Da es sich bei der FabricPool-Regel um die erste Regel handelt, werden alle Obje
 . Sehen Sie sich das Aufbewahrungsdiagramm an, um zu erfahren, wie verschiedene Objekte beibehalten werden.
 +
 .. Wählen Sie *Expand all*, um ein Aufbewahrungsdiagramm für jede Regel in der vorgeschlagenen Richtlinie anzuzeigen.
-.. Wählen Sie *time period* und *Storage Pool* aus, um das Aufbewahrungsdiagramm zu überprüfen.
+.. Wählen Sie *time period* und *Storage Pool* aus, um das Aufbewahrungsdiagramm zu überprüfen. Vergewissern Sie sich, dass alle Regeln, die auf den FabricPool-Bucket oder Mandanten zutreffen, Objekte *für immer* behalten.
 
 
 . Wenn Sie die vorgeschlagene Richtlinie überprüft haben, wählen Sie *Aktivieren und fortfahren*, um die Richtlinie zu aktivieren und zum Schritt Verkehrsklassifizierung zu wechseln.

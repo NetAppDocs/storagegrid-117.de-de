@@ -33,7 +33,11 @@ Die empfohlene Best Practice besteht darin, ein 2+1-Verfahren zur Einhaltung von
 
 CAUTION: Eine ILM-Regel, die immer nur eine replizierte Kopie erstellt, gefährdet Daten permanent. Wenn nur eine replizierte Kopie eines Objekts vorhanden ist, geht dieses Objekt verloren, wenn ein Speicherknoten ausfällt oder einen beträchtlichen Fehler hat. Während Wartungsarbeiten wie Upgrades verlieren Sie auch vorübergehend den Zugriff auf das Objekt.
 
-* Verwenden Sie keine ILM-Regel, die FabricPool Cloud-Tiering-Daten abläuft oder löscht. Legen Sie für jede ILM-Regel den Aufbewahrungszeitraum auf „`Forever`“ fest, um sicherzustellen, dass FabricPool Objekte nicht durch StorageGRID ILM gelöscht werden.
+* Wenn es nötig ist link:remove-fabricpool-data.html["FabricPool-Daten aus StorageGRID entfernen"], Verwenden Sie ONTAP, um alle Daten für das FabricPool-Volume abzurufen und auf die Performance-Tier zu übertragen.
++
+
+CAUTION: Verwenden Sie zur Vermeidung von Datenverlust keine ILM-Regel, die ausläuft oder die Cloud-Tiering-Daten von FabricPool löscht. Legen Sie den Aufbewahrungszeitraum in jeder ILM-Regel auf *Forever* fest, um sicherzustellen, dass FabricPool Objekte nicht durch StorageGRID ILM gelöscht werden.
+
 * Erstellen Sie keine Regeln, um Daten aus FabricPool Cloud-Tiers an einen anderen Speicherort zu verschieben. Sie können keinen Cloud-Speicherpool verwenden, um FabricPool-Daten in einen anderen Objektspeicher zu verschieben. Ebenso können Sie FabricPool-Daten nicht mit einem Archivknoten auf Band archivieren.
 +
 
