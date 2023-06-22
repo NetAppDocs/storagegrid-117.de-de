@@ -3318,6 +3318,8 @@
   
 
 
+
+
         </li>
       </ul>
     
@@ -10573,7 +10575,14 @@
       class=" "
     ><a class="na-navbar-padding" href="/de-de/storagegrid-117/fabricpool/other-best-practices-for-storagegrid-and-fabricpool.html">
         Andere Best Practices
-      </a></li></ul></li></ul></li></ul></li><li 
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="FabricPool-Daten aus StorageGRID entfernen"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-117/fabricpool/remove-fabricpool-data.html">
+        FabricPool-Daten aus StorageGRID entfernen
+      </a></li></ul></li></ul></li><li 
       data-pdf-exists="true" 
       data-pdf-filename="Verwenden Sie StorageGRID"
       data-li-level="1" 
@@ -15005,7 +15014,7 @@
 <p class="page-details">
   
     
-    <time datetime="2023-05-18 19:30:30 +0000">05/18/2023</time>
+    <time datetime="2023-06-22 22:05:53 +0000">06/22/2023</time>
     
   
 
@@ -15029,6 +15038,18 @@
 </td>
 <td class="content">
 Die folgenden ILM-Regeln und -Richtlinien sind nur Beispiele. Es gibt viele Möglichkeiten zur Konfiguration von ILM-Regeln. Vor der Aktivierung einer neuen Richtlinie sollte die vorgeschlagene Richtlinie simuliert werden, um zu bestätigen, dass sie wie vorgesehen funktioniert, um Inhalte vor Verlust zu schützen. Weitere Informationen finden Sie unter <a href="../ilm/index.html">"Objektmanagement mit ILM"</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/storagegrid-117/images/caution.svg" alt="Achtung">
+</td>
+<td class="content">
+Verwenden Sie zur Vermeidung von Datenverlust keine ILM-Regel, die ausläuft oder die Cloud-Tiering-Daten von FabricPool löscht. Setzen Sie die Aufbewahrungsfrist auf <strong>Forever</strong>, um sicherzustellen, dass FabricPool-Objekte nicht durch StorageGRID ILM gelöscht werden.
 </td>
 </tr>
 </table>
@@ -15125,7 +15146,19 @@ Diese Voraussetzung gilt nicht für neue StorageGRID 11.7-Installationen. Wenn S
 <p>Ab Tag 0 für immer speichern</p>
 </div>
 <div class="paragraph">
-<p>Speichern Sie Objekte durch Erasure Coding mithilfe des 2+1 EC-Schemas in Denver.</p>
+<p>Speichern Sie Objekte durch Erasure Coding mit dem 2+1-EC-Schema in Denver und bewahren Sie diese Objekte für immer in StorageGRID auf.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/storagegrid-117/images/caution.svg" alt="Achtung">
+</td>
+<td class="content">
+Verwenden Sie zur Vermeidung von Datenverlust keine ILM-Regel, die ausläuft oder die Cloud-Tiering-Daten von FabricPool löscht.
+</td>
+</tr>
+</table>
 </div></div></td>
 </tr>
 <tr>
@@ -15233,7 +15266,7 @@ Diese Voraussetzung gilt nicht für neue StorageGRID 11.7-Installationen. Wenn S
 <p>Alle Objekte in allen anderen Buckets werden repliziert. Es werden zwei Kopien erstellt und auf zwei verschiedenen Speicherknoten platziert.</p>
 </li>
 <li>
-<p>Die mit Erasure codierten und replizierten Kopien werden in StorageGRID aufbewahrt, bis sie in ONTAP gelöscht werden. StorageGRID ILM löscht diese Elemente nie.</p>
+<p>Die Kopien werden für immer in StorageGRID aufbewahrt. StorageGRID ILM wird diese Objekte nicht löschen.</p>
 </li>
 </ul>
 </div>

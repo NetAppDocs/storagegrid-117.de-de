@@ -3318,6 +3318,8 @@
   
 
 
+
+
         </li>
       </ul>
     
@@ -10573,7 +10575,14 @@
       class=" "
     ><a class="na-navbar-padding" href="/de-de/storagegrid-117/fabricpool/other-best-practices-for-storagegrid-and-fabricpool.html">
         Andere Best Practices
-      </a></li></ul></li></ul></li></ul></li><li 
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="FabricPool-Daten aus StorageGRID entfernen"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/de-de/storagegrid-117/fabricpool/remove-fabricpool-data.html">
+        FabricPool-Daten aus StorageGRID entfernen
+      </a></li></ul></li></ul></li><li 
       data-pdf-exists="true" 
       data-pdf-filename="Verwenden Sie StorageGRID"
       data-li-level="1" 
@@ -15005,7 +15014,7 @@
 <p class="page-details">
   
     
-    <time datetime="2023-05-18 19:30:30 +0000">05/18/2023</time>
+    <time datetime="2023-06-22 22:05:53 +0000">06/22/2023</time>
     
   
 
@@ -15864,7 +15873,7 @@ Schließen Sie diese Seite erst, wenn Sie beide Zugriffsschlüssel kopiert, die 
 <p>Platzierungsanweisung</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>2+1 Erasure Coding</p>
+<p>Verwenden Sie 2+1 Erasure Coding vom Tag 0 bis für immer</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -15875,7 +15884,7 @@ Schließen Sie diese Seite erst, wenn Sie beide Zugriffsschlüssel kopiert, die 
 <div class="ulist">
 <ul>
 <li>
-<p>Der <strong>Zeitraum</strong> für die Regel ist <strong>Tag 0 - für immer</strong>. <strong>Tag 0</strong> bedeutet, dass die Regel angewendet wird, wenn Daten aus ONTAP verschoben werden. <strong>Forever</strong> bedeutet, dass StorageGRID keine Daten löscht, die aus ONTAP gestaffelt wurden, es sei denn, es erhält eine Löschanfrage von ONTAP.</p>
+<p>Der <strong>Zeitraum</strong> für die Regel ist <strong>Tag 0 - für immer</strong>. <strong>Tag 0</strong> bedeutet, dass die Regel angewendet wird, wenn Daten aus ONTAP verschoben werden. <strong>Für immer</strong> bedeutet, dass StorageGRID ILM keine Daten löscht, die aus ONTAP verschoben wurden.</p>
 </li>
 <li>
 <p>Der <strong>Speicherpool</strong> für die Regel ist der von Ihnen ausgewählte Speicherpool. <strong>EC 2+1</strong> bedeutet, dass die Daten mit 2+1 Erasure Coding gespeichert werden. Jedes Objekt wird als zwei Datenfragmente und ein Paritätsfragment gespeichert. Die drei Fragmente für jedes Objekt werden in verschiedenen Storage Nodes an einem einzigen Standort gespeichert.</p>
@@ -15907,6 +15916,18 @@ Schließen Sie diese Seite erst, wenn Sie beide Zugriffsschlüssel kopiert, die 
 </td>
 <td class="content">
 Wenn Sie eine neue ILM-Richtlinie aktivieren, verwendet StorageGRID diese Richtlinie, um die Platzierung, Dauer und Datensicherung aller Objekte im Grid zu managen, einschließlich vorhandener und neu aufgenommenen Objekte. In einigen Fällen kann die Aktivierung einer neuen Richtlinie dazu führen, dass vorhandene Objekte an neue Speicherorte verschoben werden.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/storagegrid-117/images/caution.svg" alt="Achtung">
+</td>
+<td class="content">
+Verwenden Sie zur Vermeidung von Datenverlust keine ILM-Regel, die ausläuft oder die Cloud-Tiering-Daten von FabricPool löscht. Setzen Sie die Aufbewahrungsfrist auf <strong>Forever</strong>, um sicherzustellen, dass FabricPool-Objekte nicht durch StorageGRID ILM gelöscht werden.
 </td>
 </tr>
 </table>
@@ -16015,7 +16036,7 @@ Wenn Sie eine neue ILM-Richtlinie aktivieren, verwendet StorageGRID diese Richtl
 <p>Wählen Sie <strong>Expand all</strong>, um ein Aufbewahrungsdiagramm für jede Regel in der vorgeschlagenen Richtlinie anzuzeigen.</p>
 </li>
 <li>
-<p>Wählen Sie <strong>time period</strong> und <strong>Storage Pool</strong> aus, um das Aufbewahrungsdiagramm zu überprüfen.</p>
+<p>Wählen Sie <strong>time period</strong> und <strong>Storage Pool</strong> aus, um das Aufbewahrungsdiagramm zu überprüfen. Vergewissern Sie sich, dass alle Regeln, die auf den FabricPool-Bucket oder Mandanten zutreffen, Objekte <strong>für immer</strong> behalten.</p>
 </li>
 </ol>
 </div>
