@@ -28,7 +28,7 @@ Ein KMS kann im Grid Manager vor oder nach der Installation der Appliance in Sto
 
 
 
-IMPORTANT: Bevor eine Appliance mit aktivierter Knotenverschlüsselung mit dem Key Management System (KMS) verbunden wird, werden die Daten der Appliance mit einem temporären Schlüssel verschlüsselt, der nicht sicher ist. Das Gerät ist erst dann vor dem Entfernen oder Diebstahl geschützt, wenn der Schlüssel auf einen vom KMS angegebenen Wert gesetzt wird.
+IMPORTANT: Wenn eine Appliance mit aktivierter Node-Verschlüsselung installiert wird, wird ein temporärer Schlüssel zugewiesen. Die Daten auf der Appliance werden erst dann geschützt, wenn die Appliance mit dem Key Management System (KMS) verbunden und ein KMS-Sicherheitsschlüssel festgelegt ist. Siehe https://docs.netapp.com/us-en/storagegrid-117/admin/kms-overview-of-kms-and-appliance-configuration.html["Übersicht über die KMS-Appliance-Konfiguration"^] Finden Sie weitere Informationen.
 
 Ohne den KMS-Schlüssel, der zur Entschlüsselung der Festplatte benötigt wird, können die Daten auf der Appliance nicht abgerufen werden und gehen effektiv verloren. Dies ist der Fall, wenn der Entschlüsselungsschlüssel nicht vom KMS abgerufen werden kann. Der Schlüssel ist nicht mehr zugänglich, wenn ein Kunde die KMS-Konfiguration löscht, ein KMS-Schlüssel abläuft, die Verbindung zum KMS verloren geht oder die Appliance aus dem StorageGRID System entfernt wird, wo die KMS-Schlüssel installiert sind.
 
