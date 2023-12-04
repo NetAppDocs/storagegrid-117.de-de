@@ -617,17 +617,17 @@ link:../ubuntu/configuring-host-network.html#considerations-and-recommendations-
 
 
  a| 
-INTERFACES_TARGET_nnnnn
+INTERFACE_TARGET_nnnn
  a| 
 O
  a| 
 Name und optionale Beschreibung für eine zusätzliche Schnittstelle, die Sie diesem Node hinzufügen möchten. Jeder Node kann mehrere zusätzliche Schnittstellen hinzugefügt werden.
 
-Geben Sie bei _nnnnn_ eine eindeutige Nummer für jeden EINTRAG INTERFACES_TARGET an an, den Sie hinzufügen.
+Geben Sie für _nnnn_ eine eindeutige Nummer für jeden Eintrag INTERFACE_TARGET an, den Sie hinzufügen.
 
 Geben Sie für den Wert den Namen der physischen Schnittstelle auf dem Bare-Metal-Host an. Fügen Sie dann optional ein Komma hinzu und geben Sie eine Beschreibung der Schnittstelle an, die auf der Seite VLAN-Schnittstellen und der Seite HA-Gruppen angezeigt wird.
 
-Beispiel: `INTERFACES_TARGET_01=ens256, Trunk`
+Beispiel: `INTERFACE_TARGET_0001=ens256, Trunk`
 
 Wenn Sie eine Trunk-Schnittstelle hinzufügen, müssen Sie eine VLAN-Schnittstelle in StorageGRID konfigurieren. Wenn Sie eine Zugriffsschnittstelle hinzufügen, können Sie die Schnittstelle direkt einer HA-Gruppe hinzufügen. Sie müssen keine VLAN-Schnittstelle konfigurieren.
 

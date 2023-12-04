@@ -42,10 +42,10 @@ Der Node ist für kurze Zeit nicht verfügbar, wenn Sie Schnittstellen hinzufüg
 
 . Fügen Sie der Datei einen Eintrag hinzu, um den Namen und optional die Beschreibung jeder zusätzlichen Schnittstelle anzugeben, die Sie dem Node hinzufügen möchten. Verwenden Sie dieses Format.
 +
-`INTERFACES_TARGET_nnnn=_value_`
+`INTERFACE_TARGET_nnnn=_value_`
 
 +
-Geben Sie für _nnnn_ eine eindeutige Zahl für jede ein `INTERFACES_TARGET` Eintrag, den Sie hinzufügen.
+Geben Sie für _nnnn_ eine eindeutige Zahl für jede ein `INTERFACE_TARGET` Eintrag, den Sie hinzufügen.
 
 +
 Geben Sie unter _value_ den Namen der physischen Schnittstelle auf dem Bare-Metal-Host an. Fügen Sie dann optional ein Komma hinzu und geben Sie eine Beschreibung der Schnittstelle an, die auf der Seite VLAN-Schnittstellen und der Seite HA-Gruppen angezeigt wird.
@@ -54,7 +54,7 @@ Geben Sie unter _value_ den Namen der physischen Schnittstelle auf dem Bare-Meta
 Beispiel:
 
 +
-`INTERFACES_TARGET_01=ens256, Trunk`
+`INTERFACE_TARGET_0001=ens256, Trunk`
 
 +
 

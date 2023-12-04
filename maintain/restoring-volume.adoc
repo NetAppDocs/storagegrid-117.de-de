@@ -114,7 +114,7 @@ Die Registerkarte *Restoration Progress* zeigt den Status des Wiederherstellungs
 
 image::../media/vol-restore-restore-progress.png[Volume-Wiederherstellung – Registerkarte „Wiederherstellungsfortschritt“]
 
-Datenreparaturraten für replizierte und Erasure-Coded-Objekte in allen Volumes sind Schätzungen, mit denen alle derzeit verarbeiteten Wiederherstellungen einschließlich der Wiederherstellungen, die mit dem initiiert wurden, zusammengefasst werden `repair-data` Skript: Der Prozentsatz der Objekte in diesen Volumes, die intakt sind und keine Wiederherstellung erfordern, wird ebenfalls angegeben.
+Datenreparaturraten für replizierte und Erasure-Coded-Objekte in allen Volumes sind Durchschnittswerte, die alle gerade verarbeiteten Wiederherstellungen einschließlich der mit dem initiierten Wiederherstellungen zusammenfassen `repair-data` Skript: Der Prozentsatz der Objekte in diesen Volumes, die intakt sind und keine Wiederherstellung erfordern, wird ebenfalls angegeben.
 
 
 NOTE: Die Wiederherstellung replizierter Daten hängt von der Verfügbarkeit der Ressourcen ab, auf denen die replizierten Kopien gespeichert sind. Der Fortschritt der replizierten Datenwiederherstellung erfolgt nicht linear und kann Tage oder Wochen dauern.

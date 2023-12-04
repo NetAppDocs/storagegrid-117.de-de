@@ -13,9 +13,6 @@ summary: Sie müssen die Lizenzinformationen für Ihr StorageGRID-System jederze
 [role="lead"]
 Sie müssen die Lizenzinformationen für Ihr StorageGRID-System jederzeit aktualisieren, wenn sich die Bedingungen Ihrer Lizenz ändern. Sie müssen beispielsweise die Lizenzinformationen aktualisieren, wenn Sie zusätzliche Speicherkapazität für Ihr Grid erwerben.
 
-
-NOTE: Wenn Sie die Lizenzbedingungen ändern oder eine vorhandene Lizenz zusammenführen, teilen oder verteilen möchten, wenden Sie sich an den Support, um einen nicht-technischen Support-Fall zu eröffnen.
-
 .Bevor Sie beginnen
 * Sie haben eine neue Lizenzdatei für Ihr StorageGRID-System.
 * Sie haben spezifische Zugriffsberechtigungen.
