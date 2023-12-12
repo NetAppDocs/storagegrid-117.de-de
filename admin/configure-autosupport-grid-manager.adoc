@@ -18,6 +18,9 @@ Sie können die AutoSupport-Funktion und die einzelnen AutoSupport-Optionen bei 
 * Sie haben die Berechtigung Root-Zugriff oder andere Grid-Konfigurationen.
 * Wenn Sie HTTPS zum Senden von AutoSupport-Nachrichten verwenden, haben Sie den ausgehenden Internetzugang auf den primären Admin-Knoten entweder direkt oder bereitgestellt link:configuring-admin-proxy-settings.html["Verwenden eines Proxy-Servers"] (Eingehende Verbindungen sind nicht erforderlich).
 * Wenn HTTP auf der Seite StorageGRID AutoSupport ausgewählt ist, haben Sie einen Proxyserver für die Weiterleitung von AutoSupport-Nachrichten als HTTPS konfiguriert. Die AutoSupport Server von NetApp lehnen über HTTP gesendete Nachrichten ab.
++
+link:configuring-admin-proxy-settings.html["Erfahren Sie mehr über das Konfigurieren von Administrator-Proxy-Einstellungen"].
+
 * Wenn Sie SMTP als Protokoll für AutoSupport-Meldungen verwenden, haben Sie einen SMTP-Mail-Server konfiguriert. Die gleiche E-Mail-Serverkonfiguration wird für Benachrichtigungen über Alarm E-Mails verwendet (altes System).
 
 

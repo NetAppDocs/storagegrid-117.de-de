@@ -18,6 +18,9 @@ Wenn die AutoSupport-Meldung nicht gesendet wird, wird „`failed`“ auf der Re
 image::../media/autosupport_results_tab.png[Fehler beim Senden der AutoSupport-Nachricht]
 
 
+NOTE: Wenn Sie einen Proxyserver für die Weiterleitung von AutoSupport-Nachrichten an NetApp konfiguriert haben, sollten Sie dies tun link:configuring-admin-proxy-settings.html["Überprüfen Sie, ob die Konfigurationseinstellungen des Proxy-Servers korrekt sind"].
+
+
 
 == Wöchentlicher AutoSupport-Nachrichtenfehler
 
