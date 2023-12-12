@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, sg5700, storage node, storage appliance, Replacing, replace, E5700sg, controller, remove, removing, removal, install, installing, installation 
 summary: Möglicherweise müssen Sie den E5700SG-Controller austauschen, wenn er nicht optimal funktioniert oder ausgefallen ist. 
 ---
-= E5700SG Controller austauschen
+= E5700SG Compute-Controller austauschen
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
