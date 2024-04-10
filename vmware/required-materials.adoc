@@ -44,7 +44,7 @@ Während der Installation verwenden Sie VMware vSphere Web Client, um virtuelle 
  a| 
 Service-Laptop
  a| 
-Das StorageGRID-System wird über einen Service-Laptop installiert der Service-Laptop muss Folgendes haben:
+Das StorageGRID System wird über einen Service-Laptop installiert. Der Service-Laptop muss Folgendes haben:
 
 * Netzwerkport
 * SSH-Client (z. B. PuTTY)
