@@ -29,9 +29,17 @@ Stellen Sie sicher, dass das Ersatzgerät die folgenden Kriterien erfüllt:
 +
 Sie können beispielsweise eine SG1000-Node-Appliance durch ein SG100 ersetzen oder eine SG100-Appliance durch eine SG1000-Appliance ersetzen.
 
-* Bei Storage-Node-Appliances müssen die Quell-Node-Appliance und die Ziel-Appliance nicht denselben Appliance-Typ aufweisen. Die Ziel-Appliance muss jedoch über eine größere Speicherkapazität verfügen als die Quell-Appliance.
+* Bei Storage-Node-Appliances müssen die Quell-Node-Appliance und die Ziel-Appliance nicht den gleichen Appliance-Typ aufweisen. Folgendes gilt jedoch:
++
+** Die Ziel-Appliance muss über eine größere Speicherkapazität verfügen als die Quell-Appliance.
 +
 Beispielsweise kann eine SG5700 Node Appliance durch eine SG6000 Appliance ersetzt werden.
+
+** Die Ziel-Appliance muss eine gleiche oder größere Anzahl von Objekt-Storage-Volumes aufweisen als die Quell-Appliance.
++
+Beispielsweise können Sie eine SG6000 Node-Appliance (16 Objektspeicher-Volumes) nicht durch eine SGF6112-Appliance (12 Objektspeicher-Volumes) ersetzen.
+
+
 
 
 
