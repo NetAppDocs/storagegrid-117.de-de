@@ -15,7 +15,7 @@ Die Benutzeroberfläche des Baseboard Management Controllers (BMC) auf der SGF61
 
 Gehen Sie wie folgt vor, um den BMC bei der Installation des Geräts zu konfigurieren:
 
-* link:../installconfig/changing-root-password-for-bmc-interface.html["Ändern Sie das Root-Passwort für die BMC-Schnittstelle"]
+* link:../installconfig/changing-root-password-for-bmc-interface.html["Ändern Sie das Admin- oder Root-Passwort für die BMC-Schnittstelle"]
 * link:../installconfig/setting-ip-address-for-bmc-management-port.html["Legen Sie die IP-Adresse für den BMC-Managementport fest"]
 * link:../installconfig/accessing-bmc-interface.html["Greifen Sie auf die BMC-Schnittstelle zu"]
 * link:../installconfig/configuring-snmp-settings-for-bmc.html["Konfigurieren Sie die SNMP-Einstellungen"]
