@@ -39,7 +39,7 @@ image::../media/dashboard_health_panel_license_status.png[Status Der Dashboard-S
 ** Enddatum der Lizenz. *N/A* erscheint für eine unbefristete Lizenz.
 ** Enddatum des Support-Servicevertrags
 +
-Dieses Datum wird aus der aktuellen Lizenzdatei gelesen und ist möglicherweise veraltet, wenn Sie den Supportvertrag nach Erhalt der Lizenzdatei verlängert oder verlängert haben. Informationen zum Aktualisieren dieses Werts finden Sie unter link:updating-storagegrid-license-information.html["Aktualisieren Sie die StorageGRID-Lizenzinformationen"]. Sie können auch das tatsächliche Enddatum des Vertrags mithilfe von Active IQ anzeigen.
+Dieses Datum wird aus der aktuellen Lizenzdatei gelesen und ist möglicherweise veraltet, wenn Sie den Supportvertrag nach Erhalt der Lizenzdatei verlängert oder verlängert haben. Informationen zum Aktualisieren dieses Werts finden Sie unter link:updating-storagegrid-license-information.html["Aktualisieren Sie die StorageGRID-Lizenzinformationen"]. Sie können auch das tatsächliche Vertragsenddatum mit dem digitalen Berater von Active IQ (auch als digitaler Berater bezeichnet) anzeigen.
 
 ** Inhalt der Lizenztext-Datei
 +
