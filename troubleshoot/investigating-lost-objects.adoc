@@ -11,7 +11,7 @@ summary: Wenn der Alarm *Objekte verloren* ausgelöst wird, müssen Sie sofort u
 
 
 [role="lead"]
-Wenn der Alarm *Objekte verloren* ausgelöst wird, müssen Sie sofort untersuchen. Sammeln Sie Informationen zu den betroffenen Objekten und wenden Sie sich an den technischen Support.
+Wenn die Meldung „Objekte verloren“ ausgelöst wird, müssen Sie unverzüglich eine Untersuchung durchführen. Sammeln Sie Informationen zu den betroffenen Objekten und wenden Sie sich an den technischen Support.
 
 .Bevor Sie beginnen
 * Sie müssen mit einem beim Grid Manager angemeldet sein link:../admin/web-browser-requirements.html["Unterstützter Webbrowser"].
